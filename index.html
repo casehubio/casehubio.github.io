@@ -50,94 +50,91 @@
         Orchestration+Foundation; LLM AI spans Runtime+Foundation.
         Foundation has accent border — it is the AI Fusion Core.
       -->
-      <svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg"
+      <svg viewBox="0 0 860 450" xmlns="http://www.w3.org/2000/svg"
            role="img"
            aria-label="CaseHub platform architecture — four tiers from bottom: Foundation, Orchestration, Runtime, Applications">
         <defs>
-          <!-- Upward-pointing chevron marker -->
           <marker id="arr" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
             <path d="M0,0 L8,4 L0,8" fill="none" stroke="#1a2e38" stroke-width="1.2"/>
           </marker>
         </defs>
 
-        <!-- ── Applications band (y=20, h=62) ── -->
-        <rect x="20" y="20" width="620" height="62" rx="4"
+        <!-- ── Applications band (y=20, h=88) ── -->
+        <rect x="20" y="20" width="620" height="88" rx="4"
               fill="#0e1820" stroke="#1a2e38" stroke-width="1"/>
-        <text x="32" y="38"
-              font-size="8" fill="#4a7a8a" letter-spacing="2.5"
+        <text x="32" y="40"
+              font-size="11" fill="#4a7a8a" letter-spacing="2.5"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
               font-weight="700">APPLICATIONS</text>
-        <text x="32"  y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">devtown</text>
-        <text x="112" y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">aml</text>
-        <text x="158" y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">clinical</text>
-        <text x="242" y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">quarkmind</text>
+        <text x="32"  y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">devtown</text>
+        <text x="125" y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">aml</text>
+        <text x="177" y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">clinical</text>
+        <text x="278" y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">quarkmind</text>
 
-        <!-- Arrow in gap y=82–100 (Runtime → Applications) -->
-        <line x1="320" y1="97" x2="320" y2="83" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
+        <!-- Arrow in gap y=108–128 -->
+        <line x1="320" y1="124" x2="320" y2="112" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
 
-        <!-- ── Runtime band (y=100, h=52) ── -->
-        <rect x="20" y="100" width="620" height="52" rx="4"
+        <!-- ── Runtime band (y=128, h=70) ── -->
+        <rect x="20" y="128" width="620" height="70" rx="4"
               fill="#0e1820" stroke="#1a2e38" stroke-width="1"/>
-        <text x="32" y="118"
-              font-size="8" fill="#4a7a8a" letter-spacing="2.5"
+        <text x="32" y="148"
+              font-size="11" fill="#4a7a8a" letter-spacing="2.5"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
               font-weight="700">RUNTIME</text>
-        <text x="32" y="138" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">claudony</text>
+        <text x="32" y="180" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">claudony</text>
 
-        <!-- Arrow in gap y=152–170 (Orchestration → Runtime) -->
-        <line x1="320" y1="167" x2="320" y2="153" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
+        <!-- Arrow in gap y=198–220 -->
+        <line x1="320" y1="216" x2="320" y2="202" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
 
-        <!-- ── Orchestration band (y=170, h=52) ── -->
-        <rect x="20" y="170" width="620" height="52" rx="4"
+        <!-- ── Orchestration band (y=220, h=70) ── -->
+        <rect x="20" y="220" width="620" height="70" rx="4"
               fill="#0e1820" stroke="#1a2e38" stroke-width="1"/>
-        <text x="32" y="188"
-              font-size="8" fill="#4a7a8a" letter-spacing="2.5"
+        <text x="32" y="240"
+              font-size="11" fill="#4a7a8a" letter-spacing="2.5"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
               font-weight="700">ORCHESTRATION</text>
-        <text x="32" y="208" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">casehub-engine</text>
+        <text x="32" y="272" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">casehub-engine</text>
 
-        <!-- Arrow in gap y=222–240 (Foundation → Orchestration) -->
-        <line x1="320" y1="237" x2="320" y2="223" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
+        <!-- Arrow in gap y=290–312 -->
+        <line x1="320" y1="308" x2="320" y2="294" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
 
-        <!-- ── Foundation band (y=240, h=84) — accent border = AI Fusion Core ── -->
-        <rect x="20" y="240" width="620" height="84" rx="4"
+        <!-- ── Foundation band (y=312, h=118) — accent border = AI Fusion Core ── -->
+        <rect x="20" y="312" width="620" height="118" rx="4"
               fill="#0e1820" stroke="#2aa8c4" stroke-width="1.5"/>
-        <text x="32" y="259"
-              font-size="8" fill="#2aa8c4" letter-spacing="2.5"
+        <text x="32" y="334"
+              font-size="11" fill="#2aa8c4" letter-spacing="2.5"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
               font-weight="700">FOUNDATION</text>
-        <text x="32"  y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">platform</text>
-        <text x="116" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">ledger</text>
-        <text x="188" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">work</text>
-        <text x="240" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">qhorus</text>
-        <text x="320" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">connectors</text>
-        <text x="440" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">eidos</text>
-        <text x="510" y="310" font-size="9" fill="#2aa8c4" opacity="0.55"
+        <text x="32"  y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">platform</text>
+        <text x="122" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">ledger</text>
+        <text x="198" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">work</text>
+        <text x="253" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">qhorus</text>
+        <text x="339" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">connectors</text>
+        <text x="472" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">eidos</text>
+        <text x="490" y="404" font-size="11" fill="#2aa8c4" opacity="0.55"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">AI Fusion Core</text>
 
-        <!-- ── Classical AI annotation ── -->
-        <!-- Bracket spans Orchestration+Foundation: y=170 to y=324 -->
-        <path d="M652,170 L664,170 L664,324 L652,324"
+        <!-- ── Classical AI annotation — spans Orchestration+Foundation: y=220 to y=430 ── -->
+        <path d="M652,220 L664,220 L664,430 L652,430"
               stroke="#4a7a8a" stroke-width="1" fill="none"/>
-        <text x="672" y="236"
-              font-size="10" fill="#4a7a8a" font-weight="600"
+        <text x="672" y="316"
+              font-size="14" fill="#4a7a8a" font-weight="600"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Classical AI</text>
-        <text x="672" y="249"
-              font-size="9" fill="#2d5060"
+        <text x="672" y="333"
+              font-size="12" fill="#2d5060"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Modernised</text>
-        <text x="672" y="261"
-              font-size="9" fill="#2d5060"
+        <text x="672" y="348"
+              font-size="12" fill="#2d5060"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Blackboard</text>
 
-        <!-- ── LLM AI annotation ── -->
-        <!-- Bracket spans Runtime+Foundation: y=100 to y=324 -->
-        <path d="M742,100 L754,100 L754,324 L742,324"
+        <!-- ── LLM AI annotation — spans Runtime+Foundation: y=128 to y=430 ── -->
+        <path d="M762,128 L774,128 L774,430 L762,430"
               stroke="#2aa8c4" stroke-width="1" fill="none" opacity="0.45"/>
-        <text x="762" y="202"
-              font-size="10" fill="#2aa8c4" font-weight="600" opacity="0.8"
+        <text x="782" y="266"
+              font-size="14" fill="#2aa8c4" font-weight="600" opacity="0.8"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">LLM AI</text>
-        <text x="762" y="217"
-              font-size="9" fill="#1a5a6a"
+        <text x="782" y="284"
+              font-size="12" fill="#1a5a6a"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Agents · Mesh</text>
       </svg>
     </div>
