@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaseHub — An AI Fusion Harness</title>
+  <meta name="description" content="CaseHub is a production-grade AI Fusion Harness fusing Classical AI and LLM AI for regulated multi-agent systems, built on Quarkus.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body class="has-hero">
+
+  <!-- Nav -->
+  <nav class="site-nav">
+    <a class="nav-logo" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.9"/>
+        <rect x="13" y="2" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.6"/>
+        <rect x="2" y="13" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.6"/>
+        <rect x="13" y="13" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.3"/>
+      </svg>
+      <span>CaseHub</span>
+    </a>
+    <div class="nav-links">
+      <a href="https://github.com/casehubio" class="nav-link" target="_blank" rel="noopener">GitHub &#x2197;</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Coming Soon</p>
+      <h1 class="hero-title">CaseHub</h1>
+      <p class="hero-tagline">An AI Fusion Harness</p>
+      <p class="hero-sub">Where Classical AI meets LLM AI — production-grade orchestration for regulated multi-agent systems, built on Quarkus.</p>
+      <div class="hero-btns">
+        <a href="https://github.com/casehubio" class="btn-primary" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is AI Fusion -->
+  <section class="what-is">
+    <h2>What is AI Fusion?</h2>
+    <p class="fusion-desc">Classical AI brings structure — rules engines, formal process models (CMMN), Blackboard Architecture, and deterministic reasoning. LLM AI brings adaptability — autonomous agents, natural language understanding, and emergent problem-solving. CaseHub fuses both: a harness where each kind of intelligence does what it does best, coordinated by a compliance-first orchestration layer.</p>
+    <div class="fusion-tags">
+      <span class="fusion-tag classical">Blackboard Architecture</span>
+      <span class="fusion-tag classical">CMMN Semantics</span>
+      <span class="fusion-tag classical">Rules Engines</span>
+      <span class="fusion-tag sep">+</span>
+      <span class="fusion-tag llm">LLM Agents</span>
+      <span class="fusion-tag llm">Agent Mesh</span>
+      <span class="fusion-tag llm">Adaptive Reasoning</span>
+    </div>
+  </section>
+
+  <!-- Architecture Diagram -->
+  <section class="arch-section">
+    <h2>Platform Architecture</h2>
+    <div class="arch-diagram">
+      <!--
+        Layer diagram: 4 horizontal bands, bottom-to-top.
+        SVG y increases downward, so Applications is at top (y=20),
+        Foundation is at bottom (y=240). Arrows point upward showing
+        each layer provides capabilities to the layer above.
+        Annotation brackets on right: Classical AI spans
+        Orchestration+Foundation; LLM AI spans Runtime+Foundation.
+        Foundation has accent border — it is the AI Fusion Core.
+      -->
+      <svg viewBox="0 0 860 340" xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="CaseHub platform architecture — four tiers from bottom: Foundation, Orchestration, Runtime, Applications">
+        <defs>
+          <!-- Upward-pointing chevron marker -->
+          <marker id="arr" markerWidth="8" markerHeight="7" refX="4" refY="0" orient="auto">
+            <path d="M0,7 L4,0 L8,7" fill="none" stroke="#1a2e38" stroke-width="1.2"/>
+          </marker>
+        </defs>
+
+        <!-- ── Applications band (y=20, h=62) ── -->
+        <rect x="20" y="20" width="620" height="62" rx="4"
+              fill="#0e1820" stroke="#1a2e38" stroke-width="1"/>
+        <text x="32" y="38"
+              font-size="8" fill="#4a7a8a" letter-spacing="2.5"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+              font-weight="700">APPLICATIONS</text>
+        <text x="32"  y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">devtown</text>
+        <text x="112" y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">aml</text>
+        <text x="158" y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">clinical</text>
+        <text x="242" y="58" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">quarkmind</text>
+
+        <!-- Arrow in gap y=82–100 (Runtime → Applications) -->
+        <line x1="320" y1="97" x2="320" y2="83" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
+
+        <!-- ── Runtime band (y=100, h=52) ── -->
+        <rect x="20" y="100" width="620" height="52" rx="4"
+              fill="#0e1820" stroke="#1a2e38" stroke-width="1"/>
+        <text x="32" y="118"
+              font-size="8" fill="#4a7a8a" letter-spacing="2.5"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+              font-weight="700">RUNTIME</text>
+        <text x="32" y="138" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">claudony</text>
+
+        <!-- Arrow in gap y=152–170 (Orchestration → Runtime) -->
+        <line x1="320" y1="167" x2="320" y2="153" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
+
+        <!-- ── Orchestration band (y=170, h=52) ── -->
+        <rect x="20" y="170" width="620" height="52" rx="4"
+              fill="#0e1820" stroke="#1a2e38" stroke-width="1"/>
+        <text x="32" y="188"
+              font-size="8" fill="#4a7a8a" letter-spacing="2.5"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+              font-weight="700">ORCHESTRATION</text>
+        <text x="32" y="208" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">casehub-engine</text>
+
+        <!-- Arrow in gap y=222–240 (Foundation → Orchestration) -->
+        <line x1="320" y1="237" x2="320" y2="223" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
+
+        <!-- ── Foundation band (y=240, h=84) — accent border = AI Fusion Core ── -->
+        <rect x="20" y="240" width="620" height="84" rx="4"
+              fill="#0e1820" stroke="#2aa8c4" stroke-width="1.5"/>
+        <text x="32" y="259"
+              font-size="8" fill="#2aa8c4" letter-spacing="2.5"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
+              font-weight="700">FOUNDATION</text>
+        <text x="32"  y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">platform</text>
+        <text x="116" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">ledger</text>
+        <text x="188" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">work</text>
+        <text x="240" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">qhorus</text>
+        <text x="320" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">connectors</text>
+        <text x="440" y="282" font-size="11" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">eidos</text>
+        <text x="510" y="310" font-size="9" fill="#2aa8c4" opacity="0.55"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">AI Fusion Core</text>
+
+        <!-- ── Classical AI annotation ── -->
+        <!-- Bracket spans Orchestration+Foundation: y=170 to y=324 -->
+        <path d="M652,170 L664,170 L664,324 L652,324"
+              stroke="#4a7a8a" stroke-width="1" fill="none"/>
+        <text x="672" y="242"
+              font-size="10" fill="#4a7a8a" font-weight="600"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Classical AI</text>
+        <text x="672" y="257"
+              font-size="9" fill="#2d5060"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Blackboard · CMMN</text>
+
+        <!-- ── LLM AI annotation ── -->
+        <!-- Bracket spans Runtime+Foundation: y=100 to y=324 -->
+        <path d="M742,100 L754,100 L754,324 L742,324"
+              stroke="#2aa8c4" stroke-width="1" fill="none" opacity="0.45"/>
+        <text x="762" y="202"
+              font-size="10" fill="#2aa8c4" font-weight="600" opacity="0.8"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">LLM AI</text>
+        <text x="762" y="217"
+              font-size="9" fill="#1a5a6a"
+              font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">Agents · Mesh</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Foundation Cards -->
+  <div class="projects-wrap">
+    <div class="projects-header">
+      <h2>Foundation</h2>
+      <p>The platform beneath the harness</p>
+    </div>
+    <div class="project-cards">
+
+      <div class="project-card">
+        <span class="card-repo">casehub-platform</span>
+        <span class="card-headline">Zero-dependency SPI layer — Path, Preferences, Identity</span>
+        <p class="card-desc">casehub-platform defines thin, domain-agnostic SPIs (Path, Preferences, CurrentPrincipal) that every module in the stack can implement without framework dependencies. The three-tier model keeps platform-api pure Java while optional config and OIDC layers integrate cleanly with Quarkus via CDI.</p>
+        <a href="https://github.com/casehubio/platform" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <div class="project-card">
+        <span class="card-repo">casehub-ledger</span>
+        <span class="card-headline">Immutable, cryptographically tamper-evident audit ledger with trust scoring</span>
+        <p class="card-desc">The ledger provides immutable entries, attestations, and Bayesian trust scores with Merkle frontier operations for verifiable case and actor accountability. It enables GDPR Art.17 erasure, trust bootstrapping, and W3C PROV-DM lineage export without knowledge of business domain.</p>
+        <a href="https://github.com/casehubio/ledger" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <div class="project-card">
+        <span class="card-repo">casehub-work</span>
+        <span class="card-headline">Human task lifecycle — inbox, SLA, delegation, routing, and audit trail</span>
+        <p class="card-desc">WorkItem coordinates humans via formal SLA policy, delegation, escalation, spawn semantics, and skill profiling with optional ledger attachment and distributed queue views. Usable standalone or integrated with CaseHub and Qhorus for multi-agent coordination.</p>
+        <a href="https://github.com/casehubio/work" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <div class="project-card">
+        <span class="card-repo">casehub-qhorus</span>
+        <span class="card-headline">Agent communication mesh with formal speech-act accountability</span>
+        <p class="card-desc">Qhorus models every agent interaction as a typed speech act with commitments, shared artefacts, and channels — grounded in speech act theory and deontic logic. All writes flow through a single dispatch gate enforcing ACL, rate limiting, and ledger recording without bypass paths.</p>
+        <a href="https://github.com/casehubio/qhorus" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <div class="project-card">
+        <span class="card-repo">casehub-connectors</span>
+        <span class="card-headline">Outbound message connectors — Slack, Teams, SMS, email</span>
+        <p class="card-desc">Provides built-in implementations for Slack, Teams, Twilio SMS, WhatsApp, and email using pure HttpClient — no Camel, no vendor SDKs. This is the canonical outbound notification infrastructure; any module needing alerts or escalations uses this SPI rather than implementing its own.</p>
+        <a href="https://github.com/casehubio/connectors" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <div class="project-card">
+        <span class="card-repo">casehub-eidos</span>
+        <span class="card-headline">Structured agent identity, capability discovery, and system prompt generation</span>
+        <p class="card-desc">Eidos enables agents to register with identity, slot, capabilities, and disposition — then discover agents by slot or capability and render system prompts from descriptors. Any Quarkus app depending on casehub-eidos gains structured agent identity without touching LLM implementation.</p>
+        <a href="https://github.com/casehubio/eidos" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <div class="project-card">
+        <span class="card-repo">casehub-engine</span>
+        <span class="card-headline">Hybrid choreography + Blackboard orchestration engine (CMMN semantics)</span>
+        <p class="card-desc">The engine coordinates workers (AI agents, humans) via declarative case definitions, binding rules, and optional synchronous orchestration — supporting adaptive routing, synchronous tasks, and ledger attachment. Cases are defined in YAML DSL and persist via pluggable repositories.</p>
+        <a href="https://github.com/casehubio/engine" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <div class="project-card">
+        <span class="card-repo">claudony</span>
+        <span class="card-headline">Remote Claude CLI sessions and unified ecosystem dashboard</span>
+        <p class="card-desc">Claudony owns session lifecycle management, wires CaseHub + Qhorus together, and surfaces them in a browser/PWA dashboard with WebSocket streaming. It operates in two modes: server (owns sessions) and agent (MCP endpoint for a controller Claude instance).</p>
+        <a href="https://github.com/casehubio/claudony" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Application Cards -->
+  <div class="apps-bg">
+    <div class="projects-wrap">
+      <div class="projects-header">
+        <h2>Applications</h2>
+        <p>Domain-specific harnesses built on the platform</p>
+      </div>
+      <div class="project-cards">
+
+        <div class="project-card">
+          <span class="card-repo">casehub-devtown</span>
+          <span class="card-headline">AI-assisted PR review with adaptive specialist routing and tamper-evident records</span>
+          <p class="card-desc">Casehub-devtown coordinates security, architecture, and test-coverage reviewers with SLA gates and content-driven adaptive routing — producing tamper-evident review records where every missed finding is traceable to its reviewer. Demonstrates Engine Layer 5 with binding-condition routing.</p>
+          <a href="https://github.com/casehubio/devtown" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+        </div>
+
+        <div class="project-card">
+          <span class="card-repo">casehub-aml</span>
+          <span class="card-headline">AML investigation — FinCEN-compliant, adaptive investigation paths</span>
+          <p class="card-desc">Casehub-aml produces FinCEN-compliant, independently verifiable audit trails by coordinating entity resolution, pattern analysis, and OSINT screening agents with compliance officer human task gates. Demonstrates foundational CaseHub modules in a real financial-crime domain.</p>
+          <a href="https://github.com/casehubio/aml" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+        </div>
+
+        <div class="project-card">
+          <span class="card-repo">casehub-clinical</span>
+          <span class="card-headline">Clinical trial coordination — GCP/FDA/GDPR-compliant multi-site case management</span>
+          <p class="card-desc">Casehub-clinical produces FDA-compliant, GDPR-aware audit trails across multi-site trial coordination with adaptive escalation for adverse events and protocol deviations. Demonstrates that GCP, FDA, and EMA requirements are structurally satisfied by the foundation, not by LLM coordination.</p>
+          <a href="https://github.com/casehubio/clinical" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+        </div>
+
+        <div class="project-card">
+          <span class="card-repo">quarkmind</span>
+          <span class="card-headline">StarCraft II game AI — proving the harness at millisecond granularity</span>
+          <p class="card-desc">QuarkMind is a living lab demonstrating that the CaseHub agentic harness holds outside regulated enterprise domains at millisecond-granularity real-time coordination. Same foundation coordinates clinical trial monitors, AML investigators, code reviewers, and game AI plugins.</p>
+          <a href="https://github.com/mdproctor/quarkmind" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-logo">CaseHub</span>
+      <div class="footer-links">
+        <a href="https://github.com/casehubio" target="_blank" rel="noopener">GitHub &#x2197;</a>
+      </div>
+      <span class="footer-tagline">Apache 2.0</span>
+    </div>
+  </footer>
+
+</body>
+</html>
