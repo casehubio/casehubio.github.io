@@ -246,7 +246,7 @@ body:not(.has-hero) .site-nav {
   color: var(--text);
   margin-bottom: 20px;
 }
-.what-is .fusion-desc {
+.fusion-desc {
   color: var(--text-muted);
   font-size: 15px;
   line-height: 1.85;
