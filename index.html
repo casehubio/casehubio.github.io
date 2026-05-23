@@ -140,113 +140,117 @@
     </div>
   </section>
 
-  <!-- Foundation Cards -->
-  <div class="projects-wrap">
-    <div class="projects-header">
-      <h2>Foundation</h2>
-      <p>The platform beneath the harness</p>
-    </div>
-    <div class="project-cards">
+  <!-- Tabbed project sections -->
+  <section class="tabs-section">
+    <div class="tabs-layout">
+      <nav class="tab-nav">
+        <button class="tab-btn active" data-tab="foundation">
+          Foundation
+          <span class="tab-sub">The platform beneath the harness</span>
+        </button>
+        <button class="tab-btn" data-tab="applications">
+          Applications
+          <span class="tab-sub">Domain-specific harnesses</span>
+        </button>
+      </nav>
+      <div class="tab-content">
 
-      <div class="project-card">
-        <span class="card-repo">casehub-platform</span>
-        <span class="card-headline">Zero-dependency SPI layer — Path, Preferences, Identity</span>
-        <p class="card-desc">casehub-platform defines thin, domain-agnostic SPIs (Path, Preferences, CurrentPrincipal) that every module in the stack can implement without framework dependencies. The three-tier model keeps platform-api pure Java while optional config and OIDC layers integrate cleanly with Quarkus via CDI.</p>
-        <a href="https://github.com/casehubio/platform" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-      <div class="project-card">
-        <span class="card-repo">casehub-ledger</span>
-        <span class="card-headline">Immutable, cryptographically tamper-evident audit ledger with trust scoring</span>
-        <p class="card-desc">The ledger provides immutable entries, attestations, and Bayesian trust scores with Merkle frontier operations for verifiable case and actor accountability. It enables GDPR Art.17 erasure, trust bootstrapping, and W3C PROV-DM lineage export without knowledge of business domain.</p>
-        <a href="https://github.com/casehubio/ledger" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-      <div class="project-card">
-        <span class="card-repo">casehub-work</span>
-        <span class="card-headline">Human task lifecycle — inbox, SLA, delegation, routing, and audit trail</span>
-        <p class="card-desc">WorkItem coordinates humans via formal SLA policy, delegation, escalation, spawn semantics, and skill profiling with optional ledger attachment and distributed queue views. Usable standalone or integrated with CaseHub and Qhorus for multi-agent coordination.</p>
-        <a href="https://github.com/casehubio/work" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-      <div class="project-card">
-        <span class="card-repo">casehub-qhorus</span>
-        <span class="card-headline">Agent communication mesh with formal speech-act accountability</span>
-        <p class="card-desc">Qhorus models every agent interaction as a typed speech act with commitments, shared artefacts, and channels — grounded in speech act theory and deontic logic. All writes flow through a single dispatch gate enforcing ACL, rate limiting, and ledger recording without bypass paths.</p>
-        <a href="https://github.com/casehubio/qhorus" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-      <div class="project-card">
-        <span class="card-repo">casehub-connectors</span>
-        <span class="card-headline">Outbound message connectors — Slack, Teams, SMS, email</span>
-        <p class="card-desc">Provides built-in implementations for Slack, Teams, Twilio SMS, WhatsApp, and email using pure HttpClient with no external messaging framework dependencies. This is the canonical outbound notification infrastructure; any module needing alerts or escalations uses this SPI rather than implementing its own.</p>
-        <a href="https://github.com/casehubio/connectors" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-      <div class="project-card">
-        <span class="card-repo">casehub-eidos</span>
-        <span class="card-headline">Structured agent identity, capability discovery, and system prompt generation</span>
-        <p class="card-desc">Eidos enables agents to register with identity, slot, capabilities, and disposition — then discover agents by slot or capability and render system prompts from descriptors. Any Quarkus app depending on casehub-eidos gains structured agent identity without touching LLM implementation.</p>
-        <a href="https://github.com/casehubio/eidos" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-      <div class="project-card">
-        <span class="card-repo">casehub-engine</span>
-        <span class="card-headline">Modernised Blackboard Architecture with hybrid choreography and orchestration</span>
-        <p class="card-desc">The engine coordinates workers (AI agents, humans) via declarative case definitions, binding rules, and optional synchronous orchestration — supporting adaptive routing, synchronous tasks, and ledger attachment. Cases are defined in YAML or Java and persist via pluggable repositories.</p>
-        <a href="https://github.com/casehubio/engine" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-      <div class="project-card">
-        <span class="card-repo">claudony</span>
-        <span class="card-headline">Remote Claude CLI sessions and unified ecosystem dashboard</span>
-        <p class="card-desc">Claudony owns session lifecycle management, wires CaseHub + Qhorus together, and surfaces them in a browser/PWA dashboard with WebSocket streaming. It operates in two modes: server (owns sessions) and agent (MCP endpoint for a controller Claude instance).</p>
-        <a href="https://github.com/casehubio/claudony" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Application Cards -->
-  <div class="apps-bg">
-    <div class="projects-wrap">
-      <div class="projects-header">
-        <h2>Applications</h2>
-        <p>Domain-specific harnesses built on the platform</p>
-      </div>
-      <div class="project-cards">
-
-        <div class="project-card">
-          <span class="card-repo">casehub-devtown</span>
-          <span class="card-headline">AI-assisted PR review with adaptive specialist routing and tamper-evident records</span>
-          <p class="card-desc">Casehub-devtown coordinates security, architecture, and test-coverage reviewers with SLA gates and content-driven adaptive routing — producing tamper-evident review records where every missed finding is traceable to its reviewer. Demonstrates Engine Layer 5 with binding-condition routing.</p>
-          <a href="https://github.com/casehubio/devtown" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+        <div class="tab-panel active" id="tab-foundation">
+          <div class="project-cards">
+            <div class="project-card">
+              <span class="card-repo">casehub-platform</span>
+              <span class="card-headline">Zero-dependency SPI layer — Path, Preferences, Identity</span>
+              <p class="card-desc">casehub-platform defines thin, domain-agnostic SPIs (Path, Preferences, CurrentPrincipal) that every module in the stack can implement without framework dependencies. The three-tier model keeps platform-api pure Java while optional config and OIDC layers integrate cleanly with Quarkus via CDI.</p>
+              <a href="https://github.com/casehubio/platform" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-ledger</span>
+              <span class="card-headline">Immutable, cryptographically tamper-evident audit ledger with trust scoring</span>
+              <p class="card-desc">The ledger provides immutable entries, attestations, and Bayesian trust scores with Merkle frontier operations for verifiable case and actor accountability. It enables GDPR Art.17 erasure, trust bootstrapping, and W3C PROV-DM lineage export without knowledge of business domain.</p>
+              <a href="https://github.com/casehubio/ledger" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-work</span>
+              <span class="card-headline">Human task lifecycle — inbox, SLA, delegation, routing, and audit trail</span>
+              <p class="card-desc">WorkItem coordinates humans via formal SLA policy, delegation, escalation, spawn semantics, and skill profiling with optional ledger attachment and distributed queue views. Usable standalone or integrated with CaseHub and Qhorus for multi-agent coordination.</p>
+              <a href="https://github.com/casehubio/work" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-qhorus</span>
+              <span class="card-headline">Agent communication mesh with formal speech-act accountability</span>
+              <p class="card-desc">Qhorus models every agent interaction as a typed speech act with commitments, shared artefacts, and channels — grounded in speech act theory and deontic logic. All writes flow through a single dispatch gate enforcing ACL, rate limiting, and ledger recording without bypass paths.</p>
+              <a href="https://github.com/casehubio/qhorus" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-connectors</span>
+              <span class="card-headline">Outbound message connectors — Slack, Teams, SMS, email</span>
+              <p class="card-desc">Provides built-in implementations for Slack, Teams, Twilio SMS, WhatsApp, and email using pure HttpClient with no external messaging framework dependencies. This is the canonical outbound notification infrastructure; any module needing alerts or escalations uses this SPI rather than implementing its own.</p>
+              <a href="https://github.com/casehubio/connectors" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-eidos</span>
+              <span class="card-headline">Structured agent identity, capability discovery, and system prompt generation</span>
+              <p class="card-desc">Eidos enables agents to register with identity, slot, capabilities, and disposition — then discover agents by slot or capability and render system prompts from descriptors. Any Quarkus app depending on casehub-eidos gains structured agent identity without touching LLM implementation.</p>
+              <a href="https://github.com/casehubio/eidos" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-engine</span>
+              <span class="card-headline">Modernised Blackboard Architecture with hybrid choreography and orchestration</span>
+              <p class="card-desc">The engine coordinates workers (AI agents, humans) via declarative case definitions, binding rules, and optional synchronous orchestration — supporting adaptive routing, synchronous tasks, and ledger attachment. Cases are defined in YAML or Java and persist via pluggable repositories.</p>
+              <a href="https://github.com/casehubio/engine" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">claudony</span>
+              <span class="card-headline">Remote Claude CLI sessions and unified ecosystem dashboard</span>
+              <p class="card-desc">Claudony owns session lifecycle management, wires CaseHub + Qhorus together, and surfaces them in a browser/PWA dashboard with WebSocket streaming. It operates in two modes: server (owns sessions) and agent (MCP endpoint for a controller Claude instance).</p>
+              <a href="https://github.com/casehubio/claudony" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+          </div>
         </div>
 
-        <div class="project-card">
-          <span class="card-repo">casehub-aml</span>
-          <span class="card-headline">AML investigation — FinCEN-compliant, adaptive investigation paths</span>
-          <p class="card-desc">Casehub-aml produces FinCEN-compliant, independently verifiable audit trails by coordinating entity resolution, pattern analysis, and OSINT screening agents with compliance officer human task gates. Demonstrates foundational CaseHub modules in a real financial-crime domain.</p>
-          <a href="https://github.com/casehubio/aml" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-        </div>
-
-        <div class="project-card">
-          <span class="card-repo">casehub-clinical</span>
-          <span class="card-headline">Clinical trial coordination — GCP/FDA/GDPR-compliant multi-site case management</span>
-          <p class="card-desc">Casehub-clinical produces FDA-compliant, GDPR-aware audit trails across multi-site trial coordination with adaptive escalation for adverse events and protocol deviations. Demonstrates that GCP, FDA, and EMA requirements are structurally satisfied by the foundation, not by LLM coordination.</p>
-          <a href="https://github.com/casehubio/clinical" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
-        </div>
-
-        <div class="project-card">
-          <span class="card-repo">quarkmind</span>
-          <span class="card-headline">StarCraft II game AI — proving the harness at millisecond granularity</span>
-          <p class="card-desc">QuarkMind is a living lab demonstrating that the CaseHub agentic harness holds outside regulated enterprise domains at millisecond-granularity real-time coordination. Same foundation coordinates clinical trial monitors, AML investigators, code reviewers, and game AI plugins.</p>
-          <a href="https://github.com/mdproctor/quarkmind" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+        <div class="tab-panel" id="tab-applications">
+          <div class="project-cards">
+            <div class="project-card">
+              <span class="card-repo">casehub-devtown</span>
+              <span class="card-headline">AI-assisted PR review with adaptive specialist routing and tamper-evident records</span>
+              <p class="card-desc">Casehub-devtown coordinates security, architecture, and test-coverage reviewers with SLA gates and content-driven adaptive routing — producing tamper-evident review records where every missed finding is traceable to its reviewer. Demonstrates Engine Layer 5 with binding-condition routing.</p>
+              <a href="https://github.com/casehubio/devtown" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-aml</span>
+              <span class="card-headline">AML investigation — FinCEN-compliant, adaptive investigation paths</span>
+              <p class="card-desc">Casehub-aml produces FinCEN-compliant, independently verifiable audit trails by coordinating entity resolution, pattern analysis, and OSINT screening agents with compliance officer human task gates. Demonstrates foundational CaseHub modules in a real financial-crime domain.</p>
+              <a href="https://github.com/casehubio/aml" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-clinical</span>
+              <span class="card-headline">Clinical trial coordination — GCP/FDA/GDPR-compliant multi-site case management</span>
+              <p class="card-desc">Casehub-clinical produces FDA-compliant, GDPR-aware audit trails across multi-site trial coordination with adaptive escalation for adverse events and protocol deviations. Demonstrates that GCP, FDA, and EMA requirements are structurally satisfied by the foundation, not by LLM coordination.</p>
+              <a href="https://github.com/casehubio/clinical" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">quarkmind</span>
+              <span class="card-headline">StarCraft II game AI — proving the harness at millisecond granularity</span>
+              <p class="card-desc">QuarkMind is a living lab demonstrating that the CaseHub agentic harness holds outside regulated enterprise domains at millisecond-granularity real-time coordination. Same foundation coordinates clinical trial monitors, AML investigators, code reviewers, and game AI plugins.</p>
+              <a href="https://github.com/mdproctor/quarkmind" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
-  </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
 
   <!-- Footer -->
   <footer class="site-footer">

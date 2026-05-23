@@ -296,6 +296,61 @@ body:not(.has-hero) .site-nav {
   display: block;
 }
 
+/* ── Tabs ──────────────────────────────────────────────── */
+.tabs-section {
+  border-top: 1px solid var(--border);
+}
+.tabs-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 480px;
+}
+.tab-nav {
+  width: 220px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  padding: 48px 0;
+  display: flex;
+  flex-direction: column;
+}
+.tab-btn {
+  display: block;
+  width: 100%;
+  padding: 16px 28px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  font-family: var(--sans);
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { border-left-color: var(--accent); color: var(--accent); }
+.tab-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.tab-content { flex: 1; min-width: 0; }
+.tab-panel { display: none; padding: 48px; }
+.tab-panel.active { display: block; }
+@media (max-width: 700px) {
+  .tabs-layout { flex-direction: column; }
+  .tab-nav { width: 100%; border-right: none; border-bottom: 1px solid var(--border); padding: 0; flex-direction: row; }
+  .tab-btn { flex: 1; border-left: none; border-bottom: 3px solid transparent; padding: 12px 16px; text-align: center; }
+  .tab-btn.active { border-bottom-color: var(--accent); }
+  .tab-sub { display: none; }
+  .tab-panel { padding: 24px; }
+}
+
 /* ── Project Cards ─────────────────────────────────────── */
 .projects-wrap {
   padding: 64px 48px;
