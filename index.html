@@ -70,6 +70,7 @@
         <text x="125" y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">aml</text>
         <text x="177" y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">clinical</text>
         <text x="278" y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">quarkmind</text>
+        <text x="390" y="72" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">life</text>
 
         <!-- Arrow in gap y=108–128 -->
         <line x1="320" y1="124" x2="320" y2="112" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
@@ -81,7 +82,8 @@
               font-size="11" fill="#4a7a8a" letter-spacing="2.5"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif"
               font-weight="700">RUNTIME</text>
-        <text x="32" y="180" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">claudony</text>
+        <text x="32"  y="180" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">claudony</text>
+        <text x="130" y="180" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">casehub-openclaw</text>
 
         <!-- Arrow in gap y=198–220 -->
         <line x1="320" y1="216" x2="320" y2="202" stroke="#1a2e38" stroke-width="1" marker-end="url(#arr)"/>
@@ -159,8 +161,8 @@
           <div class="project-cards">
             <div class="project-card">
               <span class="card-repo">casehub-platform</span>
-              <span class="card-headline">Zero-dependency SPI layer — Path, Preferences, Identity</span>
-              <p class="card-desc">casehub-platform defines thin, domain-agnostic SPIs (Path, Preferences, CurrentPrincipal) that every module in the stack can implement without framework dependencies. The three-tier model keeps platform-api pure Java while optional config and OIDC layers integrate cleanly with Quarkus via CDI.</p>
+              <span class="card-headline">Zero-dependency SPI layer — Path, Preferences, Identity, and semantic memory</span>
+              <p class="card-desc">casehub-platform defines thin, domain-agnostic SPIs (Path, Preferences, CurrentPrincipal) that every module in the stack can implement without framework dependencies. The three-tier model keeps platform-api pure Java while optional config and OIDC layers integrate cleanly with Quarkus via CDI. Upcoming: CaseMemoryStore — a permission-aware semantic fact index giving every case access to prior case context.</p>
               <a href="https://github.com/casehubio/platform" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
             </div>
             <div class="project-card">
@@ -205,6 +207,12 @@
               <p class="card-desc">Claudony owns session lifecycle management, wires CaseHub + Qhorus together, and surfaces them in a browser/PWA dashboard with WebSocket streaming. It operates in two modes: server (owns sessions) and agent (MCP endpoint for a controller Claude instance).</p>
               <a href="https://github.com/casehubio/claudony" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
             </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-openclaw</span>
+              <span class="card-headline">CaseHub × OpenClaw integration — ChannelContextWindow, bidirectional Qhorus wiring</span>
+              <p class="card-desc">casehub-openclaw provisions OpenClaw agents as CaseHub workers, bridges Qhorus channels bidirectionally to OpenClaw's hook API, and provides ChannelContextWindow — a short-term channel activity buffer injected into OpenClaw agent turns so agents are aware of what others have observed. Includes a Python SDK component for before_prompt_build context injection.</p>
+              <a href="https://github.com/casehubio/openclaw" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
           </div>
         </div>
 
@@ -227,6 +235,12 @@
               <span class="card-headline">Clinical trial coordination — GCP/FDA/GDPR-compliant multi-site case management</span>
               <p class="card-desc">Casehub-clinical produces FDA-compliant, GDPR-aware audit trails across multi-site trial coordination with adaptive escalation for adverse events and protocol deviations. Demonstrates that GCP, FDA, and EMA requirements are structurally satisfied by the foundation, not by LLM coordination.</p>
               <a href="https://github.com/casehubio/clinical" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-life</span>
+              <span class="card-headline">Personal life automation — household, health, finance, and elder care with formal accountability</span>
+              <p class="card-desc">casehub-life applies the CaseHub harness to personal life coordination — SLA-enforced household tasks, commitment tracking for contractor and family obligations, oversight gates for health and financial decisions, and a tamper-evident audit trail for regulated personal domains. Uses OpenClaw's pre-built skill ecosystem (banking APIs, calendars, smart home, messaging) as the execution layer.</p>
+              <a href="https://github.com/casehubio/life" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
             </div>
             <div class="project-card">
               <span class="card-repo">quarkmind</span>
