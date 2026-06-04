@@ -114,6 +114,7 @@
         <text x="253" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">qhorus</text>
         <text x="339" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">connectors</text>
         <text x="472" y="368" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">eidos</text>
+        <text x="32"  y="404" font-size="15" fill="#b8d8e0" font-family="'JetBrains Mono','Fira Code','Courier New',monospace">neural-text</text>
         <text x="490" y="404" font-size="11" fill="#2aa8c4" opacity="0.55"
               font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">AI Fusion Core</text>
 
@@ -195,6 +196,12 @@
               <span class="card-headline">Structured agent identity, capability discovery, and system prompt generation</span>
               <p class="card-desc">Eidos enables agents to register with identity, slot, capabilities, and disposition — then discover agents by slot or capability and render system prompts from descriptors. Any Quarkus app depending on casehub-eidos gains structured agent identity without touching LLM implementation.</p>
               <a href="https://github.com/casehubio/eidos" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+            </div>
+            <div class="project-card">
+              <span class="card-repo">casehub-neural-text</span>
+              <span class="card-headline">ONNX neural text inference and LangChain4j RAG — the AI Fusion primitive layer</span>
+              <p class="card-desc">Fills the gap LangChain4j leaves: NLI (hallucination detection), classification (action risk), regression (epistemic confidence), SPLADE sparse embeddings, and cross-encoder reranking — all running locally via ONNX Runtime JVM with no API dependency. Also provides the casehub RAG integration: tenancy-isolated Qdrant corpus storage with hybrid dense+sparse search. Shared with Hortora via the zero-domain-dep inference-* modules.</p>
+              <a href="https://github.com/casehubio/neural-text" class="card-link" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
             </div>
             <div class="project-card">
               <span class="card-repo">casehub-engine</span>
