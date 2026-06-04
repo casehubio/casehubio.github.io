@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaseHub — Platform</title>
+  <meta name="description" content="CaseHub platform documentation — Foundation and Application repos.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a class="nav-logo" href="/">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="2" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.9"/>
+        <rect x="13" y="2" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.6"/>
+        <rect x="2" y="13" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.6"/>
+        <rect x="13" y="13" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.3"/>
+      </svg>
+      <span>CaseHub</span>
+    </a>
+    <div class="nav-links">
+      <a href="/" class="nav-link">Overview</a>
+      <a href="https://github.com/casehubio" class="nav-link" target="_blank" rel="noopener">GitHub &#x2197;</a>
+    </div>
+  </nav>
+
+  <div class="docs-shell">
+
+    <aside class="docs-sidebar">
+      <div class="docs-tab-nav">
+        <button class="docs-tab active" data-tab="foundation">Foundation</button>
+        <button class="docs-tab" data-tab="applications">Applications</button>
+      </div>
+      <nav class="docs-repo-nav" id="nav-foundation">
+        <a href="#foundation/platform"    class="repo-link" data-repo="platform">platform</a>
+        <a href="#foundation/ledger"      class="repo-link" data-repo="ledger">ledger</a>
+        <a href="#foundation/work"        class="repo-link" data-repo="work">work</a>
+        <a href="#foundation/qhorus"      class="repo-link" data-repo="qhorus">qhorus</a>
+        <a href="#foundation/connectors"  class="repo-link" data-repo="connectors">connectors</a>
+        <a href="#foundation/eidos"       class="repo-link" data-repo="eidos">eidos</a>
+        <a href="#foundation/neural-text" class="repo-link" data-repo="neural-text">neural-text</a>
+        <a href="#foundation/engine"      class="repo-link" data-repo="engine">engine</a>
+        <a href="#foundation/claudony"    class="repo-link" data-repo="claudony">claudony</a>
+        <a href="#foundation/openclaw"    class="repo-link" data-repo="openclaw">openclaw</a>
+      </nav>
+      <nav class="docs-repo-nav hidden" id="nav-applications">
+        <a href="#applications/devtown"    class="repo-link" data-repo="devtown">devtown</a>
+        <a href="#applications/aml"        class="repo-link" data-repo="aml">aml</a>
+        <a href="#applications/clinical"   class="repo-link" data-repo="clinical">clinical</a>
+        <a href="#applications/quarkmind"  class="repo-link" data-repo="quarkmind">quarkmind</a>
+        <a href="#applications/life"       class="repo-link" data-repo="life">life</a>
+        <a href="#applications/drafthouse" class="repo-link" data-repo="drafthouse">drafthouse</a>
+      </nav>
+    </aside>
+
+    <main class="docs-main">
+
+      <!-- ─── platform ─── -->
+      <div id="panel-platform" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-platform</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">The common language every module in the stack shares — without framework coupling</h1>
+        <p class="rp-lead">Every Quarkus module eventually asks the same questions: who is the current user? What is the preference value for this case type? How do I express a scope path? casehub-platform answers those questions once, in pure Java, with no Quarkus dependency on the answer.</p>
+        <p class="rp-lead">That constraint matters more than it sounds. If the common types live in a framework-coupled layer, every module that depends on them pulls the framework with it. The platform-api has no Quarkus dependency, no CDI, no JPA — so it is a safe transitive dependency at any tier, including pure domain modules that should never touch infrastructure.</p>
+        <p class="rp-lead">Quarkus integration is opt-in. Add the config module and preferences become scope-aware YAML — values that vary per case type and per installation, resolved per-request, without restarting the application. Add the oidc module and the current principal is backed by a real JWT. Leave both out and mock @DefaultBeans activate automatically in dev and test. The memory layer adds a semantic fact store with GDPR Art.17 erasure — the same zero-coupling pattern, with PostgreSQL, SQLite, or in-memory adapters.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Path — hierarchical scope type (casehubio/devtown/pr-review)</li>
+            <li>Preferences — per-request, per-scope, scope-hierarchy inheritance</li>
+            <li>CurrentPrincipal — identity SPI, OIDC-backed via optional module</li>
+            <li>CaseMemoryStore — semantic fact index, permission-aware</li>
+            <li>GDPR Art.17 erasure on memory entries</li>
+            <li>JPA (PostgreSQL FTS), SQLite (WAL+FTS5), in-memory adapters</li>
+            <li>zero-dep platform-api — safe at every tier</li>
+            <li>@DefaultBean mocks — activate automatically in dev/test</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">No casehub dependencies — root of the dependency graph</p>
+        </div>
+        <a href="https://github.com/casehubio/platform" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── ledger ─── -->
+      <div id="panel-ledger" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-ledger</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">An agentic system makes claims. The ledger is what proves they happened.</h1>
+        <p class="rp-lead">An agent says it analyzed a transaction, found nothing suspicious, and moved on. In a regulated setting, "the agent said so" is not a compliance record. The ledger is.</p>
+        <p class="rp-lead">Every write is immutable. Entries chain via Merkle tree operations — the same construction as certificate transparency logs — so any third party can verify that a specific record exists and hasn't been altered, without trusting the system that produced it. GDPR Art.17 erasure is supported: the identity token is severed, not the record. The audit chain survives; the PII does not.</p>
+        <p class="rp-lead">The trust-scoring layer tracks how reliable each agent is, per capability and per domain, using a Bayesian model that updates from outcomes. An agent with a strong record in SAR drafting accumulates a higher trust score there than one with a checkered history. Routing decisions downstream can use that signal — and the scores improve automatically as the system accumulates evidence, without any manual calibration.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Immutable LedgerEntry subtypes — consumers define, ledger enforces</li>
+            <li>Merkle MMR (RFC 9162) — incremental, per-subject frontiers</li>
+            <li>Inclusion proofs — independently verifiable by third parties</li>
+            <li>Ed25519 tlog checkpoints — optional external verifiability</li>
+            <li>GDPR Art.17 token-severing erasure — chain intact, PII gone</li>
+            <li>W3C PROV-DM lineage export per subject</li>
+            <li>Bayesian trust scoring per actor, capability, and domain</li>
+            <li>Trust bootstrapping and nightly recomputation</li>
+            <li>LedgerAttestation — peer verdicts (SOUND/FLAGGED/ENDORSED/CHALLENGED)</li>
+            <li>In-memory adapter — zero-datasource for @QuarkusTest</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-platform</p>
+        </div>
+        <a href="https://github.com/casehubio/ledger" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── work ─── -->
+      <div id="panel-work" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-work</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">Work that routes itself — labels, queues, and rules that do the triage for you</h1>
+        <p class="rp-lead">Work arrives in a pile. Someone has to read it, decide what it is, figure out who handles it, and move it to the right team. In a high-volume or regulated system, that manual triage is where delays happen, mistakes happen, and accountability breaks down.</p>
+        <p class="rp-lead">casehub-work flips that. WorkItems carry metadata labels, and labels drive filters. Set a label on a WorkItem — <em>pep-detected</em>, <em>grade-4</em>, <em>senior-review-required</em> — and the right filter picks it up, the right queue surfaces it to the right team, automatically. Business rules set labels based on conditions: content, elapsed time, priority, source. The routing happens without a human in the decision loop.</p>
+        <p class="rp-lead">Once in a queue, the usual guarantees apply: SLA deadlines with escalation targets, delegation chains with full ownership history, and an append-only audit trail per item. The assigneeId is a string — a human identity, an AI agent, or both in sequence. When a deadline expires, a CDI event fires in the same database transaction as the breach. No polling, no eventual consistency, no race condition.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Labels — metadata tags; filterable, color-coded, rules-actionable</li>
+            <li>Filters — group WorkItems by label, status, priority, elapsed time</li>
+            <li>Business rules — set labels, assign queues, trigger actions on conditions</li>
+            <li>Queue-based routing — items surface to the right team automatically</li>
+            <li>Candidate group routing — self-service claiming from shared queues</li>
+            <li>10-state lifecycle with guarded transitions</li>
+            <li>SLA deadlines with CDI breach events (same transaction)</li>
+            <li>Delegation chains with full ownership history</li>
+            <li>Escalation targets — fires automatically on SLA breach</li>
+            <li>Append-only audit trail per WorkItem</li>
+            <li>Human and AI agent assignees — same lifecycle</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-platform</p>
+        </div>
+        <a href="https://github.com/casehubio/work" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── qhorus ─── -->
+      <div id="panel-qhorus" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-qhorus</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">The agentic mesh — structured channels, formal obligations, humans and agents on equal footing</h1>
+        <p class="rp-lead">Multi-agent coordination without a proper communication layer is API calls and inference. You can see what agents produced; you can't see what was asked, what was promised, or whether the promise held. Qhorus makes those things formal — every interaction is a typed act with a ledger record and, when appropriate, a commitment that has to be discharged.</p>
+        <p class="rp-lead">The channel is the core concept. A case isn't one conversation — it's several running in parallel, with different participants and different rules. Agent coordination, status monitoring, human governance: these belong in separate channels because they have different semantics. The channel defines who can write to it, what message types are permitted, and how delivery works.</p>
+        <p class="rp-lead">The standard layout for a case is three channels. The <em>work</em> channel is where agents receive tasks and report completion — prescriptive, task-oriented. The <em>observe</em> channel is where state changes are broadcast and passive monitoring happens — dashboards, other agents, audit systems can watch without participating. The <em>oversight</em> channel is where humans govern: approving decisions, rejecting proposals, asking questions that require answers before work continues.</p>
+        <p class="rp-lead">Human participation is first-class, not a side door. A compliance officer who receives a task via the oversight channel has the same obligation lifecycle as an AI agent — the same commitment record, the same deadline, the same breach if they don't respond. Their reply, however it arrives — email, Slack, any connected channel — is translated into a formal response that discharges the obligation and writes a ledger entry. Qhorus doesn't distinguish between human and agent participants. It only distinguishes between those who honored their commitments and those who didn't.</p>
+        <p class="rp-lead">Humans don't have to read every raw message in a channel to know what's happening. The ChannelProjection SPI folds channel history into digest views — vote tallies, review manifests, summaries — derived deterministically from the message stream. The oversight channel becomes something a human can actually act on, not a firehose to wade through.</p>
+        <p class="rp-lead">Beneath all of this is a single Dispatch Gate — the only path through which a message can enter a channel. There is no side door. The gate enforces access control, rate limiting, and records every message to the tamper-evident ledger before fan-out. When an agent sends a task, the system creates a formal obligation. If the recipient completes it, that obligation closes. If they don't respond by the deadline, a watchdog fires. If they hand it off, the obligation transfers. These aren't abstract categories — they're the mechanism by which "agent X was told to do Y and didn't" becomes a fact in the ledger rather than an inference from logs.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Channels — typed contexts with semantics, ACL, allowed/denied message types</li>
+            <li>3-channel normative layout — work, observe, oversight</li>
+            <li>Human-participating backends — oversight channel with full obligation lifecycle</li>
+            <li>Human-observer backends — dashboards, audit monitoring</li>
+            <li>Inbound normaliser — human replies via email/Slack become formal speech acts</li>
+            <li>9 typed speech acts — QUERY, COMMAND, RESPONSE, STATUS, DECLINE, HANDOFF, DONE, FAILURE, EVENT</li>
+            <li>Commitment lifecycle — open through resolution, formally enforced</li>
+            <li>Single Dispatch Gate — ACL, rate limiting, ledger recording, no bypass</li>
+            <li>Watchdog — condition-based alert registration with deadline enforcement</li>
+            <li>SharedData + ArtefactClaim — shared artefact store with claim/release</li>
+            <li>ChannelProjection SPI — deterministic read-models over channel history</li>
+            <li>A2A protocol bridge — agent-card discovery, external agent messaging</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-platform, casehub-ledger</p>
+        </div>
+        <a href="https://github.com/casehubio/qhorus" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── connectors ─── -->
+      <div id="panel-connectors" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-connectors</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">When a WorkItem escalates, something has to actually reach the compliance officer</h1>
+        <p class="rp-lead">casehub-connectors is the straightforward part: a unified Connector SPI with built-in implementations for Slack, Teams, Twilio SMS, WhatsApp, and email. One dependency, five channels.</p>
+        <p class="rp-lead">The integration with Qhorus is what makes it more than a notification library. The connector-backend module bridges inbound messages — a human replying to a Slack message or email — back into Qhorus channels as formal speech acts. A compliance officer replies to a notification; that reply enters the oversight channel as a RESPONSE, discharges the commitment, and writes a ledger entry. The human never touches the system directly. The system sees a formal act regardless.</p>
+        <p class="rp-lead">The implementation is deliberate. Pure <code style="font-family:var(--mono);font-size:13px;background:var(--bg-card);border:1px solid var(--border);padding:1px 5px;border-radius:3px">java.net.http.HttpClient</code> for every HTTP-based connector — no Camel, no vendor SDK, no additional framework pulling in its own dependency tree. Custom connectors are CDI beans — implement the interface, annotate it @ApplicationScoped, and it's discovered automatically.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Slack — Incoming Webhooks, no credentials</li>
+            <li>Microsoft Teams — Adaptive Cards, no credentials</li>
+            <li>Twilio SMS — Account SID + Auth Token</li>
+            <li>WhatsApp Business — API Token + Phone Number ID</li>
+            <li>Email — quarkus-mailer (separate optional module)</li>
+            <li>Connector SPI — CDI @ApplicationScoped auto-discovery</li>
+            <li>Pure java.net.http — no Camel, no vendor SDK</li>
+            <li>connector-backend — inbound replies bridged into Qhorus channels as speech acts</li>
+            <li>Watchdog bridge — Qhorus alerts routed out via connectors automatically</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-platform, casehub-qhorus (optional connector-backend)</p>
+        </div>
+        <a href="https://github.com/casehubio/connectors" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── eidos ─── -->
+      <div id="panel-eidos" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-eidos</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">Agents need to know who they are, what they can do, and what they're allowed to say</h1>
+        <p class="rp-lead">Unstructured agent identity is a coordination problem. If agents self-describe in free text, routing decisions are guesswork. If system prompts are hand-written per deployment, they drift from what agents actually do. Eidos gives the infrastructure layer of agent identity a formal home — without touching LLM implementation.</p>
+        <p class="rp-lead">Agents register with a structured descriptor: an identity, a slot in the system, capability tags, a disposition, and domain confidence scores. Other components discover agents by slot or capability — deterministically, not by asking the LLM who's available. System prompts are rendered from these descriptors, so agents operate within their declared scope on every invocation.</p>
+        <p class="rp-lead">The confidence scores aren't static. casehub-neural-text's ScalarRegressor can estimate actual epistemic confidence from agent output history and feed those estimates back into Eidos. An agent that consistently performs well in the safety-monitoring capability accumulates a higher score over time. Routing decisions improve without manual recalibration.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Agent descriptor registration — identity, slot, capabilities, disposition</li>
+            <li>Discovery by slot or capability tag</li>
+            <li>System prompt generation from descriptors</li>
+            <li>Epistemic domain confidence scores</li>
+            <li>CapabilityHealth probing — static and dynamic</li>
+            <li>Dynamic score updates from neural-text ScalarRegressor</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-platform</p>
+        </div>
+        <a href="https://github.com/casehubio/eidos" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── neural-text ─── -->
+      <div id="panel-neural-text" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-neural-text</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">The inference primitives LangChain4j doesn't give you — running locally, no API required</h1>
+        <p class="rp-lead">LangChain4j gives you dense embeddings, document parsing, chunking, and a retrieval pipeline. It doesn't give you hallucination detection, action risk scoring, or sparse retrieval that can find "ICH E6" rather than something semantically related to it. In regulated deployments — clinical, AML, financial — "semantically related" isn't close enough, and data cannot leave the tenant's infrastructure.</p>
+        <p class="rp-lead">casehub-neural-text fills that gap with five ONNX model types, all running in-process via ONNX Runtime JVM. NLI models score LLM output for faithfulness against the input facts before assertions enter the shared fact space — hallucinations are caught before they propagate downstream to rules or other agents. A TextClassifier decides whether an action proceeds autonomously or routes to human oversight. A ScalarRegressor estimates epistemic confidence and feeds it back to Eidos. SPLADE sparse embeddings handle the lexical precision that dense vectors sacrifice.</p>
+        <p class="rp-lead">The RAG layer wires LangChain4j's retrieval pipeline to casehub tenancy: named, isolated document corpora, hybrid dense+sparse search via Reciprocal Rank Fusion. The corpus for an AML investigation and the corpus for a clinical trial are completely isolated — enforced at the SPI boundary, not by convention.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>NliClassifier — hallucination detection (entailment/neutral/contradiction)</li>
+            <li>TextClassifier — action risk, autonomous vs oversight routing</li>
+            <li>ScalarRegressor — epistemic confidence estimation</li>
+            <li>SparseEmbedder — SPLADE log-saturation sparse embeddings</li>
+            <li>CrossEncoderReranker — precision reranking over top-N candidates</li>
+            <li>CorpusStore — Tika ingest, dual embedding, Qdrant storage</li>
+            <li>CaseRetriever — hybrid dense+sparse RRF, optional reranking</li>
+            <li>Tenancy isolation — enforced at SPI boundary</li>
+            <li>ONNX Runtime JVM — no Python, no API call</li>
+            <li>inference-* modules — zero casehub deps, sharable with other stacks</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-platform (rag modules only); inference-* modules have no casehub dependencies</p>
+        </div>
+        <a href="https://github.com/casehubio/neural-text" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── engine ─── -->
+      <div id="panel-engine" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-engine</span><span class="rp-tier">Orchestration</span></div>
+        <h1 class="rp-headline">Not a workflow engine. Workers react to shared state — the engine doesn't tell them what to do.</h1>
+        <p class="rp-lead">Workflow engines define sequences. Step A finishes, step B starts. That works until the world doesn't cooperate — an adverse event arrives while eligibility screening is still running, a Grade 4 signal hits three sites simultaneously, a security finding changes the architecture review priority. Sequence-based coordination requires branching logic for every exception.</p>
+        <p class="rp-lead">The engine uses a different model: Modernised Blackboard Architecture. Workers declare their trigger conditions and capability contracts. The Reactor records context changes and notifies workers that match — it never executes tasks or makes routing decisions itself. When a clinical trial hits a Grade 4 adverse event that simultaneously requires an IRB consultation and a DSMB rollup, those things happen in parallel because three workers react to the same context change. No branching code. Just conditions and workers.</p>
+        <p class="rp-lead">Cases are bounded by goals, not by steps. A case completes when its goals are met, whether that took one worker or twenty and whether the path was predictable or not. Workers can be Java lambdas, Serverless Workflow DSL, LangChain4j AI services, or human tasks via casehub-work.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>CaseContext — shared observable key-value state (single source of truth)</li>
+            <li>DispatchRule — JQ-expression trigger conditions</li>
+            <li>Goal evaluation — case completes when all goals met</li>
+            <li>Milestone tracking — observable progress markers</li>
+            <li>Reactor — records facts, notifies; never executes</li>
+            <li>Java Lambda, Serverless Workflow DSL, LangChain4j workers</li>
+            <li>Human task adapter — casehub-work WorkItem integration</li>
+            <li>Pluggable persistence — YAML or Java case definitions</li>
+            <li>Trust-weighted agent routing (via casehub-ledger)</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-platform, casehub-ledger, casehub-work (adapter, optional), casehub-qhorus (optional)</p>
+        </div>
+        <a href="https://github.com/casehubio/engine" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── claudony ─── -->
+      <div id="panel-claudony" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">claudony</span><span class="rp-tier">Runtime</span></div>
+        <h1 class="rp-headline">Remote Claude sessions, a live mesh dashboard, and MCP access — from one binary</h1>
+        <p class="rp-lead">Claudony is where the harness meets the human operator. It runs Claude Code CLI sessions remotely via tmux, surfaces the Qhorus message mesh in a browser dashboard, and exposes session management to a controller Claude instance via MCP. Two modes from one binary: server mode owns the sessions; agent mode becomes an MCP endpoint that a controller Claude can drive programmatically.</p>
+        <p class="rp-lead">The session layer is deliberately simple. tmux is the source of truth — on restart, the registry repopulates from live sessions rather than from a database. The CaseHub wiring is a clean SPI implementation layer: Claudony provisions tmux sessions as CaseHub workers, creates Qhorus channels per case, builds startup prompts from ledger lineage, and maps tmux lifecycle events to CaseHub worker states. None of that logic is entangled with session management.</p>
+        <p class="rp-lead">Nothing in the ecosystem depends on Claudony. It's the integration terminus — the place where Claude sessions, Qhorus channels, and a browser dashboard converge.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Remote Claude CLI sessions via tmux</li>
+            <li>WebSocket terminal streaming</li>
+            <li>Browser / PWA dashboard — session cards, channel mesh, service health</li>
+            <li>WebAuthn passkey auth (browser), API key auth (agents)</li>
+            <li>MCP server — session management tools for controller agents</li>
+            <li>Fleet management — peer discovery, health monitoring</li>
+            <li>Server mode and agent mode from one binary</li>
+            <li>WorkerProvisioner, CaseChannelProvider, WorkerContextProvider, WorkerStatusListener SPIs</li>
+            <li>Startup prompts built from ledger lineage</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-engine, casehub-qhorus, casehub-ledger</p>
+        </div>
+        <a href="https://github.com/casehubio/claudony" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── openclaw ─── -->
+      <div id="panel-openclaw" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-openclaw</span><span class="rp-tier">Runtime</span></div>
+        <h1 class="rp-headline">OpenClaw's skill ecosystem, CaseHub's accountability layer — wired together</h1>
+        <p class="rp-lead">OpenClaw agents have pre-built skills: banking APIs, calendar access, smart home integration, messaging. CaseHub has the formal accountability layer: SLA enforcement, commitment tracking, tamper-evident audit. The problem is that neither is much use in a regulated setting without the other. casehub-openclaw bridges them.</p>
+        <p class="rp-lead">OpenClaw agents are provisioned as CaseHub workers through the standard WorkerProvisioner SPI — no special treatment, no custom coordination code. Qhorus channels wire bidirectionally to OpenClaw's hook API so speech-act obligations and ledger records apply to OpenClaw actions just as they would to any other worker.</p>
+        <p class="rp-lead">The ChannelContextWindow is where the integration pays off. It's a short-term buffer of recent Qhorus channel activity, injected into every OpenClaw agent turn at the system prompt level. Agents know what the other agents in the mesh have been observing — not just their own history. That shared awareness is what turns a collection of agents into a coordinated system.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>WorkerProvisioner SPI — OpenClaw instances as CaseHub workers</li>
+            <li>ChannelBackend SPI — Qhorus ↔ OpenClaw bidirectional bridge</li>
+            <li>ChannelContextWindow — TTL-evicting channel activity ring buffer</li>
+            <li>MessageObserver SPI — populates window from all Qhorus dispatches</li>
+            <li>Python SDK — before_prompt_build hook, compaction-safe injection</li>
+            <li>No heartbeat required for in-case steps</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-engine, casehub-qhorus, casehub-platform</p>
+        </div>
+        <a href="https://github.com/casehubio/openclaw" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── devtown ─── -->
+      <div id="panel-devtown" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-devtown</span><span class="rp-tier">Application</span></div>
+        <h1 class="rp-headline">PR review where every finding is traceable and every missed one is accountable</h1>
+        <p class="rp-lead">Most AI code review is a linter with a chat interface: you paste the diff, you get a response, and that response is the entire record. devtown is different. Security, architecture, and test-coverage specialists are separate agents, routed by the actual content of the change — not randomly assigned, not always invoked. SLA gates prevent reviews from sitting indefinitely. And the review record is tamper-evident: every finding, every routing decision, every specialist invocation is in the ledger.</p>
+        <p class="rp-lead">When the same commit slips through security review and causes a production incident, the audit trail shows whether the security agent was dispatched, what it returned, and whether the finding was acknowledged. That accountability runs both ways — it protects the team that ran the review and gives the post-mortem something real to work with.</p>
+        <p class="rp-lead">devtown is the first application layer built on the full CaseHub foundation and a reference implementation for how to build domain-specific harnesses on top.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Security, architecture, test-coverage specialist agents</li>
+            <li>Content-driven adaptive routing — not random assignment</li>
+            <li>SLA gates — reviews can't sit indefinitely</li>
+            <li>Human review WorkItems with SLA enforcement</li>
+            <li>Tamper-evident review record (Merkle ledger)</li>
+            <li>Every finding traceable to its reviewing agent</li>
+            <li>Slack / Teams / email notifications on assignment</li>
+            <li>Trust-scored specialist routing over time</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-engine, casehub-qhorus, casehub-ledger, casehub-work, casehub-connectors</p>
+        </div>
+        <a href="https://github.com/casehubio/devtown" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── aml ─── -->
+      <div id="panel-aml" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-aml</span><span class="rp-tier">Application</span></div>
+        <h1 class="rp-headline">FinCEN requires an auditable evidence chain per finding. Most agentic AML systems can't provide one.</h1>
+        <p class="rp-lead">Current agentic AML systems coordinate agents via API calls. One agent calls another, gets a response, and the sequence moves on. The audit trail is whatever you can reconstruct afterward. FinCEN requires more than reconstruction — it requires a causal chain from each finding to the evidence that produced it, tamper-evident, independently verifiable. casehub-aml produces that record as a structural consequence of how the investigation runs, not as a reporting step bolted on at the end.</p>
+        <p class="rp-lead">Investigation paths adapt to the case. An entity with high risk and PEP detection follows a different path than a low-risk transaction — not because branching logic was written for every scenario, but because casehub-engine's binding rules react to the context. The compliance officer review is a WorkItem with a 30-day FinCEN SLA and a named escalation target.</p>
+        <p class="rp-lead">The tutorial is seven layers, each adding a single foundation module and showing concretely what breaks without it. Java developers in financial services can adopt incrementally without rebuilding from scratch at any step.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Entity resolution, pattern analysis, OSINT screening agents</li>
+            <li>Adaptive investigation paths — risk score and PEP detection driven</li>
+            <li>Compliance officer WorkItem — 30-day FinCEN SLA</li>
+            <li>FinCEN-compliant causal evidence chain per finding</li>
+            <li>Merkle tamper-evident audit trail</li>
+            <li>GDPR Art.17 erasure on transaction PII</li>
+            <li>Trust-weighted agent routing from SAR outcomes</li>
+            <li>Seven-layer incremental tutorial (naive Java → full adaptive case)</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-engine, casehub-ledger, casehub-work, casehub-qhorus, casehub-connectors</p>
+        </div>
+        <a href="https://github.com/casehubio/aml" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── clinical ─── -->
+      <div id="panel-clinical" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-clinical</span><span class="rp-tier">Application</span></div>
+        <h1 class="rp-headline">GCP, FDA, and EMA requirements aren't a checklist — they're structural constraints the architecture has to satisfy</h1>
+        <p class="rp-lead">A serious adverse event requires documented medical review within 24 hours under GCP. PI authorisation for a protocol deviation is a formal act — it has to be traceable to a named investigator. A consent withdrawal under GDPR Art.17 has to leave the audit trail intact while removing the PII. These are not requirements you satisfy by adding logging. They constrain how the system is built.</p>
+        <p class="rp-lead">casehub-clinical coordinates eligibility screening agents, safety monitoring agents, PI authorisation gates, and IRB approval gates across multiple trial sites. Adverse event WorkItems carry CTCAE grading and 24-hour SLA enforcement. PI authorisation is a COMMAND with a formal commitment lifecycle — if the named investigator doesn't respond, that's a recorded breach. Multi-site coordination uses sub-cases with a trial-level blackboard: a Grade 4 event at one site updates shared state that the DSMB rollup observes across all sites.</p>
+        <p class="rp-lead">The tutorial is eight layers starting from naive Java, each demonstrating what GCP or FDA requirement breaks without the next module.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Multi-site trial coordination — sub-cases with trial-level rollup</li>
+            <li>Adverse event escalation — CTCAE grading, 24h GCP SLA enforcement</li>
+            <li>PI authorisation — COMMAND commitment, named investigator required</li>
+            <li>IRB approval gate — 72h WorkItem, four terminal outcomes</li>
+            <li>DSMB cross-site Grade 4+ signal detection</li>
+            <li>FDA Merkle tamper-evident audit trail</li>
+            <li>GDPR Art.17 consent withdrawal — chain intact, PII erased</li>
+            <li>Trust-scored safety agent routing</li>
+            <li>Eight-layer incremental tutorial</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-engine, casehub-ledger, casehub-work, casehub-qhorus, casehub-connectors, casehub-platform</p>
+        </div>
+        <a href="https://github.com/casehubio/clinical" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── quarkmind ─── -->
+      <div id="panel-quarkmind" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">quarkmind</span><span class="rp-tier">Application</span></div>
+        <h1 class="rp-headline">The same foundation that coordinates clinical trials also runs a StarCraft II game at millisecond resolution</h1>
+        <p class="rp-lead">StarCraft II runs at 22.4 game frames per second. Decisions about supply, expansion, and engagement happen in hundreds of milliseconds. That's a stress test for any coordination framework: if the abstraction layer can't keep up, it's not a general-purpose harness — it's an enterprise CRUD tool with aspirations.</p>
+        <p class="rp-lead">QuarkMind answers that question directly. The Modernised Blackboard Architecture holds at real-time game speed. The same shared fact space that coordinates a clinical trial safety monitor and an IRB consultation gate also runs a Protoss economics agent, a Drools-powered strategy layer, and a GOAP tactics planner — concurrently, against a real opponent, within the game's frame budget.</p>
+        <p class="rp-lead">The plugin architecture is the interesting part. Each concern — economics, strategy, tactics, scouting — is a CDI interface. Swap in a Drools Rule Unit for the strategy layer, or a LangChain4j agent, or a hand-coded planner. The platform picks it up automatically.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Protoss StarCraft II agent — real game, real opponent</li>
+            <li>CDI plugin seams — economics, strategy, tactics, scouting</li>
+            <li>Drools Rule Units — strategy and scouting layers</li>
+            <li>GOAP planner — tactics layer</li>
+            <li>Drools CEP — scouting with Java-managed buffers</li>
+            <li>Replay mode — analyse without running SC2</li>
+            <li>Mock mode — develop without SC2 installed</li>
+            <li>QA REST API — query game state, intents, frame counter</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-engine</p>
+        </div>
+        <a href="https://github.com/mdproctor/quarkmind" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── life ─── -->
+      <div id="panel-life" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-life</span><span class="rp-tier">Application</span></div>
+        <h1 class="rp-headline">Most personal automation is best-effort. A reminder fires and then nothing enforces what follows.</h1>
+        <p class="rp-lead">An agent says it will follow up with the contractor. Whether it does is unclear — and if it doesn't, there's no record that the follow-up was owed in the first place. casehub-life applies the same formal accountability structure to household coordination that casehub-aml applies to AML investigations: commitments that are tracked, deadlines that escalate, and a tamper-evident record for decisions that matter.</p>
+        <p class="rp-lead">A contractor follow-up becomes a Qhorus commitment with a watchdog — if no ETA arrives by a specified time, an automated SMS fires via casehub-connectors. A health appointment becomes a WorkItem with a SLA and a named escalation target. A major financial decision requires a human RESPONSE before any action is taken, not as a soft preference but as a formal gate. OpenClaw provides the execution layer; casehub-life provides the accountability layer that makes those skills responsible rather than just capable.</p>
+        <p class="rp-lead">The tutorial is seven layers demonstrating a concrete gap at each step — the clearest proof that formal accountability infrastructure generalises well beyond regulated enterprise domains.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>Contractor commitment + Watchdog — automated SMS on no ETA</li>
+            <li>Health appointment WorkItem — SLA, named escalation target</li>
+            <li>Financial oversight gate — human RESPONSE required before action</li>
+            <li>Legal deadline WorkItems — hard deadline + ledger record</li>
+            <li>Tamper-evident audit for health and financial decisions</li>
+            <li>OpenClaw skill ecosystem as execution layer</li>
+            <li>Seven-layer incremental tutorial</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-work, casehub-qhorus, casehub-ledger, casehub-engine, casehub-openclaw</p>
+        </div>
+        <a href="https://github.com/casehubio/life" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+      <!-- ─── drafthouse ─── -->
+      <div id="panel-drafthouse" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-drafthouse</span><span class="rp-tier">Application</span></div>
+        <h1 class="rp-headline">Document review grounded in specific text, with multiple reviewer agents and a full audit trail</h1>
+        <p class="rp-lead">Document review with an LLM usually means pasting the whole thing and asking what's wrong with it. The response covers the document as a whole, isn't tied to any specific region, and leaves no record of what was looked at or what was returned. DraftHouse is different.</p>
+        <p class="rp-lead">Any MCP client can open a document, show a before/after revision, and invoke reviewer agents with distinct personalities and areas of focus. Conversations are anchored to specific text selections. Each reviewer is independent. Each round of feedback is tied to the version it assessed. The full session is tracked via Qhorus channels — what was shown, who reviewed it, what came back.</p>
+        <p class="rp-lead">DraftHouse is the lightest application in the ecosystem and a useful entry point — the Qhorus integration pattern it demonstrates applies to every other application in the stack.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>ReviewSession — document sides (before/after), reviewer agents</li>
+            <li>Selection-scoped conversations — feedback tied to specific text</li>
+            <li>Multiple independent reviewer agents — distinct personalities</li>
+            <li>Before/after version tracking as first-class objects</li>
+            <li>Full session audit via Qhorus QUERY/RESPONSE channels</li>
+            <li>MCP tools — start_review, push_revision, get_cursor_context, get_diff, end_review</li>
+            <li>LangChain4j @AiService — provider-agnostic LLM calls</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-qhorus</p>
+        </div>
+        <a href="https://github.com/casehubio/drafthouse" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-logo">CaseHub</span>
+      <div class="footer-links">
+        <a href="/">Overview</a>
+        <a href="https://github.com/casehubio" target="_blank" rel="noopener">GitHub &#x2197;</a>
+      </div>
+      <span class="footer-tagline">Apache 2.0</span>
+    </div>
+  </footer>
+
+  <script>
+    var REPOS = {
+      platform: 'foundation', ledger: 'foundation', work: 'foundation',
+      qhorus: 'foundation', connectors: 'foundation', eidos: 'foundation',
+      'neural-text': 'foundation', engine: 'foundation', claudony: 'foundation',
+      openclaw: 'foundation', devtown: 'applications', aml: 'applications',
+      clinical: 'applications', quarkmind: 'applications', life: 'applications',
+      drafthouse: 'applications'
+    };
+    var DEFAULT = 'foundation/platform';
+
+    function applyRoute(hash) {
+      var parts = (hash || DEFAULT).replace(/^#/, '').split('/');
+      var tab = parts[0] || 'foundation';
+      var repo = parts[1] || 'platform';
+      if (!REPOS[repo]) { tab = 'foundation'; repo = 'platform'; }
+      if (REPOS[repo] !== tab) { tab = REPOS[repo]; }
+      document.querySelectorAll('.docs-tab').forEach(function(btn) {
+        btn.classList.toggle('active', btn.dataset.tab === tab);
+      });
+      document.getElementById('nav-foundation').classList.toggle('hidden', tab !== 'foundation');
+      document.getElementById('nav-applications').classList.toggle('hidden', tab !== 'applications');
+      document.querySelectorAll('.repo-link').forEach(function(a) {
+        a.classList.toggle('active', a.dataset.repo === repo);
+      });
+      document.querySelectorAll('.repo-panel').forEach(function(p) {
+        p.classList.toggle('active', p.id === 'panel-' + repo);
+      });
+      document.title = 'CaseHub — ' + repo;
+    }
+
+    document.querySelectorAll('.docs-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var tab = btn.dataset.tab;
+        window.location.hash = tab + '/' + (tab === 'foundation' ? 'platform' : 'devtown');
+      });
+    });
+
+    window.addEventListener('hashchange', function() { applyRoute(window.location.hash); });
+    applyRoute(window.location.hash);
+  </script>
+
+</body>
+</html>

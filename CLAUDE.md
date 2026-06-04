@@ -9,6 +9,11 @@ Served at **https://casehubio.github.io**.
 ## Project Type
 
 type: custom
+workspace: declined
+
+## Work Tracking
+
+Issue tracking: declined
 
 Static HTML/CSS website. No build step, no Jekyll (yet), no JavaScript.
 GitHub Pages serves directly from the `main` branch root.
