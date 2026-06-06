@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — CaseHub{% else %}CaseHub — An AI Fusion Harness{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  {% feed_meta %}
+  {% seo %}
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div style="display:flex;align-items:center;gap:28px">
+      <a class="nav-logo" href="/">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="2" y="2" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.9"/>
+          <rect x="13" y="2" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.6"/>
+          <rect x="2" y="13" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.6"/>
+          <rect x="13" y="13" width="9" height="9" rx="1.5" fill="#2aa8c4" opacity="0.3"/>
+        </svg>
+        <span>CaseHub</span>
+      </a>
+      <a href="/docs/" class="nav-link">Overview</a>
+      <a href="/notes/" class="nav-link">Notes</a>
+    </div>
+    <div class="nav-links">
+      <a href="https://github.com/casehubio" class="nav-link" target="_blank" rel="noopener">GitHub &#x2197;</a>
+    </div>
+  </nav>
+
+  {{ content }}
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-logo">CaseHub</span>
+      <div class="footer-links">
+        <a href="/notes/">Notes</a>
+        <a href="https://github.com/casehubio" target="_blank" rel="noopener">GitHub &#x2197;</a>
+      </div>
+      <span class="footer-tagline">Apache 2.0</span>
+    </div>
+  </footer>
+
+</body>
+</html>

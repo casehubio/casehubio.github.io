@@ -1,0 +1,26 @@
+title: CaseHub
+description: "An AI Fusion Harness — production-grade agentic coordination for regulated systems"
+url: https://casehubio.github.io
+baseurl: ""
+
+exclude:
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  notes:
+    output: true
+    permalink: /notes/:title/
+
+defaults:
+  - scope:
+      path: "_notes"
+    values:
+      layout: note
