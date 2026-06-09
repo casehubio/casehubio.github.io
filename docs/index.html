@@ -62,18 +62,22 @@
         <h1 class="rp-headline">The common language every module in the stack shares — without framework coupling</h1>
         <p class="rp-lead">Every Quarkus module eventually asks the same questions: who is the current user? What is the preference value for this case type? How do I express a scope path? casehub-platform answers those questions once, in pure Java, with no Quarkus dependency on the answer.</p>
         <p class="rp-lead">That constraint matters more than it sounds. If the common types live in a framework-coupled layer, every module that depends on them pulls the framework with it. The platform-api has no Quarkus dependency, no CDI, no JPA — so it is a safe transitive dependency at any tier, including pure domain modules that should never touch infrastructure.</p>
-        <p class="rp-lead">Quarkus integration is opt-in. Add the config module and preferences become scope-aware YAML — values that vary per case type and per installation, resolved per-request, without restarting the application. Add the oidc module and the current principal is backed by a real JWT. Leave both out and mock @DefaultBeans activate automatically in dev and test. The memory layer adds a semantic fact store with GDPR Art.17 erasure — the same zero-coupling pattern, with PostgreSQL, SQLite, or in-memory adapters.</p>
+        <p class="rp-lead">Quarkus integration is opt-in. Add the config module and preferences become scope-aware YAML — values that vary per case type and per installation, resolved per-request, without restarting the application. Add the oidc module and the current principal is backed by a real JWT. Leave both out and mock @DefaultBeans activate automatically in dev and test. The memory layer adds a semantic fact store — append-only, cross-case queryable agent memory, with GDPR Art.17 erasure, available as a standard relational store or as a temporal knowledge graph that persists entity relationships over time.</p>
         <div class="rp-section">
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
             <li>Path — hierarchical scope type (casehubio/devtown/pr-review)</li>
             <li>Preferences — per-request, per-scope, scope-hierarchy inheritance</li>
             <li>CurrentPrincipal — identity SPI, OIDC-backed via optional module</li>
-            <li>CaseMemoryStore — semantic fact index, permission-aware</li>
+            <li>ActorType — HUMAN / AGENT / SYSTEM with resolver</li>
+            <li>GroupMembershipProvider — directory queries for candidate group routing</li>
+            <li>CaseMemoryStore — append-only semantic fact index, cross-case queryable</li>
+            <li>GraphCaseMemoryStore — temporal knowledge graph variant</li>
+            <li>AgentProvider SPI — pluggable agent execution (Claude adapter included)</li>
+            <li>ActorStateContributor / Accumulator — unified actor workload view</li>
             <li>GDPR Art.17 erasure on memory entries</li>
-            <li>JPA (PostgreSQL FTS), SQLite (WAL+FTS5), in-memory adapters</li>
-            <li>zero-dep platform-api — safe at every tier</li>
-            <li>@DefaultBean mocks — activate automatically in dev/test</li>
+            <li>Adapters: JPA/PostgreSQL, SQLite, MongoDB, mem0, graphiti, in-memory</li>
+            <li>@DefaultBean mocks — activate automatically in dev/test, displaced by any @ApplicationScoped impl</li>
           </ul>
         </div>
         <div class="rp-uses-row">
@@ -131,6 +135,9 @@
             <li>SLA deadlines with CDI breach events (same transaction)</li>
             <li>Delegation chains with full ownership history</li>
             <li>Escalation targets — fires automatically on SLA breach</li>
+            <li>Child spawning with idempotency</li>
+            <li>M-of-N group completion coordination</li>
+            <li>Conditional outcomes with JEXL expressions</li>
             <li>Append-only audit trail per WorkItem</li>
             <li>Human and AI agent assignees — same lifecycle</li>
           </ul>
@@ -179,22 +186,25 @@
       <!-- ─── connectors ─── -->
       <div id="panel-connectors" class="repo-panel">
         <div class="rp-header"><span class="rp-badge">casehub-connectors</span><span class="rp-tier">Foundation</span></div>
-        <h1 class="rp-headline">When a WorkItem escalates, something has to actually reach the compliance officer</h1>
-        <p class="rp-lead">casehub-connectors is the straightforward part: a unified Connector SPI with built-in implementations for Slack, Teams, Twilio SMS, WhatsApp, and email. One dependency, five channels.</p>
-        <p class="rp-lead">The integration with Qhorus is what makes it more than a notification library. The connector-backend module bridges inbound messages — a human replying to a Slack message or email — back into Qhorus channels as formal speech acts. A compliance officer replies to a notification; that reply enters the oversight channel as a RESPONSE, discharges the commitment, and writes a ledger entry. The human never touches the system directly. The system sees a formal act regardless.</p>
-        <p class="rp-lead">The implementation is deliberate. Pure <code style="font-family:var(--mono);font-size:13px;background:var(--bg-card);border:1px solid var(--border);padding:1px 5px;border-radius:3px">java.net.http.HttpClient</code> for every HTTP-based connector — no Camel, no vendor SDK, no additional framework pulling in its own dependency tree. Custom connectors are CDI beans — implement the interface, annotate it @ApplicationScoped, and it's discovered automatically.</p>
+        <h1 class="rp-headline">Not just notifications — outbound delivery and inbound replies, closing the human participation loop</h1>
+        <p class="rp-lead">casehub-connectors is the straightforward part: a unified Connector SPI with built-in implementations for Slack, Teams, Twilio SMS, WhatsApp, and email. One dependency, five outbound channels.</p>
+        <p class="rp-lead">The inbound side is what makes it more than a notification library. Email IMAP polling and webhook-based inbound connectors receive replies from humans. The connector-backend module then bridges those inbound messages back into Qhorus channels as formal speech acts — a compliance officer replies to a notification and that reply enters the oversight channel as a RESPONSE, discharging the commitment and writing a ledger entry. The human never touches the system directly. The system sees a formal act regardless.</p>
+        <p class="rp-lead">The implementation is deliberate. Pure <code style="font-family:var(--mono);font-size:13px;background:var(--bg-card);border:1px solid var(--border);padding:1px 5px;border-radius:3px">java.net.http.HttpClient</code> for every HTTP-based connector — no Camel, no vendor SDK. Custom connectors are CDI beans — implement the interface, annotate it @ApplicationScoped, and it's discovered automatically. MCP tools expose all connectors to LLM agents.</p>
         <div class="rp-section">
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
-            <li>Slack — Incoming Webhooks, no credentials</li>
-            <li>Microsoft Teams — Adaptive Cards, no credentials</li>
+            <li>Slack — Incoming Webhooks + SlackBotClient (chat.postMessage, conversations.list)</li>
+            <li>Microsoft Teams — Adaptive Cards, webhook</li>
             <li>Twilio SMS — Account SID + Auth Token</li>
-            <li>WhatsApp Business — API Token + Phone Number ID</li>
-            <li>Email — quarkus-mailer (separate optional module)</li>
-            <li>Connector SPI — CDI @ApplicationScoped auto-discovery</li>
-            <li>Pure java.net.http — no Camel, no vendor SDK</li>
-            <li>connector-backend — inbound replies bridged into Qhorus channels as speech acts</li>
-            <li>Watchdog bridge — Qhorus alerts routed out via connectors automatically</li>
+            <li>WhatsApp Business — template support</li>
+            <li>Email SMTP — quarkus-mailer (optional module)</li>
+            <li>Email IMAP — inbound polling (optional module)</li>
+            <li>WebhookInboundConnector — push-based inbound</li>
+            <li>connector-backend — inbound replies bridged to Qhorus channels as formal speech acts</li>
+            <li>ConnectorMeshBridge SPI — posts Qhorus EVENT on successful delivery</li>
+            <li>ConnectorDiscovery SPI — discoverable targets (e.g. list Slack channels)</li>
+            <li>MCP tool surface — send_slack, send_teams, send_sms, send_whatsapp, send_email, list_channels</li>
+            <li>Connector SPI — CDI @ApplicationScoped auto-discovery; pure java.net.http</li>
           </ul>
         </div>
         <div class="rp-uses-row">
@@ -209,22 +219,25 @@
         <div class="rp-header"><span class="rp-badge">casehub-eidos</span><span class="rp-tier">Foundation</span></div>
         <h1 class="rp-headline">Agents need to know who they are, what they can do, and what they're allowed to say</h1>
         <p class="rp-lead">Unstructured agent identity is a coordination problem. If agents self-describe in free text, routing decisions are guesswork. If system prompts are hand-written per deployment, they drift from what agents actually do. Eidos gives the infrastructure layer of agent identity a formal home — without touching LLM implementation.</p>
-        <p class="rp-lead">Agents register with a structured descriptor: an identity, a slot in the system, capability tags, a disposition, and domain confidence scores. Other components discover agents by slot or capability — deterministically, not by asking the LLM who's available. System prompts are rendered from these descriptors, so agents operate within their declared scope on every invocation.</p>
-        <p class="rp-lead">The confidence scores aren't static. casehub-neural-text's ScalarRegressor can estimate actual epistemic confidence from agent output history and feed those estimates back into Eidos. An agent that consistently performs well in the safety-monitoring capability accumulates a higher score over time. Routing decisions improve without manual recalibration.</p>
+        <p class="rp-lead">Agents register with a structured descriptor: identity, slot, capability tags, epistemic domain scores, and a behavioural disposition profile — social orientation, rule-following tendency, risk appetite, autonomy level, and conflict mode. Other components discover agents by slot or capability — deterministically, not by asking the LLM who's available. System prompts are rendered from these descriptors, so agents operate within their declared scope on every invocation.</p>
+        <p class="rp-lead">The confidence scores aren't static. casehub-neural-text's ScalarRegressor can estimate actual epistemic confidence from agent output history and feed those estimates back into Eidos. Personality preservation measurement tracks whether an agent's actual behaviour remains consistent with its declared disposition across interactions. Routing decisions improve without manual recalibration.</p>
         <div class="rp-section">
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
-            <li>Agent descriptor registration — identity, slot, capabilities, disposition</li>
-            <li>Discovery by slot or capability tag</li>
-            <li>System prompt generation from descriptors</li>
-            <li>Epistemic domain confidence scores</li>
-            <li>CapabilityHealth probing — static and dynamic</li>
-            <li>Dynamic score updates from neural-text ScalarRegressor</li>
+            <li>AgentDescriptor — identity, slot, capabilities, disposition (socialOrient, ruleFollowing, riskAppetite, autonomy, conflictMode)</li>
+            <li>AgentRegistry — discovery by slot or capability tag, tenancy-scoped</li>
+            <li>SystemPromptRenderer — structural YAML → optional LLM semantic pass → markdown/A2A</li>
+            <li>CapabilityHealth probing — Ready / Degraded / Unavailable / EpistemicallyWeak</li>
+            <li>Epistemic domain confidence scores — static declaration + dynamic ScalarRegressor updates</li>
+            <li>VocabularyRegistry — cross-vocabulary equivalence (Belbin, DISC, SVO, Thomas-Kilmann)</li>
+            <li>AgentGraphStore SPI — temporal knowledge graph of agent relationships</li>
+            <li>AgentStateStore — TTL-based capability degradation tracking</li>
+            <li>Personality preservation measurement — 8 O*NET-grounded profiles</li>
           </ul>
         </div>
         <div class="rp-uses-row">
           <div class="rp-uses-label">Uses</div>
-          <p class="rp-uses">casehub-platform</p>
+          <p class="rp-uses">casehub-ledger, LangChain4j (optional semantic pass)</p>
         </div>
         <a href="https://github.com/casehubio/eidos" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
       </div>
@@ -298,19 +311,23 @@
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
             <li>CaseContext — shared observable key-value state (single source of truth)</li>
-            <li>DispatchRule — JQ-expression trigger conditions</li>
+            <li>DispatchRule — JQ-expression trigger conditions; contextChange, schedule/timer triggers</li>
+            <li>Binding targets — capability (worker), subCase (child case), humanTask (WorkItem)</li>
             <li>Goal evaluation — case completes when all goals met</li>
             <li>Milestone tracking — observable progress markers</li>
-            <li>Reactor — records facts, notifies; never executes</li>
-            <li>Java Lambda, Serverless Workflow DSL, LangChain4j workers</li>
-            <li>Human task adapter — casehub-work WorkItem integration</li>
-            <li>Pluggable persistence — YAML or Java case definitions</li>
-            <li>Trust-weighted agent routing (via casehub-ledger)</li>
+            <li>WAITING durability — case suspends until Qhorus commitment signal arrives</li>
+            <li>Three-tier agent routing — LeastLoaded (default), TrustWeighted (ledger), Semantic (eidos)</li>
+            <li>CapabilityHealth integration — filters unhealthy agents before dispatch</li>
+            <li>ActionRiskClassifier SPI — platform oversight gate for consequential actions</li>
+            <li>Qhorus message signal bridge — commitment-resolving messages unblock WAITING cases</li>
+            <li>Human task adapter — casehub-work WorkItem two-way bridge</li>
+            <li>Tenancy enforcement via PostgreSQL RLS</li>
+            <li>YAML case definitions; Java Lambda and LangChain4j workers</li>
           </ul>
         </div>
         <div class="rp-uses-row">
           <div class="rp-uses-label">Uses</div>
-          <p class="rp-uses">casehub-platform, casehub-ledger, casehub-work (adapter, optional), casehub-qhorus (optional)</p>
+          <p class="rp-uses">casehub-platform, casehub-ledger, casehub-work (adapter, optional), casehub-qhorus (optional), casehub-eidos (optional)</p>
         </div>
         <a href="https://github.com/casehubio/engine" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
       </div>
@@ -428,7 +445,7 @@
         <h1 class="rp-headline">GCP, FDA, and EMA requirements aren't a checklist — they're structural constraints the architecture has to satisfy</h1>
         <p class="rp-lead">A serious adverse event requires documented medical review within 24 hours under GCP. PI authorisation for a protocol deviation is a formal act — it has to be traceable to a named investigator. A consent withdrawal under GDPR Art.17 has to leave the audit trail intact while removing the PII. These are not requirements you satisfy by adding logging. They constrain how the system is built.</p>
         <p class="rp-lead">casehub-clinical coordinates eligibility screening agents, safety monitoring agents, PI authorisation gates, and IRB approval gates across multiple trial sites. Adverse event WorkItems carry CTCAE grading and 24-hour SLA enforcement. PI authorisation is a COMMAND with a formal commitment lifecycle — if the named investigator doesn't respond, that's a recorded breach. Multi-site coordination uses sub-cases with a trial-level blackboard: a Grade 4 event at one site updates shared state that the DSMB rollup observes across all sites.</p>
-        <p class="rp-lead">The tutorial is eight layers starting from naive Java, each demonstrating what GCP or FDA requirement breaks without the next module.</p>
+        <p class="rp-lead">The tutorial is seven layers starting from naive Java, each demonstrating what GCP or FDA requirement breaks without the next module. L1–L6 are complete; L7 (OpenClaw integration) is in progress.</p>
         <div class="rp-section">
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
@@ -440,7 +457,7 @@
             <li>FDA Merkle tamper-evident audit trail</li>
             <li>GDPR Art.17 consent withdrawal — chain intact, PII erased</li>
             <li>Trust-scored safety agent routing</li>
-            <li>Eight-layer incremental tutorial</li>
+            <li>Seven-layer incremental tutorial (L1–L6 complete)</li>
           </ul>
         </div>
         <div class="rp-uses-row">
@@ -483,7 +500,7 @@
         <h1 class="rp-headline">Most personal automation is best-effort. A reminder fires and then nothing enforces what follows.</h1>
         <p class="rp-lead">An agent says it will follow up with the contractor. Whether it does is unclear — and if it doesn't, there's no record that the follow-up was owed in the first place. casehub-life applies the same formal accountability structure to household coordination that casehub-aml applies to AML investigations: commitments that are tracked, deadlines that escalate, and a tamper-evident record for decisions that matter.</p>
         <p class="rp-lead">A contractor follow-up becomes a Qhorus commitment with a watchdog — if no ETA arrives by a specified time, an automated SMS fires via casehub-connectors. A health appointment becomes a WorkItem with a SLA and a named escalation target. A major financial decision requires a human RESPONSE before any action is taken, not as a soft preference but as a formal gate. OpenClaw provides the skill execution layer; casehub-iot adds the smart home layer — lights, locks, sensors, thermostats — via Home Assistant and OpenHAB, portable across platforms via the Matter-aligned device hierarchy.</p>
-        <p class="rp-lead">The tutorial is nine layers demonstrating a concrete gap at each step — the clearest proof that formal accountability infrastructure generalises well beyond regulated enterprise domains.</p>
+        <p class="rp-lead">The tutorial is seven layers demonstrating a concrete gap at each step — the clearest proof that formal accountability infrastructure generalises well beyond regulated enterprise domains. L1–L6 are complete; L7 (OpenClaw) is in progress.</p>
         <div class="rp-section">
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
@@ -492,14 +509,15 @@
             <li>Financial oversight gate — human RESPONSE required before action</li>
             <li>Legal deadline WorkItems — hard deadline + ledger record</li>
             <li>Tamper-evident audit for health and financial decisions</li>
-            <li>OpenClaw skill ecosystem as execution layer</li>
-            <li>Smart home integration via casehub-iot — HA, OpenHAB, Matter-aligned</li>
-            <li>Nine-layer incremental tutorial</li>
+            <li>8 case definitions — travel, home maintenance, care, appointments, contractor, financial review, family vote, care episodes</li>
+            <li>OpenClaw skill ecosystem as execution layer (L7, in progress)</li>
+            <li>casehub-iot smart home integration planned (L8+)</li>
+            <li>Seven-layer incremental tutorial (L1–L6 complete)</li>
           </ul>
         </div>
         <div class="rp-uses-row">
           <div class="rp-uses-label">Uses</div>
-          <p class="rp-uses">casehub-work, casehub-qhorus, casehub-ledger, casehub-engine, casehub-openclaw, casehub-iot</p>
+          <p class="rp-uses">casehub-work, casehub-qhorus, casehub-ledger, casehub-engine, casehub-openclaw (L7)</p>
         </div>
         <a href="https://github.com/casehubio/life" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
       </div>
@@ -507,20 +525,20 @@
       <!-- ─── drafthouse ─── -->
       <div id="panel-drafthouse" class="repo-panel">
         <div class="rp-header"><span class="rp-badge">casehub-drafthouse</span><span class="rp-tier">Application</span></div>
-        <h1 class="rp-headline">Document review grounded in specific text, with multiple reviewer agents and a full audit trail</h1>
+        <h1 class="rp-headline">Document review grounded in specific text — selection-scoped feedback and structured agent debate</h1>
         <p class="rp-lead">Document review with an LLM usually means pasting the whole thing and asking what's wrong with it. The response covers the document as a whole, isn't tied to any specific region, and leaves no record of what was looked at or what was returned. DraftHouse is different.</p>
         <p class="rp-lead">Any MCP client can open a document, show a before/after revision, and invoke reviewer agents with distinct personalities and areas of focus. Conversations are anchored to specific text selections. Each reviewer is independent. Each round of feedback is tied to the version it assessed. The full session is tracked via Qhorus channels — what was shown, who reviewed it, what came back.</p>
-        <p class="rp-lead">DraftHouse is the lightest application in the ecosystem and a useful entry point — the Qhorus integration pattern it demonstrates applies to every other application in the stack.</p>
+        <p class="rp-lead">The debate channel goes further. Two agents — a REV agent arguing for the proposed revision and an IMP agent arguing for the current implementation — conduct a structured peer-to-peer debate over selected content. The ChannelProjection SPI folds the debate transcript into a ReviewState digest: positions, concessions, open disagreements. A human reads the summary, not the raw argument. DraftHouse is the lightest application in the ecosystem and the clearest single-file illustration of the Qhorus channel pattern.</p>
         <div class="rp-section">
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
-            <li>ReviewSession — document sides (before/after), reviewer agents</li>
-            <li>Selection-scoped conversations — feedback tied to specific text</li>
-            <li>Multiple independent reviewer agents — distinct personalities</li>
-            <li>Before/after version tracking as first-class objects</li>
-            <li>Full session audit via Qhorus QUERY/RESPONSE channels</li>
-            <li>MCP tools — start_review, push_revision, get_cursor_context, get_diff, end_review</li>
-            <li>LangChain4j @AiService — provider-agnostic LLM calls</li>
+            <li>ReviewSession — document sides (before/after), selection-scoped conversations</li>
+            <li>Multiple independent reviewer agents — distinct personalities, LangChain4j @AiService</li>
+            <li>Debate channel — REV vs IMP agents, structured peer argument over selections</li>
+            <li>ChannelProjection SPI — folds debate history into ReviewState digest</li>
+            <li>Full session audit via Qhorus channels</li>
+            <li>Core MCP tools — start_review, update_selection, query_review, end_review</li>
+            <li>Debate MCP tools — start_debate, raise_point, respond_to, flag_human, get_debate_summary, end_debate</li>
           </ul>
         </div>
         <div class="rp-uses-row">
