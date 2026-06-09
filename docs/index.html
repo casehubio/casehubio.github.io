@@ -39,6 +39,7 @@
         <a href="#foundation/connectors"  class="repo-link" data-repo="connectors">connectors</a>
         <a href="#foundation/eidos"       class="repo-link" data-repo="eidos">eidos</a>
         <a href="#foundation/neural-text" class="repo-link" data-repo="neural-text">neural-text</a>
+        <a href="#foundation/iot"         class="repo-link" data-repo="iot">iot</a>
         <a href="#foundation/engine"      class="repo-link" data-repo="engine">engine</a>
         <a href="#foundation/claudony"    class="repo-link" data-repo="claudony">claudony</a>
         <a href="#foundation/openclaw"    class="repo-link" data-repo="openclaw">openclaw</a>
@@ -257,6 +258,35 @@
         <a href="https://github.com/casehubio/neural-text" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
       </div>
 
+      <!-- ─── iot ─── -->
+      <div id="panel-iot" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-iot</span><span class="rp-tier">Foundation</span></div>
+        <h1 class="rp-headline">Smart home devices as formal actors — cross-platform, accountable, testable without hardware</h1>
+        <p class="rp-lead">Smart home platforms speak different protocols, expose different entity models, and use different state representations. Code written for Home Assistant doesn't work on OpenHAB. casehub-iot closes that gap: a single typed device hierarchy, a single state change event, a single command interface — regardless of which platform is underneath.</p>
+        <p class="rp-lead">The device vocabulary aligns with the Matter Device Type Library — the industry-standard device categorization used by Apple, Google, Amazon, and the major manufacturers. An automation rule written against the iot-api types is portable across platforms without modification. When you switch from Home Assistant to OpenHAB, or add a third platform, the rule doesn't change.</p>
+        <p class="rp-lead">In bridge mode, a local smart home installation forwards state change events to a cloud CaseHub instance and relays device commands back down. The test harness runs device-dependent integrations with MockDeviceProvider — no live Home Assistant or OpenHAB required. The iot-api has zero framework dependencies, mirroring the casehub-platform pattern: safe at any tier, testable anywhere.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>DeviceEntity hierarchy — 10 typed subclasses, Matter Device Type Library aligned</li>
+            <li>DeviceProvider SPI — platform-agnostic discovery and command interface</li>
+            <li>DeviceRegistry — CDI Instance&lt;&gt; discovery of all providers</li>
+            <li>StateChangeEvent — async CDI events, &lt;100ms local network</li>
+            <li>DeviceCommand — typed dispatch, platform-translated by provider</li>
+            <li>Home Assistant provider — REST discovery + WebSocket state subscription</li>
+            <li>OpenHAB provider — REST + SSE + semantic model + state cache</li>
+            <li>MockDeviceProvider — full test coverage without hardware</li>
+            <li>Vendor supplement types — platform-specific fields via subclass, no api pollution</li>
+            <li>Bridge mode — cloud event relay and command forwarding</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">No casehub dependencies — Foundation-tier peer to casehub-connectors</p>
+        </div>
+        <a href="https://github.com/casehubio/iot" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
       <!-- ─── engine ─── -->
       <div id="panel-engine" class="repo-panel">
         <div class="rp-header"><span class="rp-badge">casehub-engine</span><span class="rp-tier">Orchestration</span></div>
@@ -452,8 +482,8 @@
         <div class="rp-header"><span class="rp-badge">casehub-life</span><span class="rp-tier">Application</span></div>
         <h1 class="rp-headline">Most personal automation is best-effort. A reminder fires and then nothing enforces what follows.</h1>
         <p class="rp-lead">An agent says it will follow up with the contractor. Whether it does is unclear — and if it doesn't, there's no record that the follow-up was owed in the first place. casehub-life applies the same formal accountability structure to household coordination that casehub-aml applies to AML investigations: commitments that are tracked, deadlines that escalate, and a tamper-evident record for decisions that matter.</p>
-        <p class="rp-lead">A contractor follow-up becomes a Qhorus commitment with a watchdog — if no ETA arrives by a specified time, an automated SMS fires via casehub-connectors. A health appointment becomes a WorkItem with a SLA and a named escalation target. A major financial decision requires a human RESPONSE before any action is taken, not as a soft preference but as a formal gate. OpenClaw provides the execution layer; casehub-life provides the accountability layer that makes those skills responsible rather than just capable.</p>
-        <p class="rp-lead">The tutorial is seven layers demonstrating a concrete gap at each step — the clearest proof that formal accountability infrastructure generalises well beyond regulated enterprise domains.</p>
+        <p class="rp-lead">A contractor follow-up becomes a Qhorus commitment with a watchdog — if no ETA arrives by a specified time, an automated SMS fires via casehub-connectors. A health appointment becomes a WorkItem with a SLA and a named escalation target. A major financial decision requires a human RESPONSE before any action is taken, not as a soft preference but as a formal gate. OpenClaw provides the skill execution layer; casehub-iot adds the smart home layer — lights, locks, sensors, thermostats — via Home Assistant and OpenHAB, portable across platforms via the Matter-aligned device hierarchy.</p>
+        <p class="rp-lead">The tutorial is nine layers demonstrating a concrete gap at each step — the clearest proof that formal accountability infrastructure generalises well beyond regulated enterprise domains.</p>
         <div class="rp-section">
           <div class="rp-section-title">Capabilities</div>
           <ul class="rp-caps">
@@ -463,12 +493,13 @@
             <li>Legal deadline WorkItems — hard deadline + ledger record</li>
             <li>Tamper-evident audit for health and financial decisions</li>
             <li>OpenClaw skill ecosystem as execution layer</li>
-            <li>Seven-layer incremental tutorial</li>
+            <li>Smart home integration via casehub-iot — HA, OpenHAB, Matter-aligned</li>
+            <li>Nine-layer incremental tutorial</li>
           </ul>
         </div>
         <div class="rp-uses-row">
           <div class="rp-uses-label">Uses</div>
-          <p class="rp-uses">casehub-work, casehub-qhorus, casehub-ledger, casehub-engine, casehub-openclaw</p>
+          <p class="rp-uses">casehub-work, casehub-qhorus, casehub-ledger, casehub-engine, casehub-openclaw, casehub-iot</p>
         </div>
         <a href="https://github.com/casehubio/life" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
       </div>
@@ -517,7 +548,7 @@
     var REPOS = {
       platform: 'foundation', ledger: 'foundation', work: 'foundation',
       qhorus: 'foundation', connectors: 'foundation', eidos: 'foundation',
-      'neural-text': 'foundation', engine: 'foundation', claudony: 'foundation',
+      'neural-text': 'foundation', iot: 'foundation', engine: 'foundation', claudony: 'foundation',
       openclaw: 'foundation', devtown: 'applications', aml: 'applications',
       clinical: 'applications', quarkmind: 'applications', life: 'applications',
       drafthouse: 'applications'
