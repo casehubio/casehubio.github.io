@@ -51,6 +51,7 @@
         <a href="#applications/quarkmind"  class="repo-link" data-repo="quarkmind">quarkmind</a>
         <a href="#applications/life"       class="repo-link" data-repo="life">life</a>
         <a href="#applications/drafthouse" class="repo-link" data-repo="drafthouse">drafthouse</a>
+        <a href="#applications/soc"        class="repo-link" data-repo="soc">soc</a>
       </nav>
     </aside>
 
@@ -548,6 +549,36 @@
         <a href="https://github.com/casehubio/drafthouse" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
       </div>
 
+      <!-- ─── soc ─── -->
+      <div id="panel-soc" class="repo-panel">
+        <div class="rp-header"><span class="rp-badge">casehub-soc</span><span class="rp-tier">Application</span></div>
+        <h1 class="rp-headline">Incident response where every containment decision has a tamper-evident chain back to the alert that started it</h1>
+        <p class="rp-lead">A SIEM alert fires. An agent triages it. Another enriches it with threat intelligence. A third recommends containment. Someone approves isolating a host. In most SOC tooling, reconstructing that chain afterward requires correlating timestamps across three systems. In casehub-soc, the chain is structural — every step is a ledger entry with a causal link to the previous one.</p>
+        <p class="rp-lead">Alerts arrive as CloudEvents and hit RAS Ganglion detectors — the same reactive detection framework the platform provides. Situations aggregate correlated alerts and trigger case instances when thresholds are met. From there, the engine's Modernised Blackboard Architecture takes over: IOC enrichment, ATT&CK mapping, and containment recommendation workers react to context changes. Irreversible containment actions are gated by an ActionRiskClassifier — the SOC manager approves via a WorkItem before a host is isolated or credentials are revoked.</p>
+        <p class="rp-lead">Compliance evidence is generated as a structural byproduct. SOC2 requires auditable response chains. DORA mandates response time reporting. NIS2 requires documented incident handling. casehub-soc produces all three from the same ledger records that drive the investigation — no separate compliance reporting layer needed.</p>
+        <div class="rp-section">
+          <div class="rp-section-title">Capabilities</div>
+          <ul class="rp-caps">
+            <li>SIEM alert Ganglion — CloudEvent detection with severity-to-signal mapping</li>
+            <li>MITRE ATT&CK taxonomy — 14 tactics, technique ID validation</li>
+            <li>9 containment action types with 4 gate policies (NEVER / CONFIDENCE / RISK_SCORE / ALWAYS)</li>
+            <li>ActionRiskClassifier — fail-closed risk gating for containment actions</li>
+            <li>Situation definitions — threshold and count-based alert correlation</li>
+            <li>Case definition — investigation workflow with capability bindings</li>
+            <li>IOC domain types — 12 indicator types with set-safe equality</li>
+            <li>SOC operational constants — 6 analyst groups, 12 capability tags</li>
+            <li>SOC2 / DORA / NIS2 compliance evidence from ledger records</li>
+            <li>CBR-based triage learning — past incidents inform future triage (planned)</li>
+            <li>Trust-weighted analyst routing from incident resolution attestations (planned)</li>
+          </ul>
+        </div>
+        <div class="rp-uses-row">
+          <div class="rp-uses-label">Uses</div>
+          <p class="rp-uses">casehub-engine, casehub-ras, casehub-ledger, casehub-work, casehub-qhorus, casehub-platform</p>
+        </div>
+        <a href="https://github.com/casehubio/soc" class="rp-github" target="_blank" rel="noopener">View on GitHub &#x2197;</a>
+      </div>
+
     </main>
   </div>
 
@@ -569,7 +600,7 @@
       'neural-text': 'foundation', iot: 'foundation', engine: 'foundation', claudony: 'foundation',
       openclaw: 'foundation', devtown: 'applications', aml: 'applications',
       clinical: 'applications', quarkmind: 'applications', life: 'applications',
-      drafthouse: 'applications'
+      drafthouse: 'applications', soc: 'applications'
     };
     var DEFAULT = 'foundation/platform';
 
