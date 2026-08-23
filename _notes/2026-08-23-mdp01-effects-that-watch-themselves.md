@@ -8,6 +8,8 @@ projects: [casehub-engine]
 tags: [goap, monitoring, adaptation, eventlog, closed-loop]
 ---
 
+# The Effects That Watch Themselves
+
 GOAP actions declare what a worker will produce. The engine now checks whether it actually did.
 
 A `GoapAction` carries a `Map<String, Boolean>` of effects — the same map the A* planner uses to find paths from initial state to goal state. At planning time, these effects are promises: "after this action runs, `resolved` will be true, `scored` will be true." At execution time, the engine holds the worker to those promises.
