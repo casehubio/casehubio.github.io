@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-new" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <style>
+    .step { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; rx: 6; }
+    .step-new { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; rx: 6; }
+    .step-text { font-size: 13px; fill: #1e293b; text-anchor: middle; dominant-baseline: central; }
+    .step-num { font-size: 11px; fill: #94a3b8; text-anchor: start; }
+    .step-num-new { font-size: 11px; fill: #2563eb; font-weight: 600; text-anchor: start; }
+    .label { font-size: 11px; fill: #64748b; text-anchor: middle; }
+    .label-new { font-size: 11px; fill: #2563eb; font-weight: 600; text-anchor: middle; }
+    .title { font-size: 16px; fill: #0f172a; font-weight: 600; }
+    .exempt { font-size: 10px; fill: #9333ea; text-anchor: start; font-style: italic; }
+    .badge { fill: #dbeafe; stroke: #2563eb; stroke-width: 1; rx: 3; }
+  </style>
+
+  <text x="360" y="30" class="title" text-anchor="middle">MessageService.dispatch() — Enforcement Pipeline</text>
+
+  <!-- Step 1: Cross-tenant -->
+  <rect x="60" y="55" width="600" height="36" class="step"/>
+  <text x="72" y="73" class="step-num">1</text>
+  <text x="360" y="73" class="step-text">Cross-tenant check</text>
+
+  <line x1="360" y1="91" x2="360" y2="105" stroke="#64748b" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Paused -->
+  <rect x="60" y="109" width="600" height="36" class="step"/>
+  <text x="72" y="127" class="step-num">2</text>
+  <text x="360" y="127" class="step-text">Paused channel check</text>
+
+  <line x1="360" y1="145" x2="360" y2="159" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-new)"/>
+
+  <!-- Step 3: NEW — Participation -->
+  <rect x="60" y="163" width="600" height="52" class="step-new"/>
+  <rect x="60" y="163" width="600" height="52" class="badge" fill-opacity="0.08"/>
+  <text x="72" y="183" class="step-num-new">3</text>
+  <text x="360" y="180" class="step-text" fill="#1e40af" font-weight="600">Mesh participation check</text>
+  <text x="360" y="200" class="label-new">OPEN → skip  |  AUTO_REGISTER → enrol  |  ENFORCE → reject</text>
+
+  <!-- Exemptions -->
+  <text x="670" y="180" class="exempt">exempt:</text>
+  <text x="670" y="193" class="exempt">system: senders</text>
+  <text x="670" y="206" class="exempt">EVENT type</text>
+
+  <line x1="360" y1="215" x2="360" y2="229" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-new)"/>
+
+  <!-- Step 4: ACL -->
+  <rect x="60" y="233" width="600" height="36" class="step"/>
+  <text x="72" y="251" class="step-num">4</text>
+  <text x="360" y="251" class="step-text">AllowedWritersPolicy ACL</text>
+  <text x="360" y="280" class="label">↑ auto-registered capabilities visible here</text>
+
+  <line x1="360" y1="269" x2="360" y2="293" stroke="#64748b" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Rate limit -->
+  <rect x="60" y="297" width="600" height="36" class="step"/>
+  <text x="72" y="315" class="step-num">5</text>
+  <text x="360" y="315" class="step-text">Rate limiter</text>
+
+  <line x1="360" y1="333" x2="360" y2="347" stroke="#64748b" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Steps 6-8 collapsed -->
+  <rect x="60" y="351" width="600" height="36" class="step"/>
+  <text x="72" y="369" class="step-num">6–8</text>
+  <text x="360" y="369" class="step-text">Routing  ·  Trust policy  ·  Type policy</text>
+
+  <line x1="360" y1="387" x2="360" y2="401" stroke="#64748b" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Steps 9-10 collapsed -->
+  <rect x="60" y="405" width="600" height="36" class="step"/>
+  <text x="72" y="423" class="step-num">9–10</text>
+  <text x="360" y="423" class="step-text">Protocol evaluation  ·  Correlation integrity</text>
+
+  <line x1="360" y1="441" x2="360" y2="455" stroke="#64748b" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Step 11: Enforcement gate -->
+  <rect x="60" y="459" width="600" height="36" class="step"/>
+  <text x="72" y="477" class="step-num">11</text>
+  <text x="360" y="477" class="step-text">Enforcement gate (block / quarantine)</text>
+</svg>

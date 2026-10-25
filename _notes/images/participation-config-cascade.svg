@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <style>
+    .box { rx: 8; stroke-width: 1.5; }
+    .box-text { font-size: 14px; font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+    .detail { font-size: 11px; text-anchor: middle; dominant-baseline: central; }
+    .title { font-size: 16px; fill: #0f172a; font-weight: 600; text-anchor: middle; }
+    .mode-label { font-size: 12px; fill: #475569; text-anchor: middle; }
+    .arrow-label { font-size: 10px; fill: #94a3b8; text-anchor: middle; }
+  </style>
+
+  <text x="360" y="28" class="title">Three-Level Configuration Cascade</text>
+
+  <!-- Level 1: Global -->
+  <rect x="40" y="50" width="200" height="80" class="box" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="140" y="78" class="box-text" fill="#15803d">Global Default</text>
+  <text x="140" y="100" class="detail" fill="#166534">casehub.qhorus.mesh</text>
+  <text x="140" y="116" class="detail" fill="#166534">.participation-policy</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="240" y1="90" x2="270" y2="90" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="255" y="82" class="arrow-label">overrides</text>
+
+  <!-- Level 2: Per-channel -->
+  <rect x="275" y="50" width="200" height="80" class="box" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="375" y="78" class="box-text" fill="#1e40af">Per-Channel</text>
+  <text x="375" y="100" class="detail" fill="#1e40af">Channel.participationPolicy</text>
+  <text x="375" y="116" class="detail" fill="#1e40af">null → inherit global</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="475" y1="90" x2="505" y2="90" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="490" y="82" class="arrow-label">shapes</text>
+
+  <!-- Level 3: SPI -->
+  <rect x="510" y="50" width="180" height="80" class="box" fill="#faf5ff" stroke="#9333ea"/>
+  <text x="600" y="78" class="box-text" fill="#7e22ce">SPI</text>
+  <text x="600" y="100" class="detail" fill="#7e22ce">MeshAutoRegistrar</text>
+  <text x="600" y="116" class="detail" fill="#7e22ce">controls instance shape</text>
+
+  <!-- Mode boxes -->
+  <text x="360" y="165" class="title" font-size="14">Policy Modes</text>
+
+  <!-- OPEN -->
+  <rect x="40" y="185" width="200" height="90" class="box" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="140" y="210" class="box-text" fill="#334155">OPEN</text>
+  <text x="140" y="230" class="detail" fill="#64748b">No registration check.</text>
+  <text x="140" y="246" class="detail" fill="#64748b">Current behaviour.</text>
+  <text x="140" y="262" class="detail" fill="#16a34a">← global default</text>
+
+  <!-- AUTO_REGISTER -->
+  <rect x="260" y="185" width="200" height="90" class="box" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="360" y="210" class="box-text" fill="#1e40af">AUTO_REGISTER</text>
+  <text x="360" y="230" class="detail" fill="#1e40af">Enrol sender on first</text>
+  <text x="360" y="246" class="detail" fill="#1e40af">post. Mesh populates</text>
+  <text x="360" y="262" class="detail" fill="#1e40af">itself.</text>
+
+  <!-- ENFORCE -->
+  <rect x="480" y="185" width="200" height="90" class="box" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="580" y="210" class="box-text" fill="#991b1b">ENFORCE</text>
+  <text x="580" y="230" class="detail" fill="#991b1b">Reject unregistered</text>
+  <text x="580" y="246" class="detail" fill="#991b1b">senders. Known</text>
+  <text x="580" y="262" class="detail" fill="#991b1b">participants only.</text>
+
+  <!-- Migration arrow -->
+  <line x1="190" y1="330" x2="300" y2="330" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <line x1="410" y1="330" x2="520" y2="330" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <text x="245" y="348" class="arrow-label">deploy</text>
+  <text x="465" y="348" class="arrow-label">audit, then tighten</text>
+  <text x="360" y="370" class="mode-label">Migration path: OPEN → AUTO_REGISTER → ENFORCE</text>
+</svg>
