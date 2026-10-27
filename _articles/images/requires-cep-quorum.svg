@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Inter, system-ui, sans-serif">
+  <rect width="760" height="420" fill="#fafafa" rx="8"/>
+
+  <text x="380" y="24" text-anchor="middle" font-size="13" font-weight="600" fill="#1a1a1a">Multi-Level Sequencing — Three Event Sources, Two Quorum Gates, One Deadline</text>
+
+  <!-- Event sources (left) -->
+  <rect x="12" y="60" width="108" height="32" rx="4" fill="#fff3e0" stroke="#e65100" stroke-width="1.5"/>
+  <text x="66" y="81" text-anchor="middle" font-size="9" font-weight="600" fill="#e65100">trade.executed</text>
+
+  <rect x="12" y="250" width="108" height="32" rx="4" fill="#e3f2fd" stroke="#1565c0" stroke-width="1.5"/>
+  <text x="66" y="271" text-anchor="middle" font-size="9" font-weight="600" fill="#1565c0">settlement.instruction</text>
+
+  <rect x="12" y="350" width="108" height="32" rx="4" fill="#f3e8fd" stroke="#7b1fa2" stroke-width="1.5"/>
+  <text x="66" y="367" text-anchor="middle" font-size="8" font-weight="600" fill="#7b1fa2">cron: 17:00 MON-FRI</text>
+
+  <!-- Fan-out from trade.executed -->
+  <line x1="120" y1="76" x2="148" y2="60" stroke="#e65100" stroke-width="1" marker-end="url(#a1)"/>
+  <line x1="120" y1="76" x2="148" y2="100" stroke="#e65100" stroke-width="1" marker-end="url(#a1)"/>
+  <line x1="120" y1="76" x2="148" y2="155" stroke="#e65100" stroke-width="1" marker-end="url(#a1)"/>
+  <line x1="120" y1="76" x2="148" y2="195" stroke="#e65100" stroke-width="1" marker-end="url(#a1)"/>
+
+  <!-- Level 0: compliance sub-sequence -->
+  <rect x="135" y="40" width="10" height="140" rx="2" fill="#e8f0fe" opacity="0.4"/>
+
+  <rect x="150" y="44" width="120" height="30" rx="4" fill="#c8e6c9" stroke="#4caf50" stroke-width="1"/>
+  <text x="210" y="63" text-anchor="middle" font-size="9" font-weight="500" fill="#2e7d32">check-kyc</text>
+
+  <rect x="150" y="84" width="120" height="30" rx="4" fill="#c8e6c9" stroke="#4caf50" stroke-width="1"/>
+  <text x="210" y="103" text-anchor="middle" font-size="9" font-weight="500" fill="#2e7d32">check-sanctions</text>
+
+  <!-- Inner quorum barrier -->
+  <line x1="290" y1="40" x2="290" y2="120" stroke="#137333" stroke-width="2.5"/>
+  <text x="300" y="75" font-size="7" font-weight="700" fill="#137333">requires</text>
+  <text x="300" y="86" font-size="7" fill="#137333">2 of 2</text>
+
+  <!-- Arrows to inner barrier -->
+  <line x1="270" y1="59" x2="287" y2="70" stroke="#4caf50" stroke-width="1" marker-end="url(#a2)"/>
+  <line x1="270" y1="99" x2="287" y2="85" stroke="#4caf50" stroke-width="1" marker-end="url(#a2)"/>
+
+  <!-- enrich-counterparty (gated by inner quorum) -->
+  <line x1="312" y1="78" x2="330" y2="78" stroke="#137333" stroke-width="1.5" marker-end="url(#a2)"/>
+  <rect x="332" y="60" width="130" height="36" rx="4" fill="#e6f4ea" stroke="#137333" stroke-width="1.5"/>
+  <text x="397" y="76" text-anchor="middle" font-size="9" font-weight="600" fill="#137333">enrich-counterparty</text>
+  <text x="397" y="90" text-anchor="middle" font-size="7" fill="#555">waits for compliance</text>
+
+  <!-- Independent enrichments -->
+  <rect x="150" y="140" width="120" height="30" rx="4" fill="#c8e6c9" stroke="#4caf50" stroke-width="1"/>
+  <text x="210" y="159" text-anchor="middle" font-size="9" font-weight="500" fill="#2e7d32">enrich-instrument</text>
+
+  <rect x="150" y="180" width="120" height="30" rx="4" fill="#fff9c4" stroke="#f9a825" stroke-width="1"/>
+  <text x="210" y="199" text-anchor="middle" font-size="9" font-weight="500" fill="#f57f17">enrich-market-data</text>
+
+  <!-- Outer quorum barrier -->
+  <line x1="500" y1="50" x2="500" y2="218" stroke="#137333" stroke-width="3"/>
+  <rect x="508" y="100" width="75" height="52" rx="4" fill="#e6f4ea" stroke="#137333" stroke-width="1"/>
+  <text x="545" y="117" text-anchor="middle" font-size="9" font-weight="700" fill="#137333">requires</text>
+  <text x="545" y="132" text-anchor="middle" font-size="9" fill="#137333">2 of 3</text>
+  <text x="545" y="146" text-anchor="middle" font-size="8" fill="#d93025">CANCEL rest</text>
+
+  <!-- Arrows from enrichments to outer barrier -->
+  <line x1="462" y1="78" x2="497" y2="115" stroke="#137333" stroke-width="1" marker-end="url(#a2)"/>
+  <line x1="270" y1="155" x2="497" y2="125" stroke="#4caf50" stroke-width="1" marker-end="url(#a2)"/>
+  <line x1="270" y1="195" x2="497" y2="140" stroke="#f9a825" stroke-width="1" stroke-dasharray="3,2"/>
+
+  <!-- Cancel arrow back to market-data -->
+  <path d="M508,150 Q480,185 272,200" fill="none" stroke="#d93025" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#a3)"/>
+  <text x="400" y="195" text-anchor="middle" font-size="7" fill="#d93025">cancel</text>
+
+  <!-- settle-trade -->
+  <line x1="583" y1="126" x2="610" y2="126" stroke="#137333" stroke-width="2" marker-end="url(#a2)"/>
+
+  <!-- Arrow from settlement.instruction -->
+  <line x1="120" y1="266" x2="610" y2="240" stroke="#1565c0" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#a4)"/>
+
+  <rect x="612" y="218" width="130" height="50" rx="5" fill="#e6f4ea" stroke="#137333" stroke-width="2"/>
+  <text x="677" y="238" text-anchor="middle" font-size="10" font-weight="700" fill="#137333">settle-trade</text>
+  <text x="677" y="253" text-anchor="middle" font-size="8" fill="#1565c0">trigger: settlement.instruction</text>
+  <text x="677" y="263" text-anchor="middle" font-size="8" fill="#137333">guard: 2 of 3 enrichments</text>
+
+  <!-- Deadline terminator -->
+  <line x1="120" y1="366" x2="400" y2="366" stroke="#7b1fa2" stroke-width="1.5" marker-end="url(#a5)"/>
+  <rect x="403" y="348" width="135" height="36" rx="4" fill="#f3e8fd" stroke="#7b1fa2" stroke-width="1.5"/>
+  <text x="470" y="365" text-anchor="middle" font-size="9" font-weight="600" fill="#7b1fa2">settlement-deadline</text>
+  <text x="470" y="378" text-anchor="middle" font-size="8" fill="#7b1fa2">faults in-progress work</text>
+
+  <!-- Cascade arrow from deadline -->
+  <path d="M538,358 Q570,340 570,300 Q570,250 610,248" fill="none" stroke="#d93025" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#a3)"/>
+  <text x="582" y="310" font-size="7" fill="#d93025">cascade</text>
+  <text x="582" y="320" font-size="7" fill="#d93025">fault</text>
+
+  <!-- Level labels -->
+  <text x="210" y="38" text-anchor="middle" font-size="7" font-weight="600" fill="#999">COMPLIANCE SUB-SEQUENCE</text>
+  <text x="300" y="230" text-anchor="middle" font-size="7" font-weight="600" fill="#999">INDEPENDENT ENRICHMENTS</text>
+
+  <defs>
+    <marker id="a1" markerWidth="5" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L5,2 L0,4" fill="#e65100"/></marker>
+    <marker id="a2" markerWidth="5" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L5,2 L0,4" fill="#137333"/></marker>
+    <marker id="a3" markerWidth="5" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L5,2 L0,4" fill="#d93025"/></marker>
+    <marker id="a4" markerWidth="5" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L5,2 L0,4" fill="#1565c0"/></marker>
+    <marker id="a5" markerWidth="5" markerHeight="4" refX="5" refY="2" orient="auto"><path d="M0,0 L5,2 L0,4" fill="#7b1fa2"/></marker>
+  </defs>
+</svg>
