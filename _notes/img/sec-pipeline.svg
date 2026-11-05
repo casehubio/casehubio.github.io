@@ -1,0 +1,37 @@
+<svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg" style="font-family:system-ui,sans-serif">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#475569"/></marker>
+  </defs>
+  <!-- Pipeline boxes -->
+  <rect x="10" y="60" width="160" height="100" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="90" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">SEC 1: Relevance</text>
+  <text x="90" y="112" text-anchor="middle" font-size="11" fill="#64748b">novelty · drive match</text>
+  <text x="90" y="128" text-anchor="middle" font-size="11" fill="#64748b">urgency</text>
+
+  <rect x="210" y="60" width="160" height="100" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="290" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">SEC 2: Implication</text>
+  <text x="290" y="112" text-anchor="middle" font-size="11" fill="#64748b">goal conduciveness</text>
+  <text x="290" y="128" text-anchor="middle" font-size="11" fill="#64748b">helps or hinders?</text>
+
+  <rect x="410" y="60" width="160" height="100" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="490" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">SEC 3: Coping</text>
+  <text x="490" y="112" text-anchor="middle" font-size="11" fill="#64748b">controllability</text>
+  <text x="490" y="128" text-anchor="middle" font-size="11" fill="#64748b">adjustability</text>
+
+  <rect x="610" y="60" width="160" height="100" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="690" y="90" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">SEC 4: Normative</text>
+  <text x="690" y="112" text-anchor="middle" font-size="11" fill="#64748b">internal standards</text>
+  <text x="690" y="128" text-anchor="middle" font-size="11" fill="#64748b">external standards</text>
+
+  <!-- Arrows -->
+  <line x1="170" y1="110" x2="210" y2="110" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="370" y1="110" x2="410" y2="110" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="570" y1="110" x2="610" y2="110" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Input -->
+  <text x="90" y="40" text-anchor="middle" font-size="12" fill="#475569" font-style="italic">observation + drives</text>
+  <line x1="90" y1="48" x2="90" y2="60" stroke="#475569" stroke-width="1" marker-end="url(#arrowhead)"/>
+
+  <!-- Output -->
+  <text x="400" y="200" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">→ EmotionMapper → OCC emotions + Frijda action tendencies</text>
+</svg>
