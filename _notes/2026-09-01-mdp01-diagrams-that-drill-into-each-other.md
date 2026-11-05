@@ -5,7 +5,7 @@ author: mdp
 entry_type: note
 subtype: diary
 projects:
-  - casehubio/blocks-ui
+  - casehubio/agency-ui
 tags: [diagram, htn, swf, drill-down, orthogonal, editing]
 ---
 

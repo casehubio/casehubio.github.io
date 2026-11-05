@@ -4,7 +4,7 @@ title: "The Last d3 Component"
 date: 2026-09-27
 entry_type: note
 subtype: diary
-projects: [casehubio/blocks-ui]
+projects: [casehubio/agency-ui]
 tags: [graph, migration, d3, pages, elk, cleanup]
 ---
 

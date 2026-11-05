@@ -59,7 +59,7 @@ hit the error.
 
 engine#101 was supposed to deliver `LlmPlanningStrategy` — a single SPI for LLM-backed
 worker selection. What actually shipped was architecturally richer: `RoutingStrategy<T>`
-(agent selection) and `DecompositionStrategy<T>` (goal decomposition) in `casehub-blocks`.
+(agent selection) and `DecompositionStrategy<T>` (goal decomposition) in `casehub-agency`.
 
 Neither fits the clinical use case. Protocol amendment advising isn't routing (we're not
 choosing between multiple advisors) and it isn't decomposition (no subtask breakdown).

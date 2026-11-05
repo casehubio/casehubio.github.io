@@ -5,12 +5,12 @@ date: 2026-07-12
 type: phase-update
 entry_type: note
 subtype: diary
-projects: [casehub-blocks]
+projects: [casehub-agency]
 tags: [orchestration, unification, shared-types]
 series: issue-52-shared-orchestration-types
 ---
 
-*Part of a series on [#44 — agentic planning architecture](https://github.com/casehubio/blocks/issues/44). Previous: [Closing the Description Thread](2026-07-12-mdp01-closing-the-description-thread.md).*
+*Part of a series on [#44 — agentic planning architecture](https://github.com/casehubio/agency/issues/44). Previous: [Closing the Description Thread](2026-07-12-mdp01-closing-the-description-thread.md).*
 
 ## The Pattern-Matching Tell
 

@@ -5,7 +5,7 @@ date: 2026-07-21
 type: phase-update
 entry_type: note
 subtype: diary
-projects: [casehub-blocks-ui]
+projects: [casehub-mosaic]
 tags: [trust, web-components, composition]
 ---
 

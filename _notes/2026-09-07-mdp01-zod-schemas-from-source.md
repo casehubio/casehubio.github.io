@@ -4,7 +4,7 @@ title: "Schema generation from source: giving blocks-ui components a typed contr
 date: 2026-09-07
 entry_type: note
 subtype: diary
-projects: [casehubio/blocks-ui]
+projects: [casehubio/agency-ui]
 tags: [typescript, zod, ts-morph, schema-generation, web-components]
 series: issue-156-zod-schemas
 ---

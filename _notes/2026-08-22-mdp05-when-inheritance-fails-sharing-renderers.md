@@ -4,7 +4,7 @@ title: "When Inheritance Fails: Sharing Renderers Without Sharing Lifecycles"
 date: 2026-08-22
 entry_type: note
 subtype: diary
-projects: [casehub-blocks-ui]
+projects: [casehub-mosaic]
 tags: [composition, web-components, pages-viz, timeline, architecture]
 series: issue-123-timeline-extends-pages
 ---

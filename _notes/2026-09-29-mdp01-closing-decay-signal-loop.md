@@ -4,7 +4,7 @@ title: "Closing the Decay-Signal Loop"
 date: 2026-09-29
 entry_type: note
 subtype: diary
-projects: [casehubio/neocortex, casehubio/blocks, casehubio/eidos]
+projects: [casehubio/neocortex, casehubio/agency, casehubio/eidos]
 tags: [goal-lifecycle, cross-repo, spi, cognitive-architecture]
 series: issue-300-goal-revision-decay-lifecycle
 ---

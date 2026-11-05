@@ -4,7 +4,7 @@ date: 2026-08-26
 author: mdp
 entry_type: note
 subtype: diary
-projects: [casehubio/blocks-ui]
+projects: [casehubio/agency-ui]
 series: issue-137-channel-activity-wrapper
 tags: [channel-activity, wrapper, design-review, svg-export, adoption]
 ---

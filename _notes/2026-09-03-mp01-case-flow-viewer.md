@@ -4,7 +4,7 @@ title: "The Viewer That Was Already There"
 date: 2026-09-03
 entry_type: note
 subtype: diary
-projects: [casehubio/blocks-ui]
+projects: [casehubio/agency-ui]
 tags: [diagram, case-flow, composition, architecture]
 series: issue-150-case-flow-viewer
 ---

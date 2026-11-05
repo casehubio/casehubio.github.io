@@ -4,7 +4,7 @@ title: "Schemas That Know Their Shape"
 date: 2026-08-27
 entry_type: note
 subtype: diary
-projects: [casehubio/blocks-ui]
+projects: [casehubio/agency-ui]
 tags: [diagram, json-schema, property-palette, discriminated-unions]
 ---
 

@@ -11,7 +11,7 @@ series: issue-26-deliberation-websocket-push
 
 The C3 deliberation spec deferred WebSocket push to a follow-up issue. The implementation looked straightforward — wire lifecycle events (start, complete, fail) to `PushBroadcaster` topics, add per-round convergence updates. Two topics, four event types, mirror the existing market data push pattern.
 
-The first design question was whether per-round convergence updates needed a cross-repo change. `ConversationOrchestrator` in casehub-blocks runs the debate loop, and it has no hook for observing state after each round. I filed blocks#125 to add a `RoundListener` SPI. Seemed clean — add the hook upstream, consume it downstream.
+The first design question was whether per-round convergence updates needed a cross-repo change. `ConversationOrchestrator` in casehub-agency runs the debate loop, and it has no hook for observing state after each round. I filed blocks#125 to add a `RoundListener` SPI. Seemed clean — add the hook upstream, consume it downstream.
 
 ## The Wrong Execution Path
 

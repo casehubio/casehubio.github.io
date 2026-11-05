@@ -10,6 +10,7 @@ tags: [agent-memory, architecture, neocortex, eidos]
 series: issue-800-agent-learning-memory
 ---
 
+# Why Your Agent Forgets Everything
 "Memory" in LLM agents has become one of those terms that means whatever the vendor needs it to mean. Most of the time, it means a chat log with summarisation bolted on. LangChain's memory modules, Mem0, ChatGPT's persistent memory — they all solve the same problem: maintaining conversational coherence across sessions. Store what was *said*, summarise it when it gets long, make it available next time. Any agent can resume where the last one left off, or consume the summary without reading the full transcript.
 
 This kind of memory is real, and it matters. Without it, every agent interaction starts cold. But it answers exactly one question: *what was discussed?* It is, fundamentally, context management for conversation. And conversation is not the only thing agents do.
@@ -48,7 +49,7 @@ The architecture forms a learning loop:
 
 **Experience recording** → **Relationship detection** → **Reflection synthesis** → **Goal evolution** → **Routing feedback**
 
-The engine's `WorkflowExecutionCompletedHandler` is where agents complete work. It already calls `PersonalitySignalRecorder` (JPAF cognitive function reinforcement) and `GoalFailureRecorder` (goal decline signals). A new `AgentExperienceRecorder` sits at the same call sites, constructing an `Outcome` event from the worker context — agentId, capability, result, importance — and passing it to neocortex's `ExperienceRecorder` interface.
+The engine's `WorkflowExecutionCompletedHandler` is where agents complete work. It already calls `PersonalitySignalRecorder` (JPAF cognitive function reinforcement) and `GoalOutcomeRecorder` (goal decline signals). A new `AgentExperienceRecorder` sits at the same call sites, constructing an `Outcome` event from the worker context — agentId, capability, result, importance — and passing it to neocortex's `ExperienceRecorder` interface.
 
 Relationship detection is already wired. `RelationshipObserver` watches for `ExperienceRecorded` CDI events with a `target-agent` attribute. Once the experience recorder populates that attribute from the case's binding graph, relationships track automatically.
 

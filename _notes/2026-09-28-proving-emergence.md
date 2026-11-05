@@ -4,7 +4,7 @@ date: 2026-09-28
 entry_type: note
 subtype: diary
 series: issue-89-briefing-voice-card
-projects: [casehubio/examples, casehubio/blocks]
+projects: [casehubio/examples, casehubio/agency]
 author: mdp
 tags: [cognitive-systems, emergence, evaluation, mood, voice-cards, wacky-manor]
 ---

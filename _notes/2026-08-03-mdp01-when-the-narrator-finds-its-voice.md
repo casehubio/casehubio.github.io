@@ -6,7 +6,7 @@ type: phase-update
 entry_type: note
 subtype: diary
 projects: [casehub-examples]
-tags: [llm, multi-agent, narrator, summarisation, event-driven, casehub-blocks]
+tags: [llm, multi-agent, narrator, summarisation, event-driven, casehub-agency]
 ---
 
 # Wacky Manor — When the Narrator Finds Its Voice
@@ -62,10 +62,10 @@ observation service, but accumulates them independently. Two pipelines, same
 source, different consumers — characters get room-scoped filtered observations,
 the narrator gets everything.
 
-## What already existed in casehub-blocks
+## What already existed in casehub-agency
 
 The surprise in this build was how much infrastructure already existed. The
-`SummarisationRunner` in casehub-blocks implements exactly the narrator's core
+`SummarisationRunner` in casehub-agency implements exactly the narrator's core
 loop: accumulate events → trigger on a policy (count or timer) → compact →
 summarise → publish output. It was designed for the L1-L2 summarisation
 pipeline but the pattern is identical.
@@ -83,7 +83,7 @@ could work:
 | **Final drain** | `tick()` respects `WindowPolicy` — at shutdown, remaining events below threshold were lost | Added `flush()` — unconditional drain bypassing the policy |
 | **Thread safety** | `tick()` wasn't synchronized — concurrent callers could race on drain | Synchronized `tick()`, added atomic `drainIfReady()` |
 
-Seven issues total (casehubio/blocks#82), shipped in a single epic before the
+Seven issues total (casehubio/agency#82), shipped in a single epic before the
 narrator implementation started. The narrator drove platform improvements — the
 demo-as-requirements-driver pattern working exactly as intended.
 

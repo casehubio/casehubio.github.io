@@ -4,7 +4,7 @@ title: "The Diagram That Saves Itself"
 date: 2026-08-26
 entry_type: note
 subtype: diary
-projects: [casehubio/blocks-ui]
+projects: [casehubio/agency-ui]
 tags: [diagram, export, svg, png, html-to-image, react-flow]
 ---
 

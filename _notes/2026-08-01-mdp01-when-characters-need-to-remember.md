@@ -6,7 +6,7 @@ type: phase-update
 entry_type: note
 subtype: diary
 projects: [casehub-examples]
-tags: [llm, multi-agent, observation, context-management, casehub-blocks]
+tags: [llm, multi-agent, observation, context-management, casehub-agency]
 ---
 
 # Wacky Manor — When Characters Need to Remember
@@ -36,7 +36,7 @@ The question isn't whether to batch and filter — it's how, and what you lose w
 
 ## Two tiers of compaction and a service that owns them both
 
-I wanted to solve two things at once: deduplication (characters re-reading the same events every turn) and volume scaling (too many events for a prompt to hold). The design uses casehub-blocks' `ObservationAccumulator` — a buffer-and-render primitive that collects events and drains them on demand through a pluggable renderer.
+I wanted to solve two things at once: deduplication (characters re-reading the same events every turn) and volume scaling (too many events for a prompt to hold). The design uses casehub-agency' `ObservationAccumulator` — a buffer-and-render primitive that collects events and drains them on demand through a pluggable renderer.
 
 The central piece is `ObservationService` — it sits between the game loop and the character agents. Every world event (actions, dialogue, asides) flows through it. The service routes each event to the characters who can see it, based on room presence. Asides — villain monologues, private thoughts — route only to the speaker. Movement events route to observers in the departure room, because they saw the person leave.
 
@@ -78,8 +78,8 @@ The patterns here apply directly to any system where LLM agents operate over tim
 
 Looking at what we built, something became clear: `ObservationService` has nothing mansion-specific in its bones. Strip the cartoon names away and it's a generic `PartitionedObservationService<E, K>` — route events to per-observer partitioned accumulators with visibility filtering and drain-once memory retention. The domain-specific parts (room presence checks, aside privacy, mechanical compaction rules) are policy decisions that plug in through interfaces, not structural features of the service itself.
 
-This is the kind of thing that belongs in casehub-blocks, not in an example application. A monitoring system needs per-device observation windows with compacted history when attention shifts. A customer service platform needs per-conversation-thread accumulation with cross-thread memory. Any multi-agent LLM deployment with contextual partitioning needs exactly what the Hooded Claw needs — except the partition key is "device" or "thread" instead of "room."
+This is the kind of thing that belongs in casehub-agency, not in an example application. A monitoring system needs per-device observation windows with compacted history when attention shifts. A customer service platform needs per-conversation-thread accumulation with cross-thread memory. Any multi-agent LLM deployment with contextual partitioning needs exactly what the Hooded Claw needs — except the partition key is "device" or "thread" instead of "room."
 
-I've filed casehubio/blocks#76 to track the promotion. The key design question is the `VisibilityPolicy` interface — it determines how much routing logic lives in blocks versus the application. Get that boundary right and the whole partitioned observation pattern becomes a one-import solution for any multi-agent context management problem.
+I've filed casehubio/agency#76 to track the promotion. The key design question is the `VisibilityPolicy` interface — it determines how much routing logic lives in blocks versus the application. Get that boundary right and the whole partitioned observation pattern becomes a one-import solution for any multi-agent context management problem.
 
 Phase 2.7 takes the next step: a live LLM narrator consuming the same accumulated event stream, generating running commentary for the audience. The observation pipeline we built here is the narrator's input source — and if blocks#76 lands first, the narrator will be the second consumer of the platform primitive, not the second copy of the pattern.

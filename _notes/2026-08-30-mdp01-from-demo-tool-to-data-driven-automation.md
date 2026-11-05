@@ -117,7 +117,7 @@ The fix flips the responsibility. `ScriptDescriptorExtractor` pulls ARIA targets
 
 `PagesLibraryView` is a Lit web component embedded in the scenario controller as a toggleable panel. It has two modes: server-connected (fetches from `GET /scenario/library` on mount) and standalone (scripts passed via the `.scripts` property). The standalone mode made the gallery examples possible — the companion script sets scripts on the element and listens for `script-selected` events.
 
-The Run button is where the library connects back to the engine. Clicking Run on a script dispatches it through the existing `ScenarioConnectionController` — the same controller that handles play/pause/step for manually loaded scenarios. The library adds a browse-and-run flow on top of the existing execution infrastructure without duplicating any of it.
+The Run button is where the library connects back to the engine. Clicking Run on a script dispatches it through the existing `PlaybookConnectionController` — the same controller that handles play/pause/step for manually loaded scenarios. The library adds a browse-and-run flow on top of the existing execution infrastructure without duplicating any of it.
 
 Theme adaptation took longer than I expected. The library view needed to work in both the controller's dark glassmorphic card and the gallery's light dashboard wrapper. Three rounds of fixes replaced hardcoded colours with design tokens — `var(--pages-neutral-N)` for text and borders, `var(--pages-surface-N)` for backgrounds. The toggle button that opens the library panel was the last holdout: its icon was invisible in dark mode until we switched to `currentColor` inheriting from the parent's text colour.
 

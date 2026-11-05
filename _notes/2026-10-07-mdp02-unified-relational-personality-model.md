@@ -4,7 +4,7 @@ title: "A Unified Model of Personality, Relationships, and Developmental Origins
 date: 2026-10-07
 entry_type: note
 subtype: diary
-projects: [casehubio/examples, casehubio/neocortex]
+projects: [casehubio/neocortex]
 author: mdp
 tags: [emergence, personality, ampd, schema-therapy, attachment, psychopathy, relational-schemas, cluster-b, cognitive-architecture, unified-model]
 series: issue-097-emergent-character-behavior

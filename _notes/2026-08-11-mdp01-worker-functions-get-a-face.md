@@ -4,7 +4,7 @@ title: "Worker Functions Get a Face"
 date: 2026-08-11
 entry_type: note
 subtype: diary
-projects: [casehub-blocks-ui]
+projects: [casehub-mosaic]
 tags: [web-components, diagram, worker, property-panel, lit]
 ---
 

@@ -4,10 +4,11 @@ title: "Projections speak every language"
 date: 2026-08-22
 entry_type: note
 subtype: diary
-projects: [casehubio/engine]
+projects: [casehub-engine]
 tags: [expression-evaluator, projections, type-migration, casehub]
 ---
 
+# Projections speak every language
 Boolean conditions got per-expression language override in engine#925 — a binding's `when` clause could be JQ, MVEL, or whatever the `ExpressionEngineRegistry` supports. But data transform projections (`inputProjection`, `outputProjection`, `inputProjectionOverride`) stayed hardcoded to JQ. Every runtime call site created a `JqTransformer` directly or called `jqEvaluator.eval()`. The YAML mapper read projection fields as plain strings. The type system didn't know projections had a language at all.
 
 Engine#943 closes that gap. Three model types changed: `CapabilityTarget` expanded from a 1-field record to carry resolved `ExpressionEvaluator` objects for both input and output projections. `Binding.inputProjectionOverride` changed from `String` to `ExpressionEvaluator`. `SubCaseMapping.Expression` changed from wrapping a raw string to wrapping an `ExpressionEvaluator`.

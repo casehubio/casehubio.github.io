@@ -113,7 +113,7 @@ within bounded ranges. Slow, damped, reversible. A character that
 consistently experiences betrayal becomes slightly more guarded. One that
 forms strong friendships becomes slightly more open.
 
-These patterns go in casehub-blocks — alongside sequence, parallel, debate,
+These patterns go in casehub-agency — alongside sequence, parallel, debate,
 supervisor, and the other existing execution patterns. They're pattern
 classes with builders: `InnerLife.builder().reflectionOrchestrator(x).motivationThreshold(0.7).build()`.
 Same architectural style, new domain.
