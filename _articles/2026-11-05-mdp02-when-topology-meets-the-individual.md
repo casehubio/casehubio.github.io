@@ -74,6 +74,6 @@ Qhorus needs this event to activate channel-ready protocols. When a group become
 
 ## What this means in practice
 
-These are SPI changes — they define contracts, not implementations. The desiredstate module provides the implementation of `GroupMembershipQuery`. The agency module's topology implementations (`CentralisedTopology`, `DistributedTopology`, `HiveTopology`, and the rest) need to adopt the new `topologyFor` signature. The engine's role is to define the correct abstractions and consume them.
+These are SPI changes — they define contracts, not implementations. The desiredstate module provides the implementation of `GroupMembershipQuery`. The agency module's topology implementations (`CentralisedTopology`, `DistributedTopology`, `HiveTopology`, and the rest) have adopted the new `topologyFor` signature. The engine defines the abstractions; consumers implement them.
 
 The consequence: any code that asks "what topology governs this agent?" now gets the right answer. Not the case's topology. The agent's topology, resolved through its group membership, reflecting the society structure that may have changed since the case was created.
