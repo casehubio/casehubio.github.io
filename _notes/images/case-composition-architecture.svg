@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#7dd3fc" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="8" fill="#0f1117" />
+
+  <!-- Scaffold layer -->
+  <rect x="40" y="30" width="640" height="130" rx="6" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,3" />
+  <text x="60" y="52" fill="#3b82f6" font-size="11" font-weight="600" text-transform="uppercase" letter-spacing="0.05em">SCAFFOLD — YAML CASE DEFINITIONS</text>
+
+  <rect x="60" y="65" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="120" y="88" fill="#e6edf3" font-size="11" text-anchor="middle">change-mgmt</text>
+
+  <rect x="200" y="65" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="260" y="88" fill="#e6edf3" font-size="11" text-anchor="middle">deploy-approval</text>
+
+  <rect x="340" y="65" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="400" y="88" fill="#e6edf3" font-size="11" text-anchor="middle">drift-remediation</text>
+
+  <rect x="480" y="65" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="540" y="88" fill="#e6edf3" font-size="11" text-anchor="middle">incident-response</text>
+
+  <rect x="60" y="110" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="120" y="133" fill="#e6edf3" font-size="11" text-anchor="middle">compliance-audit</text>
+
+  <rect x="200" y="110" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="260" y="133" fill="#e6edf3" font-size="11" text-anchor="middle">app-lifecycle</text>
+
+  <rect x="340" y="110" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="400" y="133" fill="#e6edf3" font-size="11" text-anchor="middle">scaling-event</text>
+
+  <rect x="480" y="110" width="120" height="36" rx="4" fill="#1e3a5f" />
+  <text x="540" y="133" fill="#e6edf3" font-size="11" text-anchor="middle">service-upgrade</text>
+
+  <!-- Arrow down: subCase bindings -->
+  <line x1="360" y1="160" x2="360" y2="195" stroke="#7dd3fc" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="375" y="182" fill="#7dd3fc" font-size="10">subCase: bindings</text>
+
+  <!-- Ops layer -->
+  <rect x="40" y="200" width="640" height="70" rx="6" fill="none" stroke="#3fb950" stroke-width="1.5" stroke-dasharray="6,3" />
+  <text x="60" y="222" fill="#3fb950" font-size="11" font-weight="600">OPS — JAVA CASE DEFINITIONS (domain logic)</text>
+
+  <rect x="60" y="232" width="100" height="28" rx="4" fill="#1a3a2a" />
+  <text x="110" y="250" fill="#e6edf3" font-size="10" text-anchor="middle">deploy-approval</text>
+
+  <rect x="175" y="232" width="100" height="28" rx="4" fill="#1a3a2a" />
+  <text x="225" y="250" fill="#e6edf3" font-size="10" text-anchor="middle">drift-remediation</text>
+
+  <rect x="290" y="232" width="100" height="28" rx="4" fill="#1a3a2a" />
+  <text x="340" y="250" fill="#e6edf3" font-size="10" text-anchor="middle">compliance</text>
+
+  <rect x="405" y="232" width="100" height="28" rx="4" fill="#1a3a2a" />
+  <text x="455" y="250" fill="#e6edf3" font-size="10" text-anchor="middle">incident</text>
+
+  <rect x="520" y="232" width="100" height="28" rx="4" fill="#1a3a2a" />
+  <text x="570" y="250" fill="#e6edf3" font-size="10" text-anchor="middle">scaling / upgrade</text>
+
+  <!-- Arrow down: domain workers -->
+  <line x1="360" y1="270" x2="360" y2="305" stroke="#7dd3fc" stroke-width="1.5" marker-end="url(#arrow)" />
+  <text x="375" y="292" fill="#7dd3fc" font-size="10">domain workers</text>
+
+  <!-- Infrastructure layer -->
+  <rect x="40" y="310" width="640" height="50" rx="6" fill="none" stroke="#8b949e" stroke-width="1" />
+  <text x="60" y="332" fill="#8b949e" font-size="11" font-weight="600">INFRASTRUCTURE — reconciliation loop, node provisioners, deployment targets</text>
+  <text x="60" y="350" fill="#6b7280" font-size="10">LOCAL (claudony) · PODMAN · K8S</text>
+
+  <!-- Labels -->
+  <text x="360" y="400" fill="#6b7280" font-size="10" text-anchor="middle">CBR precedent lookup · milestone SLA tracking · declarative guard sequencing</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="640" height="360" fill="#fafafa" rx="8"/>
+
+  <text x="320" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#333">Breadth Activation: Bold Explorer vs Cautious Analyst</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="290" x2="580" y2="290" stroke="#999" stroke-width="1.5"/>
+  <line x1="80" y1="290" x2="80" y2="50" stroke="#999" stroke-width="1.5"/>
+
+  <!-- X axis labels -->
+  <text x="80" y="310" text-anchor="middle" font-size="10" fill="#666">0.0</text>
+  <text x="180" y="310" text-anchor="middle" font-size="10" fill="#666">0.2</text>
+  <text x="280" y="310" text-anchor="middle" font-size="10" fill="#666">0.4</text>
+  <text x="380" y="310" text-anchor="middle" font-size="10" fill="#666">0.6</text>
+  <text x="480" y="310" text-anchor="middle" font-size="10" fill="#666">0.8</text>
+  <text x="580" y="310" text-anchor="middle" font-size="10" fill="#666">1.0</text>
+  <text x="330" y="335" text-anchor="middle" font-size="11" fill="#555">Motivation Intensity</text>
+
+  <!-- Y axis labels -->
+  <text x="70" y="294" text-anchor="end" font-size="10" fill="#666">0.0</text>
+  <text x="70" y="234" text-anchor="end" font-size="10" fill="#666">0.25</text>
+  <text x="70" y="174" text-anchor="end" font-size="10" fill="#666">0.50</text>
+  <text x="70" y="114" text-anchor="end" font-size="10" fill="#666">0.75</text>
+  <text x="70" y="54" text-anchor="end" font-size="10" fill="#666">1.0</text>
+  <text x="30" y="170" text-anchor="middle" font-size="11" fill="#555" transform="rotate(-90 30 170)">Budget Breadth</text>
+
+  <!-- Grid lines -->
+  <line x1="80" y1="170" x2="580" y2="170" stroke="#eee" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="280" y1="50" x2="280" y2="290" stroke="#eee" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="380" y1="50" x2="380" y2="290" stroke="#eee" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Bold explorer: k=8.0, mid=0.44 — steeper, earlier activation -->
+  <!-- Points computed: 0.0→0.03, 0.1→0.05, 0.2→0.13, 0.3→0.28, 0.4→0.48, 0.5→0.69, 0.6→0.84, 0.7→0.93, 0.8→0.97, 0.9→0.99, 1.0→1.0 -->
+  <polyline points="80,283 130,278 180,258 230,223 280,175 330,124 380,88 430,63 480,50 530,47 580,46"
+            fill="none" stroke="#2c7bb6" stroke-width="2.5"/>
+
+  <!-- Cautious analyst: k=4.4, mid=0.54 — gentler, later activation -->
+  <!-- Points computed: 0.0→0.08, 0.1→0.11, 0.2→0.15, 0.3→0.20, 0.4→0.27, 0.5→0.37, 0.6→0.47, 0.7→0.57, 0.8→0.67, 0.9→0.76, 1.0→0.83 -->
+  <polyline points="80,271 130,264 180,254 230,242 280,225 330,201 380,178 430,153 480,129 530,108 580,90"
+            fill="none" stroke="#d7191c" stroke-width="2.5"/>
+
+  <!-- Default: k=6.0, mid=0.50 -->
+  <!-- Points: 0.0→0.05, 0.1→0.08, 0.2→0.14, 0.3→0.25, 0.4→0.40, 0.5→0.50, 0.6→0.69, 0.7→0.83, 0.8→0.91, 0.9→0.95, 1.0→0.98 -->
+  <polyline points="80,278 130,271 180,256 230,230 280,194 330,170 380,124 430,90 480,72 530,62 580,55"
+            fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+  <!-- Midpoint markers -->
+  <circle cx="300" cy="170" r="4" fill="#2c7bb6"/>
+  <text x="295" y="160" text-anchor="end" font-size="9" fill="#2c7bb6">mid=0.44</text>
+
+  <circle cx="350" cy="170" r="4" fill="#d7191c"/>
+  <text x="360" y="160" font-size="9" fill="#d7191c">mid=0.54</text>
+
+  <!-- Legend -->
+  <line x1="420" y1="38" x2="450" y2="38" stroke="#2c7bb6" stroke-width="2.5"/>
+  <text x="455" y="42" font-size="10" fill="#2c7bb6">Bold explorer (k=8.0)</text>
+  <line x1="420" y1="54" x2="450" y2="54" stroke="#d7191c" stroke-width="2.5"/>
+  <text x="455" y="58" font-size="10" fill="#d7191c">Cautious analyst (k=4.4)</text>
+  <line x1="420" y1="70" x2="450" y2="70" stroke="#999" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="455" y="74" font-size="10" fill="#999">Default (k=6.0)</text>
+
+  <!-- Annotation: threshold zone -->
+  <rect x="180" y="45" width="200" height="15" rx="3" fill="#f0f0f0" stroke="#ccc" stroke-width="0.5"/>
+  <text x="280" y="55" text-anchor="middle" font-size="9" fill="#777">"I need to know this" transition zone</text>
+</svg>

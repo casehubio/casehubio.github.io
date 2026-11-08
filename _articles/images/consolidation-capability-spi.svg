@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+    <marker id="arr-warn" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="420" fill="#f8fafc" rx="8"/>
+  <text x="360" y="30" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">Cache Drift Detection — Capability-Aware Consolidation</text>
+
+  <!-- Cache Restore Flow -->
+  <rect x="30" y="50" width="660" height="155" rx="6" fill="#fefce8" stroke="#fde68a" stroke-width="1.5"/>
+  <text x="50" y="73" font-size="12" font-weight="600" fill="#a16207">Cache Restore Path</text>
+
+  <!-- Restored State -->
+  <rect x="60" y="90" width="140" height="95" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="130" y="113" text-anchor="middle" font-size="11" font-weight="500" fill="#334155">Restored MindMap</text>
+  <text x="130" y="133" text-anchor="middle" font-size="10" fill="#16a34a">✓ drive-intensity</text>
+  <text x="130" y="148" text-anchor="middle" font-size="10" fill="#16a34a">✓ DriveProfileInferred</text>
+  <text x="130" y="163" text-anchor="middle" font-size="10" fill="#dc2626">✗ personality-facet</text>
+  <text x="130" y="178" text-anchor="middle" font-size="10" fill="#dc2626">✗ DriveDescriptionGenerated</text>
+
+  <!-- Arrow to validate -->
+  <line x1="200" y1="137" x2="248" y2="137" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Validate box -->
+  <rect x="250" y="90" width="180" height="95" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="340" y="113" text-anchor="middle" font-size="11" font-weight="500" fill="#334155">validateCapabilities()</text>
+  <text x="340" y="135" text-anchor="middle" font-size="10" fill="#64748b">For each phase:</text>
+  <text x="340" y="150" text-anchor="middle" font-size="10" fill="#64748b">check producedTraits</text>
+  <text x="340" y="165" text-anchor="middle" font-size="10" fill="#64748b">against store contents</text>
+  <text x="340" y="180" text-anchor="middle" font-size="10" fill="#64748b">→ List&lt;MissingCapability&gt;</text>
+
+  <!-- Arrow to result -->
+  <line x1="430" y1="137" x2="478" y2="137" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr-warn)"/>
+
+  <!-- Result -->
+  <rect x="480" y="90" width="190" height="95" rx="4" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="575" y="113" text-anchor="middle" font-size="11" font-weight="600" fill="#991b1b">CACHE DRIFT</text>
+  <text x="575" y="135" text-anchor="middle" font-size="10" fill="#991b1b">Missing: describe</text>
+  <text x="575" y="150" text-anchor="middle" font-size="10" fill="#991b1b">  → DriveDescriptionGenerated</text>
+  <text x="575" y="170" text-anchor="middle" font-size="11" fill="#a16207">Action: re-seed &amp; re-run</text>
+
+  <!-- Phase Chain -->
+  <rect x="30" y="225" width="660" height="175" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="50" y="248" font-size="12" font-weight="600" fill="#166534">Phase Capability Declarations</text>
+
+  <!-- P10 -->
+  <rect x="60" y="265" width="185" height="115" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="152" y="288" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">P15 — Experience</text>
+  <text x="152" y="305" text-anchor="middle" font-size="10" fill="#64748b">requires: (none)</text>
+  <text x="152" y="325" text-anchor="middle" font-size="10" font-weight="500" fill="#334155">produces:</text>
+  <text x="152" y="340" text-anchor="middle" font-size="10" fill="#16a34a">graduated-sub-thought</text>
+  <text x="152" y="355" text-anchor="middle" font-size="10" fill="#16a34a">ExperienceGraduated ⚡</text>
+
+  <!-- Arrow -->
+  <line x1="245" y1="322" x2="268" y2="322" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- P21 -->
+  <rect x="270" y="265" width="185" height="115" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="362" y="288" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">P21 — Drive Profile</text>
+  <text x="362" y="305" text-anchor="middle" font-size="10" fill="#64748b">requires: formative-experience</text>
+  <text x="362" y="325" text-anchor="middle" font-size="10" font-weight="500" fill="#334155">produces:</text>
+  <text x="362" y="340" text-anchor="middle" font-size="10" fill="#16a34a">DriveProfileInferred</text>
+  <text x="362" y="355" text-anchor="middle" font-size="10" fill="#16a34a">DriveCompetitionInferred</text>
+
+  <!-- Arrow -->
+  <line x1="455" y1="322" x2="478" y2="322" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- P22 -->
+  <rect x="480" y="265" width="195" height="115" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="577" y="288" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">P22 — Descriptions</text>
+  <text x="577" y="305" text-anchor="middle" font-size="10" fill="#64748b">requires: personality-facet,</text>
+  <text x="577" y="318" text-anchor="middle" font-size="10" fill="#64748b">formative-experience, drive-intensity</text>
+  <text x="577" y="340" text-anchor="middle" font-size="10" font-weight="500" fill="#334155">produces:</text>
+  <text x="577" y="355" text-anchor="middle" font-size="10" fill="#16a34a">DriveDescriptionGenerated</text>
+</svg>

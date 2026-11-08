@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="'SF Mono', 'Fira Code', monospace" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#6c7086"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" rx="8" fill="#1e1e2e"/>
+
+  <!-- Title -->
+  <text x="360" y="32" text-anchor="middle" fill="#cdd6f4" font-size="15" font-weight="bold">CoordinationStep Field Sourcing</text>
+
+  <!-- Engine box -->
+  <rect x="40" y="56" width="200" height="180" rx="6" fill="#313244" stroke="#585b70" stroke-width="1"/>
+  <text x="140" y="78" text-anchor="middle" fill="#89b4fa" font-size="12" font-weight="bold">Engine (Java)</text>
+  <text x="60" y="104" fill="#a6e3a1" font-size="12">action</text>
+  <text x="60" y="124" fill="#a6e3a1" font-size="12">target</text>
+  <text x="60" y="144" fill="#a6e3a1" font-size="12">model</text>
+  <text x="60" y="164" fill="#a6e3a1" font-size="12">outputFormat</text>
+  <text x="60" y="184" fill="#a6e3a1" font-size="12">channel</text>
+  <text x="60" y="204" fill="#a6e3a1" font-size="12">params</text>
+  <text x="60" y="224" fill="#585b70" font-size="11">(channelCount on Pipeline)</text>
+
+  <!-- TS type box -->
+  <rect x="480" y="56" width="200" height="160" rx="6" fill="#313244" stroke="#585b70" stroke-width="1"/>
+  <text x="580" y="78" text-anchor="middle" fill="#89b4fa" font-size="12" font-weight="bold">CoordinationStep (TS)</text>
+  <text x="500" y="104" fill="#a6e3a1" font-size="12">action</text>
+  <text x="500" y="124" fill="#a6e3a1" font-size="12">target</text>
+  <text x="500" y="144" fill="#a6e3a1" font-size="12">model</text>
+  <text x="500" y="164" fill="#a6e3a1" font-size="12">outputFormat</text>
+  <text x="500" y="184" fill="#a6e3a1" font-size="12">channel</text>
+  <text x="500" y="204" fill="#a6e3a1" font-size="12">params</text>
+
+  <!-- Arrows from engine to TS -->
+  <line x1="240" y1="104" x2="480" y2="104" stroke="#6c7086" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="240" y1="124" x2="480" y2="124" stroke="#6c7086" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="240" y1="144" x2="480" y2="144" stroke="#6c7086" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="240" y1="164" x2="480" y2="164" stroke="#6c7086" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="240" y1="184" x2="480" y2="184" stroke="#6c7086" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="240" y1="204" x2="480" y2="204" stroke="#6c7086" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Divider -->
+  <line x1="40" y1="268" x2="680" y2="268" stroke="#585b70" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="360" y="290" text-anchor="middle" fill="#bac2de" font-size="12">Removed fields  —  now derived at render time</text>
+
+  <!-- Removed fields -->
+  <rect x="40" y="308" width="200" height="96" rx="6" fill="#45475a" stroke="#f38ba8" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="140" y="330" text-anchor="middle" fill="#f38ba8" font-size="12" font-weight="bold">Removed</text>
+  <text x="60" y="352" fill="#f38ba8" font-size="12"><tspan text-decoration="line-through">drillDown</tspan></text>
+  <text x="60" y="372" fill="#f38ba8" font-size="12"><tspan text-decoration="line-through">icon</tspan></text>
+  <text x="60" y="392" fill="#f38ba8" font-size="12"><tspan text-decoration="line-through">iconColor</tspan></text>
+
+  <!-- Derived from box -->
+  <rect x="300" y="308" width="380" height="96" rx="6" fill="#313244" stroke="#a6e3a1" stroke-width="1"/>
+  <text x="490" y="330" text-anchor="middle" fill="#a6e3a1" font-size="12" font-weight="bold">Derived at render time from</text>
+  <text x="320" y="352" fill="#cdd6f4" font-size="12">drillDown  -->  action === 'agent-delegate'</text>
+  <text x="320" y="372" fill="#cdd6f4" font-size="12">icon       -->  PATTERN_STYLES[matchPattern]</text>
+  <text x="320" y="392" fill="#cdd6f4" font-size="12">iconColor  -->  COLOR_HINT_MAP[matchPattern]</text>
+
+  <!-- Arrows from removed to derived -->
+  <line x1="240" y1="352" x2="300" y2="352" stroke="#a6e3a1" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="240" y1="372" x2="300" y2="372" stroke="#a6e3a1" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="240" y1="392" x2="300" y2="392" stroke="#a6e3a1" stroke-width="1" marker-end="url(#arrow)"/>
+</svg>

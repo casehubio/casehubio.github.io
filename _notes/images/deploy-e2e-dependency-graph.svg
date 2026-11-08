@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="320" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">Execution Dependency Graph</text>
+
+  <!-- Nodes -->
+  <!-- W0a: Fix reactor -->
+  <rect x="40" y="60" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="120" y="82" text-anchor="middle" font-weight="600" fill="#92400e" font-size="11">W0a</text>
+  <text x="120" y="97" text-anchor="middle" fill="#78350f" font-size="11">Fix reactor build</text>
+
+  <!-- W0b: Scaffold CI -->
+  <rect x="40" y="160" width="160" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="120" y="182" text-anchor="middle" font-weight="600" fill="#92400e" font-size="11">W0b</text>
+  <text x="120" y="197" text-anchor="middle" fill="#78350f" font-size="11">Scaffold CI trigger</text>
+
+  <!-- W2: Land branches -->
+  <rect x="280" y="100" width="160" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="360" y="122" text-anchor="middle" font-weight="600" fill="#1e40af" font-size="11">W2 — #85</text>
+  <text x="360" y="137" text-anchor="middle" fill="#1e3a8a" font-size="11">Land cross-repo branches</text>
+
+  <!-- W1: UI selection -->
+  <rect x="280" y="200" width="160" height="50" rx="6" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="360" y="222" text-anchor="middle" font-weight="600" fill="#166534" font-size="11">W1 — #84</text>
+  <text x="360" y="237" text-anchor="middle" fill="#14532d" font-size="11">UI selection + deploy</text>
+
+  <!-- W3: Podman target -->
+  <rect x="520" y="100" width="160" height="50" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="600" y="122" text-anchor="middle" font-weight="600" fill="#1e40af" font-size="11">W3 — #86</text>
+  <text x="600" y="137" text-anchor="middle" fill="#1e3a8a" font-size="11">Podman target override</text>
+
+  <!-- E2E -->
+  <rect x="520" y="240" width="160" height="50" rx="6" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="600" y="262" text-anchor="middle" font-weight="600" fill="#6b21a8" font-size="11">E2E</text>
+  <text x="600" y="277" text-anchor="middle" fill="#581c87" font-size="11">End-to-end verification</text>
+
+  <!-- Arrows -->
+  <!-- W0a → W2 -->
+  <line x1="200" y1="90" x2="275" y2="118" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- W0b → W2 -->
+  <line x1="200" y1="185" x2="275" y2="140" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- W2 → W3 -->
+  <line x1="440" y1="125" x2="515" y2="125" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- W1 → E2E -->
+  <line x1="440" y1="230" x2="515" y2="258" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- W3 → E2E -->
+  <line x1="600" y1="150" x2="600" y2="235" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Legend -->
+  <rect x="40" y="280" width="12" height="12" rx="2" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="58" y="291" fill="#64748b" font-size="11">Prerequisite</text>
+  <rect x="140" y="280" width="12" height="12" rx="2" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="158" y="291" fill="#64748b" font-size="11">Feature</text>
+  <rect x="220" y="280" width="12" height="12" rx="2" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="238" y="291" fill="#64748b" font-size="11">Framework fix</text>
+  <rect x="330" y="280" width="12" height="12" rx="2" fill="#f3e8ff" stroke="#a855f7"/>
+  <text x="348" y="291" fill="#64748b" font-size="11">Verification</text>
+</svg>

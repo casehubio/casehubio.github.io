@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340" font-family="'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#64748b"/>
+    </marker>
+    <marker id="arr-pink" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#ec4899"/>
+    </marker>
+  </defs>
+
+  <text x="390" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Persona Resolution: Graph Traversal to Sub-Identity</text>
+
+  <!-- Knowledge Graph layer -->
+  <rect x="20" y="45" width="350" height="175" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="35" y="63" font-size="10" font-weight="600" fill="#94a3b8">KNOWLEDGE GRAPH</text>
+
+  <!-- Base entity node -->
+  <rect x="40" y="80" width="140" height="55" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="110" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">David Bowie</text>
+  <text x="110" y="114" text-anchor="middle" font-size="9" fill="#1e40af">id: bowie</text>
+  <text x="110" y="126" text-anchor="middle" font-size="9" fill="#1e40af">trait: Personable</text>
+
+  <!-- persona-of edge -->
+  <line x1="180" y1="107" x2="210" y2="107" stroke="#ec4899" stroke-width="2" marker-end="url(#arr-pink)"/>
+  <text x="195" y="99" text-anchor="middle" font-size="8" fill="#ec4899">persona-of</text>
+
+  <!-- Persona node -->
+  <rect x="215" y="80" width="140" height="55" rx="6" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+  <text x="285" y="100" text-anchor="middle" font-size="11" font-weight="600" fill="#9d174d">Ziggy Stardust</text>
+  <text x="285" y="114" text-anchor="middle" font-size="9" fill="#9d174d">id: bowie.ziggy</text>
+  <text x="285" y="126" text-anchor="middle" font-size="9" fill="#9d174d">trait: Personable</text>
+
+  <!-- Second persona -->
+  <line x1="140" y1="135" x2="240" y2="168" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arr-pink)"/>
+
+  <rect x="215" y="152" width="140" height="45" rx="6" fill="#fdf2f8" stroke="#ec4899" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="285" y="172" text-anchor="middle" font-size="10" fill="#be185d">Thin White Duke</text>
+  <text x="285" y="185" text-anchor="middle" font-size="9" fill="#be185d">id: bowie.duke</text>
+
+  <!-- Cache layer -->
+  <rect x="410" y="45" width="350" height="100" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="425" y="63" font-size="10" font-weight="600" fill="#86efac">ENTITY IDENTITY CACHE</text>
+
+  <rect x="425" y="78" width="320" height="55" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="585" y="96" text-anchor="middle" font-size="10" font-weight="600" fill="#166534">EntityIdentity("bowie")</text>
+  <text x="585" y="110" text-anchor="middle" font-size="9" fill="#166534">canonicalFull: "David Bowie" | pronouns: he/him</text>
+  <text x="585" y="123" text-anchor="middle" font-size="9" fill="#166534">alterEgos: { ziggy: EntityIdentity("bowie.ziggy") }</text>
+
+  <!-- Arrow from graph to cache -->
+  <line x1="355" y1="100" x2="420" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="388" y="93" text-anchor="middle" font-size="8" fill="#64748b">discover</text>
+
+  <!-- Token resolution -->
+  <rect x="60" y="250" width="280" height="45" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="200" y="270" text-anchor="middle" font-size="10" font-weight="600" fill="#92400e">Token in stored memory</text>
+  <text x="200" y="284" text-anchor="middle" font-size="9" font-family="'JetBrains Mono', monospace" fill="#92400e">{{bowie.ziggy:pronoun:subject:He}} sang</text>
+
+  <line x1="340" y1="272" x2="400" y2="272" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Dot-notation split -->
+  <rect x="405" y="250" width="160" height="45" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="485" y="268" text-anchor="middle" font-size="10" font-weight="600" fill="#3730a3">Dot-notation split</text>
+  <text x="485" y="282" text-anchor="middle" font-size="9" fill="#3730a3">base: bowie | qual: ziggy</text>
+
+  <line x1="565" y1="272" x2="605" y2="272" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Rendered output -->
+  <rect x="610" y="250" width="150" height="45" rx="6" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="685" y="266" text-anchor="middle" font-size="10" font-weight="600" fill="#166534">Rendered</text>
+  <text x="685" y="280" text-anchor="middle" font-size="9" fill="#166534">PROSE: "he sang"</text>
+  <text x="685" y="292" text-anchor="middle" font-size="9" fill="#166534">ANNOTATED: "he [Ziggy] sang"</text>
+
+  <!-- Connecting arrow from cache to resolution -->
+  <path d="M585,133 L585,165 L485,165 L485,245" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr)" fill="none"/>
+  <text x="540" y="160" font-size="8" fill="#64748b">lookup</text>
+</svg>

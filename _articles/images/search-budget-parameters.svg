@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="400" viewBox="0 0 720 400" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="breadthGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a90d9" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#4a90d9" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="lateralGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e6994d" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#e6994d" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="depthGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5ba85b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#5ba85b" stop-opacity="0.6"/>
+    </linearGradient>
+    <linearGradient id="convGrad" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#c75050" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#c75050" stop-opacity="0.6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="400" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="30" text-anchor="middle" font-size="15" font-weight="600" fill="#333">Four Orthogonal Search Parameters</text>
+
+  <!-- Central circle -->
+  <circle cx="360" cy="210" r="45" fill="#f0f0f0" stroke="#999" stroke-width="1.5"/>
+  <text x="360" y="206" text-anchor="middle" font-size="11" fill="#555" font-weight="500">Motivation</text>
+  <text x="360" y="220" text-anchor="middle" font-size="11" fill="#555" font-weight="500">Intensity</text>
+
+  <!-- Breadth - right -->
+  <rect x="430" y="170" width="250" height="80" rx="6" fill="url(#breadthGrad)" stroke="#4a90d9" stroke-width="1.5"/>
+  <text x="555" y="195" text-anchor="middle" font-size="13" font-weight="600" fill="#2c5f8a">Breadth</text>
+  <text x="555" y="212" text-anchor="middle" font-size="10" fill="#4a6a8a">How many parallel angles</text>
+  <text x="555" y="228" text-anchor="middle" font-size="9" fill="#6a8aaa" font-style="italic">Guilford fluency / DeYoung Openness</text>
+  <line x1="405" y1="210" x2="428" y2="210" stroke="#4a90d9" stroke-width="2"/>
+  <polygon points="428,205 438,210 428,215" fill="#4a90d9"/>
+
+  <!-- Laterality - top -->
+  <rect x="235" y="50" width="250" height="80" rx="6" fill="url(#lateralGrad)" stroke="#e6994d" stroke-width="1.5"/>
+  <text x="360" y="75" text-anchor="middle" font-size="13" font-weight="600" fill="#996633">Laterality</text>
+  <text x="360" y="92" text-anchor="middle" font-size="10" fill="#8a6a4a">Distance from the original topic</text>
+  <text x="360" y="108" text-anchor="middle" font-size="9" fill="#aa8a6a" font-style="italic">De Bono lateral thinking / "leaky filtering"</text>
+  <line x1="360" y1="165" x2="360" y2="132" stroke="#e6994d" stroke-width="2"/>
+  <polygon points="355,132 360,122 365,132" fill="#e6994d"/>
+
+  <!-- Depth - bottom -->
+  <rect x="235" y="290" width="250" height="80" rx="6" fill="url(#depthGrad)" stroke="#5ba85b" stroke-width="1.5"/>
+  <text x="360" y="315" text-anchor="middle" font-size="13" font-weight="600" fill="#3a6a3a">Depth</text>
+  <text x="360" y="332" text-anchor="middle" font-size="10" fill="#4a7a4a">How far along each thread</text>
+  <text x="360" y="348" text-anchor="middle" font-size="9" fill="#6a9a6a" font-style="italic">Guilford elaboration / Conscientiousness</text>
+  <line x1="360" y1="255" x2="360" y2="288" stroke="#5ba85b" stroke-width="2"/>
+  <polygon points="355,288 360,298 365,288" fill="#5ba85b"/>
+
+  <!-- Convergence - left -->
+  <rect x="40" y="170" width="250" height="80" rx="6" fill="url(#convGrad)" stroke="#c75050" stroke-width="1.5"/>
+  <text x="165" y="195" text-anchor="middle" font-size="13" font-weight="600" fill="#8a3030">Convergence</text>
+  <text x="165" y="212" text-anchor="middle" font-size="10" fill="#8a4a4a">When to stop and synthesise</text>
+  <text x="165" y="228" text-anchor="middle" font-size="9" fill="#aa6a6a" font-style="italic">MVT patch-leaving / Pirolli &amp; Card</text>
+  <line x1="315" y1="210" x2="292" y2="210" stroke="#c75050" stroke-width="2"/>
+  <polygon points="292,205 282,210 292,215" fill="#c75050"/>
+
+  <!-- Orthogonality note -->
+  <text x="360" y="390" text-anchor="middle" font-size="9" fill="#888">Each parameter is independently measurable (Guilford 1967) and driven by distinct personality traits</text>
+</svg>

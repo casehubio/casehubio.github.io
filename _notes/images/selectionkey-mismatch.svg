@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280" font-family="'SF Mono', 'Fira Code', monospace" font-size="12">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="a-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="680" height="280" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="340" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b" font-family="system-ui, sans-serif">selectionKey Column ID Mismatch</text>
+
+  <!-- col() definition -->
+  <rect x="30" y="44" width="200" height="56" rx="5" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+  <text x="130" y="62" text-anchor="middle" font-weight="600" fill="#9a3412" font-size="11" font-family="system-ui, sans-serif">col("name", "Topology")</text>
+  <text x="130" y="78" text-anchor="middle" fill="#78350f" font-size="10">sourceId: "name"</text>
+  <text x="130" y="90" text-anchor="middle" fill="#78350f" font-size="10">columnId: "Topology"</text>
+
+  <!-- groupBy/buildOutputColumns -->
+  <rect x="270" y="44" width="160" height="56" rx="5" fill="#f1f5f9" stroke="#94a3b8"/>
+  <text x="350" y="62" text-anchor="middle" font-weight="500" fill="#334155" font-size="11" font-family="system-ui, sans-serif">buildOutputColumns</text>
+  <text x="350" y="78" text-anchor="middle" fill="#64748b" font-size="10">Output column ID:</text>
+  <text x="350" y="90" text-anchor="middle" font-weight="600" fill="#1e40af" font-size="10">"Topology" ← alias</text>
+
+  <!-- Output dataset -->
+  <rect x="470" y="44" width="180" height="56" rx="5" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="560" y="62" text-anchor="middle" font-weight="500" fill="#1e40af" font-size="11" font-family="system-ui, sans-serif">TypedDataSet</text>
+  <text x="560" y="78" text-anchor="middle" fill="#1e3a8a" font-size="10">columns: ["Topology",</text>
+  <text x="560" y="90" text-anchor="middle" fill="#1e3a8a" font-size="10">"Description", "Step", ...]</text>
+
+  <line x1="230" y1="72" x2="265" y2="72" stroke="#64748b" stroke-width="1.5" marker-end="url(#a)"/>
+  <line x1="430" y1="72" x2="465" y2="72" stroke="#64748b" stroke-width="1.5" marker-end="url(#a)"/>
+
+  <!-- selectionKey lookup - THE BUG -->
+  <rect x="30" y="140" width="200" height="44" rx="5" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="130" y="158" text-anchor="middle" font-weight="600" fill="#991b1b" font-size="11" font-family="system-ui, sans-serif">selectionKey: "name"</text>
+  <text x="130" y="172" text-anchor="middle" fill="#dc2626" font-size="10">row.text("name") ← verbatim</text>
+
+  <!-- cell() lookup -->
+  <rect x="270" y="140" width="160" height="44" rx="5" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="350" y="158" text-anchor="middle" font-weight="500" fill="#991b1b" font-size="11" font-family="system-ui, sans-serif">row.cell("name")</text>
+  <text x="350" y="172" text-anchor="middle" fill="#dc2626" font-size="10">column "name" not found!</text>
+
+  <!-- NULL result -->
+  <rect x="470" y="140" width="180" height="44" rx="5" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="560" y="158" text-anchor="middle" font-weight="600" fill="#991b1b" font-size="11" font-family="system-ui, sans-serif">TYPE_MISMATCH</text>
+  <text x="560" y="172" text-anchor="middle" fill="#dc2626" font-size="10">Column "name" is NULL 💥</text>
+
+  <line x1="230" y1="162" x2="265" y2="162" stroke="#ef4444" stroke-width="1.5" marker-end="url(#a-red)"/>
+  <line x1="430" y1="162" x2="465" y2="162" stroke="#ef4444" stroke-width="1.5" marker-end="url(#a-red)"/>
+
+  <!-- THE FIX -->
+  <rect x="30" y="216" width="620" height="44" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="340" y="235" text-anchor="middle" font-weight="600" fill="#166534" font-size="12" font-family="system-ui, sans-serif">Fix: resolve selectionKey through lookup's ResultColumn mapping</text>
+  <text x="340" y="250" text-anchor="middle" fill="#16a34a" font-size="11" font-family="system-ui, sans-serif">"name" → find ResultColumn(sourceId="name") → use columnId="Topology" → row.cell("Topology") ✓</text>
+</svg>

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#8b949e"/>
+    </marker>
+    <style>
+      .box { rx: 6; ry: 6; stroke-width: 1.5; }
+      .label { font-size: 11px; fill: #e6edf3; text-anchor: middle; }
+      .sublabel { font-size: 9px; fill: #8b949e; text-anchor: middle; }
+      .arrow { stroke: #8b949e; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+      .section-label { font-size: 10px; fill: #636e7b; text-anchor: middle; font-weight: 600; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="340" fill="#0d1117" rx="8"/>
+
+  <!-- Section labels -->
+  <text x="100" y="24" class="section-label">BACKEND</text>
+  <text x="330" y="24" class="section-label">CONVERSION</text>
+  <text x="580" y="24" class="section-label">RENDERING</text>
+
+  <!-- Dividers -->
+  <line x1="200" y1="10" x2="200" y2="330" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="460" y1="10" x2="460" y2="330" stroke="#21262d" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Backend: TopologyPlan -->
+  <rect x="20" y="120" width="160" height="100" class="box" fill="#161b22" stroke="#30363d"/>
+  <text x="100" y="145" class="label" font-weight="600">TopologyPlan</text>
+  <text x="100" y="165" class="sublabel">GraphView</text>
+  <text x="100" y="180" class="sublabel">PlanView</text>
+  <text x="100" y="195" class="sublabel">playbookYaml</text>
+  <text x="100" y="210" class="sublabel">readme</text>
+
+  <!-- Arrow: Backend to Conversions -->
+  <path d="M180,170 L230,170" class="arrow"/>
+
+  <!-- Conversion: toGraphModel -->
+  <rect x="240" y="45" width="200" height="36" class="box" fill="#1c2128" stroke="#2d8a4e"/>
+  <text x="340" y="60" class="label">toGraphModel()</text>
+  <text x="340" y="74" class="sublabel">GraphView → GraphModel</text>
+
+  <!-- Conversion: toPlanRows -->
+  <rect x="240" y="105" width="200" height="36" class="box" fill="#1c2128" stroke="#d4a017"/>
+  <text x="340" y="120" class="label">toPlanRows()</text>
+  <text x="340" y="134" class="sublabel">PlanView → PlanRow[]</text>
+
+  <!-- Conversion: renderPlaybookYaml -->
+  <rect x="240" y="165" width="200" height="36" class="box" fill="#1c2128" stroke="#636e7b"/>
+  <text x="340" y="180" class="label">renderPlaybookYaml()</text>
+  <text x="340" y="194" class="sublabel">YAML string → metadata + text</text>
+
+  <!-- Conversion: marked -->
+  <rect x="240" y="225" width="200" height="36" class="box" fill="#1c2128" stroke="#636e7b"/>
+  <text x="340" y="240" class="label">marked.parse()</text>
+  <text x="340" y="254" class="sublabel">readme → sanitised HTML</text>
+
+  <!-- Arrows: Conversions to Renderers -->
+  <path d="M440,63 L480,63" class="arrow"/>
+  <path d="M440,123 L480,123" class="arrow"/>
+  <path d="M440,183 L480,183" class="arrow"/>
+  <path d="M440,243 L480,243" class="arrow"/>
+
+  <!-- Renderer: graph-canvas-core -->
+  <rect x="490" y="40" width="200" height="46" class="box" fill="#161b22" stroke="#2d8a4e"/>
+  <text x="590" y="58" class="label" font-weight="600">graph-canvas-core</text>
+  <text x="590" y="74" class="sublabel">ELK layered DAG</text>
+
+  <!-- Renderer: plan table -->
+  <rect x="490" y="100" width="200" height="46" class="box" fill="#161b22" stroke="#d4a017"/>
+  <text x="590" y="118" class="label" font-weight="600">Plan Table</text>
+  <text x="590" y="134" class="sublabel">Grouped by tier</text>
+
+  <!-- Renderer: playbook -->
+  <rect x="490" y="160" width="200" height="46" class="box" fill="#161b22" stroke="#636e7b"/>
+  <text x="590" y="178" class="label" font-weight="600">Playbook YAML</text>
+  <text x="590" y="194" class="sublabel">Syntax-highlighted pre</text>
+
+  <!-- Renderer: readme -->
+  <rect x="490" y="220" width="200" height="46" class="box" fill="#161b22" stroke="#636e7b"/>
+  <text x="590" y="238" class="label" font-weight="600">README</text>
+  <text x="590" y="254" class="sublabel">Collapsible markdown</text>
+
+  <!-- catalogue-detail container -->
+  <rect x="225" y="290" width="480" height="36" class="box" fill="#0d1117" stroke="#58a6ff" stroke-dasharray="6,3"/>
+  <text x="465" y="313" class="label" fill="#58a6ff">&lt;catalogue-detail&gt; — self-fetch via configure()</text>
+</svg>

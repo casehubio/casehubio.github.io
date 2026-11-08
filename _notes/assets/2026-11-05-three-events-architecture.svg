@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- Lane boxes (left) -->
+  <rect x="20" y="20" width="160" height="44" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="100" y="47" text-anchor="middle" font-size="13" font-weight="600" fill="#92400e">L1 — Raw Events</text>
+
+  <rect x="20" y="84" width="160" height="44" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="100" y="111" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">L2 — Episodes</text>
+
+  <rect x="20" y="148" width="160" height="44" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="100" y="175" text-anchor="middle" font-size="13" font-weight="600" fill="#5b21b6">L3 — Phases</text>
+
+  <rect x="20" y="212" width="160" height="44" rx="6" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="100" y="239" text-anchor="middle" font-size="13" font-weight="600" fill="#7e22ce">L4 — Narrative</text>
+
+  <!-- Event labels (middle) -->
+  <text x="280" y="37" text-anchor="middle" font-size="11" fill="#666">mouseenter</text>
+  <text x="280" y="52" text-anchor="middle" font-size="11" fill="#666">mouseleave</text>
+
+  <!-- Event type boxes -->
+  <rect x="340" y="20" width="170" height="36" rx="5" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+  <text x="425" y="43" text-anchor="middle" font-size="12" font-weight="600" fill="#065f46">lineage:highlighted</text>
+
+  <rect x="340" y="76" width="170" height="36" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="425" y="99" text-anchor="middle" font-size="12" font-weight="600" fill="#9a3412">event:hovered</text>
+
+  <text x="280" y="155" text-anchor="middle" font-size="11" fill="#666">click</text>
+
+  <rect x="340" y="140" width="170" height="36" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="425" y="163" text-anchor="middle" font-size="12" font-weight="600" fill="#991b1b">event:selected</text>
+
+  <!-- Shell handler boxes (right) -->
+  <rect x="560" y="12" width="140" height="50" rx="5" fill="#f0fdf4" stroke="#16a34a" stroke-width="1"/>
+  <text x="630" y="33" text-anchor="middle" font-size="11" font-weight="500" fill="#166534">Dim / highlight</text>
+  <text x="630" y="48" text-anchor="middle" font-size="11" font-weight="500" fill="#166534">SVG paths</text>
+
+  <rect x="560" y="72" width="140" height="50" rx="5" fill="#fff7ed" stroke="#ea580c" stroke-width="1"/>
+  <text x="630" y="93" text-anchor="middle" font-size="11" font-weight="500" fill="#9a3412">Show / hide</text>
+  <text x="630" y="108" text-anchor="middle" font-size="11" font-weight="500" fill="#9a3412">tooltip</text>
+
+  <rect x="560" y="132" width="140" height="50" rx="5" fill="#fef2f2" stroke="#dc2626" stroke-width="1"/>
+  <text x="630" y="153" text-anchor="middle" font-size="11" font-weight="500" fill="#991b1b">Pin tooltip</text>
+  <text x="630" y="168" text-anchor="middle" font-size="11" font-weight="500" fill="#991b1b">(sticky)</text>
+
+  <!-- Arrows: lanes → events -->
+  <!-- L1-L3 dispatch both lineage:highlighted and event:hovered -->
+  <line x1="180" y1="42" x2="338" y2="38" stroke="#059669" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <line x1="180" y1="106" x2="338" y2="38" stroke="#059669" stroke-width="1.2" marker-end="url(#arrowhead)" stroke-dasharray="4 2"/>
+  <line x1="180" y1="170" x2="338" y2="38" stroke="#059669" stroke-width="1.2" marker-end="url(#arrowhead)" stroke-dasharray="4 2"/>
+
+  <line x1="180" y1="42" x2="338" y2="94" stroke="#ea580c" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <line x1="180" y1="106" x2="338" y2="94" stroke="#ea580c" stroke-width="1.2" marker-end="url(#arrowhead)" stroke-dasharray="4 2"/>
+  <line x1="180" y1="170" x2="338" y2="94" stroke="#ea580c" stroke-width="1.2" marker-end="url(#arrowhead)" stroke-dasharray="4 2"/>
+
+  <!-- L4 dispatches only event:hovered (no lineage) -->
+  <line x1="180" y1="234" x2="338" y2="94" stroke="#ea580c" stroke-width="1.2" marker-end="url(#arrowhead)" stroke-dasharray="6 3"/>
+
+  <!-- All lanes dispatch event:selected on click -->
+  <line x1="180" y1="42" x2="338" y2="158" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowhead)" opacity="0.3"/>
+  <line x1="180" y1="106" x2="338" y2="158" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowhead)" opacity="0.3"/>
+  <line x1="180" y1="170" x2="338" y2="158" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowhead)" opacity="0.3"/>
+  <line x1="180" y1="234" x2="338" y2="158" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowhead)" opacity="0.3"/>
+
+  <!-- Arrows: events → shell handlers -->
+  <line x1="510" y1="38" x2="558" y2="37" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="510" y1="94" x2="558" y2="97" stroke="#ea580c" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="510" y1="158" x2="558" y2="157" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- L4 annotation -->
+  <text x="210" y="250" font-size="10" fill="#7e22ce" font-style="italic">L4: no lineage</text>
+
+  <!-- Legend -->
+  <rect x="20" y="280" width="680" height="50" rx="6" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="40" y1="305" x2="70" y2="305" stroke="#555" stroke-width="1.5"/>
+  <text x="78" y="309" font-size="11" fill="#555">mouseenter (hover)</text>
+  <line x1="220" y1="305" x2="250" y2="305" stroke="#555" stroke-width="1" opacity="0.3"/>
+  <text x="258" y="309" font-size="11" fill="#555">click</text>
+  <line x1="360" y1="305" x2="390" y2="305" stroke="#ea580c" stroke-width="1.2" stroke-dasharray="6 3"/>
+  <text x="398" y="309" font-size="11" fill="#555">L4 hover-only (no lineage)</text>
+</svg>
