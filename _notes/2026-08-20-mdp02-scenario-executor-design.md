@@ -1,0 +1,37 @@
+---
+layout: post
+title: "A universal scenario executor — from MCP wrapper to working automation"
+date: 2026-08-20
+entry_type: note
+subtype: diary
+projects: [casehub-pages, casehub-connectors]
+tags: [scenario-executor, graphql, distributed, aria, push-wire, testing]
+---
+
+The scenario engine started as a browser-only ARIA runner — parse YAML, click buttons, fill forms, assert DOM state. Useful for demos. Not useful for the backend operations that actually drive a helpdesk system: injecting chat messages, checking case state, verifying that the classification engine did its job. The original plan was to add an MCP client so the scenario executor could call `casehub_action` for backend steps. That turned out to be wrong.
+
+MCP is an LLM protocol. `casehub_model` gives an LLM catalog discovery — what domains exist, what operations they support. `casehub_action` wraps calls in string-typed JSON because that's what tool-calling models need. A mechanical executor reading a YAML script needs none of this. It knows exactly what to call. Every `@McpDomain` operation is already exposed via GraphQL — typed mutations and queries generated at compile time by `GraphQLResolverProcessor`. Calling GraphQL directly gives typed parameters, schema validation, and standard HTTP POST. MCP adds JSON-RPC framing and Streamable HTTP transport for zero benefit.
+
+The MCP is still there for the part that actually needs it: the LLM explores operations via `casehub_model`, generates a scenario YAML script, and hands it to the executor. Discovery is an authoring concern. Execution is mechanical.
+
+The architecture that emerged has three tiers. A pure ARIA scenario runs entirely in the browser — no server required. A pure GraphQL scenario runs entirely server-side — no browser required. A hybrid mixes both, with the server as the central orchestrator sending ARIA fragments to the browser via the push wire protocol. The browser engine always owns simulation execution; the server delegates to it, never bypasses it. This matters because CaseHub services can already be distributed. The same push wire pattern that sends ARIA commands to the browser also sends scenario fragments to a remote server's executor. One delegation model, three targets: browser, local server, remote server.
+
+The step model is a sealed interface — `AriaStep`, `GraphQLStep`, `SimulatedStep`. ARIA shorthand in the YAML (`click: { role: button, name: Submit }`) expands to `AriaStep` at parse time. GraphQL steps declare their domain and operation explicitly. Variable interpolation is step-scoped: `${inject-chat.caseId}` references a field from a named step's result. No unqualified references — most-recent-wins resolution is order-dependent and fragile for CI scenarios.
+
+The await mechanism polls a GraphQL query until a match condition is met, with push wire event subscription as the primary path when domains publish state-change events. Timer polling is the fallback. The push wire already carries domain events across the network, so the same event subscription works for local and distributed deployments without protocol changes.
+
+Getting the GraphQL side working was straightforward — `GraphQLDispatcher` constructs typed queries from step metadata, posts to the endpoint, parses the response. `ScenarioExecutor` orchestrates the loop. `AwaitEngine` polls with configurable intervals and timeout. `ScenarioConfig` maps domains to per-service endpoints for distributed deployment. The TypeScript side mirrors the Java model — the action-keyed union (`{ click: AriaTarget }`) became a delivery-keyed discriminated union (`{ delivery: 'aria', action: 'click', target }`) so both sides speak the same vocabulary. The scenario topic migrated from `scenario/*` to `scenario:exec` with a `ready` action for page-load transitions.
+
+The ARIA side had a gap that wasn't obvious from the architecture diagram. The browser-side handler was ready — `scenario-handler.ts` listens on `scenario:exec`, dispatches to the ARIA executor functions, sends back `CommandResult`. But the server-side dispatcher that sends commands and correlates responses didn't exist. ARIA steps were a no-op in the executor: `ExecutionResult.ok(as.name(), Map.of())`.
+
+The prior art was right there in `AriaCommandBridge` — `CompletableFuture` keyed by correlation ID, broadcast via `EventBroadcaster`, wait for the browser's response. Clean pattern. But when Claude and I traced the references, we found that `handleResult()` — the method that completes the future when a browser response arrives — had zero production callers. Every call site was in a test. The push wire sends commands out, the browser sends responses back over WebSocket, and the server-side WebSocket handler parses them correctly. It just never routes `command-result` ops to anything.
+
+The fix was a `CommandResultHandler` functional interface in the push module — same pattern as `SessionSender`, which already works this way. A `@DefaultBean` CDI implementation fires `Event<PushRequest.CommandResult>`. Any number of observers can listen. One line of wiring in the hosting app's WebSocket handler. With that in place, the `AriaDispatcher` is straightforward: `@Observes PushRequest.CommandResult` completes the matching future.
+
+The interesting part was the navigate protocol. When the browser navigates to a new URL, the page tears down the push wire connection. The scenario handler is gone. The new page loads, creates a new connection, and resubscribes. During that window, the AriaDispatcher sends `{ action: "ready" }` probes at 500ms intervals — the existing handler already treats `ready` as a no-op that returns `ok`. When a probe gets a response, the new page is live. When it doesn't, the browser is still loading. No browser changes needed.
+
+Batching rounds out the dispatch. The executor looks ahead for consecutive unnamed, non-navigate ARIA steps and groups them into a single `sendBatch()` call. Named steps break the batch because their result feeds into `VariableContext` for subsequent interpolation. Navigate and wait steps break it because they have special execution semantics. Four lines of criteria, but they encode the design decision about which ARIA steps are fire-and-forget versus data-producing.
+
+One thing Claude's review caught: the original `executeAria` was passing the raw `AriaStep` to the dispatcher without resolving `${...}` variable references. An ARIA fill action referencing `${create-case.caseId}` as its value would have sent the literal template string to the browser. The fix walks `AriaTarget.name`, `value`, and `state` through `VariableContext.resolve()` before dispatch — creating a resolved copy of the step.
+
+All three delivery types now work: `graphql` dispatches to backend services via HTTP POST, `aria` dispatches to the browser via push wire, `simulated` remains a placeholder for data pipeline injection. The larger realisation is what this becomes. Parameterised include templates turn common setup patterns into reusable seed files. Server-side assertions turn scenario execution into end-to-end testing. Together with the distributed delegation model, it's a universal framework for both frontend and backend scenario automation — and it doesn't need MCP anywhere in its execution path. What comes next is wiring it to real scenarios: the helpdesk example needs `@McpDomain` resolvers on its app before the executor can target it.
