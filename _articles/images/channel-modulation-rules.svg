@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 380" font-family="system-ui, -apple-system, sans-serif" font-size="12">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="7" markerHeight="5" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+    </marker>
+    <marker id="arr-up" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="7" markerHeight="5" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+    <marker id="arr-dn" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="7" markerHeight="5" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c0392b"/>
+    </marker>
+  </defs>
+
+  <rect width="740" height="380" fill="#fafafa" rx="8"/>
+  <text x="370" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Channel Modulation Rules</text>
+
+  <!-- Left: Channel inputs -->
+  <rect x="20" y="55" width="180" height="290" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.2"/>
+  <text x="110" y="75" text-anchor="middle" font-weight="600" fill="#2980b9" font-size="13">Curiosity Channels</text>
+
+  <text x="36" y="105" fill="#444" font-weight="500">Berlyne Focus</text>
+  <text x="36" y="121" fill="#777" font-size="11">SPECIFIC or DIVERSIVE</text>
+
+  <text x="36" y="152" fill="#444" font-weight="500">Loewenstein Gap</text>
+  <text x="36" y="168" fill="#777" font-size="11">proximity [0, 1]</text>
+
+  <text x="36" y="199" fill="#444" font-weight="500">Litman Hedonic</text>
+  <text x="36" y="215" fill="#777" font-size="11">I_TYPE / D_TYPE / BLENDED</text>
+
+  <text x="36" y="246" fill="#444" font-weight="500">Silvia Comprehension</text>
+  <text x="36" y="262" fill="#777" font-size="11">[0, 1] continuous</text>
+
+  <rect x="36" y="282" width="148" height="48" rx="4" fill="#d5e8d4" stroke="#82b366" stroke-width="1"/>
+  <text x="110" y="300" text-anchor="middle" fill="#3d6b37" font-size="10" font-weight="500">Scaling type</text>
+  <text x="110" y="316" text-anchor="middle" fill="#3d6b37" font-size="10">focus/hedonic: discrete</text>
+  <text x="110" y="329" text-anchor="middle" fill="#3d6b37" font-size="10">gap/comprehension: gradient</text>
+
+  <!-- Right: Budget parameters -->
+  <rect x="540" y="55" width="180" height="200" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="1.2"/>
+  <text x="630" y="75" text-anchor="middle" font-weight="600" fill="#e67e22" font-size="13">Search Budget</text>
+
+  <text x="556" y="105" fill="#444" font-weight="500">breadth</text>
+  <text x="556" y="145" fill="#444" font-weight="500">laterality</text>
+  <text x="556" y="185" fill="#444" font-weight="500">depth</text>
+  <text x="556" y="225" fill="#444" font-weight="500">convergence</text>
+
+  <!-- Middle: Rules -->
+  <rect x="230" y="55" width="280" height="290" rx="6" fill="#fff" stroke="#ddd" stroke-width="1"/>
+  <text x="370" y="75" text-anchor="middle" font-weight="600" fill="#555" font-size="13">5 Modulation Rules</text>
+
+  <!-- Rule 1: SPECIFIC + gap -->
+  <rect x="245" y="88" width="250" height="32" rx="3" fill="#f0f7ff" stroke="#b3d4fc" stroke-width="0.8"/>
+  <text x="253" y="100" fill="#2c3e50" font-size="11" font-weight="500">1.</text>
+  <text x="267" y="100" fill="#2c3e50" font-size="11">SPECIFIC + high gap</text>
+  <text x="267" y="114" fill="#27ae60" font-size="10">+depth</text>
+  <text x="312" y="114" fill="#c0392b" font-size="10">-breadth</text>
+  <text x="394" y="108" fill="#888" font-size="9" font-style="italic">gap x magnitude</text>
+
+  <!-- Rule 2: DIVERSIVE -->
+  <rect x="245" y="128" width="250" height="32" rx="3" fill="#f0f7ff" stroke="#b3d4fc" stroke-width="0.8"/>
+  <text x="253" y="140" fill="#2c3e50" font-size="11" font-weight="500">2.</text>
+  <text x="267" y="140" fill="#2c3e50" font-size="11">DIVERSIVE focus</text>
+  <text x="267" y="154" fill="#27ae60" font-size="10">+breadth +laterality</text>
+  <text x="381" y="154" fill="#c0392b" font-size="10">-convergence</text>
+
+  <!-- Rule 3: D_TYPE -->
+  <rect x="245" y="168" width="250" height="32" rx="3" fill="#f0f7ff" stroke="#b3d4fc" stroke-width="0.8"/>
+  <text x="253" y="180" fill="#2c3e50" font-size="11" font-weight="500">3.</text>
+  <text x="267" y="180" fill="#2c3e50" font-size="11">D_TYPE hedonic</text>
+  <text x="267" y="194" fill="#27ae60" font-size="10">+convergence</text>
+  <text x="350" y="194" fill="#888" font-size="9" font-style="italic">BLENDED at 50%</text>
+
+  <!-- Rule 4: low comprehension -->
+  <rect x="245" y="208" width="250" height="32" rx="3" fill="#f0f7ff" stroke="#b3d4fc" stroke-width="0.8"/>
+  <text x="253" y="220" fill="#2c3e50" font-size="11" font-weight="500">4.</text>
+  <text x="267" y="220" fill="#2c3e50" font-size="11">low comprehension</text>
+  <text x="267" y="234" fill="#27ae60" font-size="10">+laterality</text>
+  <text x="330" y="234" fill="#888" font-size="9" font-style="italic">(1-c) x magnitude</text>
+
+  <!-- Rule 5: high comprehension -->
+  <rect x="245" y="248" width="250" height="32" rx="3" fill="#f0f7ff" stroke="#b3d4fc" stroke-width="0.8"/>
+  <text x="253" y="260" fill="#2c3e50" font-size="11" font-weight="500">5.</text>
+  <text x="267" y="260" fill="#2c3e50" font-size="11">high comprehension</text>
+  <text x="267" y="274" fill="#27ae60" font-size="10">+convergence</text>
+  <text x="344" y="274" fill="#888" font-size="9" font-style="italic">c x magnitude</text>
+
+  <!-- Personality box -->
+  <rect x="540" y="272" width="180" height="68" rx="6" fill="#f5eef8" stroke="#8e44ad" stroke-width="1.2"/>
+  <text x="630" y="292" text-anchor="middle" font-weight="600" fill="#8e44ad" font-size="12">CDE Derivation</text>
+  <text x="556" y="310" fill="#555" font-size="10">openness   -> diversive mags</text>
+  <text x="556" y="324" fill="#555" font-size="10">conscient. -> depth/convergence</text>
+  <text x="556" y="338" fill="#555" font-size="10">anxiousness -> deprivation conv.</text>
+
+  <!-- Connecting lines (simplified) -->
+  <line x1="200" y1="108" x2="243" y2="104" stroke="#888" stroke-width="0.8" marker-end="url(#arr)"/>
+  <line x1="200" y1="160" x2="243" y2="104" stroke="#888" stroke-width="0.8"/>
+  <line x1="200" y1="108" x2="243" y2="144" stroke="#888" stroke-width="0.8"/>
+  <line x1="200" y1="207" x2="243" y2="184" stroke="#888" stroke-width="0.8" marker-end="url(#arr)"/>
+  <line x1="200" y1="253" x2="243" y2="224" stroke="#888" stroke-width="0.8" marker-end="url(#arr)"/>
+  <line x1="200" y1="253" x2="243" y2="264" stroke="#888" stroke-width="0.8" marker-end="url(#arr)"/>
+
+  <line x1="497" y1="104" x2="538" y2="185" stroke="#27ae60" stroke-width="0.8" marker-end="url(#arr-up)"/>
+  <line x1="497" y1="104" x2="538" y2="100" stroke="#c0392b" stroke-width="0.8" marker-end="url(#arr-dn)"/>
+  <line x1="497" y1="144" x2="538" y2="100" stroke="#27ae60" stroke-width="0.8" marker-end="url(#arr-up)"/>
+  <line x1="497" y1="144" x2="538" y2="140" stroke="#27ae60" stroke-width="0.8" marker-end="url(#arr-up)"/>
+  <line x1="497" y1="184" x2="538" y2="220" stroke="#27ae60" stroke-width="0.8" marker-end="url(#arr-up)"/>
+  <line x1="497" y1="224" x2="538" y2="140" stroke="#27ae60" stroke-width="0.8" marker-end="url(#arr-up)"/>
+  <line x1="497" y1="264" x2="538" y2="220" stroke="#27ae60" stroke-width="0.8" marker-end="url(#arr-up)"/>
+</svg>

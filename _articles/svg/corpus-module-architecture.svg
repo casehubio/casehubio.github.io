@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Inter, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="420" fill="#fafaf9" rx="8"/>
+
+  <!-- Title -->
+  <text x="380" y="30" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">One Implementation, Two Frameworks</text>
+
+  <!-- API Layer (top centre) -->
+  <rect x="240" y="50" width="280" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="2"/>
+  <text x="380" y="74" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">corpus-management-api</text>
+  <text x="380" y="92" text-anchor="middle" font-size="10" fill="#64748b">SPIs — pure Java, zero framework deps</text>
+
+  <!-- Implementation Layer (middle centre) -->
+  <rect x="200" y="140" width="360" height="70" rx="8" fill="#ecfdf5" stroke="#16a34a" stroke-width="2"/>
+  <text x="380" y="165" text-anchor="middle" font-size="12" font-weight="600" fill="#166534">corpus-management</text>
+  <text x="380" y="183" text-anchor="middle" font-size="10" fill="#3f6212">SQLite impls + Quarkus CDI wiring (@DefaultBean, @IfBuildProperty)</text>
+  <text x="380" y="198" text-anchor="middle" font-size="10" fill="#3f6212">NoOp fallbacks + CorpusManagementBeans producer</text>
+
+  <!-- Arrow: API → Impl -->
+  <line x1="380" y1="110" x2="380" y2="138" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Spring Layer (bottom left) -->
+  <rect x="40" y="260" width="300" height="80" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
+  <text x="190" y="285" text-anchor="middle" font-size="12" font-weight="600" fill="#5b21b6">corpus-management-spring</text>
+  <text x="190" y="305" text-anchor="middle" font-size="10" fill="#6d28d9">@AutoConfiguration</text>
+  <text x="190" y="320" text-anchor="middle" font-size="10" fill="#6d28d9">@ConditionalOnProperty / @ConditionalOnMissingBean</text>
+  <text x="190" y="335" text-anchor="middle" font-size="10" fill="#6d28d9">CorpusManagementProperties</text>
+
+  <!-- Quarkus consumer (bottom right) -->
+  <rect x="420" y="260" width="300" height="80" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="570" y="285" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">Quarkus Application</text>
+  <text x="570" y="305" text-anchor="middle" font-size="10" fill="#2563eb">@Inject CorpusCatalogue</text>
+  <text x="570" y="320" text-anchor="middle" font-size="10" fill="#2563eb">@Inject CorpusEntryStore</text>
+  <text x="570" y="335" text-anchor="middle" font-size="10" fill="#2563eb">@Inject FederatedCorpusSearch</text>
+
+  <!-- Arrow: Impl → Spring -->
+  <path d="M 300 210 L 190 258" fill="none" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+  <text x="220" y="228" font-size="9" fill="#7c3aed" transform="rotate(-25, 220, 228)">creates beans from</text>
+
+  <!-- Arrow: Impl → Quarkus -->
+  <path d="M 460 210 L 570 258" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <text x="540" y="228" font-size="9" fill="#3b82f6" transform="rotate(25, 540, 228)">CDI discovers beans</text>
+
+  <!-- Spring consumer (bottom-bottom left) -->
+  <rect x="70" y="370" width="240" height="36" rx="6" fill="#f5f3ff" stroke="#c4b5fd" stroke-width="1"/>
+  <text x="190" y="393" text-anchor="middle" font-size="10" fill="#6d28d9">@Autowired CorpusCatalogue</text>
+
+  <line x1="190" y1="340" x2="190" y2="368" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+
+  <!-- Shared impl callout -->
+  <rect x="240" y="370" width="280" height="36" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="380" y="386" text-anchor="middle" font-size="10" font-weight="500" fill="#166534">Same SqliteCorpusCatalogue instance</text>
+  <text x="380" y="400" text-anchor="middle" font-size="9" fill="#65a30d">Framework creates it — implementation doesn't know which</text>
+
+  <!-- Connecting dashed lines to shared callout -->
+  <line x1="320" y1="390" x2="230" y2="390" stroke="#86efac" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="440" y1="390" x2="500" y2="370" stroke="#86efac" stroke-width="1" stroke-dasharray="3 3"/>
+</svg>

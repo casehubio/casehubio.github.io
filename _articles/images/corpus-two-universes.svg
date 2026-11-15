@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">The Two-Universe Problem</text>
+
+  <!-- Universe 1: Infrastructure (left) -->
+  <rect x="20" y="50" width="320" height="340" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="180" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">Infrastructure Path (byte[] layer)</text>
+
+  <rect x="40" y="95" width="130" height="40" rx="6" fill="#fff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="105" y="119" text-anchor="middle" font-size="11" fill="#1e293b">CorpusStore</text>
+  <text x="105" y="131" text-anchor="middle" font-size="9" fill="#64748b">write() + flush()</text>
+
+  <rect x="190" y="95" width="130" height="40" rx="6" fill="#fff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="255" y="119" text-anchor="middle" font-size="11" fill="#1e293b">CorpusReader</text>
+  <text x="255" y="131" text-anchor="middle" font-size="9" fill="#64748b">read() → byte[]</text>
+
+  <rect x="40" y="160" width="130" height="40" rx="6" fill="#fff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="105" y="180" text-anchor="middle" font-size="11" fill="#1e293b">ChangeSource</text>
+  <text x="105" y="192" text-anchor="middle" font-size="9" fill="#64748b">cursor management</text>
+
+  <rect x="190" y="160" width="130" height="40" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="255" y="180" text-anchor="middle" font-size="11" fill="#1e293b">AccessTracking</text>
+  <text x="255" y="192" text-anchor="middle" font-size="9" fill="#16a34a">✓ provenance here</text>
+
+  <rect x="100" y="230" width="170" height="40" rx="6" fill="#fff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="185" y="250" text-anchor="middle" font-size="11" fill="#1e293b">IngestionPipeline</text>
+  <text x="185" y="262" text-anchor="middle" font-size="9" fill="#64748b">extract → chunk → embed</text>
+
+  <!-- Universe 2: Knowledge (right) -->
+  <rect x="380" y="50" width="320" height="340" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="540" y="75" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">Agent Path (knowledge layer)</text>
+
+  <rect x="420" y="95" width="260" height="40" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="550" y="115" text-anchor="middle" font-size="11" fill="#1e293b">CorpusEntryStore</text>
+  <text x="550" y="127" text-anchor="middle" font-size="9" fill="#64748b">add() / get() → CorpusEntry</text>
+
+  <rect x="420" y="160" width="260" height="40" rx="6" fill="#fecaca" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="550" y="180" text-anchor="middle" font-size="11" fill="#1e293b">MCP Tools (agent reads here)</text>
+  <text x="550" y="192" text-anchor="middle" font-size="9" fill="#dc2626">✗ no provenance</text>
+
+  <rect x="420" y="230" width="260" height="40" rx="6" fill="#fecaca" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="550" y="250" text-anchor="middle" font-size="11" fill="#1e293b">No version history</text>
+  <text x="550" y="262" text-anchor="middle" font-size="9" fill="#dc2626">✗ versions() on wrong API</text>
+
+  <rect x="420" y="300" width="260" height="40" rx="6" fill="#fecaca" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="550" y="320" text-anchor="middle" font-size="11" fill="#1e293b">No "what's new?"</text>
+  <text x="550" y="332" text-anchor="middle" font-size="9" fill="#dc2626">✗ ChangeSource is internal</text>
+
+  <!-- Shared bottom -->
+  <rect x="200" y="370" width="320" height="40" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="360" y="394" text-anchor="middle" font-size="12" fill="#475569">Qdrant (search index)</text>
+
+  <!-- Arrows -->
+  <line x1="185" y1="270" x2="300" y2="370" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="550" y1="135" x2="440" y2="370" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Gap indicator -->
+  <line x1="340" y1="160" x2="380" y2="160" stroke="#dc2626" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-red)"/>
+  <text x="360" y="152" text-anchor="middle" font-size="9" fill="#dc2626">gap</text>
+</svg>

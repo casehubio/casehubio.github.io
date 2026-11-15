@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360" font-family="Inter, -apple-system, sans-serif">
+  <style>
+    .box { rx: 8; ry: 8; stroke-width: 1.5; }
+    .label { font-size: 14px; font-weight: 600; fill: #1e293b; }
+    .desc { font-size: 11px; fill: #64748b; }
+    .shared-label { font-size: 12px; font-weight: 600; fill: #475569; }
+    .shared-desc { font-size: 10px; fill: #94a3b8; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .metaphor { font-size: 11px; fill: #94a3b8; font-style: italic; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Workspace (the desk) -->
+  <rect x="30" y="20" width="310" height="170" class="box" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="50" y="48" class="label">Research Workspace</text>
+  <text x="50" y="68" class="metaphor">the desk</text>
+  <text x="50" y="92" class="desc">Ephemeral, agent-driven</text>
+  <text x="50" y="108" class="desc">Built iteratively during research</text>
+  <text x="50" y="124" class="desc">Coverage tracking, freshness policy</text>
+  <text x="50" y="140" class="desc">Provenance enforced at the type level</text>
+  <text x="50" y="156" class="desc">Derivation DAG traces analysis → evidence</text>
+  <text x="50" y="176" class="desc">Per-topic, survives across sessions</text>
+
+  <!-- Corpus (the library) -->
+  <rect x="380" y="20" width="310" height="170" class="box" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="400" y="48" class="label">Corpus</text>
+  <text x="400" y="68" class="metaphor">the library</text>
+  <text x="400" y="92" class="desc">Curated, long-lived, authoritative</text>
+  <text x="400" y="108" class="desc">Batch-loaded or human-organised</text>
+  <text x="400" y="124" class="desc">Federation across instances</text>
+  <text x="400" y="140" class="desc">Typed schemas per corpus</text>
+  <text x="400" y="156" class="desc">Three-layer document model</text>
+  <text x="400" y="176" class="desc">Stable content, slow change</text>
+
+  <!-- Promote arrow -->
+  <path d="M 340 105 L 380 105" class="arrow"/>
+  <text x="345" y="98" class="shared-desc">promote</text>
+
+  <!-- Shared subsystems -->
+  <rect x="80" y="230" width="560" height="100" class="box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="100" y="258" class="shared-label">Shared Subsystems</text>
+  <text x="100" y="280" class="shared-desc">corpus-api: CorpusStore, CorpusReader — byte-level storage</text>
+  <text x="100" y="296" class="shared-desc">rag: EmbeddingIngestor, CaseRetriever — semantic search</text>
+  <text x="100" y="312" class="shared-desc">fusion-api: ScoreFusion — result ranking</text>
+
+  <!-- Arrows down to shared -->
+  <path d="M 185 190 L 185 230" class="arrow"/>
+  <path d="M 535 190 L 535 230" class="arrow"/>
+</svg>

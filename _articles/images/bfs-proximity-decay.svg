@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+  </defs>
+
+  <rect width="700" height="280" fill="#fafafa" rx="8"/>
+
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">BFS Goal Proximity — Graduated Relevance</text>
+
+  <!-- Goal node -->
+  <rect x="40" y="110" width="80" height="40" rx="20" fill="#e8f8f5" stroke="#27ae60" stroke-width="2"/>
+  <text x="80" y="135" text-anchor="middle" font-size="11" font-weight="600" fill="#27ae60">GOAL</text>
+
+  <!-- 1-hop node -->
+  <circle cx="220" cy="130" r="28" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="220" y="126" text-anchor="middle" font-size="10" fill="#1a5632">1 hop</text>
+  <text x="220" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#27ae60">1.0</text>
+
+  <!-- 2-hop node -->
+  <circle cx="360" cy="130" r="28" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="360" y="126" text-anchor="middle" font-size="10" fill="#1a5632">2 hops</text>
+  <text x="360" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#27ae60">0.7</text>
+
+  <!-- 3-hop node -->
+  <circle cx="500" cy="130" r="28" fill="#f5faf7" stroke="#27ae60" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="500" y="126" text-anchor="middle" font-size="10" fill="#555">3 hops</text>
+  <text x="500" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#888">0.4</text>
+
+  <!-- Beyond node -->
+  <circle cx="640" cy="130" r="28" fill="#f9f9f9" stroke="#ccc" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="640" y="126" text-anchor="middle" font-size="10" fill="#999">4+ hops</text>
+  <text x="640" y="140" text-anchor="middle" font-size="11" font-weight="700" fill="#ccc">0.0</text>
+
+  <!-- Edges -->
+  <line x1="120" y1="130" x2="190" y2="130" stroke="#27ae60" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="250" y1="130" x2="330" y2="130" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="390" y1="130" x2="470" y2="130" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+  <line x1="530" y1="130" x2="610" y2="130" stroke="#ccc" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr)"/>
+
+  <!-- Boost labels -->
+  <text x="220" y="180" text-anchor="middle" font-size="10" fill="#27ae60">×2.0 boost</text>
+  <text x="360" y="180" text-anchor="middle" font-size="10" fill="#27ae60">×1.7 boost</text>
+  <text x="500" y="180" text-anchor="middle" font-size="10" fill="#888">×1.4 boost</text>
+  <text x="640" y="180" text-anchor="middle" font-size="10" fill="#ccc">no boost</text>
+
+  <!-- Formula -->
+  <rect x="140" y="210" width="420" height="45" rx="6" fill="#f0f4f8" stroke="#bbb" stroke-width="1"/>
+  <text x="350" y="230" text-anchor="middle" font-size="12" fill="#2c3e50" font-weight="500">boostedIntensity = min(1.0, gapIntensity × (1 + goalRelevance))</text>
+  <text x="350" y="246" text-anchor="middle" font-size="10" fill="#888">Same graduated multiplier as GoalRelevanceModulationFactor for memory retrieval</text>
+</svg>

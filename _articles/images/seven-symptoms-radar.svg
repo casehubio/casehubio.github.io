@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <clipPath id="chart-clip"><rect x="50" y="30" width="600" height="340"/></clipPath>
+  </defs>
+
+  <rect width="700" height="400" fill="#fafafa" rx="8"/>
+  <text x="350" y="25" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">Seven Symptom Profiles by Continuum Position</text>
+
+  <!-- Chart area -->
+  <g clip-path="url(#chart-clip)">
+    <!-- Grid lines -->
+    <line x1="100" y1="350" x2="650" y2="350" stroke="#e5e7eb" stroke-width="1"/>
+    <line x1="100" y1="280" x2="650" y2="280" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="100" y1="210" x2="650" y2="210" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="100" y1="140" x2="650" y2="140" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="3,3"/>
+    <line x1="100" y1="70" x2="650" y2="70" stroke="#e5e7eb" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <!-- Y-axis labels -->
+    <text x="90" y="354" text-anchor="end" font-size="9" fill="#9ca3af">0.0</text>
+    <text x="90" y="284" text-anchor="end" font-size="9" fill="#9ca3af">0.25</text>
+    <text x="90" y="214" text-anchor="end" font-size="9" fill="#9ca3af">0.50</text>
+    <text x="90" y="144" text-anchor="end" font-size="9" fill="#9ca3af">0.75</text>
+    <text x="90" y="74" text-anchor="end" font-size="9" fill="#9ca3af">1.0</text>
+
+    <!-- X-axis symptom labels -->
+    <text x="140" y="375" text-anchor="middle" font-size="9" fill="#6b7280">Thought</text>
+    <text x="140" y="386" text-anchor="middle" font-size="9" fill="#6b7280">recurrence</text>
+    <text x="220" y="375" text-anchor="middle" font-size="9" fill="#6b7280">Habituation</text>
+    <text x="220" y="386" text-anchor="middle" font-size="9" fill="#6b7280">failure</text>
+    <text x="300" y="375" text-anchor="middle" font-size="9" fill="#6b7280">Gap closure</text>
+    <text x="300" y="386" text-anchor="middle" font-size="9" fill="#6b7280">resistance</text>
+    <text x="380" y="375" text-anchor="middle" font-size="9" fill="#6b7280">Attentional</text>
+    <text x="380" y="386" text-anchor="middle" font-size="9" fill="#6b7280">capture</text>
+    <text x="460" y="375" text-anchor="middle" font-size="9" fill="#6b7280">Arousal</text>
+    <text x="460" y="386" text-anchor="middle" font-size="9" fill="#6b7280">trajectory</text>
+    <text x="540" y="375" text-anchor="middle" font-size="9" fill="#6b7280">Negative</text>
+    <text x="540" y="386" text-anchor="middle" font-size="9" fill="#6b7280">valence</text>
+    <text x="620" y="375" text-anchor="middle" font-size="9" fill="#6b7280">Avoidance</text>
+    <text x="620" y="386" text-anchor="middle" font-size="9" fill="#6b7280">tendency</text>
+
+    <!-- Healthy profile (low, flat) -->
+    <polyline points="140,322 220,336 300,336 380,343 460,322 540,336 620,350" stroke="#10b981" stroke-width="2" fill="none" opacity="0.7"/>
+
+    <!-- Fixation profile -->
+    <polyline points="140,210 220,238 300,252 380,238 460,196 540,224 620,280" stroke="#f59e0b" stroke-width="2" fill="none" opacity="0.8"/>
+
+    <!-- Obsession profile -->
+    <polyline points="140,140 220,112 300,140 380,112 460,98 540,126 620,112" stroke="#ef4444" stroke-width="2" fill="none" opacity="0.8"/>
+
+    <!-- Rumination profile -->
+    <polyline points="140,112 220,98 300,126 380,98 460,154 540,84 620,70" stroke="#6366f1" stroke-width="2" fill="none" opacity="0.8"/>
+
+    <!-- Data points -->
+    <g fill="#10b981"><circle cx="140" cy="322" r="3"/><circle cx="220" cy="336" r="3"/><circle cx="300" cy="336" r="3"/><circle cx="380" cy="343" r="3"/><circle cx="460" cy="322" r="3"/><circle cx="540" cy="336" r="3"/><circle cx="620" cy="350" r="3"/></g>
+    <g fill="#f59e0b"><circle cx="140" cy="210" r="3"/><circle cx="220" cy="238" r="3"/><circle cx="300" cy="252" r="3"/><circle cx="380" cy="238" r="3"/><circle cx="460" cy="196" r="3"/><circle cx="540" cy="224" r="3"/><circle cx="620" cy="280" r="3"/></g>
+    <g fill="#ef4444"><circle cx="140" cy="140" r="3"/><circle cx="220" cy="112" r="3"/><circle cx="300" cy="140" r="3"/><circle cx="380" cy="112" r="3"/><circle cx="460" cy="98" r="3"/><circle cx="540" cy="126" r="3"/><circle cx="620" cy="112" r="3"/></g>
+    <g fill="#6366f1"><circle cx="140" cy="112" r="3"/><circle cx="220" cy="98" r="3"/><circle cx="300" cy="126" r="3"/><circle cx="380" cy="98" r="3"/><circle cx="460" cy="154" r="3"/><circle cx="540" cy="84" r="3"/><circle cx="620" cy="70" r="3"/></g>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(120, 42)">
+    <rect x="0" y="0" width="10" height="10" fill="#10b981" rx="2"/><text x="14" y="9" font-size="10" fill="#374151">Healthy</text>
+    <rect x="80" y="0" width="10" height="10" fill="#f59e0b" rx="2"/><text x="94" y="9" font-size="10" fill="#374151">Fixation</text>
+    <rect x="160" y="0" width="10" height="10" fill="#ef4444" rx="2"/><text x="174" y="9" font-size="10" fill="#374151">Obsession</text>
+    <rect x="260" y="0" width="10" height="10" fill="#6366f1" rx="2"/><text x="274" y="9" font-size="10" fill="#374151">Rumination</text>
+  </g>
+</svg>

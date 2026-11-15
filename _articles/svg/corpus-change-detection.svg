@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#666"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#c44"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#4a7"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#333">Change Detection: Internal Plumbing vs Agent-Facing API</text>
+
+  <!-- Left side: Internal -->
+  <rect x="20" y="50" width="320" height="270" rx="8" fill="#fff5f5" stroke="#daa" stroke-dasharray="4,3"/>
+  <text x="180" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#944">Internal — ingestion pipeline</text>
+
+  <!-- ChangeSource box -->
+  <rect x="40" y="90" width="130" height="50" rx="6" fill="#fff" stroke="#c88"/>
+  <text x="105" y="112" text-anchor="middle" font-size="11" font-weight="500" fill="#333">ChangeSource</text>
+  <text x="105" y="126" text-anchor="middle" font-size="9" fill="#888">changesSince(cursor)</text>
+
+  <!-- Cursor store -->
+  <rect x="200" y="90" width="120" height="50" rx="6" fill="#fff" stroke="#c88"/>
+  <text x="260" y="112" text-anchor="middle" font-size="11" font-weight="500" fill="#333">CursorStore</text>
+  <text x="260" y="126" text-anchor="middle" font-size="9" fill="#888">opaque string state</text>
+
+  <!-- Arrow between them -->
+  <line x1="170" y1="115" x2="195" y2="115" stroke="#c44" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- ChangedEntry -->
+  <rect x="80" y="160" width="180" height="44" rx="6" fill="#fff" stroke="#c88"/>
+  <text x="170" y="178" text-anchor="middle" font-size="10" font-weight="500" fill="#333">ChangedEntry(path, type)</text>
+  <text x="170" y="192" text-anchor="middle" font-size="9" fill="#c44">no timestamp · no author · no content</text>
+
+  <!-- Problems -->
+  <text x="40" y="230" font-size="10" fill="#944">✗ Agent must manage cursor strings</text>
+  <text x="40" y="248" font-size="10" fill="#944">✗ No temporal query — SHA or version only</text>
+  <text x="40" y="266" font-size="10" fill="#944">✗ Results are paths, not knowledge</text>
+  <text x="40" y="284" font-size="10" fill="#944">✗ Not exposed through MCP</text>
+
+  <!-- Right side: Agent-facing -->
+  <rect x="380" y="50" width="320" height="270" rx="8" fill="#f5fff5" stroke="#ada" stroke-dasharray="4,3"/>
+  <text x="540" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#494">Agent-facing — MCP tool</text>
+
+  <!-- recentChanges box -->
+  <rect x="400" y="90" width="200" height="50" rx="6" fill="#fff" stroke="#8b8"/>
+  <text x="500" y="108" text-anchor="middle" font-size="11" font-weight="500" fill="#333">recentChanges()</text>
+  <text x="500" y="124" text-anchor="middle" font-size="9" fill="#888">corpus, Instant since</text>
+
+  <!-- MCP tool -->
+  <rect x="620" y="90" width="60" height="50" rx="6" fill="#e8f5e8" stroke="#8b8"/>
+  <text x="650" y="112" text-anchor="middle" font-size="10" font-weight="600" fill="#494">MCP</text>
+  <text x="650" y="126" text-anchor="middle" font-size="9" fill="#888">changes()</text>
+
+  <!-- ChangeRecord -->
+  <rect x="400" y="160" width="280" height="56" rx="6" fill="#fff" stroke="#8b8"/>
+  <text x="540" y="178" text-anchor="middle" font-size="10" font-weight="500" fill="#333">ChangeRecord(path, type, timestamp, author, preview)</text>
+  <text x="540" y="194" text-anchor="middle" font-size="9" fill="#4a7">enriched metadata · content preview · sorted by time</text>
+  <text x="540" y="206" text-anchor="middle" font-size="9" fill="#4a7">Instant→cursor mapping handled internally</text>
+
+  <!-- Benefits -->
+  <text x="400" y="240" font-size="10" fill="#494">✓ Agent provides a timestamp, nothing else</text>
+  <text x="400" y="258" font-size="10" fill="#494">✓ Results include content previews</text>
+  <text x="400" y="276" font-size="10" fill="#494">✓ Author and timestamp from git metadata</text>
+  <text x="400" y="294" font-size="10" fill="#494">✓ Exposed as MCP tool — one call</text>
+</svg>

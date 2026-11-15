@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="grad-healthy" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="grad-fixation" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="grad-obsession" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f87171"/>
+    </linearGradient>
+    <linearGradient id="grad-rumination" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="320" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="14" font-weight="600" fill="#374151">The Recurring Thought Continuum</text>
+
+  <!-- Axis -->
+  <line x1="60" y1="260" x2="740" y2="260" stroke="#9ca3af" stroke-width="1.5"/>
+  <text x="400" y="295" text-anchor="middle" font-size="11" fill="#6b7280">Composite symptom score</text>
+
+  <!-- Threshold markers -->
+  <line x1="262" y1="50" x2="262" y2="260" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="468" y1="50" x2="468" y2="260" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="604" y1="50" x2="604" y2="260" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <text x="262" y="280" text-anchor="middle" font-size="10" fill="#9ca3af">0.3</text>
+  <text x="468" y="280" text-anchor="middle" font-size="10" fill="#9ca3af">0.6</text>
+  <text x="604" y="280" text-anchor="middle" font-size="10" fill="#9ca3af">0.8</text>
+
+  <!-- Zone backgrounds -->
+  <rect x="60" y="50" width="202" height="210" fill="#10b981" opacity="0.06" rx="4"/>
+  <rect x="262" y="50" width="206" height="210" fill="#f59e0b" opacity="0.06" rx="4"/>
+  <rect x="468" y="50" width="136" height="210" fill="#ef4444" opacity="0.06" rx="4"/>
+  <rect x="604" y="50" width="136" height="210" fill="#6366f1" opacity="0.06" rx="4"/>
+
+  <!-- Zone headers -->
+  <rect x="80" y="60" width="160" height="28" fill="url(#grad-healthy)" rx="14"/>
+  <text x="160" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="white">HEALTHY</text>
+
+  <rect x="285" y="60" width="160" height="28" fill="url(#grad-fixation)" rx="14"/>
+  <text x="365" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="white">FIXATION</text>
+
+  <rect x="485" y="60" width="110" height="28" fill="url(#grad-obsession)" rx="14"/>
+  <text x="540" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="white">OBSESSION</text>
+
+  <rect x="618" y="60" width="110" height="28" fill="url(#grad-rumination)" rx="14"/>
+  <text x="673" y="79" text-anchor="middle" font-size="12" font-weight="600" fill="white">RUMINATION</text>
+
+  <!-- Characteristics -->
+  <text x="160" y="115" text-anchor="middle" font-size="10" fill="#065f46">Approach drive</text>
+  <text x="160" y="130" text-anchor="middle" font-size="10" fill="#065f46">Gap closes</text>
+  <text x="160" y="145" text-anchor="middle" font-size="10" fill="#065f46">Can disengage</text>
+  <text x="160" y="165" text-anchor="middle" font-size="10" fill="#065f46" font-style="italic">"I want to know"</text>
+
+  <text x="365" y="115" text-anchor="middle" font-size="10" fill="#92400e">Approach + anxiety</text>
+  <text x="365" y="130" text-anchor="middle" font-size="10" fill="#92400e">Partially resolves</text>
+  <text x="365" y="145" text-anchor="middle" font-size="10" fill="#92400e">Difficult to leave</text>
+  <text x="365" y="165" text-anchor="middle" font-size="10" fill="#92400e" font-style="italic">"I need to know"</text>
+
+  <text x="540" y="115" text-anchor="middle" font-size="10" fill="#991b1b">Anxiety dominant</text>
+  <text x="540" y="130" text-anchor="middle" font-size="10" fill="#991b1b">Won't resolve</text>
+  <text x="540" y="145" text-anchor="middle" font-size="10" fill="#991b1b">Can't disengage</text>
+  <text x="540" y="165" text-anchor="middle" font-size="10" fill="#991b1b" font-style="italic">"I must know"</text>
+
+  <text x="673" y="115" text-anchor="middle" font-size="10" fill="#3730a3">Despair</text>
+  <text x="673" y="130" text-anchor="middle" font-size="10" fill="#3730a3">No gap to close</text>
+  <text x="673" y="145" text-anchor="middle" font-size="10" fill="#3730a3">Self-reinforcing</text>
+  <text x="673" y="165" text-anchor="middle" font-size="10" fill="#3730a3" font-style="italic">"Can't stop"</text>
+
+  <!-- Attractor depth visual -->
+  <text x="400" y="195" text-anchor="middle" font-size="10" font-weight="500" fill="#6b7280">CAPS attractor depth</text>
+
+  <!-- Shallow attractor -->
+  <path d="M 120 230 Q 160 220 200 230" stroke="#10b981" stroke-width="2" fill="none"/>
+  <circle cx="160" cy="222" r="4" fill="#10b981"/>
+
+  <!-- Deeper attractor -->
+  <path d="M 325 240 Q 365 215 405 240" stroke="#f59e0b" stroke-width="2" fill="none"/>
+  <circle cx="365" cy="218" r="4" fill="#f59e0b"/>
+
+  <!-- Sticky attractor -->
+  <path d="M 510 245 Q 540 210 570 245" stroke="#ef4444" stroke-width="2" fill="none"/>
+  <circle cx="540" cy="213" r="4" fill="#ef4444"/>
+
+  <!-- Loop attractor -->
+  <path d="M 645 245 Q 673 205 701 245" stroke="#6366f1" stroke-width="2" fill="none"/>
+  <circle cx="673" cy="209" r="4" fill="#6366f1"/>
+  <path d="M 660 220 Q 673 230 686 220" stroke="#6366f1" stroke-width="1.5" fill="none" stroke-dasharray="3,2"/>
+</svg>

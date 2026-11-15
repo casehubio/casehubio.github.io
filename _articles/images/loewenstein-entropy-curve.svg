@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .axis { stroke: #555; stroke-width: 1.5; fill: none; }
+      .curve { stroke: #2563eb; stroke-width: 2.5; fill: none; }
+      .label { font-size: 13px; fill: #333; }
+      .title { font-size: 15px; fill: #111; font-weight: 600; }
+      .zone-label { font-size: 11px; fill: #666; }
+      .zone { fill-opacity: 0.08; }
+      .annotation { font-size: 11px; fill: #555; font-style: italic; }
+      .tick { stroke: #555; stroke-width: 1; }
+      .grid { stroke: #e5e7eb; stroke-width: 0.5; }
+    </style>
+  </defs>
+
+  <!-- Background zones -->
+  <rect x="80" y="30" width="120" height="250" class="zone" fill="#ef4444" rx="4"/>
+  <rect x="200" y="30" width="200" height="250" class="zone" fill="#22c55e" rx="4"/>
+  <rect x="400" y="30" width="120" height="250" class="zone" fill="#ef4444" rx="4"/>
+
+  <!-- Zone labels -->
+  <text x="140" y="295" text-anchor="middle" class="zone-label">Don't know</text>
+  <text x="140" y="308" text-anchor="middle" class="zone-label">what you</text>
+  <text x="140" y="321" text-anchor="middle" class="zone-label">don't know</text>
+
+  <text x="300" y="295" text-anchor="middle" class="zone-label" font-weight="600" fill="#16a34a">Peak curiosity</text>
+  <text x="300" y="308" text-anchor="middle" class="zone-label">"tip of the tongue"</text>
+
+  <text x="460" y="295" text-anchor="middle" class="zone-label">Already</text>
+  <text x="460" y="308" text-anchor="middle" class="zone-label">know it</text>
+
+  <!-- Grid lines -->
+  <line x1="80" y1="92" x2="520" y2="92" class="grid"/>
+  <line x1="80" y1="155" x2="520" y2="155" class="grid"/>
+  <line x1="80" y1="217" x2="520" y2="217" class="grid"/>
+
+  <!-- Axes -->
+  <line x1="80" y1="280" x2="520" y2="280" class="axis"/>
+  <line x1="80" y1="30" x2="80" y2="280" class="axis"/>
+
+  <!-- X-axis ticks and labels -->
+  <line x1="80" y1="280" x2="80" y2="285" class="tick"/>
+  <text x="80" y="298" text-anchor="middle" class="label">0</text>
+  <line x1="190" y1="280" x2="190" y2="285" class="tick"/>
+  <text x="190" y="298" text-anchor="middle" class="label">0.25</text>
+  <line x1="300" y1="280" x2="300" y2="285" class="tick"/>
+  <text x="300" y="298" text-anchor="middle" class="label">0.5</text>
+  <line x1="410" y1="280" x2="410" y2="285" class="tick"/>
+  <text x="410" y="298" text-anchor="middle" class="label">0.75</text>
+  <line x1="520" y1="280" x2="520" y2="285" class="tick"/>
+  <text x="520" y="298" text-anchor="middle" class="label">1.0</text>
+
+  <!-- Y-axis ticks -->
+  <line x1="75" y1="280" x2="80" y2="280" class="tick"/>
+  <text x="72" y="284" text-anchor="end" class="label">0</text>
+  <line x1="75" y1="155" x2="80" y2="155" class="tick"/>
+  <text x="72" y="159" text-anchor="end" class="label">0.5</text>
+  <line x1="75" y1="30" x2="80" y2="30" class="tick"/>
+  <text x="72" y="34" text-anchor="end" class="label">1.0</text>
+
+  <!-- Entropy curve: H(p) = -p*log2(p) - (1-p)*log2(1-p), scaled to 250px height -->
+  <path d="M 80,280
+           C 100,280 120,248 140,205
+           C 160,160 180,100 200,68
+           C 220,45 240,35 260,32
+           C 280,30 300,30 300,30
+           C 300,30 320,30 340,32
+           C 360,35 380,45 400,68
+           C 420,100 440,160 460,205
+           C 480,248 500,280 520,280"
+        class="curve"/>
+
+  <!-- Peak marker -->
+  <circle cx="300" cy="30" r="4" fill="#2563eb"/>
+
+  <!-- Axis labels -->
+  <text x="300" y="338" text-anchor="middle" class="label">Node confidence</text>
+  <text x="22" y="160" text-anchor="middle" class="label" transform="rotate(-90, 22, 160)">Gap intensity (entropy)</text>
+
+  <!-- Title -->
+  <text x="300" y="18" text-anchor="middle" class="title">Loewenstein Information-Gap Curve</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .box { rx: 8; ry: 8; stroke-width: 2; }
+      .box-title { font-size: 14px; font-weight: 600; fill: white; }
+      .box-subtitle { font-size: 11px; fill: rgba(255,255,255,0.85); }
+      .box-body { font-size: 11.5px; fill: #333; }
+      .connector { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+      .centre-box { rx: 12; ry: 12; }
+      .centre-title { font-size: 16px; font-weight: 700; fill: white; }
+      .centre-sub { font-size: 11px; fill: rgba(255,255,255,0.8); }
+      .ref { font-size: 10px; fill: #888; font-style: italic; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Centre: Felt Curiosity -->
+  <rect x="250" y="150" width="180" height="80" class="centre-box" fill="#1e40af" stroke="#1e3a8a"/>
+  <text x="340" y="182" text-anchor="middle" class="centre-title">Felt Curiosity</text>
+  <text x="340" y="200" text-anchor="middle" class="centre-sub">Same intensity, different experience</text>
+
+  <!-- Channel 1: Hedonic (Litman) — top left -->
+  <rect x="20" y="20" width="200" height="100" class="box" fill="#f8fafc" stroke="#7c3aed"/>
+  <rect x="20" y="20" width="200" height="30" rx="8" ry="8" fill="#7c3aed"/>
+  <rect x="20" y="40" width="200" height="10" fill="#7c3aed"/>
+  <text x="120" y="42" text-anchor="middle" class="box-title">Hedonic Channel</text>
+  <text x="30" y="72" class="box-body">I-type: pleasant anticipation</text>
+  <text x="30" y="88" class="box-body">D-type: aversive need-to-know</text>
+  <text x="30" y="108" class="ref">Litman 2005 — personality-derived</text>
+
+  <!-- Channel 2: Comprehension (Silvia) — top right -->
+  <rect x="460" y="20" width="200" height="100" class="box" fill="#f8fafc" stroke="#059669"/>
+  <rect x="460" y="20" width="200" height="30" rx="8" ry="8" fill="#059669"/>
+  <rect x="460" y="40" width="200" height="10" fill="#059669"/>
+  <text x="560" y="42" text-anchor="middle" class="box-title">Comprehension</text>
+  <text x="470" y="72" class="box-body">High: pieces connecting → interest</text>
+  <text x="470" y="88" class="box-body">Low: overwhelmed → confusion</text>
+  <text x="470" y="108" class="ref">Silvia 2006 — mean gap confidence</text>
+
+  <!-- Channel 3: Focus (Berlyne) — bottom left -->
+  <rect x="20" y="270" width="200" height="100" class="box" fill="#f8fafc" stroke="#d97706"/>
+  <rect x="20" y="270" width="200" height="30" rx="8" ry="8" fill="#d97706"/>
+  <rect x="20" y="290" width="200" height="10" fill="#d97706"/>
+  <text x="120" y="292" text-anchor="middle" class="box-title">Focus Channel</text>
+  <text x="30" y="322" class="box-body">Specific: one question dominates</text>
+  <text x="30" y="338" class="box-body">Diversive: everything beckons</text>
+  <text x="30" y="358" class="ref">Berlyne 1960 — gap distribution</text>
+
+  <!-- Channel 4: Gap Proximity (Loewenstein) — bottom right -->
+  <rect x="460" y="270" width="200" height="100" class="box" fill="#f8fafc" stroke="#dc2626"/>
+  <rect x="460" y="270" width="200" height="30" rx="8" ry="8" fill="#dc2626"/>
+  <rect x="460" y="290" width="200" height="10" fill="#dc2626"/>
+  <text x="560" y="292" text-anchor="middle" class="box-title">Gap Proximity</text>
+  <text x="470" y="322" class="box-body">Partial knowledge → peak</text>
+  <text x="470" y="338" class="box-body">Total ignorance → nothing</text>
+  <text x="470" y="358" class="ref">Loewenstein 1994 — binary entropy</text>
+
+  <!-- Connectors -->
+  <path d="M 170,120 Q 200,150 250,175" class="connector"/>
+  <path d="M 510,120 Q 480,150 430,175" class="connector"/>
+  <path d="M 170,270 Q 200,250 250,210" class="connector"/>
+  <path d="M 510,270 Q 480,250 430,210" class="connector"/>
+</svg>

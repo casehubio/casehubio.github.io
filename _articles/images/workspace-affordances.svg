@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Inter, -apple-system, sans-serif">
+  <style>
+    .op-box { rx: 6; ry: 6; stroke-width: 1.5; }
+    .op-name { font-size: 13px; font-weight: 600; fill: #1e293b; }
+    .op-desc { font-size: 10px; fill: #64748b; }
+    .op-enforces { font-size: 10px; fill: #dc2626; font-weight: 500; }
+    .spi-box { rx: 8; ry: 8; stroke-width: 2; }
+    .spi-label { font-size: 15px; font-weight: 700; fill: #1e293b; }
+    .spi-sub { font-size: 11px; fill: #64748b; font-style: italic; }
+    .conn { stroke: #cbd5e1; stroke-width: 1; fill: none; }
+  </style>
+
+  <!-- SPI header -->
+  <rect x="200" y="10" width="320" height="50" class="spi-box" fill="#f8fafc" stroke="#334155"/>
+  <text x="265" y="35" class="spi-label">ResearchWorkspace</text>
+  <text x="260" y="50" class="spi-sub">the tool contract</text>
+
+  <!-- store() -->
+  <rect x="30" y="90" width="200" height="80" class="op-box" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="50" y="112" class="op-name">store()</text>
+  <text x="50" y="128" class="op-desc">Content + sourceUri + categories</text>
+  <text x="50" y="146" class="op-enforces">Enforces: provenance at the type level</text>
+  <text x="50" y="160" class="op-desc">No sourceUri + no derivedFrom → rejected</text>
+  <line x1="130" y1="90" x2="360" y2="60" class="conn"/>
+
+  <!-- search() -->
+  <rect x="260" y="90" width="200" height="80" class="op-box" fill="#dbeafe" stroke="#3b82f6"/>
+  <text x="280" y="112" class="op-name">search()</text>
+  <text x="280" y="128" class="op-desc">Semantic + workspace-isolated</text>
+  <text x="280" y="146" class="op-enforces">Enforces: search before store workflow</text>
+  <text x="280" y="160" class="op-desc">Dedup is a workflow, not a data-layer merge</text>
+  <line x1="360" y1="90" x2="360" y2="60" class="conn"/>
+
+  <!-- coverage() -->
+  <rect x="490" y="90" width="200" height="80" class="op-box" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="510" y="112" class="op-name">coverage()</text>
+  <text x="510" y="128" class="op-desc">Per-category + reliability distribution</text>
+  <text x="510" y="146" class="op-enforces">Enforces: explicit gap visibility</text>
+  <text x="510" y="160" class="op-desc">Can't claim "done" without checking</text>
+  <line x1="590" y1="90" x2="360" y2="60" class="conn"/>
+
+  <!-- stale() -->
+  <rect x="80" y="200" width="200" height="80" class="op-box" fill="#fce7f3" stroke="#ec4899"/>
+  <text x="100" y="222" class="op-name">stale()</text>
+  <text x="100" y="238" class="op-desc">Per-category freshness evaluation</text>
+  <text x="100" y="256" class="op-enforces">Enforces: temporal awareness</text>
+  <text x="100" y="270" class="op-desc">7-day pricing ≠ 365-day patents</text>
+  <line x1="180" y1="200" x2="300" y2="60" class="conn"/>
+
+  <!-- promote() -->
+  <rect x="440" y="200" width="200" height="80" class="op-box" fill="#e0e7ff" stroke="#6366f1"/>
+  <text x="460" y="222" class="op-name">promote()</text>
+  <text x="460" y="238" class="op-desc">Workspace → corpus graduation</text>
+  <text x="460" y="256" class="op-enforces">Enforces: maturity gate</text>
+  <text x="460" y="270" class="op-desc">Skips stale, binary, already-promoted</text>
+  <line x1="540" y1="200" x2="420" y2="60" class="conn"/>
+
+  <!-- Bottom: what flows through -->
+  <rect x="80" y="320" width="560" height="76" class="op-box" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="100" y="345" class="op-name">Every entry carries:</text>
+  <text x="100" y="365" class="op-desc">agentId · sessionId · storedAt · sourceUri · categories · ReliabilityTier · derivedFrom[]</text>
+  <text x="100" y="383" class="op-desc">Any claim traceable to its source. Any gap visible to the agent. Any staleness surfaced automatically.</text>
+</svg>

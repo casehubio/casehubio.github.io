@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <text x="340" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">What the Agent Sees</text>
+
+  <!-- Agent-facing layer -->
+  <rect x="30" y="50" width="620" height="130" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="340" y="72" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e40af">Agent API (one layer, complete)</text>
+
+  <rect x="50" y="85" width="135" height="36" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="117" y="107" text-anchor="middle" font-size="10" fill="#1e293b">add / get / update</text>
+
+  <rect x="200" y="85" width="100" height="36" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="250" y="107" text-anchor="middle" font-size="10" fill="#1e293b">search</text>
+
+  <rect x="315" y="85" width="100" height="36" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="365" y="107" text-anchor="middle" font-size="10" fill="#1e293b">what's new?</text>
+
+  <rect x="430" y="85" width="100" height="36" rx="6" fill="#fff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="480" y="107" text-anchor="middle" font-size="10" fill="#1e293b">versions</text>
+
+  <rect x="545" y="85" width="90" height="36" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="590" y="107" text-anchor="middle" font-size="10" fill="#166534">provenance</text>
+
+  <text x="340" y="158" text-anchor="middle" font-size="10" fill="#475569">Every call: atomic, structured, tracked. No cursor management. No raw bytes.</text>
+
+  <!-- Pipeline layer -->
+  <rect x="120" y="200" width="440" height="50" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="340" y="229" text-anchor="middle" font-size="11" fill="#475569">Shared IngestionPipeline (extract → chunk → embed)</text>
+
+  <!-- Backend layer -->
+  <rect x="30" y="280" width="620" height="80" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1"/>
+  <text x="340" y="300" text-anchor="middle" font-size="12" font-weight="bold" fill="#92400e">Content Backends (invisible to agents)</text>
+
+  <rect x="70" y="310" width="120" height="36" rx="6" fill="#fff" stroke="#d97706" stroke-width="1"/>
+  <text x="130" y="332" text-anchor="middle" font-size="11" fill="#1e293b">Git (JGit)</text>
+
+  <rect x="230" y="310" width="100" height="36" rx="6" fill="#fff" stroke="#d97706" stroke-width="1"/>
+  <text x="280" y="332" text-anchor="middle" font-size="11" fill="#1e293b">Zip</text>
+
+  <rect x="370" y="310" width="100" height="36" rx="6" fill="#fff" stroke="#d97706" stroke-width="1"/>
+  <text x="420" y="332" text-anchor="middle" font-size="11" fill="#1e293b">Flat</text>
+
+  <rect x="510" y="310" width="120" height="36" rx="6" fill="#fff" stroke="#d97706" stroke-width="1"/>
+  <text x="570" y="332" text-anchor="middle" font-size="11" fill="#1e293b">SQLite (meta)</text>
+
+  <!-- Arrows -->
+  <line x1="340" y1="170" x2="340" y2="200" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="340" y1="250" x2="340" y2="280" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+</svg>

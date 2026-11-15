@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="380" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#e4e4e7">Two Systems → One Model</text>
+
+  <!-- Left: rows/columns -->
+  <rect x="20" y="50" width="220" height="200" rx="8" fill="#1a1a2e" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="130" y="74" text-anchor="middle" font-size="12" font-weight="600" fill="#fca5a5">rows / columns</text>
+  <text x="130" y="92" text-anchor="middle" font-size="10" fill="#64748b">Declarative flow, no spanning</text>
+
+  <!-- rows/columns example -->
+  <rect x="40" y="110" width="180" height="24" rx="3" fill="#374151"/>
+  <text x="130" y="126" text-anchor="middle" font-size="9" fill="#94a3b8">row</text>
+  <rect x="48" y="118" width="80" height="12" rx="2" fill="#475569"/>
+  <rect x="132" y="118" width="80" height="12" rx="2" fill="#475569"/>
+
+  <rect x="40" y="142" width="180" height="24" rx="3" fill="#374151"/>
+  <text x="130" y="158" text-anchor="middle" font-size="9" fill="#94a3b8">row</text>
+  <rect x="48" y="150" width="164" height="12" rx="2" fill="#475569"/>
+
+  <rect x="40" y="174" width="180" height="24" rx="3" fill="#374151"/>
+  <text x="130" y="190" text-anchor="middle" font-size="9" fill="#94a3b8">row</text>
+  <rect x="48" y="182" width="52" height="12" rx="2" fill="#475569"/>
+  <rect x="104" y="182" width="52" height="12" rx="2" fill="#475569"/>
+  <rect x="160" y="182" width="52" height="12" rx="2" fill="#475569"/>
+
+  <text x="130" y="224" text-anchor="middle" font-size="9" fill="#ef4444">No row spanning</text>
+  <text x="130" y="238" text-anchor="middle" font-size="9" fill="#ef4444">Components can't stretch vertically</text>
+
+  <!-- Right: items (positioned) -->
+  <rect x="520" y="50" width="220" height="200" rx="8" fill="#1a1a2e" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="630" y="74" text-anchor="middle" font-size="12" font-weight="600" fill="#fbbf24">items (positioned)</text>
+  <text x="630" y="92" text-anchor="middle" font-size="10" fill="#64748b">Full control, no reflow</text>
+
+  <!-- items example — grid with coordinates -->
+  <rect x="540" y="110" width="60" height="70" rx="3" fill="#1a6b5a"/>
+  <text x="570" y="150" text-anchor="middle" font-size="8" fill="white">x:0 y:0</text>
+  <text x="570" y="162" text-anchor="middle" font-size="8" fill="white">4×3</text>
+  <rect x="608" y="110" width="112" height="24" rx="3" fill="#2563eb"/>
+  <text x="664" y="126" text-anchor="middle" font-size="8" fill="white">x:4 y:0 8×1</text>
+  <rect x="608" y="142" width="60" height="38" rx="3" fill="#9333ea"/>
+  <text x="638" y="165" text-anchor="middle" font-size="8" fill="white">4×2</text>
+  <rect x="676" y="142" width="44" height="16" rx="3" fill="#dc2626"/>
+  <text x="698" y="154" text-anchor="middle" font-size="7" fill="white">2×1</text>
+
+  <text x="630" y="210" text-anchor="middle" font-size="9" fill="#f59e0b">Explicit {x, y, w, h}</text>
+  <text x="630" y="224" text-anchor="middle" font-size="9" fill="#f59e0b">Manual positioning only</text>
+
+  <!-- Bottom: unified model -->
+  <rect x="170" y="270" width="420" height="60" rx="8" fill="#0f2818" stroke="#22c55e" stroke-width="2"/>
+  <text x="380" y="292" text-anchor="middle" font-size="13" font-weight="700" fill="#86efac">Unified: items[]</text>
+  <text x="380" y="310" text-anchor="middle" font-size="10" fill="#64748b">Auto-flow { w: 6 } + Positioned { x: 0, y: 0, w: 6, h: 2 } — same array, one vocabulary</text>
+
+  <!-- Arrows converging -->
+  <path d="M130,250 Q130,260 240,275 L240,275" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <path d="M630,250 Q630,260 520,275 L520,275" fill="none" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Strike-through on old systems -->
+  <line x1="50" y1="74" x2="210" y2="74" stroke="#ef4444" stroke-width="1" opacity="0.5"/>
+  <line x1="560" y1="74" x2="700" y2="74" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+</svg>

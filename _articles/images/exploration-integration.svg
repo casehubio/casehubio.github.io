@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#c0392b"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="420" fill="#fafafa" rx="8"/>
+
+  <text x="360" y="30" text-anchor="middle" font-size="16" font-weight="600" fill="#2c3e50">Cognitive Exploration Pipeline</text>
+
+  <!-- Curiosity Engine box -->
+  <rect x="40" y="60" width="200" height="140" rx="6" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="140" y="82" text-anchor="middle" font-weight="600" fill="#2980b9">Curiosity Engine</text>
+  <text x="56" y="105" fill="#444" font-size="11">InformationGapDetector</text>
+  <text x="56" y="122" fill="#444" font-size="11">CuriosityChannelComputer</text>
+  <text x="56" y="139" fill="#444" font-size="11">CuriosityDrive + lastChannel()</text>
+  <text x="56" y="156" fill="#444" font-size="11">4 channels: hedonic, focus,</text>
+  <text x="56" y="170" fill="#444" font-size="11">comprehension, gap proximity</text>
+  <text x="56" y="190" fill="#888" font-size="10" font-style="italic">Per-topic gap scores</text>
+
+  <!-- Search Budget box -->
+  <rect x="480" y="60" width="200" height="140" rx="6" fill="#fef9e7" stroke="#f39c12" stroke-width="1.5"/>
+  <text x="580" y="82" text-anchor="middle" font-weight="600" fill="#e67e22">Search Budget</text>
+  <text x="496" y="105" fill="#444" font-size="11">SearchBudgetTickParticipant</text>
+  <text x="496" y="122" fill="#444" font-size="11">4 params: breadth, laterality,</text>
+  <text x="496" y="136" fill="#444" font-size="11">depth, convergence</text>
+  <text x="496" y="156" fill="#444" font-size="11">ChannelModulationConfig</text>
+  <text x="496" y="190" fill="#888" font-size="10" font-style="italic">Per-agent, personality-shaped</text>
+
+  <!-- DriveOrchestrator (middle bridge) -->
+  <rect x="280" y="90" width="160" height="50" rx="4" fill="#f5f5f5" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="360" y="112" text-anchor="middle" fill="#666" font-size="11">DriveOrchestrator</text>
+  <text x="360" y="128" text-anchor="middle" fill="#999" font-size="10">composite intensity only</text>
+
+  <!-- Existing connections (grey, thin) -->
+  <line x1="240" y1="115" x2="278" y2="115" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="442" y1="115" x2="478" y2="115" stroke="#999" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- NEW: Channel data connection (green, solid) -->
+  <path d="M 240 170 Q 360 210 480 170" fill="none" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="360" y="225" text-anchor="middle" fill="#27ae60" font-size="11" font-weight="500">channel data (#847)</text>
+  <text x="360" y="240" text-anchor="middle" fill="#27ae60" font-size="10">(focus, comprehension, gap proximity, hedonic)</text>
+
+  <!-- Goal nodes box -->
+  <rect x="40" y="270" width="200" height="100" rx="6" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="140" y="292" text-anchor="middle" font-weight="600" fill="#27ae60">Goal Context</text>
+  <text x="56" y="315" fill="#444" font-size="11">GoalRelevanceModulation</text>
+  <text x="56" y="332" fill="#444" font-size="11">Active GOAL subgraph nodes</text>
+  <text x="56" y="349" fill="#444" font-size="11">BFS proximity scoring</text>
+  <text x="56" y="366" fill="#888" font-size="10" font-style="italic">Currently: memory retrieval only</text>
+
+  <!-- Missing connection: goals -> curiosity -->
+  <line x1="180" y1="270" x2="180" y2="202" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-red)"/>
+  <text x="195" y="245" fill="#c0392b" font-size="11" font-weight="500">NEXT (#848)</text>
+
+  <!-- Recurring Thought box -->
+  <rect x="480" y="270" width="200" height="100" rx="6" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="580" y="292" text-anchor="middle" font-weight="600" fill="#c0392b">Recurring Thought</text>
+  <text x="496" y="315" fill="#444" font-size="11">RecurringThoughtPhase</text>
+  <text x="496" y="332" fill="#444" font-size="11">7-symptom composite</text>
+  <text x="496" y="349" fill="#444" font-size="11">ContinuumPosition</text>
+  <text x="496" y="366" fill="#888" font-size="10" font-style="italic">Per-topic, consolidation-level</text>
+
+  <!-- Existing connection: recurring thought -> prompt modulation -->
+  <line x1="580" y1="270" x2="580" y2="202" stroke="#27ae60" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="610" y="245" fill="#27ae60" font-size="10">prompt modulation</text>
+
+  <!-- Legend -->
+  <line x1="240" y1="395" x2="270" y2="395" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="275" y="399" fill="#666" font-size="10">Connected</text>
+  <line x1="360" y1="395" x2="390" y2="395" stroke="#c0392b" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="395" y="399" fill="#666" font-size="10">Next (#848)</text>
+</svg>

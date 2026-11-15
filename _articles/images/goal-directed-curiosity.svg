@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2980b9"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <rect width="720" height="400" fill="#fafafa" rx="8"/>
+
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#2c3e50">Undirected vs Goal-Directed Curiosity</text>
+
+  <!-- Left side: undirected -->
+  <text x="180" y="58" text-anchor="middle" font-size="13" font-weight="600" fill="#7f8c8d">Before: All Gaps Equal</text>
+
+  <!-- Knowledge graph nodes - left -->
+  <circle cx="100" cy="140" r="22" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="100" y="144" text-anchor="middle" font-size="10" fill="#2980b9">rust</text>
+
+  <circle cx="180" cy="100" r="22" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="180" y="104" text-anchor="middle" font-size="10" fill="#2980b9">ownership</text>
+
+  <circle cx="260" cy="140" r="22" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="260" y="144" text-anchor="middle" font-size="10" fill="#2980b9">cooking</text>
+
+  <circle cx="180" cy="190" r="22" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="180" y="194" text-anchor="middle" font-size="10" fill="#2980b9">lifetimes</text>
+
+  <!-- Edges - left -->
+  <line x1="120" y1="132" x2="160" y2="110" stroke="#bbb" stroke-width="1"/>
+  <line x1="120" y1="148" x2="160" y2="182" stroke="#bbb" stroke-width="1"/>
+  <line x1="200" y1="110" x2="240" y2="132" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Gap scores - left -->
+  <text x="100" y="175" text-anchor="middle" font-size="9" fill="#888">gap: 0.42</text>
+  <text x="180" y="78" text-anchor="middle" font-size="9" fill="#888">gap: 0.55</text>
+  <text x="260" y="175" text-anchor="middle" font-size="9" fill="#888">gap: 0.58</text>
+  <text x="180" y="225" text-anchor="middle" font-size="9" fill="#888">gap: 0.48</text>
+
+  <!-- Ranking label - left -->
+  <rect x="60" y="245" width="240" height="60" rx="4" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="180" y="263" text-anchor="middle" font-size="11" font-weight="600" fill="#555">Ranked by raw entropy</text>
+  <text x="180" y="280" text-anchor="middle" font-size="10" fill="#888">1. cooking (0.58)</text>
+  <text x="180" y="295" text-anchor="middle" font-size="10" fill="#888">2. ownership (0.55)</text>
+
+  <!-- Divider -->
+  <line x1="360" y1="50" x2="360" y2="370" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Right side: goal-directed -->
+  <text x="540" y="58" text-anchor="middle" font-size="13" font-weight="600" fill="#27ae60">After: Goals Reshape Ranking</text>
+
+  <!-- Goal node -->
+  <rect x="495" y="80" width="90" height="30" rx="15" fill="#e8f8f5" stroke="#27ae60" stroke-width="2"/>
+  <text x="540" y="100" text-anchor="middle" font-size="10" font-weight="600" fill="#27ae60">learn Rust</text>
+
+  <!-- Knowledge graph nodes - right -->
+  <circle cx="460" cy="170" r="22" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="460" y="174" text-anchor="middle" font-size="10" fill="#2980b9">rust</text>
+
+  <circle cx="540" cy="170" r="22" fill="#d5f5e3" stroke="#27ae60" stroke-width="2"/>
+  <text x="540" y="174" text-anchor="middle" font-size="10" fill="#27ae60">ownership</text>
+
+  <circle cx="620" cy="170" r="22" fill="#eaf2f8" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="620" y="174" text-anchor="middle" font-size="10" fill="#2980b9">cooking</text>
+
+  <circle cx="460" cy="240" r="22" fill="#eafaf1" stroke="#27ae60" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="460" y="244" text-anchor="middle" font-size="10" fill="#27ae60">lifetimes</text>
+
+  <!-- Edges - right -->
+  <line x1="480" y1="162" x2="520" y2="162" stroke="#bbb" stroke-width="1"/>
+  <line x1="480" y1="178" x2="442" y2="228" stroke="#bbb" stroke-width="1"/>
+  <line x1="560" y1="162" x2="600" y2="162" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Goal edge -->
+  <line x1="540" y1="110" x2="540" y2="148" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="568" y="132" font-size="9" fill="#27ae60">1 hop</text>
+
+  <!-- 2-hop indicator -->
+  <path d="M 530,110 Q 430,120 460,148" stroke="#27ae60" stroke-width="1.5" fill="none" stroke-dasharray="4,3" marker-end="url(#arrow-green)"/>
+  <text x="420" y="125" font-size="9" fill="#27ae60">2 hops</text>
+
+  <!-- Goal relevance scores - right -->
+  <text x="540" y="205" text-anchor="middle" font-size="9" font-weight="600" fill="#27ae60">goal: 1.0</text>
+  <text x="460" y="275" text-anchor="middle" font-size="9" fill="#27ae60">goal: 0.7</text>
+  <text x="620" y="205" text-anchor="middle" font-size="9" fill="#888">goal: 0.0</text>
+
+  <!-- Ranking label - right -->
+  <rect x="420" y="295" width="240" height="60" rx="4" fill="#e8f8f5" stroke="#27ae60" stroke-width="1"/>
+  <text x="540" y="313" text-anchor="middle" font-size="11" font-weight="600" fill="#27ae60">Ranked by boosted intensity</text>
+  <text x="540" y="330" text-anchor="middle" font-size="10" fill="#27ae60">1. ownership (0.55 × 2.0 → 1.0)</text>
+  <text x="540" y="345" text-anchor="middle" font-size="10" fill="#888">2. cooking (0.58 × 1.0 → 0.58)</text>
+
+  <!-- Bottom annotation -->
+  <text x="360" y="388" text-anchor="middle" font-size="11" fill="#888" font-style="italic">Same gaps, same agent. Goals reshape what's interesting.</text>
+</svg>
