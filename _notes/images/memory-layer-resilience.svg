@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    text { font-size: 13px; fill: #1e293b; }
+    .label { font-size: 11px; fill: #64748b; }
+    .title { font-size: 15px; font-weight: 600; fill: #0f172a; }
+    .mono { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 11px; }
+    .safe { fill: #16a34a; }
+    .warn { fill: #d97706; }
+    .danger { fill: #dc2626; }
+  </style>
+
+  <defs>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#64748b"/>
+    </marker>
+    <marker id="arrDanger" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="28" text-anchor="middle" class="title">Agent Memory — Where Corruption Hits Hardest</text>
+
+  <!-- Layer 1: Conversation (ephemeral) -->
+  <rect x="40" y="55" width="200" height="70" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="140" y="78" text-anchor="middle" font-weight="600" font-size="13">Conversation History</text>
+  <text x="140" y="95" text-anchor="middle" class="label">ephemeral — lives in session</text>
+  <text x="140" y="112" text-anchor="middle" class="label safe" font-weight="500">corruption: session restarts</text>
+
+  <!-- Layer 2: Segment Cache (reconstructed) -->
+  <rect x="260" y="55" width="200" height="70" rx="8" fill="#fefce8" stroke="#eab308" stroke-width="1.5"/>
+  <text x="360" y="78" text-anchor="middle" font-weight="600" font-size="13">Segment Cache</text>
+  <text x="360" y="95" text-anchor="middle" class="label">bounded — rebuilt from transcripts</text>
+  <text x="360" y="112" text-anchor="middle" class="label warn" font-weight="500">corruption: stale until rebuild</text>
+
+  <!-- Layer 3: Transcripts (permanent) -->
+  <rect x="480" y="55" width="200" height="70" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="580" y="78" text-anchor="middle" font-weight="600" font-size="13">Transcript Archive</text>
+  <text x="580" y="95" text-anchor="middle" class="label">permanent — ZIP on disk</text>
+  <text x="580" y="112" text-anchor="middle" class="label danger" font-weight="500">corruption: data loss</text>
+
+  <!-- Flow arrows -->
+  <line x1="240" y1="90" x2="255" y2="90" stroke="#64748b" stroke-width="1.2" marker-end="url(#arr2)"/>
+  <line x1="460" y1="90" x2="475" y2="90" stroke="#64748b" stroke-width="1.2" marker-end="url(#arr2)"/>
+  <text x="248" y="82" class="label">feeds</text>
+  <text x="468" y="82" class="label">feeds</text>
+
+  <!-- Impact section -->
+  <rect x="40" y="155" width="640" height="3" rx="1" fill="#e2e8f0"/>
+
+  <!-- Corrupted transcript impact -->
+  <rect x="40" y="175" width="640" height="185" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1"/>
+  <text x="60" y="200" font-weight="600" font-size="14" fill="#9a3412">When the transcript layer corrupts</text>
+
+  <!-- Impact chain -->
+  <rect x="60" y="215" width="180" height="50" rx="5" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="150" y="235" text-anchor="middle" class="mono" font-size="10">ZIP filenames invalid</text>
+  <text x="150" y="250" text-anchor="middle" class="mono danger" font-size="10">Python: UnicodeDecodeError</text>
+
+  <line x1="240" y1="240" x2="268" y2="240" stroke="#dc2626" stroke-width="1.2" marker-end="url(#arrDanger)"/>
+
+  <rect x="270" y="215" width="180" height="50" rx="5" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="360" y="235" text-anchor="middle" class="mono" font-size="10">eval pipeline cannot read</text>
+  <text x="360" y="250" text-anchor="middle" class="mono" font-size="10">transcripts for scoring</text>
+
+  <line x1="450" y1="240" x2="478" y2="240" stroke="#dc2626" stroke-width="1.2" marker-end="url(#arrDanger)"/>
+
+  <rect x="480" y="215" width="180" height="50" rx="5" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="570" y="235" text-anchor="middle" class="mono" font-size="10">no measurement</text>
+  <text x="570" y="250" text-anchor="middle" class="mono" font-size="10">= flying blind</text>
+
+  <!-- Bottom insight -->
+  <text x="60" y="295" font-size="12" fill="#78350f">The persistence layer is the one layer the agent cannot recover from on its own.</text>
+  <text x="60" y="313" font-size="12" fill="#78350f">Conversations restart. Caches rebuild. Corrupted archives are permanent.</text>
+  <text x="60" y="340" font-size="12" fill="#78350f" font-weight="600">Thread-safety in the persistence layer is not optional — it protects the entire measurement chain.</text>
+</svg>

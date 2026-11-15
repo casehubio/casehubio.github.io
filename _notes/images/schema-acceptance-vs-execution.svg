@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" font-family="'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafbfc"/>
+      <stop offset="100%" stop-color="#f0f2f5"/>
+    </linearGradient>
+    <filter id="sh" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#666"/>
+    </marker>
+  </defs>
+
+  <rect width="760" height="320" fill="url(#bg2)" rx="8"/>
+
+  <text x="380" y="30" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a2e">Schema Acceptance vs Runtime Execution — Separate Concerns</text>
+
+  <!-- YAML document -->
+  <rect x="30" y="60" width="140" height="70" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="100" y="85" text-anchor="middle" font-size="12" font-weight="600" fill="#333">Playbook YAML</text>
+  <text x="100" y="105" text-anchor="middle" font-size="10" fill="#666">pause: gate-1</text>
+  <text x="100" y="118" text-anchor="middle" font-size="10" fill="#666">at: "09:00"</text>
+
+  <!-- Arrow to Walker -->
+  <line x1="170" y1="95" x2="220" y2="95" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Walker box -->
+  <rect x="225" y="55" width="160" height="80" rx="8" fill="#264653" filter="url(#sh)"/>
+  <text x="305" y="80" text-anchor="middle" font-size="12" font-weight="600" fill="white">Walker</text>
+  <text x="305" y="98" text-anchor="middle" font-size="10" fill="#a8dadc">Schema acceptance</text>
+  <text x="305" y="114" text-anchor="middle" font-size="10" fill="#a8dadc">Parse all valid YAML</text>
+
+  <!-- Arrow to ResolvedStep -->
+  <line x1="385" y1="95" x2="435" y2="95" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- ResolvedStep -->
+  <rect x="440" y="60" width="140" height="70" rx="8" fill="#f8f9fa" stroke="#adb5bd" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="510" y="85" text-anchor="middle" font-size="12" font-weight="600" fill="#333">ResolvedStep</text>
+  <text x="510" y="102" text-anchor="middle" font-size="10" fill="#666">kind: 'control'</text>
+  <text x="510" y="115" text-anchor="middle" font-size="10" fill="#666">annotations: []</text>
+
+  <!-- Fork arrows -->
+  <line x1="580" y1="80" x2="640" y2="60" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <line x1="580" y1="110" x2="640" y2="130" stroke="#666" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Java runtime -->
+  <rect x="645" y="40" width="90" height="40" rx="6" fill="#2d6a4f" filter="url(#sh)"/>
+  <text x="690" y="57" text-anchor="middle" font-size="10" font-weight="600" fill="white">Java</text>
+  <text x="690" y="70" text-anchor="middle" font-size="9" fill="#a8dadc">executes</text>
+
+  <!-- TS runtime -->
+  <rect x="645" y="115" width="90" height="40" rx="6" fill="#e76f51" filter="url(#sh)"/>
+  <text x="690" y="132" text-anchor="middle" font-size="10" font-weight="600" fill="white">TypeScript</text>
+  <text x="690" y="145" text-anchor="middle" font-size="9" fill="white">not-implemented</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="180" x2="730" y2="180" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Bottom: the principle -->
+  <text x="380" y="210" text-anchor="middle" font-size="13" font-weight="600" fill="#333">The Principle</text>
+
+  <!-- Three boxes -->
+  <rect x="30" y="230" width="220" height="60" rx="6" fill="#264653" filter="url(#sh)"/>
+  <text x="140" y="253" text-anchor="middle" font-size="11" font-weight="600" fill="white">Parse everything</text>
+  <text x="140" y="270" text-anchor="middle" font-size="10" fill="#a8dadc">Both Walkers accept identical YAML</text>
+
+  <rect x="270" y="230" width="220" height="60" rx="6" fill="#2d6a4f" filter="url(#sh)"/>
+  <text x="380" y="253" text-anchor="middle" font-size="11" font-weight="600" fill="white">Execute what you can</text>
+  <text x="380" y="270" text-anchor="middle" font-size="10" fill="#a8dadc">Portability determines runtime</text>
+
+  <rect x="510" y="230" width="220" height="60" rx="6" fill="#e9c46a" filter="url(#sh)"/>
+  <text x="620" y="253" text-anchor="middle" font-size="11" font-weight="600" fill="#333">Reject nothing valid</text>
+  <text x="620" y="270" text-anchor="middle" font-size="10" fill="#555">A parse error is a contract violation</text>
+</svg>

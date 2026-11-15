@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380">
+  <defs>
+    <style>
+      text { font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+      .title { font-size: 14px; font-weight: 600; fill: #1a1a2e; }
+      .label { font-size: 11px; fill: #4a4a6a; }
+      .label-bold { font-size: 11px; font-weight: 600; fill: #1a1a2e; }
+      .small { font-size: 10px; fill: #6a6a8a; }
+      .mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 10px; fill: #2c3e50; }
+      .mono-green { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 10px; fill: #27ae60; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#5b6abf"/>
+    </marker>
+    <marker id="arrowDim" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#aaa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="380" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" class="title">The Fix: Supplier&lt;ClaudeAsyncClient&gt; enables real subprocess restart</text>
+
+  <!-- Phase 1: Session active -->
+  <rect x="20" y="48" width="200" height="140" rx="6" fill="#f5f5ff" stroke="#c5c5df" stroke-width="1"/>
+  <text x="120" y="68" text-anchor="middle" class="label-bold">1. Session running</text>
+
+  <!-- Process box -->
+  <rect x="40" y="80" width="160" height="44" rx="4" fill="#e8eaf6" stroke="#9fa8da" stroke-width="1"/>
+  <text x="120" y="98" text-anchor="middle" class="mono">sdkClient₁</text>
+  <text x="120" y="112" text-anchor="middle" class="small">subprocess PID 42981</text>
+
+  <!-- Context bar -->
+  <rect x="40" y="134" width="160" height="20" rx="3" fill="#fff" stroke="#c5c5df" stroke-width="1"/>
+  <rect x="42" y="136" width="110" height="16" rx="2" fill="#ffb74d"/>
+  <text x="158" y="149" class="small">72k tokens</text>
+
+  <!-- Arrow: clear() called -->
+  <line x1="225" y1="118" x2="265" y2="118" stroke="#5b6abf" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="245" y="108" text-anchor="middle" class="mono" fill="#5b6abf">clear()</text>
+
+  <!-- Phase 2: Factory creates new -->
+  <rect x="270" y="48" width="200" height="140" rx="6" fill="#f0f7f0" stroke="#a8d5a2" stroke-width="1"/>
+  <text x="370" y="68" text-anchor="middle" class="label-bold">2. Factory restart</text>
+
+  <!-- Old process (crossed out) -->
+  <rect x="290" y="80" width="160" height="26" rx="4" fill="#fce4ec" stroke="#ef9a9a" stroke-width="1"/>
+  <text x="370" y="98" text-anchor="middle" class="mono" fill="#999" text-decoration="line-through">sdkClient₁ → close()</text>
+  <line x1="294" y1="93" x2="446" y2="93" stroke="#e57373" stroke-width="1.5"/>
+
+  <!-- New process -->
+  <rect x="290" y="114" width="160" height="26" rx="4" fill="#e8f5e9" stroke="#81c784" stroke-width="1"/>
+  <text x="370" y="132" text-anchor="middle" class="mono-green">sdkClient₂ = factory.get()</text>
+
+  <!-- Context bar: clean -->
+  <rect x="290" y="148" width="160" height="20" rx="3" fill="#fff" stroke="#a8d5a2" stroke-width="1"/>
+  <rect x="292" y="150" width="4" height="16" rx="2" fill="#c8e6c9"/>
+  <text x="302" y="163" class="small" fill="#2d6a2e">0 tokens — fresh</text>
+
+  <!-- Arrow: query resumes -->
+  <line x1="475" y1="118" x2="515" y2="118" stroke="#5b6abf" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="495" y="108" text-anchor="middle" class="mono" fill="#5b6abf">query()</text>
+
+  <!-- Phase 3: Session continues -->
+  <rect x="520" y="48" width="180" height="140" rx="6" fill="#f5f5ff" stroke="#c5c5df" stroke-width="1"/>
+  <text x="610" y="68" text-anchor="middle" class="label-bold">3. Session continues</text>
+
+  <!-- New process running -->
+  <rect x="540" y="80" width="140" height="44" rx="4" fill="#e8eaf6" stroke="#9fa8da" stroke-width="1"/>
+  <text x="610" y="98" text-anchor="middle" class="mono">sdkClient₂</text>
+  <text x="610" y="112" text-anchor="middle" class="small">subprocess PID 43107</text>
+
+  <!-- Context bar: growing cleanly -->
+  <rect x="540" y="134" width="140" height="20" rx="3" fill="#fff" stroke="#c5c5df" stroke-width="1"/>
+  <rect x="542" y="136" width="30" height="16" rx="2" fill="#81c784"/>
+  <text x="578" y="149" class="small">4k tokens</text>
+
+  <!-- Key properties section -->
+  <rect x="20" y="210" width="680" height="155" rx="6" fill="#fff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="360" y="232" text-anchor="middle" class="label-bold">Key properties of the fix</text>
+
+  <!-- Property columns -->
+  <text x="50" y="258" class="label-bold">Atomicity</text>
+  <text x="50" y="274" class="small">New subprocess created before old is closed.</text>
+  <text x="50" y="288" class="small">If factory throws, old client is still intact.</text>
+
+  <text x="280" y="258" class="label-bold">State guards</text>
+  <text x="280" y="274" class="small">IDLE → clear works, subprocess restarts</text>
+  <text x="280" y="288" class="small">ACTIVE → throws ISE (turn in progress)</text>
+  <text x="280" y="302" class="small">CLOSED → no-op (session is dead)</text>
+
+  <text x="510" y="258" class="label-bold">Visibility</text>
+  <text x="510" y="274" class="small">sdkClient is volatile — new reference</text>
+  <text x="510" y="288" class="small">visible to next query() immediately.</text>
+  <text x="510" y="302" class="small">sessionStarted + turnCounter reset.</text>
+
+  <!-- Divider lines -->
+  <line x1="265" y1="245" x2="265" y2="340" stroke="#e8e8e8" stroke-width="1"/>
+  <line x1="495" y1="245" x2="495" y2="340" stroke="#e8e8e8" stroke-width="1"/>
+</svg>

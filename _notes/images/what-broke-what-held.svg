@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Segoe UI', sans-serif; }
+      .title { font-size: 15px; font-weight: 600; fill: #1a1a2e; }
+      .heading { font-size: 12px; font-weight: 600; }
+      .item { font-size: 11px; fill: #3a3a5a; }
+      .detail { font-size: 10px; fill: #6a6a8a; }
+    </style>
+  </defs>
+
+  <rect width="800" height="380" rx="8" fill="#f8f9fc"/>
+
+  <text x="400" y="30" text-anchor="middle" class="title">What Broke and What Held</text>
+
+  <!-- Broke column -->
+  <rect x="30" y="50" width="350" height="300" rx="6" fill="#fff5f5" stroke="#e0c0c0"/>
+  <text x="205" y="75" text-anchor="middle" class="heading" fill="#c62828">Broke (silently)</text>
+
+  <!-- Item 1 -->
+  <rect x="50" y="92" width="310" height="55" rx="4" fill="white" stroke="#e8d0d0"/>
+  <circle cx="68" cy="108" r="8" fill="#c62828"/>
+  <text x="68" y="112" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✗</text>
+  <text x="84" y="108" class="item" font-weight="500">clear() — context reset mechanism</text>
+  <text x="84" y="124" class="detail">No-op in ClaudeAgentSession. Token counter</text>
+  <text x="84" y="136" class="detail">resets but conversation history grows unbounded.</text>
+
+  <!-- Item 2 -->
+  <rect x="50" y="158" width="310" height="55" rx="4" fill="white" stroke="#e8d0d0"/>
+  <circle cx="68" cy="174" r="8" fill="#c62828"/>
+  <text x="68" y="178" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✗</text>
+  <text x="84" y="174" class="item" font-weight="500">Experience recall — domain mismatch</text>
+  <text x="84" y="190" class="detail">Stored in "experience", queried from "manor".</text>
+  <text x="84" y="202" class="detail">memories=0 for all 100 ticks. Completely silent.</text>
+
+  <!-- Item 3 -->
+  <rect x="50" y="224" width="310" height="55" rx="4" fill="white" stroke="#e8d0d0"/>
+  <circle cx="68" cy="240" r="8" fill="#ff6f00"/>
+  <text x="68" y="244" text-anchor="middle" font-size="11" fill="white" font-weight="bold">!</text>
+  <text x="84" y="240" class="item" font-weight="500">Observability — flew blind</text>
+  <text x="84" y="256" class="detail">No observer interfaces. Bugs only discovered</text>
+  <text x="84" y="268" class="detail">through output forensics, not pipeline signals.</text>
+
+  <!-- Held column -->
+  <rect x="420" y="50" width="350" height="300" rx="6" fill="#f5fff5" stroke="#c0e0c0"/>
+  <text x="595" y="75" text-anchor="middle" class="heading" fill="#2e7d32">Held (despite the breakage)</text>
+
+  <!-- Item 1 -->
+  <rect x="440" y="92" width="310" height="55" rx="4" fill="white" stroke="#d0e8d0"/>
+  <circle cx="458" cy="108" r="8" fill="#2e7d32"/>
+  <text x="458" y="112" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✓</text>
+  <text x="474" y="108" class="item" font-weight="500">Segment cache — bridged the void</text>
+  <text x="474" y="124" class="detail">Characters maintained voice, narrative, and</text>
+  <text x="474" y="136" class="detail">relationships across the context reset.</text>
+
+  <!-- Item 2 -->
+  <rect x="440" y="158" width="310" height="55" rx="4" fill="white" stroke="#d0e8d0"/>
+  <circle cx="458" cy="174" r="8" fill="#2e7d32"/>
+  <text x="458" y="178" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✓</text>
+  <text x="474" y="174" class="item" font-weight="500">Observation compaction — bounded growth</text>
+  <text x="474" y="190" class="detail">293 nodes condensed in two cycles. Mechanical,</text>
+  <text x="474" y="202" class="detail">sub-millisecond, no LLM. Ran in background.</text>
+
+  <!-- Item 3 -->
+  <rect x="440" y="224" width="310" height="55" rx="4" fill="white" stroke="#d0e8d0"/>
+  <circle cx="458" cy="240" r="8" fill="#2e7d32"/>
+  <text x="458" y="244" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✓</text>
+  <text x="474" y="240" class="item" font-weight="500">Transcript corpus — zero failures</text>
+  <text x="474" y="256" class="detail">461 entries, 7.4MB. Full prompt+response per</text>
+  <text x="474" y="268" class="detail">character per tick. Audit trail intact.</text>
+
+  <!-- Item 4 -->
+  <rect x="440" y="290" width="310" height="48" rx="4" fill="white" stroke="#d0e8d0"/>
+  <circle cx="458" cy="306" r="8" fill="#2e7d32"/>
+  <text x="458" y="310" text-anchor="middle" font-size="11" fill="white" font-weight="bold">✓</text>
+  <text x="474" y="306" class="item" font-weight="500">Consolidation-as-reset — accidental but right</text>
+  <text x="474" y="322" class="detail">Sleep cycle released sessions. Unintended context reset.</text>
+</svg>

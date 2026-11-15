@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340">
+  <defs>
+    <style>
+      text { font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; }
+      .title { font-size: 14px; font-weight: 600; fill: #1a1a2e; }
+      .label { font-size: 11px; fill: #4a4a6a; }
+      .label-bold { font-size: 11px; font-weight: 600; fill: #1a1a2e; }
+      .small { font-size: 10px; fill: #6a6a8a; }
+      .code { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 10px; fill: #e74c3c; }
+      .code-dim { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 10px; fill: #7f8c8d; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="340" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" class="title">What ManagedSession Thinks Is Happening vs What Actually Happens</text>
+
+  <!-- Left panel: What it thinks -->
+  <rect x="20" y="45" width="330" height="275" rx="6" fill="#f0f7f0" stroke="#a8d5a2" stroke-width="1"/>
+  <text x="185" y="65" text-anchor="middle" class="label-bold" fill="#2d6a2e">ManagedSession believes</text>
+
+  <!-- estimatedTokens gauge -->
+  <rect x="40" y="80" width="290" height="24" rx="4" fill="#fff" stroke="#c5e1c0" stroke-width="1"/>
+  <rect x="42" y="82" width="200" height="20" rx="3" fill="#81c784"/>
+  <text x="248" y="96" class="small" fill="#2d6a2e">estimatedTokens: 72,000</text>
+
+  <!-- Arrow down: clear() fires -->
+  <line x1="185" y1="110" x2="185" y2="135" stroke="#2d6a2e" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="250" y="126" class="code-dim">clear() → reset to 0</text>
+
+  <!-- estimatedTokens reset -->
+  <rect x="40" y="140" width="290" height="24" rx="4" fill="#fff" stroke="#c5e1c0" stroke-width="1"/>
+  <rect x="42" y="142" width="8" height="20" rx="3" fill="#c8e6c9"/>
+  <text x="58" y="156" class="small" fill="#2d6a2e">estimatedTokens: 0 ✓</text>
+
+  <!-- Arrow down: grows again -->
+  <line x1="185" y1="170" x2="185" y2="195" stroke="#2d6a2e" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="250" y="186" class="small" fill="#2d6a2e">accumulates again</text>
+
+  <!-- estimatedTokens growing -->
+  <rect x="40" y="200" width="290" height="24" rx="4" fill="#fff" stroke="#c5e1c0" stroke-width="1"/>
+  <rect x="42" y="202" width="120" height="20" rx="3" fill="#81c784"/>
+  <text x="168" y="216" class="small" fill="#2d6a2e">estimatedTokens: 35,000</text>
+
+  <!-- Result text -->
+  <text x="185" y="252" text-anchor="middle" class="label" fill="#2d6a2e">Looks healthy — oscillates</text>
+  <text x="185" y="268" text-anchor="middle" class="label" fill="#2d6a2e">between 0 and 80,000</text>
+  <text x="185" y="292" text-anchor="middle" class="code-dim">// "context is managed"</text>
+
+  <!-- Right panel: What actually happens -->
+  <rect x="370" y="45" width="330" height="275" rx="6" fill="#fdf0f0" stroke="#e8a8a8" stroke-width="1"/>
+  <text x="535" y="65" text-anchor="middle" class="label-bold" fill="#8b2020">Claude subprocess reality</text>
+
+  <!-- Real context: growing -->
+  <rect x="390" y="80" width="290" height="24" rx="4" fill="#fff" stroke="#e0c0c0" stroke-width="1"/>
+  <rect x="392" y="82" width="200" height="20" rx="3" fill="#e57373"/>
+  <text x="598" y="96" class="small" fill="#8b2020">actual tokens: 72,000</text>
+
+  <!-- Arrow down: clear() is a no-op -->
+  <line x1="535" y1="110" x2="535" y2="135" stroke="#8b2020" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="602" y="126" class="code">clear() { } // no-op</text>
+
+  <!-- Real context: unchanged -->
+  <rect x="390" y="140" width="290" height="24" rx="4" fill="#fff" stroke="#e0c0c0" stroke-width="1"/>
+  <rect x="392" y="142" width="200" height="20" rx="3" fill="#e57373"/>
+  <text x="598" y="156" class="small" fill="#8b2020">actual tokens: 72,000</text>
+
+  <!-- Arrow down: keeps growing -->
+  <line x1="535" y1="170" x2="535" y2="195" stroke="#8b2020" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="602" y="186" class="small" fill="#8b2020">never cleared</text>
+
+  <!-- Real context: overflowing -->
+  <rect x="390" y="200" width="290" height="24" rx="4" fill="#fff" stroke="#e0c0c0" stroke-width="1"/>
+  <rect x="392" y="202" width="286" height="20" rx="3" fill="#c62828"/>
+  <text x="598" y="216" class="small" fill="#fff">actual tokens: 400,000+</text>
+
+  <!-- Result text -->
+  <text x="535" y="252" text-anchor="middle" class="label" fill="#8b2020">Grows unbounded past</text>
+  <text x="535" y="268" text-anchor="middle" class="label" fill="#8b2020">model context limits</text>
+  <text x="535" y="292" text-anchor="middle" class="code">// sessions never reset</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2d6a2e"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#8b2020"/>
+    </marker>
+  </defs>
+</svg>

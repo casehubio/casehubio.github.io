@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Segoe UI', sans-serif; }
+      .title { font-size: 15px; font-weight: 600; fill: #1a1a2e; }
+      .label { font-size: 11px; fill: #4a4a6a; }
+      .tick-label { font-size: 10px; fill: #6a6a8a; }
+      .event-label { font-size: 10px; font-weight: 500; }
+      .phase { font-size: 11px; font-weight: 500; fill: #1a1a2e; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="340" rx="8" fill="#f8f9fc"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">100-Tick Validation Timeline</text>
+
+  <!-- Timeline axis -->
+  <line x1="60" y1="180" x2="860" y2="180" stroke="#c0c0d0" stroke-width="2"/>
+
+  <!-- Tick markers -->
+  <line x1="60" y1="175" x2="60" y2="185" stroke="#8080a0" stroke-width="1.5"/>
+  <text x="60" y="200" text-anchor="middle" class="tick-label">0</text>
+
+  <line x1="220" y1="175" x2="220" y2="185" stroke="#8080a0" stroke-width="1.5"/>
+  <text x="220" y="200" text-anchor="middle" class="tick-label">20</text>
+
+  <line x1="380" y1="175" x2="380" y2="185" stroke="#8080a0" stroke-width="1.5"/>
+  <text x="380" y="200" text-anchor="middle" class="tick-label">40</text>
+
+  <line x1="460" y1="175" x2="460" y2="185" stroke="#8080a0" stroke-width="1.5"/>
+  <text x="460" y="200" text-anchor="middle" class="tick-label">50</text>
+
+  <line x1="540" y1="175" x2="540" y2="185" stroke="#8080a0" stroke-width="1.5"/>
+  <text x="540" y="200" text-anchor="middle" class="tick-label">60</text>
+
+  <line x1="700" y1="175" x2="700" y2="185" stroke="#8080a0" stroke-width="1.5"/>
+  <text x="700" y="200" text-anchor="middle" class="tick-label">80</text>
+
+  <line x1="860" y1="175" x2="860" y2="185" stroke="#8080a0" stroke-width="1.5"/>
+  <text x="860" y="200" text-anchor="middle" class="tick-label">100</text>
+
+  <!-- Phase backgrounds -->
+  <rect x="60" y="55" width="400" height="110" rx="4" fill="#e8f0fe" opacity="0.5"/>
+  <rect x="460" y="55" width="400" height="110" rx="4" fill="#fce8e8" opacity="0.4"/>
+  <rect x="500" y="55" width="360" height="110" rx="4" fill="#e8fce8" opacity="0.4"/>
+
+  <!-- Phase labels -->
+  <text x="260" y="75" text-anchor="middle" class="phase" fill="#2962ff">Conversation history accumulating</text>
+  <text x="480" y="75" text-anchor="middle" class="phase" fill="#c62828">Reset</text>
+  <text x="680" y="75" text-anchor="middle" class="phase" fill="#2e7d32">Segment cache bridging</text>
+
+  <!-- Event markers -->
+  <!-- Consolidation + compaction at tick 50 -->
+  <line x1="460" y1="85" x2="460" y2="175" stroke="#c62828" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="460" cy="100" r="6" fill="#c62828"/>
+  <text x="460" y="120" text-anchor="middle" class="event-label" fill="#c62828">Consolidation</text>
+  <text x="460" y="132" text-anchor="middle" class="event-label" fill="#c62828">sessions 9→0</text>
+  <text x="460" y="144" text-anchor="middle" class="event-label" fill="#c62828">195 nodes compacted</text>
+
+  <!-- API recovery at tick 52 -->
+  <circle cx="476" cy="155" r="4" fill="#ff6f00"/>
+  <text x="476" y="150" text-anchor="start" class="tick-label" fill="#ff6f00">API recovered</text>
+
+  <!-- Second compaction at tick 73 -->
+  <line x1="625" y1="100" x2="625" y2="175" stroke="#2e7d32" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <circle cx="625" cy="110" r="5" fill="#2e7d32"/>
+  <text x="625" y="105" text-anchor="middle" class="event-label" fill="#2e7d32">Compaction #2</text>
+
+  <!-- Quality indicators below timeline -->
+  <text x="60" y="230" class="label" font-weight="500">memories=0</text>
+  <line x1="130" y1="227" x2="860" y2="227" stroke="#ff6f00" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="870" y="230" class="tick-label" fill="#ff6f00">#738 broken throughout</text>
+
+  <text x="60" y="255" class="label" font-weight="500">clear() called</text>
+  <line x1="155" y1="252" x2="860" y2="252" stroke="#9e9e9e" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <text x="870" y="255" class="tick-label" fill="#9e9e9e">no-op throughout</text>
+
+  <text x="60" y="280" class="label" font-weight="500">body vocab</text>
+  <!-- Steady line showing maintained quality -->
+  <line x1="130" y1="277" x2="450" y2="277" stroke="#2962ff" stroke-width="2"/>
+  <line x1="476" y1="277" x2="860" y2="277" stroke="#2e7d32" stroke-width="2"/>
+  <text x="300" y="295" text-anchor="middle" class="tick-label" fill="#2962ff">rich (via conversation history)</text>
+  <text x="670" y="295" text-anchor="middle" class="tick-label" fill="#2e7d32">rich (via segment cache)</text>
+
+  <!-- Gap at reset -->
+  <line x1="450" y1="272" x2="476" y2="282" stroke="#c62828" stroke-width="2"/>
+  <text x="463" y="310" text-anchor="middle" class="tick-label" fill="#c62828">reset</text>
+</svg>

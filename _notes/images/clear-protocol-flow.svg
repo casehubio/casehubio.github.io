@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 400" font-family="Inter, system-ui, sans-serif" font-size="13">
+  <style>
+    .title { font-size: 15px; font-weight: 600; fill: #1a1a2e; }
+    .actor { font-size: 13px; font-weight: 600; fill: #1a1a2e; }
+    .label { font-size: 11px; fill: #4a4a6a; }
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 10px; fill: #1a1a2e; }
+    .mono-light { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 10px; fill: #6b7280; }
+    .note { font-size: 10px; fill: #6b7280; font-style: italic; }
+    .lifeline { stroke: #d1d5db; stroke-width: 1; stroke-dasharray: 6,4; }
+    .msg { stroke: #4a4a6a; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    .msg-return { stroke: #22c55e; stroke-width: 1.5; fill: none; marker-end: url(#arr-green); stroke-dasharray: 6,3; }
+    .activation { fill: #e8e8f0; stroke: #9ca3af; stroke-width: 1; rx: 2; }
+    .activation-green { fill: #dcfce7; stroke: #22c55e; stroke-width: 1; rx: 2; }
+    .box { fill: #f8fafc; stroke: #6366f1; stroke-width: 1.5; rx: 6; }
+    .box-warn { fill: #fef3c7; stroke: #f59e0b; stroke-width: 1; rx: 4; }
+    .box-ok { fill: #dcfce7; stroke: #22c55e; stroke-width: 1; rx: 4; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a4a6a"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="350" y="22" text-anchor="middle" class="title">Lightweight Clear — Protocol Sequence</text>
+
+  <!-- Actors -->
+  <rect x="60" y="36" width="120" height="30" class="box"/>
+  <text x="120" y="56" text-anchor="middle" class="actor">SessionPool</text>
+
+  <rect x="260" y="36" width="140" height="30" class="box"/>
+  <text x="330" y="56" text-anchor="middle" class="actor">ClaudeAgentSession</text>
+
+  <rect x="490" y="36" width="140" height="30" class="box"/>
+  <text x="560" y="56" text-anchor="middle" class="actor">Claude CLI Process</text>
+
+  <!-- Lifelines -->
+  <line x1="120" y1="66" x2="120" y2="390" class="lifeline"/>
+  <line x1="330" y1="66" x2="330" y2="390" class="lifeline"/>
+  <line x1="560" y1="66" x2="560" y2="390"/>
+
+  <!-- MCP box on CLI -->
+  <rect x="620" y="70" width="60" height="290" class="box-ok"/>
+  <text x="650" y="88" text-anchor="middle" class="label" style="font-size:10px">MCP</text>
+  <text x="650" y="100" text-anchor="middle" class="label" style="font-size:10px; fill:#22c55e">alive</text>
+
+  <!-- 1. Pool calls clear() -->
+  <rect x="114" y="88" width="12" height="30" class="activation"/>
+  <line x1="126" y1="100" x2="322" y2="100" class="msg"/>
+  <text x="224" y="94" text-anchor="middle" class="mono">clear()</text>
+
+  <!-- 2. Session sends /clear -->
+  <rect x="324" y="96" width="12" height="140" class="activation"/>
+  <line x1="336" y1="120" x2="552" y2="120" class="msg"/>
+  <text x="444" y="114" text-anchor="middle" class="mono">query("/clear").text().block(10s)</text>
+
+  <!-- 3. CLI activation -->
+  <rect x="554" y="116" width="12" height="90" class="activation-green"/>
+
+  <!-- 4. CLI emits conversation_reset -->
+  <line x1="554" y1="150" x2="336" y2="150" class="msg-return"/>
+  <text x="444" y="144" text-anchor="middle" class="mono">type: conversation_reset</text>
+
+  <!-- 5. CLI emits result with new session_id -->
+  <line x1="554" y1="180" x2="336" y2="180" class="msg-return"/>
+  <text x="444" y="174" text-anchor="middle" class="mono">type: result, session_id: new-uuid</text>
+
+  <!-- 6. Session resets state -->
+  <rect x="270" y="220" width="120" height="24" class="box-ok"/>
+  <text x="330" y="236" text-anchor="middle" class="mono">turnCounter = 0</text>
+
+  <!-- 7. Session returns to pool -->
+  <line x1="322" y1="260" x2="126" y2="260" class="msg-return"/>
+  <text x="224" y="254" text-anchor="middle" class="mono">clear() returns</text>
+
+  <!-- Note: same PID -->
+  <rect x="470" y="230" width="170" height="44" class="box-warn"/>
+  <text x="555" y="246" text-anchor="middle" class="note">Same PID throughout</text>
+  <text x="555" y="260" text-anchor="middle" class="note">MCP connections untouched</text>
+
+  <!-- Fallback note -->
+  <rect x="80" y="290" width="260" height="46" class="box-warn"/>
+  <text x="210" y="306" text-anchor="middle" class="label" style="font-weight:600">Fallback path</text>
+  <text x="210" y="322" text-anchor="middle" class="note">If /clear throws → factory restart</text>
+  <text x="210" y="332" text-anchor="middle" class="note">(kill old subprocess, create new one)</text>
+
+  <!-- Ready label -->
+  <rect x="80" y="354" width="560" height="28" class="box-ok"/>
+  <text x="360" y="372" text-anchor="middle" class="label" style="fill:#16a34a; font-weight:600">Session returned to pool with fresh context — ready for next consumer</text>
+</svg>

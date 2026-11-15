@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafbfc"/>
+      <stop offset="100%" stop-color="#f0f2f5"/>
+    </linearGradient>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="520" fill="url(#bg)" rx="8"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" font-size="15" font-weight="600" fill="#1a1a2e">Target State — After Schema + Runtime Parity</text>
+
+  <!-- Legend -->
+  <rect x="180" y="50" width="14" height="14" rx="3" fill="#2d6a4f"/>
+  <text x="200" y="62" font-size="11" fill="#444">Full parity</text>
+  <rect x="300" y="50" width="14" height="14" rx="3" fill="#6b9f78"/>
+  <text x="320" y="62" font-size="11" fill="#444">Schema parity (accepts, runtime no-op)</text>
+  <rect x="540" y="50" width="14" height="14" rx="3" fill="#a8a8a8"/>
+  <text x="560" y="62" font-size="11" fill="#444">Tracking (#735, #742)</text>
+
+  <!-- Column headers -->
+  <text x="180" y="95" text-anchor="middle" font-size="12" font-weight="600" fill="#555">Dimension</text>
+  <text x="440" y="95" text-anchor="middle" font-size="12" font-weight="600" fill="#555">Java</text>
+  <text x="620" y="95" text-anchor="middle" font-size="12" font-weight="600" fill="#555">TypeScript</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="102" x2="760" y2="102" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Row: Step Types -->
+  <text x="60" y="125" font-size="11" fill="#333" font-weight="500">Step types (structural)</text>
+  <rect x="360" y="112" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="126" text-anchor="middle" font-size="10" fill="white">13 variants</text>
+  <rect x="540" y="112" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="126" text-anchor="middle" font-size="10" fill="white">13 + 2 TS-only</text>
+
+  <!-- Row: Decorators -->
+  <text x="60" y="150" font-size="11" fill="#333" font-weight="500">Decorator keywords</text>
+  <rect x="360" y="137" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="151" text-anchor="middle" font-size="10" fill="white">28 keys</text>
+  <rect x="540" y="137" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="151" text-anchor="middle" font-size="10" fill="white">28 shared + 8 TS-only</text>
+
+  <!-- Row: Module System -->
+  <text x="60" y="175" font-size="11" fill="#333" font-weight="500">Module system</text>
+  <rect x="360" y="162" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="176" text-anchor="middle" font-size="10" fill="white">Full</text>
+  <rect x="540" y="162" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="176" text-anchor="middle" font-size="10" fill="white">Full</text>
+
+  <!-- Row: Orchestration -->
+  <text x="60" y="200" font-size="11" fill="#333" font-weight="500">Orchestration primitives</text>
+  <rect x="360" y="187" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="201" text-anchor="middle" font-size="10" fill="white">Full</text>
+  <rect x="540" y="187" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="201" text-anchor="middle" font-size="10" fill="white">Full</text>
+
+  <!-- Row: Simulation -->
+  <text x="60" y="225" font-size="11" fill="#333" font-weight="500">Simulation runtime</text>
+  <rect x="360" y="212" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="226" text-anchor="middle" font-size="10" fill="white">Full</text>
+  <rect x="540" y="212" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="226" text-anchor="middle" font-size="10" fill="white">Full</text>
+
+  <!-- Row: Annotations -->
+  <text x="60" y="250" font-size="11" fill="#333" font-weight="500">Annotation system (#@)</text>
+  <rect x="360" y="237" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="251" text-anchor="middle" font-size="10" fill="white">Full (12 migrated decorators)</text>
+  <rect x="540" y="237" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="251" text-anchor="middle" font-size="10" fill="white">Full (parser + extractor + map)</text>
+
+  <!-- Row: Expression resolution -->
+  <text x="60" y="275" font-size="11" fill="#333" font-weight="500">Type-aware expressions</text>
+  <rect x="360" y="262" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="276" text-anchor="middle" font-size="10" fill="white">EXPRESSION + engine registry</text>
+  <rect x="540" y="262" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="276" text-anchor="middle" font-size="10" fill="white">EXPRESSION + dual registration</text>
+
+  <!-- Row: Error handling -->
+  <text x="60" y="300" font-size="11" fill="#333" font-weight="500">Typed error handling</text>
+  <rect x="360" y="287" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="301" text-anchor="middle" font-size="10" fill="white">20 categories + catch scope</text>
+  <rect x="540" y="287" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="301" text-anchor="middle" font-size="10" fill="white">20 categories + catch scope</text>
+
+  <!-- Row: Test infrastructure -->
+  <text x="60" y="325" font-size="11" fill="#333" font-weight="500">Test infrastructure (.test.yaml)</text>
+  <rect x="360" y="312" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="326" text-anchor="middle" font-size="10" fill="white">Full engine + 12 matchers</text>
+  <rect x="540" y="312" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="326" text-anchor="middle" font-size="10" fill="white">Full engine + 12 matchers</text>
+
+  <!-- Row: Agent sessions -->
+  <text x="60" y="350" font-size="11" fill="#333" font-weight="500">Agent session lifecycle</text>
+  <rect x="360" y="337" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="351" text-anchor="middle" font-size="10" fill="white">4 session bindings</text>
+  <rect x="540" y="337" width="160" height="20" rx="4" fill="#6b9f78" filter="url(#shadow)"/>
+  <text x="620" y="351" text-anchor="middle" font-size="10" fill="white">Parses (portability: java)</text>
+
+  <!-- Row: Scalar subject -->
+  <text x="60" y="375" font-size="11" fill="#333" font-weight="500">Scalar subject wrapping</text>
+  <rect x="360" y="362" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="376" text-anchor="middle" font-size="10" fill="white">{_subject: value}</text>
+  <rect x="540" y="362" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="376" text-anchor="middle" font-size="10" fill="white">{_subject: value}</text>
+
+  <!-- Row: Plugin absorbSiblings -->
+  <text x="60" y="400" font-size="11" fill="#333" font-weight="500">Plugin absorbSiblings</text>
+  <rect x="360" y="387" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="440" y="401" text-anchor="middle" font-size="10" fill="white">Powers assertThat matchers</text>
+  <rect x="540" y="387" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="401" text-anchor="middle" font-size="10" fill="white">Powers assertThat matchers</text>
+
+  <!-- Row: capture/name -->
+  <text x="60" y="425" font-size="11" fill="#333" font-weight="500">capture: / name: step keys</text>
+  <rect x="360" y="412" width="160" height="20" rx="4" fill="#a8a8a8" filter="url(#shadow)"/>
+  <text x="440" y="426" text-anchor="middle" font-size="10" fill="white">capture in DECORATOR_KEYS</text>
+  <rect x="540" y="412" width="160" height="20" rx="4" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="620" y="426" text-anchor="middle" font-size="10" fill="white">capture in DECORATOR_KEYS</text>
+
+  <!-- Row: Combined-key invoke -->
+  <text x="60" y="450" font-size="11" fill="#333" font-weight="500">Combined-key invoke shorthand</text>
+  <rect x="360" y="437" width="160" height="20" rx="4" fill="#a8a8a8" filter="url(#shadow)"/>
+  <text x="440" y="451" text-anchor="middle" font-size="10" fill="white">Not yet (#735)</text>
+  <rect x="540" y="437" width="160" height="20" rx="4" fill="#a8a8a8" filter="url(#shadow)"/>
+  <text x="620" y="451" text-anchor="middle" font-size="10" fill="white">Not yet (#735)</text>
+
+  <!-- Summary bar -->
+  <line x1="40" y1="470" x2="760" y2="470" stroke="#ddd" stroke-width="1"/>
+  <text x="60" y="493" font-size="12" font-weight="600" fill="#2d6a4f">0 gaps remaining</text>
+  <rect x="240" y="480" width="80" height="18" rx="3" fill="#2d6a4f"/>
+  <text x="280" y="493" text-anchor="middle" font-size="10" fill="white">25 at full parity</text>
+  <rect x="330" y="480" width="100" height="18" rx="3" fill="#6b9f78"/>
+  <text x="380" y="493" text-anchor="middle" font-size="10" fill="white">1 schema parity</text>
+  <rect x="440" y="480" width="75" height="18" rx="3" fill="#a8a8a8"/>
+  <text x="477" y="493" text-anchor="middle" font-size="10" fill="white">1 tracking</text>
+  <text x="560" y="493" font-size="11" fill="#666">Same YAML, both runtimes</text>
+</svg>

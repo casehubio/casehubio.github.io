@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Inter, system-ui, sans-serif" font-size="13">
+  <style>
+    .title { font-size: 15px; font-weight: 600; fill: #1a1a2e; }
+    .label { font-size: 12px; fill: #4a4a6a; }
+    .label-bold { font-size: 12px; font-weight: 600; fill: #1a1a2e; }
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 11px; }
+    .time { font-size: 11px; fill: #6b7280; font-style: italic; }
+    .box-heavy { fill: #fee2e2; stroke: #ef4444; stroke-width: 1.5; rx: 6; }
+    .box-light { fill: #dcfce7; stroke: #22c55e; stroke-width: 1.5; rx: 6; }
+    .box-neutral { fill: #f0f4ff; stroke: #6366f1; stroke-width: 1.5; rx: 6; }
+    .box-mcp { fill: #fef3c7; stroke: #f59e0b; stroke-width: 1.5; rx: 6; }
+    .arrow { stroke: #4a4a6a; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .arrow-dead { stroke: #ef4444; stroke-width: 1.5; fill: none; stroke-dasharray: 6,4; }
+    .arrow-live { stroke: #22c55e; stroke-width: 1.5; fill: none; }
+    .cross { stroke: #ef4444; stroke-width: 2.5; stroke-linecap: round; }
+    .divider { stroke: #d1d5db; stroke-width: 1; stroke-dasharray: 4,4; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a4a6a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="24" text-anchor="middle" class="title">Subprocess Restart vs Lightweight /clear</text>
+
+  <!-- Divider -->
+  <line x1="360" y1="40" x2="360" y2="330" class="divider"/>
+  <text x="180" y="54" text-anchor="middle" class="label-bold">Factory Restart (before)</text>
+  <text x="540" y="54" text-anchor="middle" class="label-bold">Protocol /clear (after)</text>
+
+  <!-- LEFT: Factory restart -->
+  <!-- Step 1: Kill old process -->
+  <rect x="30" y="70" width="140" height="36" class="box-heavy"/>
+  <text x="100" y="92" text-anchor="middle" class="label">Kill subprocess</text>
+
+  <!-- MCP connections die -->
+  <rect x="190" y="70" width="140" height="36" class="box-mcp"/>
+  <text x="260" y="86" text-anchor="middle" class="label">MCP servers</text>
+  <text x="260" y="100" text-anchor="middle" class="label" style="fill:#ef4444">disconnected</text>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="106" x2="100" y2="124" class="arrow"/>
+
+  <!-- Step 2: Spawn new process -->
+  <rect x="30" y="126" width="140" height="36" class="box-heavy"/>
+  <text x="100" y="148" text-anchor="middle" class="label">Spawn new process</text>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="162" x2="100" y2="180" class="arrow"/>
+
+  <!-- Step 3: Load binary -->
+  <rect x="30" y="182" width="140" height="36" class="box-heavy"/>
+  <text x="100" y="204" text-anchor="middle" class="label">Load CLI binary</text>
+
+  <!-- Arrow down -->
+  <line x1="100" y1="218" x2="100" y2="236" class="arrow"/>
+
+  <!-- Step 4: Reconnect MCP -->
+  <rect x="30" y="238" width="140" height="36" class="box-mcp"/>
+  <text x="100" y="260" text-anchor="middle" class="label">Reconnect MCP</text>
+
+  <!-- MCP reconnected -->
+  <rect x="190" y="238" width="140" height="36" class="box-mcp"/>
+  <text x="260" y="254" text-anchor="middle" class="label">MCP servers</text>
+  <text x="260" y="268" text-anchor="middle" class="label" style="fill:#22c55e">re-established</text>
+
+  <!-- Timing -->
+  <text x="180" y="300" text-anchor="middle" class="time">~2-5 seconds</text>
+  <text x="180" y="316" text-anchor="middle" class="time">New PID, new connections</text>
+
+  <!-- RIGHT: Lightweight /clear -->
+  <!-- Step 1: Send /clear message -->
+  <rect x="400" y="70" width="280" height="36" class="box-light"/>
+  <text x="540" y="86" text-anchor="middle" class="mono">{"type":"user","content":"/clear"}</text>
+  <text x="540" y="100" text-anchor="middle" class="label">→ stdin</text>
+
+  <!-- Arrow down -->
+  <line x1="540" y1="106" x2="540" y2="124" class="arrow"/>
+
+  <!-- Step 2: CLI processes -->
+  <rect x="430" y="126" width="220" height="36" class="box-neutral"/>
+  <text x="540" y="142" text-anchor="middle" class="label">CLI emits</text>
+  <text x="540" y="156" text-anchor="middle" class="mono">conversation_reset</text>
+
+  <!-- Arrow down -->
+  <line x1="540" y1="162" x2="540" y2="180" class="arrow"/>
+
+  <!-- Step 3: New session ID -->
+  <rect x="430" y="182" width="220" height="36" class="box-light"/>
+  <text x="540" y="198" text-anchor="middle" class="label">New session_id assigned</text>
+  <text x="540" y="212" text-anchor="middle" class="label">Fresh conversation context</text>
+
+  <!-- MCP stays alive -->
+  <rect x="430" y="238" width="220" height="36" class="box-mcp"/>
+  <text x="540" y="254" text-anchor="middle" class="label">MCP servers</text>
+  <text x="540" y="268" text-anchor="middle" class="label" style="fill:#22c55e">never disconnected</text>
+
+  <!-- Timing -->
+  <text x="540" y="300" text-anchor="middle" class="time">sub-millisecond</text>
+  <text x="540" y="316" text-anchor="middle" class="time">Same PID, same connections</text>
+</svg>

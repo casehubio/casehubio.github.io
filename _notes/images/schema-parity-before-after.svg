@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fafbfc"/>
+      <stop offset="100%" stop-color="#f0f2f5"/>
+    </linearGradient>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="440" fill="url(#bg)" rx="8"/>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" font-size="14" font-weight="600" fill="#1a1a2e">Phase 1 Schema Parity — Before and After</text>
+
+  <!-- Column headers -->
+  <text x="200" y="60" text-anchor="middle" font-size="12" font-weight="600" fill="#555">Before (27 gaps)</text>
+  <text x="600" y="60" text-anchor="middle" font-size="12" font-weight="600" fill="#555">After (Phase 1 landed)</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="70" x2="400" y2="420" stroke="#ddd" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- BEFORE column -->
+  <!-- Keywords -->
+  <rect x="40" y="80" width="300" height="28" rx="5" fill="#e76f51" filter="url(#shadow)"/>
+  <text x="190" y="99" text-anchor="middle" font-size="11" fill="white" font-weight="500">5 decorator keys rejected (at, resource, ...)</text>
+
+  <rect x="40" y="116" width="300" height="28" rx="5" fill="#e76f51" filter="url(#shadow)"/>
+  <text x="190" y="135" text-anchor="middle" font-size="11" fill="white" font-weight="500">barrier/quorum combined keys rejected</text>
+
+  <rect x="40" y="152" width="300" height="28" rx="5" fill="#264653" filter="url(#shadow)"/>
+  <text x="190" y="171" text-anchor="middle" font-size="11" fill="white" font-weight="500">_subject vs value — silent data mismatch</text>
+
+  <rect x="40" y="188" width="300" height="28" rx="5" fill="#264653" filter="url(#shadow)"/>
+  <text x="190" y="207" text-anchor="middle" font-size="11" fill="white" font-weight="500">absorbSiblings missing — assertThat broken</text>
+
+  <rect x="40" y="224" width="300" height="28" rx="5" fill="#e76f51" filter="url(#shadow)"/>
+  <text x="190" y="243" text-anchor="middle" font-size="11" fill="white" font-weight="500">pause/resume throws parse error</text>
+
+  <rect x="40" y="260" width="300" height="28" rx="5" fill="#e76f51" filter="url(#shadow)"/>
+  <text x="190" y="279" text-anchor="middle" font-size="11" fill="white" font-weight="500">concurrent: keyword unknown</text>
+
+  <rect x="40" y="296" width="300" height="28" rx="5" fill="#e76f51" filter="url(#shadow)"/>
+  <text x="190" y="315" text-anchor="middle" font-size="11" fill="white" font-weight="500">No annotations field on any step type</text>
+
+  <rect x="40" y="332" width="300" height="28" rx="5" fill="#e76f51" filter="url(#shadow)"/>
+  <text x="190" y="351" text-anchor="middle" font-size="11" fill="white" font-weight="500">invoke: verbose form accepted (Java rejects)</text>
+
+  <rect x="40" y="368" width="300" height="28" rx="5" fill="#e9c46a" filter="url(#shadow)"/>
+  <text x="190" y="387" text-anchor="middle" font-size="11" fill="#333" font-weight="500">Loop decorator wraps wrong relative to timeout</text>
+
+  <!-- AFTER column -->
+  <rect x="460" y="80" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="99" text-anchor="middle" font-size="11" fill="white" font-weight="500">All 33 decorator keys accepted</text>
+
+  <rect x="460" y="116" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="135" text-anchor="middle" font-size="11" fill="white" font-weight="500">barrier/quorum as combined key prefixes</text>
+
+  <rect x="460" y="152" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="171" text-anchor="middle" font-size="11" fill="white" font-weight="500">_subject on both runtimes — params match</text>
+
+  <rect x="460" y="188" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="207" text-anchor="middle" font-size="11" fill="white" font-weight="500">absorbSiblings on Definition — matchers work</text>
+
+  <rect x="460" y="224" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="243" text-anchor="middle" font-size="11" fill="white" font-weight="500">ControlStep: pause/resume parse correctly</text>
+
+  <rect x="460" y="260" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="279" text-anchor="middle" font-size="11" fill="white" font-weight="500">concurrent: aliases parallel: transparently</text>
+
+  <rect x="460" y="296" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="315" text-anchor="middle" font-size="11" fill="white" font-weight="500">annotations: unknown[] on every step type</text>
+
+  <rect x="460" y="332" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="351" text-anchor="middle" font-size="11" fill="white" font-weight="500">Compact invoke enforced — verbose rejected</text>
+
+  <rect x="460" y="368" width="300" height="28" rx="5" fill="#2d6a4f" filter="url(#shadow)"/>
+  <text x="610" y="387" text-anchor="middle" font-size="11" fill="white" font-weight="500">Loop after timeout — matches Java ordering</text>
+
+  <!-- Summary -->
+  <line x1="40" y1="408" x2="760" y2="408" stroke="#ddd" stroke-width="1"/>
+  <text x="190" y="430" text-anchor="middle" font-size="12" font-weight="600" fill="#e76f51">20 parse-level gaps</text>
+  <text x="610" y="430" text-anchor="middle" font-size="12" font-weight="600" fill="#2d6a4f">20 gaps closed — zero runtime breakage</text>
+</svg>

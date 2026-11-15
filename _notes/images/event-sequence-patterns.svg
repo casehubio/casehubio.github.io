@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <style>
+      .title { font-size: 16px; font-weight: 700; fill: #1a1a2e; }
+      .category { font-size: 13px; font-weight: 600; fill: #fff; }
+      .item { font-size: 11px; fill: #2d2d44; }
+      .item-dim { font-size: 11px; fill: #888; }
+      .desc { font-size: 10px; fill: #666; }
+      .badge { font-size: 9px; font-weight: 600; fill: #fff; }
+      .arrow { stroke: #bbb; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .connector { stroke: #ddd; stroke-width: 1; stroke-dasharray: 4,3; fill: none; }
+      .label { font-size: 10px; fill: #999; font-style: italic; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#bbb"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="32" text-anchor="middle" class="title">Event Sequence Patterns — Feature Taxonomy</text>
+
+  <!-- Column 1: Control Flow -->
+  <rect x="20" y="60" width="240" height="32" rx="6" fill="#3b82f6"/>
+  <text x="140" y="81" text-anchor="middle" class="category">Control Flow</text>
+
+  <rect x="20" y="100" width="240" height="80" rx="6" fill="#f0f4ff" stroke="#c5d5f7" stroke-width="1"/>
+  <text x="36" y="120" class="item">race:</text>
+  <text x="90" y="120" class="desc">first-to-complete over blocks</text>
+  <rect x="195" y="109" width="24" height="14" rx="3" fill="#22c55e"/>
+  <text x="207" y="119" text-anchor="middle" class="badge">TS</text>
+  <rect x="221" y="109" width="28" height="14" rx="3" fill="#22c55e"/>
+  <text x="235" y="119" text-anchor="middle" class="badge">Java</text>
+
+  <text x="36" y="145" class="item">select:</text>
+  <text x="90" y="145" class="desc">signal/channel multiplexing</text>
+  <rect x="195" y="134" width="24" height="14" rx="3" fill="#22c55e"/>
+  <text x="207" y="144" text-anchor="middle" class="badge">TS</text>
+  <rect x="221" y="134" width="28" height="14" rx="3" fill="#22c55e"/>
+  <text x="235" y="144" text-anchor="middle" class="badge">Java</text>
+
+  <text x="36" y="170" class="desc">race: replaces select: for arbitrary blocks</text>
+
+  <!-- Column 2: Consumer Lifecycle -->
+  <rect x="280" y="60" width="240" height="32" rx="6" fill="#8b5cf6"/>
+  <text x="400" y="81" text-anchor="middle" class="category">Consumer Lifecycle</text>
+
+  <rect x="280" y="100" width="240" height="130" rx="6" fill="#f5f0ff" stroke="#d4c5f7" stroke-width="1"/>
+  <text x="296" y="120" class="item">from: { name: handle }</text>
+  <text x="296" y="135" class="desc">named consumer registration</text>
+  <rect x="455" y="109" width="24" height="14" rx="3" fill="#22c55e"/>
+  <text x="467" y="119" text-anchor="middle" class="badge">TS</text>
+  <rect x="481" y="109" width="28" height="14" rx="3" fill="#22c55e"/>
+  <text x="495" y="119" text-anchor="middle" class="badge">Java</text>
+
+  <text x="296" y="160" class="item">pause: / resume:</text>
+  <text x="296" y="175" class="desc">suspend and restore a consumer</text>
+  <rect x="455" y="149" width="24" height="14" rx="3" fill="#ef4444"/>
+  <text x="467" y="159" text-anchor="middle" class="badge">TS</text>
+  <rect x="481" y="149" width="28" height="14" rx="3" fill="#22c55e"/>
+  <text x="495" y="159" text-anchor="middle" class="badge">Java</text>
+
+  <text x="296" y="200" class="item">from: { until: expr }</text>
+  <text x="296" y="215" class="desc">exit condition on channel reads</text>
+  <rect x="455" y="189" width="24" height="14" rx="3" fill="#22c55e"/>
+  <text x="467" y="199" text-anchor="middle" class="badge">TS</text>
+  <rect x="481" y="189" width="28" height="14" rx="3" fill="#22c55e"/>
+  <text x="495" y="199" text-anchor="middle" class="badge">Java</text>
+
+  <!-- Column 3: Temporal Composition -->
+  <rect x="540" y="60" width="240" height="32" rx="6" fill="#f59e0b"/>
+  <text x="660" y="81" text-anchor="middle" class="category">Temporal Composition</text>
+
+  <rect x="540" y="100" width="240" height="170" rx="6" fill="#fffbeb" stroke="#fde68a" stroke-width="1"/>
+  <text x="556" y="120" class="item">Timed Absence</text>
+  <text x="556" y="135" class="desc">A then !B[window] — detect missing events</text>
+
+  <text x="556" y="160" class="item">Delayed Sequence</text>
+  <text x="556" y="175" class="desc">A → delay → B with timeout</text>
+
+  <text x="556" y="200" class="item">Heartbeat Monitor</text>
+  <text x="556" y="215" class="desc">loop + from: + timeout = periodic check</text>
+
+  <text x="556" y="240" class="item">Recursive Pattern</text>
+  <text x="556" y="255" class="desc">((A→B) | (A→C))* via race + loop</text>
+
+  <text x="660" y="280" text-anchor="middle" class="label">composed from primitives above</text>
+
+  <!-- Arrows from primitives to composition -->
+  <path d="M 260 150 Q 400 310 540 200" class="connector"/>
+  <path d="M 520 200 Q 530 240 540 240" class="connector"/>
+
+  <!-- Bottom: Gallery Discovery -->
+  <rect x="100" y="340" width="600" height="32" rx="6" fill="#1a1a2e"/>
+  <text x="400" y="361" text-anchor="middle" class="category">Scenario Gallery — Interactive Discovery</text>
+
+  <rect x="100" y="380" width="145" height="55" rx="6" fill="#f8f9fa" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="172" y="400" text-anchor="middle" class="item">Control Flow</text>
+  <text x="172" y="415" text-anchor="middle" class="desc">+ Race</text>
+  <rect x="151" y="421" width="42" height="12" rx="3" fill="#22c55e"/>
+  <text x="172" y="430" text-anchor="middle" class="badge">runnable</text>
+
+  <rect x="255" y="380" width="145" height="55" rx="6" fill="#f8f9fa" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="327" y="400" text-anchor="middle" class="item">Step Modifiers</text>
+  <text x="327" y="415" text-anchor="middle" class="desc">+ from/pause/resume</text>
+  <rect x="301" y="421" width="52" height="12" rx="3" fill="#f59e0b"/>
+  <text x="327" y="430" text-anchor="middle" class="badge">manifest</text>
+
+  <rect x="410" y="380" width="145" height="55" rx="6" fill="#f8f9fa" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="482" y="400" text-anchor="middle" class="item">Concurrency</text>
+  <text x="482" y="415" text-anchor="middle" class="desc">+ Named Consumer</text>
+  <rect x="461" y="421" width="42" height="12" rx="3" fill="#22c55e"/>
+  <text x="482" y="430" text-anchor="middle" class="badge">runnable</text>
+
+  <rect x="565" y="380" width="125" height="55" rx="6" fill="#f8f9fa" stroke="#e5e7eb" stroke-width="1"/>
+  <text x="627" y="400" text-anchor="middle" class="item">Composition</text>
+  <text x="627" y="415" text-anchor="middle" class="desc">+ temporal patterns</text>
+  <rect x="601" y="421" width="52" height="12" rx="3" fill="#f59e0b"/>
+  <text x="627" y="430" text-anchor="middle" class="badge">manifest</text>
+
+  <!-- Legend -->
+  <rect x="200" y="465" width="14" height="14" rx="3" fill="#22c55e"/>
+  <text x="220" y="476" class="desc">Both runtimes</text>
+  <rect x="320" y="465" width="14" height="14" rx="3" fill="#ef4444"/>
+  <text x="340" y="476" class="desc">Java only</text>
+  <rect x="420" y="465" width="14" height="14" rx="3" fill="#f59e0b"/>
+  <text x="440" y="476" class="desc">Via manifest (not interactive)</text>
+
+  <!-- Parity note -->
+  <text x="400" y="510" text-anchor="middle" class="label">pause:/resume: blocked on TS Walker parity — #608 Phase 1</text>
+</svg>

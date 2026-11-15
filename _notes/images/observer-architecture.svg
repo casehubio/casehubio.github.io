@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" font-family="'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#64748b"/>
+    </marker>
+    <marker id="arr-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">Observer Injection — Zero-Cost When Unused</text>
+
+  <!-- Pipeline component box -->
+  <rect x="40" y="50" width="320" height="340" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="200" y="75" text-anchor="middle" font-size="13" font-weight="600" fill="#334155">Pipeline Component</text>
+
+  <!-- Constructor -->
+  <rect x="60" y="90" width="280" height="55" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1"/>
+  <text x="200" y="110" text-anchor="middle" font-size="11" font-weight="600" fill="#0c4a6e">Constructor</text>
+  <text x="200" y="128" text-anchor="middle" font-size="10" font-family="monospace" fill="#0c4a6e">List&lt;Observer&gt; observers = List.of()</text>
+
+  <!-- Hot path -->
+  <rect x="60" y="160" width="280" height="100" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="200" y="182" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Hot Path (query / refresh / compact)</text>
+  <text x="200" y="205" text-anchor="middle" font-size="10" font-family="monospace" fill="#475569">// do the actual work</text>
+  <text x="200" y="225" text-anchor="middle" font-size="10" font-family="monospace" fill="#16a34a">for (var obs : observers)</text>
+  <text x="200" y="242" text-anchor="middle" font-size="10" font-family="monospace" fill="#16a34a">  obs.onEvent(args...);</text>
+
+  <!-- No-observer case -->
+  <rect x="60" y="275" width="280" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1"/>
+  <text x="200" y="296" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">No observers registered?</text>
+  <text x="200" y="314" text-anchor="middle" font-size="10" fill="#166534">Empty list → loop body never executes → zero cost</text>
+
+  <!-- Observer implementations -->
+  <rect x="440" y="50" width="320" height="340" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="600" y="75" text-anchor="middle" font-size="13" font-weight="600" fill="#334155">Observer Implementations (CDI)</text>
+
+  <!-- Debug observer -->
+  <rect x="460" y="95" width="280" height="55" rx="6" fill="#fef9c3" stroke="#ca8a04" stroke-width="1"/>
+  <text x="600" y="115" text-anchor="middle" font-size="11" font-weight="600" fill="#854d0e">DebugObserver</text>
+  <text x="600" y="133" text-anchor="middle" font-size="10" fill="#854d0e">LOG.info("recall: agent=%s count=%d")</text>
+
+  <!-- Metrics observer -->
+  <rect x="460" y="165" width="280" height="55" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+  <text x="600" y="185" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">MetricsObserver</text>
+  <text x="600" y="203" text-anchor="middle" font-size="10" fill="#1e40af">counter.increment("recall.empty")</text>
+
+  <!-- Transcript observer -->
+  <rect x="460" y="235" width="280" height="55" rx="6" fill="#f3e8ff" stroke="#9333ea" stroke-width="1"/>
+  <text x="600" y="255" text-anchor="middle" font-size="11" font-weight="600" fill="#6b21a8">TranscriptObserver</text>
+  <text x="600" y="273" text-anchor="middle" font-size="10" fill="#6b21a8">transcript.record(event)</text>
+
+  <!-- None -->
+  <rect x="460" y="305" width="280" height="55" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="600" y="325" text-anchor="middle" font-size="11" font-weight="600" fill="#166534">∅ None Registered</text>
+  <text x="600" y="343" text-anchor="middle" font-size="10" fill="#166534">Production default — zero overhead</text>
+
+  <!-- Arrows from component to implementations -->
+  <line x1="360" y1="120" x2="455" y2="120" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr-green)" stroke-dasharray="5,3"/>
+  <line x1="360" y1="190" x2="455" y2="190" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr-green)" stroke-dasharray="5,3"/>
+  <line x1="360" y1="260" x2="455" y2="260" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr-green)" stroke-dasharray="5,3"/>
+  <line x1="360" y1="330" x2="455" y2="330" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr-green)" stroke-dasharray="5,3"/>
+
+  <!-- Annotation -->
+  <text x="410" y="405" text-anchor="middle" font-size="11" fill="#64748b">Same interface. Different wiring. Debug listeners log. Metrics listeners count.</text>
+</svg>
