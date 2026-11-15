@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" font-family="Inter, system-ui, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect width="700" height="300" fill="#fafaf9" rx="8"/>
+
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">TTL Curation — Access Renewal</text>
+
+  <!-- Timeline arrow -->
+  <line x1="50" y1="80" x2="650" y2="80" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="660" y="84" font-size="10" fill="#64748b">time</text>
+
+  <!-- Day 0 tick -->
+  <line x1="100" y1="75" x2="100" y2="85" stroke="#475569" stroke-width="1.5"/>
+  <text x="100" y="100" text-anchor="middle" font-size="10" fill="#475569">Day 0</text>
+  <text x="100" y="112" text-anchor="middle" font-size="10" fill="#475569">captured</text>
+
+  <!-- Day 30 tick (TTL boundary) -->
+  <line x1="350" y1="75" x2="350" y2="85" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="350" y="100" text-anchor="middle" font-size="10" fill="#dc2626" font-weight="500">Day 30</text>
+  <text x="350" y="112" text-anchor="middle" font-size="10" fill="#dc2626">TTL expires</text>
+
+  <!-- TTL zone shading -->
+  <rect x="100" y="65" width="250" height="30" fill="#dcfce7" opacity="0.3" rx="3"/>
+  <text x="225" y="62" text-anchor="middle" font-size="10" fill="#16a34a">fresh</text>
+
+  <rect x="350" y="65" width="250" height="30" fill="#fecaca" opacity="0.3" rx="3"/>
+  <text x="475" y="62" text-anchor="middle" font-size="10" fill="#dc2626">stale</text>
+
+  <!-- Entry A: never accessed, ages out -->
+  <rect x="60" y="135" width="580" height="45" rx="6" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <circle cx="100" cy="157" r="6" fill="#6366f1"/>
+  <text x="120" y="152" font-size="11" font-weight="500" fill="#334155">Entry A — never retrieved by any agent</text>
+  <text x="120" y="167" font-size="10" fill="#64748b">No access signal → ages out at TTL boundary</text>
+  <rect x="560" y="142" width="70" height="28" rx="4" fill="#fecaca" stroke="#dc2626" stroke-width="1"/>
+  <text x="595" y="160" text-anchor="middle" font-size="10" font-weight="500" fill="#dc2626">purged</text>
+
+  <!-- Entry B: accessed at day 20, clock resets -->
+  <rect x="60" y="192" width="580" height="45" rx="6" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <circle cx="100" cy="214" r="6" fill="#6366f1"/>
+  <text x="120" y="209" font-size="11" font-weight="500" fill="#334155">Entry B — retrieved by Agent X on day 20</text>
+  <text x="120" y="224" font-size="10" fill="#64748b">Access within TTL → renewed, stays alive</text>
+
+  <!-- Access marker on timeline -->
+  <circle cx="270" cy="80" r="5" fill="#16a34a"/>
+  <text x="270" y="57" text-anchor="middle" font-size="9" fill="#16a34a">day 20: accessed</text>
+
+  <rect x="560" y="199" width="70" height="28" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="595" y="217" text-anchor="middle" font-size="10" font-weight="500" fill="#166534">kept</text>
+
+  <!-- Entry C: archived, exempt -->
+  <rect x="60" y="249" width="580" height="45" rx="6" fill="#fff" stroke="#e5e7eb" stroke-width="1"/>
+  <circle cx="100" cy="271" r="6" fill="#6366f1"/>
+  <text x="120" y="266" font-size="11" font-weight="500" fill="#334155">Entry C — archived status</text>
+  <text x="120" y="281" font-size="10" fill="#64748b">Exempt from TTL regardless of access</text>
+  <rect x="560" y="256" width="70" height="28" rx="4" fill="#e0e7ff" stroke="#6366f1" stroke-width="1"/>
+  <text x="595" y="274" text-anchor="middle" font-size="10" font-weight="500" fill="#3730a3">exempt</text>
+</svg>

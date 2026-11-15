@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Segoe UI', sans-serif; }
+      .title { font-size: 14px; font-weight: 600; fill: #1a1a2e; }
+      .label { font-size: 11px; font-weight: 500; fill: #2d3436; }
+      .sublabel { font-size: 9px; fill: #636e72; }
+      .tool { font-size: 10px; font-family: 'SF Mono', 'Fira Code', monospace; fill: #5c6bc0; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 3 L 0 6 z" fill="#78909c"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 6" refX="10" refY="3" markerWidth="8" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 3 L 0 6 z" fill="#4caf50"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="360" fill="#fafbfc" rx="8"/>
+
+  <text x="400" y="28" text-anchor="middle" class="title" font-size="15">The Self-Improving Research Loop</text>
+  <text x="400" y="46" text-anchor="middle" class="sublabel">Each cycle makes the corpus smarter — agents read, discover, write, annotate, and the next session inherits all of it</text>
+
+  <!-- Session 1 -->
+  <rect x="30" y="65" width="170" height="120" fill="#e3f2fd" rx="6" stroke="#64b5f6" stroke-width="1.5"/>
+  <text x="115" y="83" text-anchor="middle" class="label" fill="#1565c0">Session 1: Search</text>
+  <text x="115" y="103" text-anchor="middle" class="tool">search(query)</text>
+  <text x="115" y="120" text-anchor="middle" class="tool">entry(id)</text>
+  <text x="115" y="137" text-anchor="middle" class="tool">versions(id)</text>
+  <text x="115" y="157" text-anchor="middle" class="sublabel">Agent finds knowledge</text>
+  <text x="115" y="173" text-anchor="middle" class="sublabel">Reads are tracked automatically</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="205" y1="125" x2="230" y2="125" stroke="#78909c" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Session 2 -->
+  <rect x="235" y="65" width="170" height="120" fill="#e8f5e9" rx="6" stroke="#81c784" stroke-width="1.5"/>
+  <text x="320" y="83" text-anchor="middle" class="label" fill="#2e7d32">Session 2: Discover</text>
+  <text x="320" y="103" text-anchor="middle" class="tool">recordFinding(topic,</text>
+  <text x="320" y="118" text-anchor="middle" class="tool">  insight, issue, tags)</text>
+  <text x="320" y="140" text-anchor="middle" class="sublabel">One call: entry + provenance</text>
+  <text x="320" y="156" text-anchor="middle" class="sublabel">Immediately searchable</text>
+  <text x="320" y="173" text-anchor="middle" class="sublabel">Linked to source issue</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="410" y1="125" x2="435" y2="125" stroke="#78909c" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Session 3 -->
+  <rect x="440" y="65" width="170" height="120" fill="#fff3e0" rx="6" stroke="#ffb74d" stroke-width="1.5"/>
+  <text x="525" y="83" text-anchor="middle" class="label" fill="#e65100">Session 3: Refine</text>
+  <text x="525" y="103" text-anchor="middle" class="tool">annotate(id, note)</text>
+  <text x="525" y="120" text-anchor="middle" class="tool">recordFeedback(ids,</text>
+  <text x="525" y="135" text-anchor="middle" class="tool">  OUTDATED, stack)</text>
+  <text x="525" y="157" text-anchor="middle" class="sublabel">Correct errors inline</text>
+  <text x="525" y="173" text-anchor="middle" class="sublabel">Decay stale entries</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="615" y1="125" x2="640" y2="125" stroke="#78909c" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Session 4 -->
+  <rect x="645" y="65" width="130" height="120" fill="#f3e5f5" rx="6" stroke="#ce93d8" stroke-width="1.5"/>
+  <text x="710" y="83" text-anchor="middle" class="label" fill="#6a1b9a">Session N: Resume</text>
+  <text x="710" y="103" text-anchor="middle" class="tool">changes(since)</text>
+  <text x="710" y="120" text-anchor="middle" class="tool">contributions()</text>
+  <text x="710" y="140" text-anchor="middle" class="sublabel">Warm start</text>
+  <text x="710" y="156" text-anchor="middle" class="sublabel">Knows what changed</text>
+  <text x="710" y="173" text-anchor="middle" class="sublabel">Knows what it wrote</text>
+
+  <!-- Feedback loop arrow -->
+  <path d="M 710 190 L 710 220 Q 710 240 690 240 L 135 240 Q 115 240 115 220 L 115 190"
+        fill="none" stroke="#4caf50" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="400" y="256" text-anchor="middle" class="label" fill="#2e7d32">Better knowledge feeds better search — the corpus grows from use</text>
+
+  <!-- Bottom: the scoring feedback -->
+  <rect x="100" y="280" width="600" height="60" fill="#eceff1" rx="6" stroke="#b0bec5" stroke-width="1"/>
+  <text x="400" y="300" text-anchor="middle" class="label">Scoring Feedback (automatic, no agent action needed)</text>
+  <text x="400" y="318" text-anchor="middle" class="sublabel">Temporal decay · Version-distance decay · Outcome-weighted retrieval · Staleness signals · Blind-spot detection</text>
+  <text x="400" y="333" text-anchor="middle" class="sublabel">Each retrieval adjusts future rankings — frequently useful entries rise, stale ones fade</text>
+</svg>

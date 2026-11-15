@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <style>
+    .box { rx: 6; ry: 6; }
+    .old { fill: #fef2f2; stroke: #dc2626; stroke-width: 1.5; }
+    .new { fill: #f0fdf4; stroke: #16a34a; stroke-width: 1.5; }
+    .neutral { fill: #f8fafc; stroke: #64748b; stroke-width: 1.5; }
+    .diamond { fill: #fefce8; stroke: #ca8a04; stroke-width: 1.5; }
+    .label { font-size: 12; fill: #334155; }
+    .title { font-size: 15; font-weight: 600; fill: #0f172a; }
+    .subtitle { font-size: 11; fill: #64748b; }
+    .danger { font-size: 11; fill: #dc2626; font-weight: 600; }
+    .safe { font-size: 11; fill: #16a34a; font-weight: 600; }
+    .arrow { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .arrow-danger { stroke: #dc2626; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-red); }
+    .arrow-safe { stroke: #16a34a; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead-green); }
+    .divider { stroke: #cbd5e1; stroke-width: 1; stroke-dasharray: 6 4; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#dc2626"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- Column headers -->
+  <text x="200" y="30" text-anchor="middle" class="title">Before</text>
+  <text x="200" y="48" text-anchor="middle" class="subtitle">All errors → return false</text>
+  <text x="620" y="30" text-anchor="middle" class="title">After</text>
+  <text x="620" y="48" text-anchor="middle" class="subtitle">404 → false, other → throw</text>
+
+  <!-- Divider -->
+  <line x1="410" y1="20" x2="410" y2="510" class="divider"/>
+
+  <!-- LEFT SIDE: Before -->
+  <!-- GitHub API call -->
+  <rect x="110" y="70" width="180" height="36" class="box neutral"/>
+  <text x="200" y="93" text-anchor="middle" class="label">checkOrgMembership()</text>
+
+  <!-- Decision: exception? -->
+  <polygon points="200,130 260,160 200,190 140,160" class="diamond"/>
+  <text x="200" y="164" text-anchor="middle" class="label">Exception?</text>
+
+  <!-- No exception → true -->
+  <text x="108" y="156" class="label">no</text>
+  <line x1="140" y1="160" x2="50" y2="160" class="arrow"/>
+  <rect x="10" y="148" width="40" height="24" class="box neutral"/>
+  <text x="30" y="164" text-anchor="middle" class="label">true</text>
+
+  <!-- Exception → check status -->
+  <text x="270" y="180" class="label">yes</text>
+  <line x1="200" y1="190" x2="200" y2="220" class="arrow"/>
+
+  <!-- Status check -->
+  <polygon points="200,220 260,250 200,280 140,250" class="diamond"/>
+  <text x="200" y="254" text-anchor="middle" class="label">404?</text>
+
+  <!-- 404 → false (correct) -->
+  <text x="108" y="246" class="label">yes</text>
+  <line x1="140" y1="250" x2="50" y2="250" class="arrow"/>
+  <rect x="6" y="238" width="48" height="24" class="box neutral"/>
+  <text x="30" y="254" text-anchor="middle" class="label">false</text>
+
+  <!-- Non-404 → ALSO false (the bug) -->
+  <text x="270" y="270" class="label">no</text>
+  <line x1="200" y1="280" x2="200" y2="310" class="arrow-danger"/>
+
+  <rect x="115" y="310" width="170" height="36" class="box old"/>
+  <text x="200" y="333" text-anchor="middle" class="label">return false</text>
+
+  <rect x="95" y="360" width="210" height="50" class="box old"/>
+  <text x="200" y="380" text-anchor="middle" class="danger">500, 403, timeout</text>
+  <text x="200" y="398" text-anchor="middle" class="danger">all silently deny access</text>
+
+  <!-- Cold cache note -->
+  <rect x="80" y="425" width="240" height="50" class="box old"/>
+  <text x="200" y="443" text-anchor="middle" class="label">Cold cache: first-time user</text>
+  <text x="200" y="460" text-anchor="middle" class="danger">→ locked out, no error shown</text>
+
+  <!-- RIGHT SIDE: After -->
+  <!-- GitHub API call -->
+  <rect x="530" y="70" width="180" height="36" class="box neutral"/>
+  <text x="620" y="93" text-anchor="middle" class="label">checkOrgMembership()</text>
+
+  <!-- Decision: exception? -->
+  <polygon points="620,130 680,160 620,190 560,160" class="diamond"/>
+  <text x="620" y="164" text-anchor="middle" class="label">Exception?</text>
+
+  <!-- No → true -->
+  <text x="528" y="156" class="label">no</text>
+  <line x1="560" y1="160" x2="470" y2="160" class="arrow"/>
+  <rect x="430" y="148" width="40" height="24" class="box neutral"/>
+  <text x="450" y="164" text-anchor="middle" class="label">true</text>
+
+  <!-- Exception → status -->
+  <text x="690" y="180" class="label">yes</text>
+  <line x1="620" y1="190" x2="620" y2="220" class="arrow"/>
+
+  <!-- Status check -->
+  <polygon points="620,220 680,250 620,280 560,250" class="diamond"/>
+  <text x="620" y="254" text-anchor="middle" class="label">404?</text>
+
+  <!-- 404 → false -->
+  <text x="528" y="246" class="label">yes</text>
+  <line x1="560" y1="250" x2="470" y2="250" class="arrow"/>
+  <rect x="426" y="238" width="48" height="24" class="box neutral"/>
+  <text x="450" y="254" text-anchor="middle" class="label">false</text>
+
+  <!-- Non-404 → throw (the fix) -->
+  <text x="690" y="270" class="label">no</text>
+  <line x1="620" y1="280" x2="620" y2="310" class="arrow-safe"/>
+
+  <rect x="535" y="310" width="170" height="36" class="box new"/>
+  <text x="620" y="333" text-anchor="middle" class="label">throw exception</text>
+
+  <!-- Cache check -->
+  <polygon points="620,370 680,400 620,430 560,400" class="diamond"/>
+  <text x="620" y="404" text-anchor="middle" class="label">Cache?</text>
+
+  <!-- Warm cache → use cached -->
+  <text x="528" y="396" class="label">warm</text>
+  <line x1="560" y1="400" x2="440" y2="400" class="arrow-safe"/>
+  <rect x="425" y="385" width="110" height="30" class="box new"/>
+  <text x="480" y="404" text-anchor="middle" class="safe">use cached</text>
+
+  <!-- Cold cache → propagate -->
+  <text x="690" y="420" class="label">cold</text>
+  <line x1="620" y1="430" x2="620" y2="460" class="arrow-safe"/>
+  <rect x="530" y="460" width="180" height="40" class="box new"/>
+  <text x="620" y="478" text-anchor="middle" class="safe">propagate to caller</text>
+  <text x="620" y="493" text-anchor="middle" class="safe">→ error page, not silent denial</text>
+</svg>

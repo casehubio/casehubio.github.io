@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .title { font-size: 13px; font-weight: 600; fill: #1a1a2e; }
+    .label { font-size: 11px; fill: #4a4a6a; }
+    .label-bold { font-size: 11px; font-weight: 600; fill: #1a1a2e; }
+    .code { font-size: 10px; fill: #333; font-family: 'SF Mono', 'Fira Code', monospace; }
+    .capability { font-size: 9px; fill: #555; }
+    .badge { font-size: 9px; font-weight: 600; fill: white; }
+  </style>
+
+  <text x="360" y="20" text-anchor="middle" class="title">After: CorpusApiBean delegates to WebPlatform</text>
+
+  <!-- CorpusApiBean -->
+  <rect x="20" y="45" width="200" height="120" rx="6" fill="#f0f4ff" stroke="#5c7cba" stroke-width="1.5"/>
+  <text x="120" y="65" text-anchor="middle" class="label-bold">CorpusApiBean</text>
+  <line x1="30" y1="72" x2="210" y2="72" stroke="#d0d8e8" stroke-width="1"/>
+  <text x="35" y="90" class="code">WebPlatform webPlatform</text>
+  <text x="35" y="108" class="code">webCapture(url, html, ...)</text>
+  <text x="35" y="123" class="code">requestIntervention(...)</text>
+  <text x="35" y="138" class="code">resolveIntervention(...)</text>
+  <text x="35" y="153" class="code">pendingInterventions()</text>
+
+  <!-- Single arrow to WebPlatform -->
+  <path d="M 220 105 L 280 105" stroke="#5c7cba" stroke-width="2" fill="none" marker-end="url(#arrowBlue)"/>
+  <text x="250" y="98" text-anchor="middle" class="capability">delegates</text>
+
+  <!-- WebPlatform SPI -->
+  <rect x="280" y="35" width="200" height="175" rx="6" fill="#f0fff4" stroke="#4a9a5a" stroke-width="1.5"/>
+  <text x="380" y="55" text-anchor="middle" class="label-bold">WebPlatform SPI</text>
+  <text x="380" y="70" text-anchor="middle" class="capability">connectors-web-spi</text>
+  <line x1="290" y1="77" x2="470" y2="77" stroke="#c0e0c8" stroke-width="1"/>
+
+  <!-- Capability boxes -->
+  <rect x="295" y="85" width="80" height="24" rx="3" fill="#e8f5e9" stroke="#81c784" stroke-width="1"/>
+  <text x="335" y="101" text-anchor="middle" class="capability">Fetch</text>
+
+  <rect x="385" y="85" width="80" height="24" rx="3" fill="#e8f5e9" stroke="#81c784" stroke-width="1"/>
+  <text x="425" y="101" text-anchor="middle" class="capability">Parse</text>
+
+  <rect x="295" y="117" width="80" height="24" rx="3" fill="#e8f5e9" stroke="#81c784" stroke-width="1"/>
+  <text x="335" y="133" text-anchor="middle" class="capability">ImageCapture</text>
+
+  <rect x="385" y="117" width="80" height="24" rx="3" fill="#e8f5e9" stroke="#81c784" stroke-width="1"/>
+  <text x="425" y="133" text-anchor="middle" class="capability">DocumentParsing</text>
+
+  <rect x="295" y="149" width="170" height="24" rx="3" fill="#e8f5e9" stroke="#81c784" stroke-width="1"/>
+  <text x="380" y="165" text-anchor="middle" class="capability">InterventionManagement</text>
+
+  <!-- NoOp fallback -->
+  <rect x="295" y="181" width="170" height="20" rx="3" fill="#fff8e1" stroke="#ffc107" stroke-width="1"/>
+  <text x="380" y="195" text-anchor="middle" class="capability">NoOpWebPlatform @DefaultBean</text>
+
+  <!-- Production implementation -->
+  <path d="M 480 105 L 520 105" stroke="#4a9a5a" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowGreen2)"/>
+
+  <rect x="520" y="45" width="180" height="120" rx="6" fill="#f9f9f9" stroke="#999" stroke-width="1"/>
+  <text x="610" y="65" text-anchor="middle" class="label-bold">DefaultWebPlatform</text>
+  <text x="610" y="80" text-anchor="middle" class="capability">connectors-web</text>
+  <line x1="530" y1="87" x2="690" y2="87" stroke="#ddd" stroke-width="1"/>
+  <text x="535" y="104" class="code">HttpClient (fetch)</text>
+  <text x="535" y="119" class="code">HtmlDocumentParser</text>
+  <text x="535" y="134" class="code">WebImageProcessor</text>
+  <text x="535" y="149" class="code">InterventionQueue</text>
+
+  <!-- Deleted types callout -->
+  <rect x="20" y="230" width="460" height="50" rx="6" fill="#fff0f0" stroke="#e0a0a0" stroke-width="1"/>
+  <text x="250" y="248" text-anchor="middle" class="label-bold" fill="#993333">Deleted from neocortex</text>
+  <text x="250" y="268" text-anchor="middle" class="code" fill="#993333">corpus-management-parsers module (12 types) + 9 impl types + HtmlToMarkdownParserAdapter</text>
+
+  <!-- Net result -->
+  <rect x="500" y="230" width="200" height="50" rx="6" fill="#e8f5e9" stroke="#4a9a5a" stroke-width="1.5"/>
+  <text x="600" y="252" text-anchor="middle" class="label-bold" fill="#2e7d32">Net result</text>
+  <text x="600" y="268" text-anchor="middle" class="code" fill="#2e7d32">−3,131 lines · 279 tests pass</text>
+
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M 0 0 L 8 3 L 0 6 Z" fill="#5c7cba"/>
+    </marker>
+    <marker id="arrowGreen2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M 0 0 L 8 3 L 0 6 Z" fill="#4a9a5a"/>
+    </marker>
+  </defs>
+</svg>

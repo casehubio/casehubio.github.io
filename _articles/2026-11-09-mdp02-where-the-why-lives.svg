@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .layer-box { rx: 6; ry: 6; stroke-width: 1.5; }
+    .layer-label { font-size: 14px; font-weight: 600; }
+    .layer-detail { font-size: 11px; fill: #64748b; }
+    .question { font-size: 13px; font-weight: 600; }
+    .arrow { fill: none; stroke: #94a3b8; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .gap-label { font-size: 12px; fill: #dc2626; font-weight: 600; }
+    .visible { fill: #f0fdf4; stroke: #16a34a; }
+    .invisible { fill: #fef2f2; stroke: #dc2626; stroke-dasharray: 6 3; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#1e293b">Three Layers of Agent Observability</text>
+
+  <!-- Layer 1: Knowledge Graph -->
+  <rect x="30" y="55" width="200" height="110" class="layer-box visible"/>
+  <text x="130" y="80" text-anchor="middle" class="layer-label" fill="#15803d">Knowledge Graph</text>
+  <text x="130" y="100" text-anchor="middle" class="layer-detail">MindMap nodes, edges</text>
+  <text x="130" y="116" text-anchor="middle" class="layer-detail">mutations, confidence</text>
+  <text x="130" y="136" text-anchor="middle" class="layer-detail">consolidation audit trail</text>
+  <text x="130" y="155" text-anchor="middle" class="question" fill="#15803d">"What does it know?"</text>
+
+  <!-- Layer 2: Behavioral Transcript -->
+  <rect x="260" y="55" width="200" height="110" class="layer-box visible"/>
+  <text x="360" y="80" text-anchor="middle" class="layer-label" fill="#15803d">Behavioral Transcript</text>
+  <text x="360" y="100" text-anchor="middle" class="layer-detail">LLM responses, actions</text>
+  <text x="360" y="116" text-anchor="middle" class="layer-detail">dialogue, goal execution</text>
+  <text x="360" y="136" text-anchor="middle" class="layer-detail">scenario event log</text>
+  <text x="360" y="155" text-anchor="middle" class="question" fill="#15803d">"What did it do?"</text>
+
+  <!-- Layer 3: Pipeline Trace -->
+  <rect x="490" y="55" width="200" height="110" class="layer-box invisible"/>
+  <text x="590" y="80" text-anchor="middle" class="layer-label" fill="#dc2626">Pipeline Trace</text>
+  <text x="590" y="100" text-anchor="middle" class="layer-detail">drives, CAPS settling</text>
+  <text x="590" y="116" text-anchor="middle" class="layer-detail">appraisal, regulation</text>
+  <text x="590" y="136" text-anchor="middle" class="layer-detail">prompt section rendering</text>
+  <text x="590" y="155" text-anchor="middle" class="question" fill="#dc2626">"Why did it decide?"</text>
+
+  <!-- Gap indicator -->
+  <line x1="470" y1="85" x2="470" y2="145" stroke="#dc2626" stroke-width="2" stroke-dasharray="4 2"/>
+  <text x="475" y="200" class="gap-label" text-anchor="start">← invisible by default</text>
+
+  <!-- Bottom: what each enables -->
+  <rect x="30" y="225" width="660" height="85" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="360" y="250" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">What each layer answers during postmortem</text>
+
+  <text x="130" y="275" text-anchor="middle" font-size="11" fill="#16a34a">✓ "Trust score dropped"</text>
+  <text x="130" y="292" text-anchor="middle" font-size="11" fill="#16a34a">✓ "Memory was consolidated"</text>
+
+  <text x="360" y="275" text-anchor="middle" font-size="11" fill="#16a34a">✓ "Agent refused to enter"</text>
+  <text x="360" y="292" text-anchor="middle" font-size="11" fill="#16a34a">✓ "Tone shifted to anxious"</text>
+
+  <text x="590" y="275" text-anchor="middle" font-size="11" fill="#dc2626">✗ "Why did fatigue override</text>
+  <text x="590" y="292" text-anchor="middle" font-size="11" fill="#dc2626">at tick 18, not tick 5?"</text>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" width="700" height="500" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="700" height="500" fill="#ffffff"/>
+
+  <text x="280" y="28" font-size="15" font-weight="bold" fill="#2d3748" text-anchor="middle">MCP Annotation Vocabulary</text>
+
+  <!-- Phase 1: Reshape -->
+  <rect x="30" y="50" width="500" height="110" rx="6" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="30" y="50" width="6" height="110" rx="3" fill="#4299e1"/>
+
+  <text x="50" y="72" font-size="13" font-weight="bold" fill="#2d3748">Phase 1 — Reshape</text>
+  <text x="50" y="88" font-size="10" fill="#718096">Fix hostile patterns automatically</text>
+
+  <rect x="50" y="100" width="130" height="24" rx="4" fill="#ebf8ff" stroke="#4299e1" stroke-width="1"/>
+  <text x="115" y="116" font-size="10" fill="#2b6cb0" text-anchor="middle">@ContextParam</text>
+
+  <rect x="190" y="100" width="110" height="24" rx="4" fill="#ebf8ff" stroke="#4299e1" stroke-width="1"/>
+  <text x="245" y="116" font-size="10" fill="#2b6cb0" text-anchor="middle">@McpExclude</text>
+
+  <rect x="310" y="100" width="140" height="24" rx="4" fill="#ebf8ff" stroke="#4299e1" stroke-width="1"/>
+  <text x="380" y="116" font-size="10" fill="#2b6cb0" text-anchor="middle">@McpParam(MAP|LIST)</text>
+
+  <text x="50" y="148" font-size="9" fill="#a0aec0">Session-inject tenancyId  ·  Hide fine-grained methods  ·  JSON objects instead of pipe strings</text>
+
+  <!-- Connecting line 1->2 -->
+  <line x1="280" y1="160" x2="280" y2="180" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- Phase 2: Compose -->
+  <rect x="30" y="180" width="500" height="110" rx="6" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="30" y="180" width="6" height="110" rx="3" fill="#48bb78"/>
+
+  <text x="50" y="202" font-size="13" font-weight="bold" fill="#2d3748">Phase 2 — Compose</text>
+  <text x="50" y="218" font-size="10" fill="#718096">Cross-SPI composition in one tool</text>
+
+  <rect x="50" y="230" width="110" height="24" rx="4" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="105" y="246" font-size="10" fill="#276749" text-anchor="middle">@McpEnrich</text>
+
+  <rect x="170" y="230" width="110" height="24" rx="4" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="225" y="246" font-size="10" fill="#276749" text-anchor="middle">@McpAutoRoute</text>
+
+  <rect x="290" y="230" width="160" height="24" rx="4" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="370" y="246" font-size="10" fill="#276749" text-anchor="middle">PlatformQuery(track=true)</text>
+
+  <text x="50" y="278" font-size="9" fill="#a0aec0">Enrich with version info  ·  Auto-route methods  ·  Automatic provenance tracking</text>
+
+  <!-- Connecting line 2->3 -->
+  <line x1="280" y1="290" x2="280" y2="310" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <!-- Phase 3: Extend -->
+  <rect x="30" y="310" width="500" height="110" rx="6" fill="#f7fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect x="30" y="310" width="6" height="110" rx="3" fill="#805ad5"/>
+
+  <text x="50" y="332" font-size="13" font-weight="bold" fill="#2d3748">Phase 3 — Extend</text>
+  <text x="50" y="348" font-size="10" fill="#718096">MCP-only tools not on REST/GraphQL</text>
+
+  <rect x="50" y="360" width="100" height="24" rx="4" fill="#faf5ff" stroke="#805ad5" stroke-width="1"/>
+  <text x="100" y="376" font-size="10" fill="#553c9a" text-anchor="middle">@McpOnly</text>
+
+  <rect x="160" y="360" width="110" height="24" rx="4" fill="#faf5ff" stroke="#805ad5" stroke-width="1"/>
+  <text x="215" y="376" font-size="10" fill="#553c9a" text-anchor="middle">@McpDelegate</text>
+
+  <rect x="280" y="360" width="120" height="24" rx="4" fill="#faf5ff" stroke="#805ad5" stroke-width="1"/>
+  <text x="340" y="376" font-size="10" fill="#553c9a" text-anchor="middle">@McpCursorMap</text>
+
+  <text x="50" y="408" font-size="9" fill="#a0aec0">Agent-facing tools  ·  Delegate to any SPI  ·  Transparent cursor conversion</text>
+
+  <!-- ReadTracker utility box -->
+  <rect x="560" y="180" width="120" height="240" rx="6" fill="#fffaf0" stroke="#ed8936" stroke-width="1.5"/>
+  <text x="620" y="204" font-size="12" font-weight="bold" fill="#2d3748" text-anchor="middle">Utility</text>
+
+  <rect x="572" y="220" width="96" height="28" rx="4" fill="#fefcbf" stroke="#ed8936" stroke-width="1"/>
+  <text x="620" y="238" font-size="10" fill="#744210" text-anchor="middle">ReadTracker</text>
+
+  <text x="620" y="270" font-size="9" fill="#744210" text-anchor="middle">Platform utility</text>
+  <text x="620" y="284" font-size="9" fill="#744210" text-anchor="middle">for blind spot</text>
+  <text x="620" y="298" font-size="9" fill="#744210" text-anchor="middle">detection</text>
+
+  <text x="620" y="330" font-size="8" fill="#a0aec0" text-anchor="middle">recordRead()</text>
+  <text x="620" y="344" font-size="8" fill="#a0aec0" text-anchor="middle">readKeys()</text>
+  <text x="620" y="358" font-size="8" fill="#a0aec0" text-anchor="middle">unread()</text>
+
+  <!-- Connecting line from track to ReadTracker -->
+  <line x1="530" y1="242" x2="560" y2="242" stroke="#ed8936" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <!-- Footer -->
+  <text x="350" y="470" font-size="10" fill="#a0aec0" text-anchor="middle" font-style="italic">Each layer builds on the previous — annotations are additive, never replace existing behaviour</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300">
+  <style>
+    text { font-family: 'Inter', 'Helvetica Neue', sans-serif; }
+    .title { font-size: 13px; font-weight: 600; fill: #1a1a2e; }
+    .label { font-size: 11px; fill: #2d3748; }
+    .sublabel { font-size: 10px; fill: #718096; }
+    .box { rx: 6; ry: 6; stroke-width: 1.5; }
+    .divider { stroke: #cbd5e0; stroke-width: 1; stroke-dasharray: 6,4; }
+  </style>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <!-- Before label -->
+  <text x="180" y="22" text-anchor="middle" class="title" fill="#ef4444">Before</text>
+
+  <!-- neocortex (before) -->
+  <rect x="30" y="35" width="300" height="120" class="box" fill="#fef2f2" stroke="#fca5a5"/>
+  <text x="180" y="55" text-anchor="middle" class="title">neocortex / corpus-management</text>
+
+  <rect x="45" y="65" width="125" height="35" class="box" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="107" y="87" text-anchor="middle" class="sublabel">HtmlDocumentParser</text>
+
+  <rect x="180" y="65" width="135" height="35" class="box" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="247" y="87" text-anchor="middle" class="sublabel">WebImageProcessor</text>
+
+  <rect x="45" y="108" width="125" height="35" class="box" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="107" y="130" text-anchor="middle" class="sublabel">InterventionQueue</text>
+
+  <rect x="180" y="108" width="135" height="35" class="box" fill="#ffffff" stroke="#d1d5db"/>
+  <text x="247" y="130" text-anchor="middle" class="sublabel">PdfDocumentParser</text>
+
+  <!-- Arrow -->
+  <path d="M 350 95 L 390 95" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+  <!-- After label -->
+  <text x="555" y="22" text-anchor="middle" class="title" fill="#059669">After</text>
+
+  <!-- connectors (after) -->
+  <rect x="405" y="35" width="285" height="70" class="box" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="547" y="55" text-anchor="middle" class="title">connectors / web-spi + web</text>
+  <text x="547" y="72" text-anchor="middle" class="sublabel">WebPlatform SPI: Fetch, Parse, ImageCapture,</text>
+  <text x="547" y="84" text-anchor="middle" class="sublabel">DocumentParsing, InterventionManagement, SessionTransfer</text>
+
+  <!-- neocortex (after) -->
+  <rect x="405" y="115" width="285" height="40" class="box" fill="#eff6ff" stroke="#93c5fd"/>
+  <text x="547" y="135" text-anchor="middle" class="title">neocortex / corpus-management</text>
+  <text x="547" y="148" text-anchor="middle" class="sublabel">thin bridge: @Inject WebPlatform + CorpusEntryStore</text>
+
+  <!-- Divider -->
+  <line x1="30" y1="185" x2="690" y2="185" class="divider"/>
+
+  <!-- Benefit boxes -->
+  <rect x="30" y="200" width="200" height="45" class="box" fill="#faf5ff" stroke="#c4b5fd"/>
+  <text x="130" y="220" text-anchor="middle" class="title">Any app reuses</text>
+  <text x="130" y="235" text-anchor="middle" class="sublabel">Zero corpus dependency</text>
+
+  <rect x="260" y="200" width="200" height="45" class="box" fill="#faf5ff" stroke="#c4b5fd"/>
+  <text x="360" y="220" text-anchor="middle" class="title">6 capability interfaces</text>
+  <text x="360" y="235" text-anchor="middle" class="sublabel">@SimulationEligible for testing</text>
+
+  <rect x="490" y="200" width="200" height="45" class="box" fill="#faf5ff" stroke="#c4b5fd"/>
+  <text x="590" y="220" text-anchor="middle" class="title">Graceful degradation</text>
+  <text x="590" y="235" text-anchor="middle" class="sublabel">NoOp @DefaultBean when absent</text>
+</svg>

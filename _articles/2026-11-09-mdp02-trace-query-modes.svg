@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="280" fill="white"/>
+
+  <!-- Lane labels -->
+  <text x="20" y="28" font-size="11" fill="#6b7280" font-weight="600" letter-spacing="0.5">QUERY MODE</text>
+  <text x="260" y="28" font-size="11" fill="#6b7280" font-weight="600" letter-spacing="0.5">INTERFACE</text>
+  <text x="520" y="28" font-size="11" fill="#6b7280" font-weight="600" letter-spacing="0.5">SOURCE</text>
+
+  <!-- Lane 1: Live -->
+  <rect x="16" y="42" width="668" height="66" rx="4" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="24" y="54" width="80" height="32" rx="4" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <text x="64" y="74" font-size="13" fill="#374151" text-anchor="middle" font-weight="600">Live</text>
+  <line x1="104" y1="70" x2="230" y2="70" stroke="#374151" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <text x="167" y="63" font-size="10" fill="#6b7280" text-anchor="middle">no tick args</text>
+  <rect x="234" y="50" width="236" height="40" rx="4" fill="white" stroke="#374151" stroke-width="1"/>
+  <text x="352" y="67" font-size="11.5" fill="#374151" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace">CognitionStateProvider</text>
+  <text x="352" y="81" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace">.currentTrace()</text>
+  <line x1="470" y1="70" x2="506" y2="70" stroke="#374151" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <rect x="510" y="50" width="164" height="40" rx="4" fill="white" stroke="#374151" stroke-width="1"/>
+  <text x="592" y="67" font-size="12" fill="#374151" text-anchor="middle" font-weight="500">CognitionCore</text>
+  <text x="592" y="81" font-size="10.5" fill="#6b7280" text-anchor="middle">in-memory, current tick</text>
+
+  <!-- Lane 2: Historical (single) -->
+  <rect x="16" y="116" width="668" height="66" rx="4" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="24" y="128" width="80" height="32" rx="4" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <text x="64" y="148" font-size="13" fill="#374151" text-anchor="middle" font-weight="600">Single</text>
+  <line x1="104" y1="144" x2="230" y2="144" stroke="#374151" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <text x="167" y="137" font-size="10" fill="#6b7280" text-anchor="middle">tick=N</text>
+  <rect x="234" y="124" width="236" height="40" rx="4" fill="white" stroke="#374151" stroke-width="1"/>
+  <text x="352" y="141" font-size="11.5" fill="#374151" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace">PipelineSnapshotStore</text>
+  <text x="352" y="155" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace">.findByTick()</text>
+  <line x1="470" y1="144" x2="506" y2="144" stroke="#374151" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <rect x="510" y="124" width="164" height="40" rx="4" fill="white" stroke="#374151" stroke-width="1"/>
+  <text x="592" y="141" font-size="12" fill="#374151" text-anchor="middle" font-weight="500">SQLite</text>
+  <text x="592" y="155" font-size="10.5" fill="#6b7280" text-anchor="middle">pipeline_snapshot table</text>
+
+  <!-- Lane 3: Historical (range) -->
+  <rect x="16" y="190" width="668" height="66" rx="4" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1"/>
+  <rect x="24" y="202" width="80" height="32" rx="4" fill="white" stroke="#374151" stroke-width="1.5"/>
+  <text x="64" y="222" font-size="13" fill="#374151" text-anchor="middle" font-weight="600">Range</text>
+  <line x1="104" y1="218" x2="230" y2="218" stroke="#374151" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <text x="167" y="211" font-size="10" fill="#6b7280" text-anchor="middle">fromTick, toTick</text>
+  <rect x="234" y="198" width="236" height="40" rx="4" fill="white" stroke="#374151" stroke-width="1"/>
+  <text x="352" y="215" font-size="11.5" fill="#374151" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace">PipelineSnapshotStore</text>
+  <text x="352" y="229" font-size="10.5" fill="#6b7280" text-anchor="middle" font-family="'SF Mono', 'Fira Code', monospace">.find(from, to)</text>
+  <line x1="470" y1="218" x2="506" y2="218" stroke="#374151" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+  <rect x="510" y="198" width="164" height="40" rx="4" fill="white" stroke="#374151" stroke-width="1"/>
+  <text x="592" y="215" font-size="12" fill="#374151" text-anchor="middle" font-weight="500">SQLite</text>
+  <text x="592" y="229" font-size="10.5" fill="#6b7280" text-anchor="middle">trajectory analysis</text>
+
+  <!-- Footer -->
+  <text x="350" y="272" font-size="10" fill="#9ca3af" text-anchor="middle">All three modes return PipelineTrace — the same nine-field record, same structure, different time horizon</text>
+</svg>

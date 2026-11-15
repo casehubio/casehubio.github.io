@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-size="16" font-weight="600" fill="#1e293b">Parameter Resolution Pipeline — Before and After</text>
+
+  <!-- BEFORE section -->
+  <rect x="20" y="50" width="760" height="160" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="75" font-size="13" font-weight="600" fill="#64748b" text-transform="uppercase" letter-spacing="1">BEFORE — All params through string interpolation</text>
+
+  <!-- Before flow -->
+  <rect x="60" y="100" width="140" height="44" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="130" y="127" text-anchor="middle" font-size="12" fill="#334155">YAML param value</text>
+
+  <line x1="200" y1="122" x2="260" y2="122" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="260" y="100" width="180" height="44" rx="6" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="350" y="127" text-anchor="middle" font-size="12" fill="#1e40af">VariableResolver</text>
+
+  <line x1="440" y1="122" x2="500" y2="122" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="500" y="100" width="140" height="44" rx="6" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="570" y="120" text-anchor="middle" font-size="11" fill="#1e40af">${prefix.name}</text>
+  <text x="570" y="135" text-anchor="middle" font-size="11" fill="#1e40af">interpolation</text>
+
+  <line x1="640" y1="122" x2="700" y2="122" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="700" y="100" width="60" height="44" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="730" y="127" text-anchor="middle" font-size="12" fill="#166534">string</text>
+
+  <text x="400" y="180" text-anchor="middle" font-size="11" fill="#94a3b8" font-style="italic">Every param goes through the same regex path — no type awareness</text>
+
+  <!-- AFTER section -->
+  <rect x="20" y="230" width="760" height="270" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="255" font-size="13" font-weight="600" fill="#64748b" text-transform="uppercase" letter-spacing="1">AFTER — Type-aware routing by ParameterType</text>
+
+  <!-- After flow - entry -->
+  <rect x="60" y="280" width="140" height="44" rx="6" fill="#fff" stroke="#cbd5e1"/>
+  <text x="130" y="307" text-anchor="middle" font-size="12" fill="#334155">YAML param value</text>
+
+  <line x1="200" y1="302" x2="260" y2="302" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Decision diamond -->
+  <polygon points="330,275 400,302 330,329 260,302" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="330" y="299" text-anchor="middle" font-size="10" fill="#92400e">Param</text>
+  <text x="330" y="311" text-anchor="middle" font-size="10" fill="#92400e">Type?</text>
+
+  <!-- STRING path (top) -->
+  <line x1="365" y1="288" x2="430" y2="288" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="397" y="283" text-anchor="middle" font-size="9" fill="#2563eb">STRING etc.</text>
+
+  <rect x="430" y="268" width="150" height="40" rx="6" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="505" y="293" text-anchor="middle" font-size="11" fill="#1e40af">VariableResolver</text>
+
+  <line x1="580" y1="288" x2="640" y2="288" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+
+  <rect x="640" y="268" width="120" height="40" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="700" y="293" text-anchor="middle" font-size="11" fill="#166534">interpolated</text>
+
+  <!-- EXPRESSION path (bottom) -->
+  <line x1="365" y1="316" x2="430" y2="360" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+  <text x="385" y="345" text-anchor="middle" font-size="9" fill="#059669">EXPRESSION</text>
+
+  <rect x="430" y="340" width="150" height="40" rx="6" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="505" y="355" text-anchor="middle" font-size="10" fill="#065f46">ExpressionEngine</text>
+  <text x="505" y="370" text-anchor="middle" font-size="10" fill="#065f46">Registry</text>
+
+  <line x1="580" y1="360" x2="640" y2="360" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+
+  <rect x="640" y="340" width="120" height="40" rx="6" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="700" y="355" text-anchor="middle" font-size="10" fill="#065f46">compiled</text>
+  <text x="700" y="368" text-anchor="middle" font-size="10" fill="#065f46">eval(context)</text>
+
+  <!-- buildExpressionContext arrow -->
+  <line x1="505" y1="380" x2="505" y2="420" stroke="#059669" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="505" y="438" text-anchor="middle" font-size="10" fill="#065f46">context from</text>
+  <text x="505" y="450" text-anchor="middle" font-size="10" fill="#065f46">buildExpressionContext()</text>
+
+  <!-- Engine labels -->
+  <rect x="60" y="410" width="70" height="28" rx="4" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="95" y="429" text-anchor="middle" font-size="11" fill="#065f46">JQ</text>
+
+  <rect x="140" y="410" width="70" height="28" rx="4" fill="#d1fae5" stroke="#6ee7b7"/>
+  <text x="175" y="429" text-anchor="middle" font-size="11" fill="#065f46">JS</text>
+
+  <rect x="220" y="410" width="100" height="28" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="270" y="429" text-anchor="middle" font-size="11" fill="#92400e">descriptive</text>
+
+  <text x="60" y="470" font-size="10" fill="#94a3b8">Pluggable engines — each runtime brings its own (JQ+JS in browser, MVEL+JQ+JEXL on JVM)</text>
+
+</svg>

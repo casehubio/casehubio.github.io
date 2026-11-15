@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#64748b"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arr-grn" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 3.5 L 0 7 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- BEFORE -->
+  <text x="170" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#334155">Before</text>
+
+  <!-- platform-api (heavy) -->
+  <rect x="60" y="40" width="220" height="130" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="170" y="65" text-anchor="middle" font-size="13" font-weight="600" fill="#991b1b">platform-api</text>
+  <text x="170" y="85" text-anchor="middle" font-size="10" fill="#b91c1c">29 sub-packages</text>
+  <rect x="80" y="98" width="180" height="55" rx="5" fill="#fee2e2" stroke="#f87171" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="170" y="117" text-anchor="middle" font-size="11" font-weight="500" fill="#991b1b">.mcp package</text>
+  <text x="170" y="133" text-anchor="middle" font-size="9" fill="#b91c1c">@McpDomain · @PlatformQuery</text>
+  <text x="170" y="145" text-anchor="middle" font-size="9" fill="#b91c1c">39 annotations + SPIs</text>
+
+  <!-- external project -->
+  <rect x="85" y="220" width="170" height="50" rx="8" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+  <text x="170" y="243" text-anchor="middle" font-size="12" font-weight="500" fill="#334155">external project</text>
+  <text x="170" y="258" text-anchor="middle" font-size="9" fill="#64748b">just needs @McpDomain</text>
+
+  <!-- arrow: external → platform-api (red — pulls everything) -->
+  <line x1="170" y1="220" x2="170" y2="170" stroke="#dc2626" stroke-width="2" marker-end="url(#arr-red)"/>
+  <text x="250" y="200" font-size="10" fill="#dc2626" font-weight="500">pulls 29 packages</text>
+
+  <!-- Divider -->
+  <line x1="340" y1="20" x2="340" y2="400" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- AFTER -->
+  <text x="520" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#334155">After</text>
+
+  <!-- mcp-api (light) -->
+  <rect x="440" y="40" width="160" height="70" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="520" y="63" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">mcp-api</text>
+  <text x="520" y="80" text-anchor="middle" font-size="10" fill="#15803d">39 annotations + SPIs</text>
+  <text x="520" y="95" text-anchor="middle" font-size="9" fill="#16a34a">zero runtime deps</text>
+
+  <!-- platform-api (depends on mcp-api) -->
+  <rect x="380" y="150" width="130" height="50" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="445" y="173" text-anchor="middle" font-size="11" font-weight="500" fill="#92400e">platform-api</text>
+  <text x="445" y="188" text-anchor="middle" font-size="9" fill="#a16207">re-exports mcp-api</text>
+
+  <!-- mcp-core (depends on mcp-api) -->
+  <rect x="530" y="150" width="130" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="595" y="173" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af">mcp-core</text>
+  <text x="595" y="188" text-anchor="middle" font-size="9" fill="#3b82f6">runtime discovery</text>
+
+  <!-- external project (after) -->
+  <rect x="440" y="260" width="160" height="50" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="520" y="283" text-anchor="middle" font-size="12" font-weight="500" fill="#166534">external project</text>
+  <text x="520" y="298" text-anchor="middle" font-size="9" fill="#16a34a">just @McpDomain — nothing else</text>
+
+  <!-- arrows -->
+  <line x1="445" y1="150" x2="490" y2="110" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="595" y1="150" x2="550" y2="110" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="520" y1="260" x2="520" y2="110" stroke="#16a34a" stroke-width="2" marker-end="url(#arr-grn)"/>
+  <text x="635" y="245" font-size="10" fill="#16a34a" font-weight="500">1 package</text>
+
+  <!-- existing consumers label -->
+  <rect x="370" y="340" width="300" height="50" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="520" y="360" text-anchor="middle" font-size="10" fill="#64748b">existing consumers: no change</text>
+  <text x="520" y="375" text-anchor="middle" font-size="9" fill="#94a3b8">platform-api re-exports mcp-api transitively</text>
+</svg>

@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="800" height="450" fill="#ffffff"/>
+
+  <!-- Left column: Before -->
+  <text x="185" y="28" font-size="14" font-weight="bold" fill="#2d3748" text-anchor="middle">Before — 11 MCP tools</text>
+
+  <rect x="60" y="44" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="61" font-size="10" fill="#2d3748" text-anchor="middle">listCorpora</text>
+
+  <rect x="60" y="74" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="91" font-size="10" fill="#2d3748" text-anchor="middle">getCorpus</text>
+
+  <rect x="60" y="104" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="121" font-size="10" fill="#2d3748" text-anchor="middle">listByType</text>
+
+  <rect x="60" y="134" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="151" font-size="10" fill="#2d3748" text-anchor="middle">searchScope</text>
+
+  <rect x="60" y="164" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="181" font-size="10" fill="#2d3748" text-anchor="middle">reconcile</text>
+
+  <rect x="60" y="194" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="211" font-size="10" fill="#2d3748" text-anchor="middle">addEntry</text>
+  <!-- Red callout -->
+  <rect x="245" y="196" width="105" height="18" rx="3" fill="#fff5f5" stroke="#fc8181" stroke-width="1"/>
+  <text x="297" y="208" font-size="8" fill="#c53030" text-anchor="middle">metadata: pipe string</text>
+
+  <rect x="60" y="224" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="241" font-size="10" fill="#2d3748" text-anchor="middle">getEntry</text>
+  <!-- Red callout -->
+  <rect x="245" y="226" width="80" height="18" rx="3" fill="#fff5f5" stroke="#fc8181" stroke-width="1"/>
+  <text x="285" y="238" font-size="8" fill="#c53030" text-anchor="middle">no versions</text>
+
+  <rect x="60" y="254" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="271" font-size="10" fill="#2d3748" text-anchor="middle">updateEntry</text>
+  <!-- Red callout -->
+  <rect x="245" y="256" width="72" height="18" rx="3" fill="#fff5f5" stroke="#fc8181" stroke-width="1"/>
+  <text x="281" y="268" font-size="8" fill="#c53030" text-anchor="middle">redundant</text>
+
+  <rect x="60" y="284" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="301" font-size="10" fill="#2d3748" text-anchor="middle">removeEntry</text>
+
+  <rect x="60" y="314" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="331" font-size="10" fill="#2d3748" text-anchor="middle">searchCorpus</text>
+
+  <rect x="60" y="344" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="150" y="361" font-size="10" fill="#2d3748" text-anchor="middle">federatedSearch</text>
+
+  <text x="185" y="400" font-size="10" fill="#718096" text-anchor="middle" font-style="italic">11 identical tools across</text>
+  <text x="185" y="414" font-size="10" fill="#718096" text-anchor="middle" font-style="italic">REST / GraphQL / MCP</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="15" x2="400" y2="435" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Right column: After -->
+  <text x="600" y="28" font-size="14" font-weight="bold" fill="#2d3748" text-anchor="middle">After — 14 MCP tools (4 MCP-only)</text>
+
+  <rect x="470" y="44" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="61" font-size="10" fill="#2d3748" text-anchor="middle">listCorpora</text>
+
+  <rect x="470" y="74" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="91" font-size="10" fill="#2d3748" text-anchor="middle">getCorpus</text>
+
+  <rect x="470" y="104" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="121" font-size="10" fill="#2d3748" text-anchor="middle">listByType</text>
+
+  <rect x="470" y="134" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="151" font-size="10" fill="#2d3748" text-anchor="middle">searchScope</text>
+
+  <rect x="470" y="164" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="181" font-size="10" fill="#2d3748" text-anchor="middle">reconcile</text>
+
+  <!-- Transformed: write (auto-route) -->
+  <rect x="470" y="194" width="180" height="26" rx="3" fill="#f0fff4" stroke="#48bb78" stroke-width="1.5"/>
+  <text x="560" y="211" font-size="10" font-weight="bold" fill="#276749" text-anchor="middle">write (auto auto-route)</text>
+  <rect x="655" y="196" width="85" height="18" rx="3" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="697" y="208" font-size="8" fill="#276749" text-anchor="middle">add + update</text>
+
+  <!-- Transformed: read (enriched) -->
+  <rect x="470" y="224" width="180" height="26" rx="3" fill="#f0fff4" stroke="#48bb78" stroke-width="1.5"/>
+  <text x="560" y="241" font-size="10" font-weight="bold" fill="#276749" text-anchor="middle">read (enriched + tracked)</text>
+  <rect x="655" y="226" width="85" height="18" rx="3" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="697" y="238" font-size="8" fill="#276749" text-anchor="middle">+ versions</text>
+
+  <!-- Faded updateEntry (excluded) -->
+  <rect x="470" y="254" width="180" height="26" rx="3" fill="#f7fafc" stroke="#cbd5e0" stroke-width="1" stroke-dasharray="4,2" opacity="0.5"/>
+  <text x="560" y="271" font-size="10" fill="#a0aec0" text-anchor="middle" text-decoration="line-through">updateEntry</text>
+  <text x="680" y="271" font-size="8" fill="#a0aec0">excluded</text>
+
+  <rect x="470" y="284" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="301" font-size="10" fill="#2d3748" text-anchor="middle">removeEntry</text>
+
+  <rect x="470" y="314" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="331" font-size="10" fill="#2d3748" text-anchor="middle">searchCorpus</text>
+
+  <rect x="470" y="344" width="180" height="26" rx="3" fill="#e2e8f0" stroke="#a0aec0" stroke-width="1"/>
+  <text x="560" y="361" font-size="10" fill="#2d3748" text-anchor="middle">federatedSearch</text>
+
+  <!-- MCP-only tools -->
+  <rect x="470" y="378" width="86" height="22" rx="3" fill="#faf5ff" stroke="#805ad5" stroke-width="1"/>
+  <text x="513" y="393" font-size="9" fill="#553c9a" text-anchor="middle">changes</text>
+
+  <rect x="560" y="378" width="86" height="22" rx="3" fill="#faf5ff" stroke="#805ad5" stroke-width="1"/>
+  <text x="603" y="393" font-size="9" fill="#553c9a" text-anchor="middle">history</text>
+
+  <rect x="470" y="404" width="86" height="22" rx="3" fill="#faf5ff" stroke="#805ad5" stroke-width="1"/>
+  <text x="513" y="419" font-size="9" fill="#553c9a" text-anchor="middle">readVersion</text>
+
+  <rect x="560" y="404" width="86" height="22" rx="3" fill="#faf5ff" stroke="#805ad5" stroke-width="1"/>
+  <text x="603" y="419" font-size="9" fill="#553c9a" text-anchor="middle">unread</text>
+
+  <text x="600" y="442" font-size="10" fill="#718096" text-anchor="middle" font-style="italic">10 reshaped + 4 MCP-only · 0 pipe strings</text>
+</svg>

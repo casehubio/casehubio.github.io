@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="Inter, system-ui, sans-serif" font-size="13">
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="none" stroke="#e4e4e7" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <!-- Before -->
+  <text x="180" y="20" text-anchor="middle" font-weight="600" font-size="14" fill="#3f3f46">Before</text>
+  <rect x="0" y="30" width="360" height="300" rx="8" fill="#fafafa" stroke="#e4e4e7"/>
+  <rect x="0" y="30" width="360" height="300" rx="8" fill="url(#grid)"/>
+
+  <!-- Item A: x=0 y=0 w=2 h=2 -->
+  <rect x="4" y="34" width="116" height="116" rx="6" fill="#1a6b5a" opacity="0.9"/>
+  <text x="62" y="97" text-anchor="middle" fill="white" font-weight="600" font-size="15">A</text>
+
+  <!-- Item B: x=2 y=1 w=2 h=1 (being dragged to y=0) -->
+  <rect x="124" y="94" width="116" height="56" rx="6" fill="#9333ea" opacity="0.4" stroke="#9333ea" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="182" y="127" text-anchor="middle" fill="#9333ea" font-weight="600" font-size="12">B (original)</text>
+
+  <!-- Ghost: B dragged to y=0 -->
+  <rect x="124" y="34" width="116" height="56" rx="6" fill="#2563eb" opacity="0.3" stroke="#2563eb" stroke-width="2"/>
+  <text x="182" y="67" text-anchor="middle" fill="#1d4ed8" font-weight="600" font-size="15">B</text>
+
+  <!-- Drag arrow -->
+  <line x1="182" y1="90" x2="182" y2="67" stroke="#2563eb" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <defs>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Overlap indicator -->
+  <rect x="124" y="34" width="116" height="56" rx="6" fill="#dc2626" opacity="0.1" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="290" y="60" fill="#dc2626" font-size="11" font-weight="500">overlap!</text>
+
+  <!-- After -->
+  <text x="540" y="20" text-anchor="middle" font-weight="600" font-size="14" fill="#3f3f46">After (push-down)</text>
+  <rect x="360" y="30" width="360" height="300" rx="8" fill="#fafafa" stroke="#e4e4e7"/>
+  <rect x="360" y="30" width="360" height="300" rx="8" fill="url(#grid)"/>
+
+  <!-- B at y=0 (moved) -->
+  <rect x="484" y="34" width="116" height="56" rx="6" fill="#2563eb" opacity="0.9"/>
+  <text x="542" y="67" text-anchor="middle" fill="white" font-weight="600" font-size="15">B</text>
+
+  <!-- A pushed to y=1 (displaced) -->
+  <rect x="364" y="94" width="116" height="116" rx="6" fill="#1a6b5a" opacity="0.9"/>
+  <text x="422" y="157" text-anchor="middle" fill="white" font-weight="600" font-size="15">A</text>
+
+  <!-- Push-down arrow -->
+  <line x1="422" y1="64" x2="422" y2="90" stroke="#dc2626" stroke-width="2" marker-end="url(#arrowRed)"/>
+  <text x="445" y="78" fill="#dc2626" font-size="11" font-weight="500">pushed</text>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13">
+  <!-- Background -->
+  <rect width="720" height="340" fill="#0f0f0f" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="28" fill="#fafafa" font-size="14" font-weight="600" text-anchor="middle">Gravity-up compaction with a pinned item</text>
+
+  <!-- Phase labels -->
+  <text x="90" y="56" fill="#888" font-size="11" text-anchor="middle">After push</text>
+  <text x="270" y="56" fill="#888" font-size="11" text-anchor="middle">Single pass (wrong)</text>
+  <text x="450" y="56" fill="#888" font-size="11" text-anchor="middle">Iterative settle</text>
+  <text x="630" y="56" fill="#888" font-size="11" text-anchor="middle">Final</text>
+
+  <!-- Grid backgrounds -->
+  <rect x="20" y="66" width="140" height="250" fill="#1a1a1a" rx="4"/>
+  <rect x="200" y="66" width="140" height="250" fill="#1a1a1a" rx="4"/>
+  <rect x="380" y="66" width="140" height="250" fill="#1a1a1a" rx="4"/>
+  <rect x="560" y="66" width="140" height="250" fill="#1a1a1a" rx="4"/>
+
+  <!-- Row labels (left side) -->
+  <text x="12" y="90" fill="#555" font-size="9">0</text>
+  <text x="12" y="140" fill="#555" font-size="9">1</text>
+  <text x="12" y="190" fill="#555" font-size="9">2</text>
+  <text x="12" y="240" fill="#555" font-size="9">3</text>
+  <text x="12" y="290" fill="#555" font-size="9">4</text>
+
+  <!-- Phase 1: After push — a pinned at y=3, b at y=5, c at y=6 -->
+  <!-- Empty rows 0-2 -->
+  <rect x="30" y="216" width="120" height="40" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5" rx="3"/>
+  <text x="90" y="240" fill="#f59e0b" font-size="11" font-weight="600" text-anchor="middle">A (pinned)</text>
+  <rect x="30" y="266" width="60" height="40" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1" rx="3"/>
+  <text x="60" y="290" fill="#93c5fd" font-size="11" text-anchor="middle">B</text>
+  <rect x="95" y="266" width="55" height="40" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1" rx="3"/>
+  <text x="122" y="290" fill="#6ee7b7" font-size="11" text-anchor="middle">C</text>
+
+  <!-- Phase 2: Single pass — b teleports to y=0 -->
+  <rect x="210" y="66" width="60" height="40" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5" rx="3"/>
+  <text x="240" y="90" fill="#fca5a5" font-size="11" text-anchor="middle">B ✗</text>
+  <rect x="275" y="66" width="55" height="40" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="1.5" rx="3"/>
+  <text x="302" y="90" fill="#fca5a5" font-size="11" text-anchor="middle">C ✗</text>
+  <rect x="210" y="216" width="120" height="40" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5" rx="3"/>
+  <text x="270" y="240" fill="#f59e0b" font-size="11" font-weight="600" text-anchor="middle">A (pinned)</text>
+  <!-- Red X for wrong result -->
+  <text x="270" y="315" fill="#ef4444" font-size="11" text-anchor="middle">B,C above A — wrong</text>
+
+  <!-- Phase 3: Iterative settle — b at y=0 ok, c checks and finds overlap -->
+  <rect x="390" y="66" width="60" height="40" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1" rx="3"/>
+  <text x="420" y="90" fill="#93c5fd" font-size="11" text-anchor="middle">B</text>
+  <rect x="390" y="216" width="120" height="40" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5" rx="3"/>
+  <text x="450" y="240" fill="#f59e0b" font-size="11" font-weight="600" text-anchor="middle">A (pinned)</text>
+  <!-- C settling: try y=2, overlaps A at y=3 → settle to y=5 -->
+  <rect x="390" y="266" width="55" height="40" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1" rx="3"/>
+  <text x="418" y="290" fill="#6ee7b7" font-size="11" text-anchor="middle">C</text>
+  <!-- Arrow showing settle -->
+  <path d="M470 130 L470 160" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,3" fill="none" marker-end="url(#arrow)"/>
+  <text x="490" y="150" fill="#f59e0b" font-size="9">re-check</text>
+
+  <!-- Phase 4: Final correct layout -->
+  <rect x="570" y="66" width="60" height="40" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="1" rx="3"/>
+  <text x="600" y="90" fill="#93c5fd" font-size="11" text-anchor="middle">B</text>
+  <rect x="570" y="216" width="120" height="40" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-width="1.5" rx="3"/>
+  <text x="630" y="240" fill="#f59e0b" font-size="11" font-weight="600" text-anchor="middle">A (pinned)</text>
+  <rect x="570" y="266" width="55" height="40" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1" rx="3"/>
+  <text x="598" y="290" fill="#6ee7b7" font-size="11" text-anchor="middle">C</text>
+  <text x="630" y="315" fill="#10b981" font-size="11" text-anchor="middle">✓ correct</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300">
+  <style>
+    text { font-family: -apple-system, 'Segoe UI', sans-serif; }
+    .title { fill: #1e293b; font-size: 13px; font-weight: 600; }
+    .label { fill: #334155; font-size: 11px; }
+    .sublabel { fill: #64748b; font-size: 10px; }
+    .box { rx: 6; stroke-width: 1.5; }
+    .box-ok { fill: #f0fdf4; stroke: #22c55e; }
+    .box-broken { fill: #fef2f2; stroke: #ef4444; }
+    .box-fixed { fill: #eff6ff; stroke: #3b82f6; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .arrow-broken { stroke: #ef4444; stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
+    .section-label { fill: #1e293b; font-size: 12px; font-weight: 600; }
+    .null-label { fill: #ef4444; font-size: 10px; font-weight: 600; }
+    .fix-label { fill: #3b82f6; font-size: 10px; font-weight: 600; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text class="title" x="310" y="22" text-anchor="middle">The Pipeline Gap: Unit Tests Pass, Pipeline Is Dead</text>
+
+  <!-- BEFORE section -->
+  <text class="section-label" x="155" y="52">Before: CognitionCore.tick() passes null</text>
+
+  <!-- CognitionCore box -->
+  <rect class="box box-ok" x="20" y="65" width="120" height="45"/>
+  <text class="label" x="80" y="85" text-anchor="middle">CognitionCore</text>
+  <text class="sublabel" x="80" y="98" text-anchor="middle">tick(6 args)</text>
+
+  <!-- Arrow with null -->
+  <line class="arrow-broken" x1="140" y1="87" x2="195" y2="87"/>
+  <text class="null-label" x="168" y="80">null</text>
+
+  <!-- CognitionTickContext -->
+  <rect class="box box-broken" x="200" y="65" width="140" height="45"/>
+  <text class="label" x="270" y="85" text-anchor="middle">CognitionTickContext</text>
+  <text class="sublabel" x="270" y="98" text-anchor="middle">regulationContext=null</text>
+
+  <!-- Two broken paths -->
+  <line class="arrow-broken" x1="340" y1="75" x2="410" y2="68"/>
+  <rect class="box box-broken" x="415" y="48" width="185" height="35"/>
+  <text class="sublabel" x="507" y="65" text-anchor="middle">Write: MindMap location = never set</text>
+  <text class="null-label" x="507" y="78" text-anchor="middle">dead code</text>
+
+  <line class="arrow-broken" x1="340" y1="100" x2="410" y2="107"/>
+  <rect class="box box-broken" x="415" y="92" width="185" height="35"/>
+  <text class="sublabel" x="507" y="109" text-anchor="middle">Read: Proactive short-circuits</text>
+  <text class="null-label" x="507" y="122" text-anchor="middle">dead code</text>
+
+  <!-- AFTER section -->
+  <text class="section-label" x="155" y="168">After: 7-arg overload flows RegulationContext</text>
+
+  <!-- CognitionCore box -->
+  <rect class="box box-fixed" x="20" y="180" width="120" height="45"/>
+  <text class="label" x="80" y="200" text-anchor="middle">CognitionCore</text>
+  <text class="sublabel" x="80" y="213" text-anchor="middle">tick(7 args)</text>
+
+  <!-- Arrow with context -->
+  <line class="arrow" x1="140" y1="202" x2="195" y2="202"/>
+  <text class="fix-label" x="168" y="195">ctx</text>
+
+  <!-- CognitionTickContext -->
+  <rect class="box box-fixed" x="200" y="180" width="140" height="45"/>
+  <text class="label" x="270" y="200" text-anchor="middle">CognitionTickContext</text>
+  <text class="sublabel" x="270" y="213" text-anchor="middle">regulationContext=✓</text>
+
+  <!-- Two working paths -->
+  <line class="arrow" x1="340" y1="190" x2="410" y2="183"/>
+  <rect class="box box-ok" x="415" y="163" width="185" height="35"/>
+  <text class="sublabel" x="507" y="180" text-anchor="middle">Write: location persisted to MindMap</text>
+
+  <line class="arrow" x1="340" y1="215" x2="410" y2="222"/>
+  <rect class="box box-ok" x="415" y="207" width="185" height="35"/>
+  <text class="sublabel" x="507" y="224" text-anchor="middle">Read: Proactive fires avoidance goals</text>
+
+  <!-- Bottom annotation -->
+  <text class="sublabel" x="310" y="270" text-anchor="middle">ProactiveRegulationParticipantTest passed with mocked context.</text>
+  <text class="sublabel" x="310" y="285" text-anchor="middle">The pipeline never provided that context. Component green, system broken.</text>
+</svg>

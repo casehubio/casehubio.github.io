@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 200" font-family="Inter, system-ui, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#71717a"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Idle state -->
+  <rect x="20" y="70" width="120" height="56" rx="28" fill="#f4f4f5" stroke="#a1a1aa" stroke-width="1.5"/>
+  <text x="80" y="103" text-anchor="middle" font-weight="600" fill="#3f3f46">Idle</text>
+
+  <!-- Editing state -->
+  <rect x="240" y="70" width="140" height="56" rx="28" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="310" y="103" text-anchor="middle" font-weight="600" fill="#1d4ed8">Editing</text>
+
+  <!-- Dragging state -->
+  <rect x="500" y="70" width="160" height="56" rx="28" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="580" y="97" text-anchor="middle" font-weight="600" fill="#92400e">Dragging</text>
+  <text x="580" y="113" text-anchor="middle" font-weight="500" font-size="11" fill="#92400e">/ Resizing</text>
+
+  <!-- Idle → Editing: enter() -->
+  <line x1="140" y1="92" x2="235" y2="92" stroke="#71717a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="188" y="84" text-anchor="middle" fill="#71717a" font-size="11" font-weight="500">enter()</text>
+
+  <!-- Editing → Dragging: pointerdown -->
+  <line x1="380" y1="92" x2="495" y2="92" stroke="#71717a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="438" y="84" text-anchor="middle" fill="#71717a" font-size="11" font-weight="500">pointerdown</text>
+
+  <!-- Editing → Idle: exit() / Escape -->
+  <path d="M 280 126 Q 180 170 110 126" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <text x="185" y="166" text-anchor="middle" fill="#16a34a" font-size="11" font-weight="500">exit() / Escape</text>
+
+  <!-- Dragging → Editing: pointerup (commit) -->
+  <path d="M 530 126 Q 440 175 350 126" fill="none" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+  <text x="445" y="168" text-anchor="middle" fill="#16a34a" font-size="11" font-weight="500">pointerup (commit)</text>
+
+  <!-- Dragging → Editing: Escape (cancel) -->
+  <path d="M 520 70 Q 440 25 360 70" fill="none" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrowAmber)"/>
+  <text x="445" y="35" text-anchor="middle" fill="#d97706" font-size="11" font-weight="500">Escape (cancel)</text>
+</svg>

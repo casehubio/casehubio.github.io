@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .stage { rx: 5; ry: 5; fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.2; }
+    .stage-active { fill: #eff6ff; stroke: #3b82f6; }
+    .stage-label { font-size: 11px; font-weight: 600; fill: #1e293b; }
+    .stage-detail { font-size: 9.5px; fill: #64748b; }
+    .stage-num { font-size: 9px; font-weight: 700; fill: #3b82f6; }
+    .flow { fill: none; stroke: #94a3b8; stroke-width: 1.2; marker-end: url(#arr2); }
+    .phase { font-size: 10px; font-weight: 700; fill: #94a3b8; letter-spacing: 1px; }
+    .bracket { fill: none; stroke: #e2e8f0; stroke-width: 1; }
+  </style>
+  <defs>
+    <marker id="arr2" markerWidth="7" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0 0, 7 2.5, 0 5" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b">Pipeline Trace Chain — Nine Stages</text>
+
+  <!-- Phase labels -->
+  <text x="18" y="62" class="phase" transform="rotate(-90, 18, 62)">INIT</text>
+  <text x="18" y="170" class="phase" transform="rotate(-90, 18, 170)">DERIVED</text>
+  <text x="18" y="295" class="phase" transform="rotate(-90, 18, 295)">TERMINAL</text>
+
+  <!-- Row 1: Drives -->
+  <rect x="40" y="42" width="155" height="48" class="stage stage-active"/>
+  <text x="48" y="57" class="stage-num">1</text>
+  <text x="62" y="57" class="stage-label">Seeded Drives</text>
+  <text x="48" y="72" class="stage-detail">DriveProfile: curiosity, competence,</text>
+  <text x="48" y="82" class="stage-detail">affiliation, autonomy intensities</text>
+
+  <path d="M 195,66 L 220,66" class="flow"/>
+
+  <rect x="225" y="42" width="155" height="48" class="stage stage-active"/>
+  <text x="233" y="57" class="stage-num">2</text>
+  <text x="247" y="57" class="stage-label">Adapted Intensities</text>
+  <text x="233" y="72" class="stage-detail">After DriveAdaptationPhase</text>
+  <text x="233" y="82" class="stage-detail">reinforcement + decay</text>
+
+  <!-- Row 2: CAPS -->
+  <path d="M 302,90 L 302,112" class="flow"/>
+
+  <rect x="40" y="115" width="155" height="48" class="stage stage-active"/>
+  <text x="48" y="130" class="stage-num">3</text>
+  <text x="62" y="130" class="stage-label">CAPS Input Activations</text>
+  <text x="48" y="145" class="stage-detail">combinedActivations map:</text>
+  <text x="48" y="155" class="stage-detail">experience + drive contributions</text>
+
+  <path d="M 195,139 L 220,139" class="flow"/>
+
+  <rect x="225" y="115" width="155" height="48" class="stage stage-active"/>
+  <text x="233" y="130" class="stage-num">4</text>
+  <text x="247" y="130" class="stage-label">CAPS Settling Result</text>
+  <text x="233" y="145" class="stage-detail">activations, convergence type,</text>
+  <text x="233" y="155" class="stage-detail">iteration count, saturation</text>
+
+  <path d="M 380,139 L 405,139" class="flow"/>
+
+  <rect x="410" y="115" width="155" height="48" class="stage stage-active"/>
+  <text x="418" y="130" class="stage-num">5</text>
+  <text x="432" y="130" class="stage-label">Behavioral Attractors</text>
+  <text x="418" y="145" class="stage-detail">strength, category, personality</text>
+  <text x="418" y="155" class="stage-detail">label, source count</text>
+
+  <!-- Consolidation annotation -->
+  <rect x="580" y="115" width="125" height="48" rx="4" fill="#fefce8" stroke="#eab308" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="642" y="135" text-anchor="middle" font-size="9.5" font-weight="600" fill="#a16207">CONSOLIDATION</text>
+  <text x="642" y="149" text-anchor="middle" font-size="9" fill="#a16207">Stages 3–5 update on</text>
+  <text x="642" y="160" text-anchor="middle" font-size="9" fill="#a16207">consolidation, not per-tick</text>
+
+  <!-- Row 3: Appraisal -->
+  <path d="M 302,163 L 302,195" class="flow"/>
+
+  <rect x="40" y="198" width="155" height="48" class="stage stage-active"/>
+  <text x="48" y="213" class="stage-num">6</text>
+  <text x="62" y="213" class="stage-label">Concern Salience</text>
+  <text x="48" y="228" class="stage-detail">drive → concern mapping,</text>
+  <text x="48" y="238" class="stage-detail">salience scores per concern</text>
+
+  <path d="M 195,222 L 220,222" class="flow"/>
+
+  <rect x="225" y="198" width="155" height="48" class="stage stage-active"/>
+  <text x="233" y="213" class="stage-num">7</text>
+  <text x="247" y="213" class="stage-label">Activated Drive Categories</text>
+  <text x="233" y="228" class="stage-detail">drives above activation</text>
+  <text x="233" y="238" class="stage-detail">threshold + salient concerns</text>
+
+  <!-- Row 4: Output -->
+  <path d="M 302,246 L 302,278" class="flow"/>
+
+  <rect x="40" y="281" width="155" height="48" class="stage stage-active"/>
+  <text x="48" y="296" class="stage-num">8</text>
+  <text x="62" y="296" class="stage-label">Rendered Prompt Sections</text>
+  <text x="48" y="311" class="stage-detail">20+ CognitionPromptRenderers</text>
+  <text x="48" y="321" class="stage-detail">→ text that shapes the LLM</text>
+
+  <path d="M 195,305 L 220,305" class="flow"/>
+
+  <rect x="225" y="281" width="155" height="48" class="stage stage-active"/>
+  <text x="233" y="296" class="stage-num">9</text>
+  <text x="247" y="296" class="stage-label">Appraisal Result</text>
+  <text x="233" y="311" class="stage-detail">emotions with PAD, intensity,</text>
+  <text x="233" y="321" class="stage-detail">action tendencies, narrative</text>
+
+  <!-- Result box -->
+  <path d="M 302,329 L 302,360" class="flow"/>
+  <rect x="170" y="363" width="265" height="40" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="302" y="383" text-anchor="middle" font-size="12" font-weight="600" fill="#15803d">LLM Response</text>
+  <text x="302" y="397" text-anchor="middle" font-size="10" fill="#15803d">shaped by all 9 stages — traceable back to drives</text>
+</svg>

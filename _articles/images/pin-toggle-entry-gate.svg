@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260">
+  <defs>
+    <marker id="gate-arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: system-ui, sans-serif; font-size: 11px; fill: #334155; }
+    .title { font-size: 13px; font-weight: 600; fill: #1e293b; }
+    .pin { fill: #d97706; font-size: 14px; }
+    .block { fill: #dc2626; font-size: 11px; font-weight: 600; }
+    .allow { fill: #16a34a; font-size: 11px; font-weight: 600; }
+    .dim { fill: #94a3b8; }
+  </style>
+
+  <!-- Left: unpinned — displace, block entry -->
+  <text x="20" y="18" class="title">Unpinned: displace, block entry</text>
+  <rect x="20" y="30" width="70" height="30" rx="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="30" y="50">Item A</text>
+  <!-- Arrow showing drag direction -->
+  <line x1="95" y1="45" x2="125" y2="75" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#gate-arr)" stroke-dasharray="4,3"/>
+
+  <!-- Panel displacing downward -->
+  <rect x="20" y="70" width="140" height="80" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="135" y="85" class="pin">📍</text>
+  <text x="30" y="90">Panel (unpinned)</text>
+  <rect x="30" y="98" width="55" height="22" rx="2" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+  <text x="37" y="113" style="font-size:10px">Nested A</text>
+  <rect x="95" y="98" width="55" height="22" rx="2" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+  <text x="102" y="113" style="font-size:10px">Nested B</text>
+  <rect x="30" y="126" width="120" height="18" rx="2" fill="#fde68a" stroke="#d97706" stroke-width="1"/>
+  <text x="58" y="139" style="font-size:10px">Nested C</text>
+
+  <!-- Displacement arrow -->
+  <line x1="90" y1="155" x2="90" y2="185" stroke="#d97706" stroke-width="2" marker-end="url(#gate-arr)"/>
+  <text x="100" y="175" class="dim" style="font-size:10px">panel displaces</text>
+
+  <!-- Block indicator -->
+  <text x="170" y="82" class="block">BLOCKED</text>
+  <line x1="164" y1="70" x2="164" y2="100" stroke="#dc2626" stroke-width="2"/>
+  <line x1="158" y1="78" x2="170" y2="90" stroke="#dc2626" stroke-width="2"/>
+  <line x1="158" y1="90" x2="170" y2="78" stroke="#dc2626" stroke-width="2"/>
+
+  <text x="20" y="210" class="dim">Cursor over nested grid during</text>
+  <text x="20" y="222" class="dim">displacement: deepestGridAt is</text>
+  <text x="20" y="234" class="dim">ignored. Item stays in parent grid.</text>
+
+  <!-- Divider -->
+  <line x1="310" y1="10" x2="310" y2="250" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Right: pinned — fixed, allow entry -->
+  <text x="330" y="18" class="title">Pinned: fixed, allow entry</text>
+  <rect x="330" y="30" width="70" height="30" rx="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="340" y="50">Item A</text>
+  <!-- Arrow showing drag into nested grid -->
+  <line x1="405" y1="45" x2="435" y2="75" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#gate-arr)" stroke-dasharray="4,3"/>
+
+  <!-- Panel stays fixed -->
+  <rect x="330" y="70" width="140" height="80" rx="3" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="445" y="85" class="pin">📌</text>
+  <text x="340" y="90">Panel (pinned)</text>
+
+  <!-- Placeholder inside nested grid -->
+  <rect x="340" y="98" width="55" height="22" rx="2" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="344" y="113" style="font-size:9px;fill:#2563eb">incoming</text>
+  <rect x="405" y="98" width="55" height="22" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="412" y="113" style="font-size:10px">Nested A</text>
+  <rect x="340" y="126" width="120" height="18" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="358" y="139" style="font-size:10px">Nested B ↓</text>
+
+  <!-- Allow indicator -->
+  <text x="480" y="82" class="allow">ALLOWED</text>
+  <line x1="478" y1="75" x2="478" y2="95" stroke="#16a34a" stroke-width="2"/>
+  <text x="484" y="87" style="font-size:14px;fill:#16a34a">&#x2714;</text>
+
+  <text x="330" y="180" class="dim">Panel stays put. deepestGridAt</text>
+  <text x="330" y="192" class="dim">finds nested controller. Cross-grid</text>
+  <text x="330" y="204" class="dim">activates. Items displace inside.</text>
+
+  <!-- Legend -->
+  <rect x="330" y="222" width="12" height="12" rx="1" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+  <text x="348" y="233">Unpinned — displaces</text>
+  <rect x="480" y="222" width="12" height="12" rx="1" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="498" y="233">Pinned — fixed</text>
+</svg>

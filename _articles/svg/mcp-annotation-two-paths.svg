@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#64748b"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#dc2626"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="30" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">Two Scanners, Two Realities</text>
+
+  <!-- Source annotation box -->
+  <rect x="230" y="50" width="260" height="60" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="360" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">Java Interface</text>
+  <text x="360" y="92" text-anchor="middle" font-size="11" fill="#64748b" font-family="JetBrains Mono, monospace">@DefaultValue("0") Integer offset</text>
+
+  <!-- Split arrows -->
+  <line x1="290" y1="110" x2="160" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="430" y1="110" x2="560" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Left path: Build-time -->
+  <rect x="40" y="155" width="240" height="50" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="160" y="176" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">Build-time Scanner</text>
+  <text x="160" y="193" text-anchor="middle" font-size="10" fill="#3b82f6">McpDomainJandexScanner</text>
+
+  <line x1="160" y1="205" x2="160" y2="240" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="40" y="240" width="240" height="50" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="160" y="261" text-anchor="middle" font-size="12" font-weight="600" fill="#166534">Reads @DefaultValue ✓</text>
+  <text x="160" y="278" text-anchor="middle" font-size="10" fill="#16a34a">Stores in ResolvedParam</text>
+
+  <line x1="160" y1="290" x2="160" y2="325" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <rect x="40" y="325" width="240" height="60" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="160" y="349" text-anchor="middle" font-size="12" font-weight="600" fill="#166534">Generated REST Controller</text>
+  <text x="160" y="368" text-anchor="middle" font-size="10" fill="#16a34a" font-family="JetBrains Mono, monospace">@RequestParam(defaultValue="0")</text>
+
+  <!-- Right path: Runtime -->
+  <rect x="440" y="155" width="240" height="50" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="560" y="176" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e">Runtime MCP Scanner</text>
+  <text x="560" y="193" text-anchor="middle" font-size="10" fill="#b45309">GraphQLModelScanner</text>
+
+  <line x1="560" y1="205" x2="560" y2="240" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <rect x="440" y="240" width="240" height="50" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="560" y="261" text-anchor="middle" font-size="12" font-weight="600" fill="#991b1b">Ignores @DefaultValue ✗</text>
+  <text x="560" y="278" text-anchor="middle" font-size="10" fill="#dc2626">Checks Optional&lt;T&gt; only</text>
+
+  <line x1="560" y1="290" x2="560" y2="325" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <rect x="440" y="325" width="240" height="60" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="560" y="349" text-anchor="middle" font-size="12" font-weight="600" fill="#991b1b">MCP Tool Schema</text>
+  <text x="560" y="368" text-anchor="middle" font-size="10" fill="#dc2626" font-family="JetBrains Mono, monospace">"offset": { "required": true }</text>
+
+  <!-- Labels -->
+  <text x="160" y="405" text-anchor="middle" font-size="11" fill="#16a34a" font-weight="500">Developer sees: optional ✓</text>
+  <text x="560" y="405" text-anchor="middle" font-size="11" fill="#dc2626" font-weight="500">Agent sees: required ✗</text>
+</svg>

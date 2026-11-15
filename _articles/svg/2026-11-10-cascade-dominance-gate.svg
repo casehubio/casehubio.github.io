@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <style>
+    .title { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .layer-label { font-size: 13px; font-weight: 600; fill: #1e293b; }
+    .detail { font-size: 11px; fill: #475569; }
+    .outcome { font-size: 11px; font-weight: 600; }
+    .pin { fill: #16a34a; }
+    .fall { fill: #d97706; }
+    .mono { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 10px; fill: #64748b; }
+  </style>
+
+  <text x="360" y="28" text-anchor="middle" class="title">Regulation Cascade — Three-Layer Resolution</text>
+
+  <!-- Layer 1: Safety Gate -->
+  <rect x="40" y="50" width="640" height="60" rx="6" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.5"/>
+  <text x="60" y="72" class="layer-label">Layer 1: Safety Gate</text>
+  <text x="60" y="92" class="detail">intensity &gt; 0.75 OR fatigue &gt; 0.70  →  override to AD</text>
+  <text x="580" y="82" class="outcome pin">PINS AD</text>
+
+  <!-- Arrow down -->
+  <line x1="360" y1="110" x2="360" y2="135" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="375" y="128" class="mono">no override</text>
+
+  <!-- Layer 2: CAPS Settling -->
+  <rect x="40" y="140" width="640" height="100" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="60" y="162" class="layer-label">Layer 2: CAPS Settling</text>
+  <text x="60" y="182" class="detail">Network settles → extract regulation attractors → rank by strength</text>
+  <text x="60" y="202" class="detail">strength = min(1.0, settled_activation + resting_activation)</text>
+
+  <!-- Dominance check box -->
+  <rect x="60" y="210" width="600" height="22" rx="3" fill="#dcfce7" stroke="#86efac"/>
+  <text x="70" y="225" class="mono">margin = top.strength - runnerUp.strength    dominant = margin ≥ 0.15</text>
+
+  <!-- Two outcome arrows from CAPS -->
+  <line x1="250" y1="240" x2="250" y2="275" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="175" y="268" class="outcome pin">dominant → PINS top</text>
+
+  <line x1="470" y1="240" x2="470" y2="275" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrow-amber)"/>
+  <text x="400" y="268" class="outcome fall">not dominant → falls through</text>
+
+  <!-- Layer 3: Predictor + LLM -->
+  <rect x="320" y="280" width="360" height="60" rx="6" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.5"/>
+  <text x="340" y="302" class="layer-label">Layer 3: Predictor → LLM</text>
+  <text x="340" y="322" class="detail">Personality predictor selects, or LLM decides freely</text>
+
+  <!-- Pinned box -->
+  <rect x="40" y="280" width="250" height="60" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="60" y="302" class="layer-label" style="fill:#16a34a">Deterministic</text>
+  <text x="60" y="322" class="detail">CAPS resolved — no LLM needed</text>
+
+  <!-- Bottom summary -->
+  <rect x="40" y="365" width="640" height="42" rx="6" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="60" y="383" class="detail" style="font-weight:600">Eval result: 3 pinned (SS, SM, RM) · 1 safety gate (AD) · 1 predictor-resolved (CC)</text>
+  <text x="60" y="398" class="detail">All five deterministic — zero LLM fallback on any scenario</text>
+</svg>

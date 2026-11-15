@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440">
+  <defs>
+    <style>
+      text { font-family: -apple-system, 'Segoe UI', sans-serif; }
+      .title { font-size: 14px; font-weight: 600; fill: #1a1a2e; }
+      .label { font-size: 11px; fill: #2d3436; }
+      .sublabel { font-size: 9px; fill: #636e72; }
+      .strong { font-size: 12px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="440" fill="#fafbfc" rx="8"/>
+
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" class="title" font-size="16">The Read/Write Asymmetry</text>
+
+  <!-- READ SIDE -->
+  <rect x="30" y="50" width="360" height="370" fill="#e8f5e9" rx="6" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="210" y="72" text-anchor="middle" class="strong" fill="#2e7d32">Read Path — Agent Finds Knowledge</text>
+
+  <!-- Read capabilities -->
+  <rect x="50" y="88" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="108" class="label">Hybrid search</text>
+  <text x="360" y="108" text-anchor="end" class="sublabel">dense + sparse + BM25 + RRF fusion</text>
+
+  <rect x="50" y="128" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="148" class="label">Adaptive sizing</text>
+  <text x="360" y="148" text-anchor="end" class="sublabel">auto-extend small sets, trim large ones</text>
+
+  <rect x="50" y="168" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="188" class="label">Federated search</text>
+  <text x="360" y="188" text-anchor="end" class="sublabel">cross-corpus with depth control + dedup</text>
+
+  <rect x="50" y="208" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="228" class="label">Version history</text>
+  <text x="360" y="228" text-anchor="end" class="sublabel">list revisions, read any historical version</text>
+
+  <rect x="50" y="248" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="268" class="label">Change detection</text>
+  <text x="360" y="268" text-anchor="end" class="sublabel">timestamp-based, author + preview</text>
+
+  <rect x="50" y="288" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="308" class="label">Feedback loop</text>
+  <text x="360" y="308" text-anchor="end" class="sublabel">5-level relevance, outcome tracking, decay</text>
+
+  <rect x="50" y="328" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="348" class="label">Blind-spot detection</text>
+  <text x="360" y="348" text-anchor="end" class="sublabel">unretrieved + stale entry reports</text>
+
+  <rect x="50" y="368" width="320" height="32" fill="white" rx="4" stroke="#81c784" stroke-width="1"/>
+  <text x="60" y="388" class="label">Provenance</text>
+  <text x="360" y="388" text-anchor="end" class="sublabel">bidirectional issue ↔ entry lineage</text>
+
+  <!-- WRITE SIDE -->
+  <rect x="410" y="50" width="360" height="370" fill="#fce4ec" rx="6" stroke="#e57373" stroke-width="1.5"/>
+  <text x="590" y="72" text-anchor="middle" class="strong" fill="#c62828">Write Path — Agent Stores Knowledge</text>
+
+  <rect x="430" y="88" width="320" height="32" fill="white" rx="4" stroke="#ef9a9a" stroke-width="1"/>
+  <text x="440" y="108" class="label">addEntry</text>
+  <text x="740" y="108" text-anchor="end" class="sublabel">construct CorpusEntry + pipe-delimited metadata</text>
+
+  <rect x="430" y="128" width="320" height="32" fill="white" rx="4" stroke="#ef9a9a" stroke-width="1"/>
+  <text x="440" y="148" class="label">recordProvenance</text>
+  <text x="740" y="148" text-anchor="end" class="sublabel">separate call, manual ID management</text>
+
+  <!-- Gap area -->
+  <rect x="430" y="180" width="320" height="220" fill="#ffebee" rx="4" stroke="#ef9a9a" stroke-width="1" stroke-dasharray="6,3"/>
+  <text x="590" y="210" text-anchor="middle" class="sublabel" fill="#c62828">No recordFinding convenience tool</text>
+  <text x="590" y="230" text-anchor="middle" class="sublabel" fill="#c62828">No research sessions</text>
+  <text x="590" y="250" text-anchor="middle" class="sublabel" fill="#c62828">No "what did I write?" view</text>
+  <text x="590" y="270" text-anchor="middle" class="sublabel" fill="#c62828">No entry annotations</text>
+  <text x="590" y="290" text-anchor="middle" class="sublabel" fill="#c62828">No entry relationships</text>
+  <text x="590" y="310" text-anchor="middle" class="sublabel" fill="#c62828">No draft/published lifecycle</text>
+  <text x="590" y="340" text-anchor="middle" class="strong" fill="#c62828">8 capabilities vs 2</text>
+  <text x="590" y="360" text-anchor="middle" class="sublabel" fill="#c62828">Agents read naturally.</text>
+  <text x="590" y="376" text-anchor="middle" class="sublabel" fill="#c62828">They avoid writing because the affordance isn't there.</text>
+</svg>

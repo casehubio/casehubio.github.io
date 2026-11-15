@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 380" font-family="Inter, system-ui, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <rect width="740" height="380" fill="#fafaf9" rx="8"/>
+
+  <text x="370" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">Intervention Inbox — Agent-Driven Human Resolution</text>
+
+  <!-- Step 1: Agent encounters barrier -->
+  <rect x="20" y="55" width="150" height="50" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="95" y="75" text-anchor="middle" font-size="11" font-weight="500" fill="#3730a3">Agent fetches page</text>
+  <text x="95" y="90" text-anchor="middle" font-size="10" fill="#4f46e5">via Playwright</text>
+
+  <!-- Arrow -->
+  <line x1="170" y1="80" x2="208" y2="80" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Agent recognizes barrier -->
+  <rect x="212" y="55" width="150" height="50" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="287" y="75" text-anchor="middle" font-size="11" font-weight="500" fill="#991b1b">Agent sees barrier</text>
+  <text x="287" y="90" text-anchor="middle" font-size="10" fill="#dc2626">login / CAPTCHA / paywall</text>
+
+  <!-- Arrow to requestIntervention -->
+  <line x1="362" y1="80" x2="400" y2="80" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow-red)"/>
+
+  <!-- requestIntervention -->
+  <rect x="404" y="55" width="170" height="50" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="489" y="72" text-anchor="middle" font-size="11" font-weight="500" fill="#92400e">requestIntervention</text>
+  <text x="489" y="87" text-anchor="middle" font-size="10" fill="#b45309">url + reason + screenshot</text>
+  <text x="489" y="100" text-anchor="middle" font-size="9" fill="#d97706">MCP tool</text>
+
+  <!-- Arrow down to queue -->
+  <line x1="489" y1="105" x2="489" y2="140" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Intervention Queue -->
+  <rect x="370" y="144" width="240" height="50" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="490" y="166" text-anchor="middle" font-size="12" font-weight="500" fill="#9a3412">InterventionQueue</text>
+  <text x="490" y="181" text-anchor="middle" font-size="10" fill="#c2410c">in-memory ConcurrentHashMap + auto-expiry</text>
+
+  <!-- Arrow left to human -->
+  <line x1="370" y1="169" x2="320" y2="169" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="345" y="162" text-anchor="middle" font-size="9" fill="#64748b">agent notifies</text>
+
+  <!-- Human -->
+  <rect x="150" y="144" width="170" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="235" y="166" text-anchor="middle" font-size="12" font-weight="500" fill="#166534">Human</text>
+  <text x="235" y="181" text-anchor="middle" font-size="10" fill="#22c55e">logs in / solves challenge / pays</text>
+
+  <!-- Arrow down from human -->
+  <line x1="235" y1="194" x2="235" y2="240" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <text x="250" y="222" font-size="10" fill="#16a34a" font-weight="500">resolved</text>
+
+  <!-- Agent re-fetches -->
+  <rect x="150" y="244" width="170" height="50" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="235" y="264" text-anchor="middle" font-size="11" font-weight="500" fill="#3730a3">Agent re-fetches</text>
+  <text x="235" y="279" text-anchor="middle" font-size="10" fill="#4f46e5">authenticated content via Playwright</text>
+
+  <!-- Arrow to resolveIntervention -->
+  <line x1="320" y1="269" x2="400" y2="269" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- resolveIntervention -->
+  <rect x="404" y="244" width="170" height="50" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="489" y="264" text-anchor="middle" font-size="11" font-weight="500" fill="#92400e">resolveIntervention</text>
+  <text x="489" y="279" text-anchor="middle" font-size="10" fill="#b45309">id + resolved HTML</text>
+  <text x="489" y="292" text-anchor="middle" font-size="9" fill="#d97706">MCP tool</text>
+
+  <!-- Arrow to webCapture pipeline -->
+  <line x1="574" y1="269" x2="610" y2="269" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- webCapture pipeline -->
+  <rect x="614" y="244" width="110" height="50" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="669" y="264" text-anchor="middle" font-size="11" font-weight="500" fill="#075985">webCapture</text>
+  <text x="669" y="279" text-anchor="middle" font-size="10" fill="#0369a1">parse + store</text>
+
+  <!-- Bottom insight box -->
+  <rect x="50" y="320" width="640" height="44" rx="6" fill="#fefce8" stroke="#ca8a04" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="370" y="340" text-anchor="middle" font-size="11" font-weight="500" fill="#854d0e">No detection heuristics. The agent decides. Works for any barrier — the queue doesn't care why.</text>
+  <text x="370" y="355" text-anchor="middle" font-size="10" fill="#a16207">Auto-expiry after 10 minutes. Expired interventions return error — agent re-fetches.</text>
+</svg>

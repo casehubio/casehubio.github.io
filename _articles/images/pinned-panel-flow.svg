@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 240">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: system-ui, sans-serif; font-size: 11px; fill: #334155; }
+    .title { font-size: 13px; font-weight: 600; fill: #1e293b; }
+    .accent { fill: #2563eb; }
+    .pin { fill: #d97706; font-size: 14px; }
+  </style>
+
+  <!-- Left: pinned panel stays -->
+  <text x="20" y="20" class="title">Panel pinned: cursor enters nested grid</text>
+  <rect x="20" y="35" width="80" height="35" rx="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="30" y="57">Revenue</text>
+  <rect x="20" y="80" width="160" height="90" rx="3" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="155" y="95" class="pin">📌</text>
+  <text x="30" y="100">Panel (pinned)</text>
+  <rect x="30" y="108" width="65" height="28" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="38" y="126">Nested A</text>
+  <rect x="105" y="108" width="65" height="28" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="113" y="126">Nested B</text>
+  <rect x="30" y="142" width="140" height="20" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="60" y="157">Nested C</text>
+
+  <!-- Dragged item placeholder in nested grid -->
+  <rect x="30" y="108" width="65" height="28" rx="2" fill="none" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,3"/>
+
+  <!-- Cursor inside nested grid -->
+  <circle cx="62" cy="122" r="4" fill="#ef4444"/>
+
+  <!-- Arrow -->
+  <line x1="200" y1="110" x2="240" y2="110" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="205" y="130" class="accent" style="font-size:10px">deepestGridAt</text>
+  <text x="205" y="142" class="accent" style="font-size:10px">finds nested</text>
+
+  <!-- Right: displacement preview inside nested grid -->
+  <text x="260" y="20" class="title">Result: displacement inside nested grid</text>
+  <rect x="260" y="35" width="80" height="35" rx="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="270" y="57">Revenue</text>
+  <rect x="260" y="80" width="160" height="120" rx="3" fill="#d1fae5" stroke="#10b981" stroke-width="2"/>
+  <text x="395" y="95" class="pin">📌</text>
+  <text x="270" y="100">Panel (pinned)</text>
+
+  <!-- Placeholder where item will land -->
+  <rect x="270" y="108" width="65" height="28" rx="2" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="278" y="126" class="accent" style="font-size:10px">incoming</text>
+
+  <!-- Pushed items -->
+  <rect x="345" y="108" width="65" height="28" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="350" y="126">Nested A</text>
+  <rect x="270" y="142" width="65" height="28" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="278" y="160">Nested B</text>
+  <rect x="270" y="176" width="140" height="18" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="305" y="190">Nested C ↓</text>
+
+  <!-- Legend -->
+  <rect x="460" y="40" width="12" height="12" rx="1" fill="#d1fae5" stroke="#10b981" stroke-width="1"/>
+  <text x="478" y="51">Pinned panel</text>
+  <rect x="460" y="60" width="12" height="12" rx="1" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="478" y="71">Drop zone</text>
+  <rect x="460" y="80" width="12" height="12" rx="1" fill="#a7f3d0" stroke="#059669" stroke-width="1"/>
+  <text x="478" y="91">Nested items</text>
+</svg>

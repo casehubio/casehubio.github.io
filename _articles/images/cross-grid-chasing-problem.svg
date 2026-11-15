@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: system-ui, sans-serif; font-size: 12px; fill: #334155; }
+    .label { font-size: 11px; fill: #64748b; }
+    .title { font-size: 13px; font-weight: 600; fill: #1e293b; }
+  </style>
+
+  <!-- Frame 1 -->
+  <text x="30" y="20" class="title">Frame 1: cursor at row 1</text>
+  <rect x="30" y="30" width="80" height="40" rx="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="45" y="55">Item A</text>
+  <rect x="30" y="80" width="120" height="80" rx="3" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="50" y="105">Panel</text>
+  <rect x="40" y="115" width="100" height="35" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="55" y="137" class="label">nested grid</text>
+  <!-- cursor -->
+  <circle cx="70" cy="55" r="4" fill="#ef4444"/>
+  <text x="82" y="58" class="label" fill="#ef4444">cursor</text>
+
+  <!-- Arrow -->
+  <line x1="175" y1="100" x2="215" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Frame 2 -->
+  <text x="230" y="20" class="title">Frame 2: compactAll pushes panel</text>
+  <rect x="230" y="60" width="80" height="40" rx="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="237" y="85" class="label">target pos</text>
+  <rect x="230" y="110" width="120" height="80" rx="3" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="250" y="135">Panel ↓</text>
+  <rect x="240" y="145" width="100" height="35" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="255" y="167" class="label">nested grid</text>
+  <!-- cursor chasing -->
+  <circle cx="270" cy="85" r="4" fill="#ef4444"/>
+  <text x="282" y="88" class="label" fill="#ef4444">cursor</text>
+
+  <!-- Arrow -->
+  <line x1="375" y1="100" x2="415" y2="100" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Frame 3 -->
+  <text x="430" y="20" class="title">Frame 3: panel flees again</text>
+  <rect x="430" y="80" width="80" height="40" rx="3" fill="#bfdbfe" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="437" y="105" class="label">target pos</text>
+  <rect x="430" y="140" width="120" height="80" rx="3" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="450" y="165">Panel ↓↓</text>
+  <rect x="440" y="175" width="100" height="35" rx="2" fill="#a7f3d0" stroke="#059669" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="455" y="197" class="label">nested grid</text>
+  <circle cx="470" cy="105" r="4" fill="#ef4444"/>
+  <text x="482" y="108" class="label" fill="#ef4444">cursor</text>
+
+  <text x="30" y="270" class="label">The dragged item's target rectangle reaches the panel before the cursor does.</text>
+  <text x="30" y="260" class="label">compactAll pushes it down on every frame. The cursor can never catch the panel.</text>
+</svg>

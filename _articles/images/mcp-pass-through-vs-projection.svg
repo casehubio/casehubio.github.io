@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="800" height="400" fill="#ffffff"/>
+
+  <!-- Left side: Pass-through -->
+  <text x="175" y="28" font-size="14" font-weight="bold" fill="#2d3748" text-anchor="middle">Pass-through (before)</text>
+
+  <!-- Java SPI box -->
+  <rect x="75" y="42" width="200" height="90" rx="4" fill="#edf2f7" stroke="#2d3748" stroke-width="1.5"/>
+  <text x="175" y="60" font-size="12" font-weight="bold" fill="#2d3748" text-anchor="middle">Java SPI Interface</text>
+  <text x="175" y="78" font-size="10" fill="#2d3748" text-anchor="middle">getEntry(tenancyId, ...)</text>
+  <text x="175" y="92" font-size="10" fill="#2d3748" text-anchor="middle">addEntry(tenancyId, ...)</text>
+  <text x="175" y="106" font-size="10" fill="#2d3748" text-anchor="middle">updateEntry(tenancyId, ...)</text>
+  <text x="175" y="120" font-size="10" fill="#2d3748" text-anchor="middle">removeEntry(tenancyId, ...)</text>
+
+  <!-- Arrows down (identical) -->
+  <line x1="105" y1="132" x2="105" y2="170" stroke="#a0aec0" stroke-width="1.5" marker-end="url(#arrowGrey)"/>
+  <line x1="175" y1="132" x2="175" y2="170" stroke="#a0aec0" stroke-width="1.5" marker-end="url(#arrowGrey)"/>
+  <line x1="245" y1="132" x2="245" y2="170" stroke="#a0aec0" stroke-width="1.5" marker-end="url(#arrowGrey)"/>
+
+  <!-- Three identical surface boxes -->
+  <rect x="55" y="175" width="100" height="36" rx="4" fill="#e2e8f0" stroke="#2d3748" stroke-width="1"/>
+  <text x="105" y="197" font-size="11" fill="#2d3748" text-anchor="middle">REST</text>
+
+  <rect x="125" y="225" width="100" height="36" rx="4" fill="#e2e8f0" stroke="#2d3748" stroke-width="1"/>
+  <text x="175" y="247" font-size="11" fill="#2d3748" text-anchor="middle">GraphQL</text>
+
+  <rect x="195" y="275" width="100" height="36" rx="4" fill="#e2e8f0" stroke="#2d3748" stroke-width="1"/>
+  <text x="245" y="297" font-size="11" fill="#2d3748" text-anchor="middle">MCP</text>
+
+  <!-- Red problem callouts on MCP -->
+  <rect x="300" y="268" width="90" height="18" rx="3" fill="#fff5f5" stroke="#fc8181" stroke-width="1"/>
+  <text x="345" y="280" font-size="9" fill="#c53030" text-anchor="middle">String return</text>
+  <line x1="295" y1="280" x2="300" y2="280" stroke="#fc8181" stroke-width="1"/>
+
+  <rect x="300" y="290" width="90" height="18" rx="3" fill="#fff5f5" stroke="#fc8181" stroke-width="1"/>
+  <text x="345" y="302" font-size="9" fill="#c53030" text-anchor="middle">pipe|separated</text>
+  <line x1="295" y1="300" x2="300" y2="300" stroke="#fc8181" stroke-width="1"/>
+
+  <rect x="300" y="312" width="105" height="18" rx="3" fill="#fff5f5" stroke="#fc8181" stroke-width="1"/>
+  <text x="352" y="324" font-size="9" fill="#c53030" text-anchor="middle">tenancyId every call</text>
+  <line x1="295" y1="320" x2="300" y2="320" stroke="#fc8181" stroke-width="1"/>
+
+  <!-- "All identical" label -->
+  <text x="175" y="370" font-size="10" fill="#718096" text-anchor="middle" font-style="italic">All three surfaces are identical copies</text>
+
+  <!-- Divider -->
+  <line x1="400" y1="15" x2="400" y2="385" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Right side: Opinionated projection -->
+  <text x="600" y="28" font-size="14" font-weight="bold" fill="#2d3748" text-anchor="middle">Opinionated projection (after)</text>
+
+  <!-- Java SPI box (same) -->
+  <rect x="500" y="42" width="200" height="90" rx="4" fill="#edf2f7" stroke="#2d3748" stroke-width="1.5"/>
+  <text x="600" y="60" font-size="12" font-weight="bold" fill="#2d3748" text-anchor="middle">Java SPI Interface</text>
+  <text x="600" y="78" font-size="10" fill="#2d3748" text-anchor="middle">getEntry(tenancyId, ...)</text>
+  <text x="600" y="92" font-size="10" fill="#2d3748" text-anchor="middle">addEntry(tenancyId, ...)</text>
+  <text x="600" y="106" font-size="10" fill="#2d3748" text-anchor="middle">updateEntry(tenancyId, ...)</text>
+  <text x="600" y="120" font-size="10" fill="#2d3748" text-anchor="middle">removeEntry(tenancyId, ...)</text>
+
+  <!-- REST/GraphQL arrows straight down -->
+  <line x1="530" y1="132" x2="530" y2="180" stroke="#a0aec0" stroke-width="1.5" marker-end="url(#arrowGrey)"/>
+  <line x1="580" y1="132" x2="580" y2="225" stroke="#a0aec0" stroke-width="1.5" marker-end="url(#arrowGrey)"/>
+
+  <!-- REST box -->
+  <rect x="480" y="185" width="100" height="30" rx="4" fill="#e2e8f0" stroke="#2d3748" stroke-width="1"/>
+  <text x="530" y="204" font-size="11" fill="#2d3748" text-anchor="middle">REST</text>
+  <text x="530" y="228" font-size="9" fill="#718096" text-anchor="middle">unchanged</text>
+
+  <!-- GraphQL box -->
+  <rect x="530" y="230" width="100" height="30" rx="4" fill="#e2e8f0" stroke="#2d3748" stroke-width="1"/>
+  <text x="580" y="249" font-size="11" fill="#2d3748" text-anchor="middle">GraphQL</text>
+  <text x="580" y="273" font-size="9" fill="#718096" text-anchor="middle">unchanged</text>
+
+  <!-- MCP arrow through generator hexagon -->
+  <line x1="660" y1="132" x2="660" y2="170" stroke="#4299e1" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Generator hexagon -->
+  <polygon points="660,175 700,195 700,220 660,240 620,220 620,195" fill="#ebf8ff" stroke="#4299e1" stroke-width="1.5"/>
+  <text x="660" y="204" font-size="9" font-weight="bold" fill="#2b6cb0" text-anchor="middle">Generator</text>
+  <text x="660" y="216" font-size="8" fill="#2b6cb0" text-anchor="middle">rules + annotations</text>
+
+  <!-- Arrow from generator to MCP -->
+  <line x1="660" y1="240" x2="660" y2="280" stroke="#4299e1" stroke-width="2" marker-end="url(#arrowBlue)"/>
+
+  <!-- Transformed MCP box -->
+  <rect x="605" y="285" width="120" height="70" rx="4" fill="#f0fff4" stroke="#48bb78" stroke-width="1.5"/>
+  <text x="665" y="302" font-size="11" font-weight="bold" fill="#2d3748" text-anchor="middle">MCP</text>
+  <text x="665" y="316" font-size="9" fill="#276749" text-anchor="middle">write (auto auto-route)</text>
+  <text x="665" y="330" font-size="9" fill="#276749" text-anchor="middle">read (enriched)</text>
+  <text x="665" y="344" font-size="9" fill="#276749" text-anchor="middle">structured params</text>
+
+  <!-- Green callout -->
+  <rect x="730" y="290" width="60" height="18" rx="3" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="760" y="302" font-size="9" fill="#276749" text-anchor="middle">typed</text>
+  <line x1="725" y1="300" x2="730" y2="300" stroke="#48bb78" stroke-width="1"/>
+
+  <rect x="730" y="312" width="60" height="18" rx="3" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="760" y="324" font-size="9" fill="#276749" text-anchor="middle">composed</text>
+  <line x1="725" y1="322" x2="730" y2="322" stroke="#48bb78" stroke-width="1"/>
+
+  <rect x="730" y="334" width="60" height="18" rx="3" fill="#f0fff4" stroke="#48bb78" stroke-width="1"/>
+  <text x="760" y="346" font-size="9" fill="#276749" text-anchor="middle">tracked</text>
+  <line x1="725" y1="344" x2="730" y2="344" stroke="#48bb78" stroke-width="1"/>
+
+  <text x="600" y="385" font-size="10" fill="#718096" text-anchor="middle" font-style="italic">Same source, different projection per surface</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowGrey" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#a0aec0"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#4299e1"/>
+    </marker>
+  </defs>
+</svg>

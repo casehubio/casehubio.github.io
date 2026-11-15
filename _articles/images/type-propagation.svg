@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 280" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12">
+  <rect width="680" height="280" fill="#0f0f0f" rx="8"/>
+  <text x="340" y="24" fill="#fafafa" font-size="14" font-weight="600" text-anchor="middle">One field change → 11 files across 4 packages</text>
+
+  <!-- Central change -->
+  <rect x="255" y="44" width="170" height="44" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="1.5" rx="6"/>
+  <text x="340" y="62" fill="#f59e0b" font-size="11" font-weight="600" text-anchor="middle">GridItem.component?</text>
+  <text x="340" y="78" fill="#888" font-size="10" text-anchor="middle">pages-component/model/types.ts</text>
+
+  <!-- Package boxes -->
+  <!-- pages-component (left) -->
+  <rect x="20" y="110" width="160" height="150" fill="#1a1a1a" stroke="#333" stroke-width="1" rx="4"/>
+  <text x="100" y="130" fill="#93c5fd" font-size="11" font-weight="500" text-anchor="middle">pages-component</text>
+  <text x="36" y="152" fill="#ccc" font-size="10">grid-edit-controller.ts</text>
+  <text x="36" y="168" fill="#ccc" font-size="10">render.ts</text>
+  <text x="36" y="184" fill="#ccc" font-size="10">types.test.ts</text>
+  <text x="36" y="200" fill="#ccc" font-size="10">controller.test.ts</text>
+  <text x="140" y="245" fill="#555" font-size="10" text-anchor="end">5 files</text>
+
+  <!-- pages-ui (top right) -->
+  <rect x="200" y="110" width="150" height="100" fill="#1a1a1a" stroke="#333" stroke-width="1" rx="4"/>
+  <text x="275" y="130" fill="#6ee7b7" font-size="11" font-weight="500" text-anchor="middle">pages-ui</text>
+  <text x="216" y="152" fill="#ccc" font-size="10">page-parser.ts</text>
+  <text x="310" y="195" fill="#555" font-size="10" text-anchor="end">1 file</text>
+
+  <!-- pages-document (bottom center) -->
+  <rect x="370" y="110" width="150" height="100" fill="#1a1a1a" stroke="#333" stroke-width="1" rx="4"/>
+  <text x="445" y="130" fill="#c4b5fd" font-size="11" font-weight="500" text-anchor="middle">pages-document</text>
+  <text x="386" y="152" fill="#ccc" font-size="10">page-document.ts</text>
+  <text x="386" y="168" fill="#ccc" font-size="10">grid-item-node.test.ts</text>
+  <text x="480" y="195" fill="#555" font-size="10" text-anchor="end">2 files</text>
+
+  <!-- pages-builder (right) -->
+  <rect x="540" y="110" width="120" height="150" fill="#1a1a1a" stroke="#333" stroke-width="1" rx="4"/>
+  <text x="600" y="130" fill="#fda4af" font-size="11" font-weight="500" text-anchor="middle">pages-builder</text>
+  <text x="556" y="152" fill="#ccc" font-size="10">grid-edit-bridge.ts</text>
+  <text x="556" y="168" fill="#ccc" font-size="10">scope-collector.ts</text>
+  <text x="556" y="184" fill="#ccc" font-size="10">builder-tree.ts</text>
+  <text x="620" y="245" fill="#555" font-size="10" text-anchor="end">3 files</text>
+
+  <!-- Lines from central change to packages -->
+  <line x1="300" y1="88" x2="100" y2="110" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+  <line x1="340" y1="88" x2="275" y2="110" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+  <line x1="380" y1="88" x2="445" y2="110" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+  <line x1="400" y1="88" x2="600" y2="110" stroke="#f59e0b" stroke-width="1" stroke-opacity="0.5"/>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="Inter, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="16" font-weight="600" fill="#222">Corpus Annotation Architecture</text>
+
+  <!-- Agent -->
+  <rect x="20" y="55" width="130" height="48" rx="8" fill="#E8F0FE" stroke="#4285F4" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="85" y="75" text-anchor="middle" font-weight="600" fill="#1A73E8" font-size="12">Agent</text>
+  <text x="85" y="91" text-anchor="middle" fill="#555" font-size="11">annotate · search · remove</text>
+
+  <!-- CorpusApi MCP -->
+  <rect x="220" y="55" width="280" height="48" rx="8" fill="#FFF" stroke="#999" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="360" y="75" text-anchor="middle" font-weight="600" fill="#333" font-size="12">CorpusApi (MCP Domain)</text>
+  <text x="360" y="91" text-anchor="middle" fill="#777" font-size="11">search · provenance · profiles · annotations</text>
+
+  <!-- Arrow Agent → MCP -->
+  <line x1="150" y1="79" x2="216" y2="79" stroke="#555" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+  <!-- CorpusApiBean -->
+  <rect x="220" y="135" width="280" height="40" rx="6" fill="#F5F5F5" stroke="#BBB" stroke-width="1"/>
+  <text x="360" y="160" text-anchor="middle" fill="#555" font-size="12">CorpusApiBean</text>
+
+  <!-- Arrow MCP → Bean -->
+  <line x1="360" y1="103" x2="360" y2="131" stroke="#555" stroke-width="1.2" marker-end="url(#arrowhead)"/>
+
+  <!-- SearchResource box -->
+  <rect x="40" y="210" width="150" height="60" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="115" y="234" text-anchor="middle" font-weight="600" fill="#E65100" font-size="12">SearchResource</text>
+  <text x="115" y="252" text-anchor="middle" fill="#777" font-size="10">FTS5 · ScoreModifiers</text>
+
+  <!-- ProvenanceStore box -->
+  <rect x="210" y="210" width="150" height="60" rx="6" fill="#E8F5E9" stroke="#43A047" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="285" y="234" text-anchor="middle" font-weight="600" fill="#2E7D32" font-size="12">ProvenanceStore</text>
+  <text x="285" y="252" text-anchor="middle" fill="#777" font-size="10">lineage · tracking</text>
+
+  <!-- AnnotationStore box -->
+  <rect x="380" y="210" width="160" height="60" rx="6" fill="#EDE7F6" stroke="#7E57C2" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="460" y="234" text-anchor="middle" font-weight="600" fill="#512DA8" font-size="12">AnnotationStore</text>
+  <text x="460" y="252" text-anchor="middle" fill="#777" font-size="10">add · forEntry · search</text>
+
+  <!-- CorpusEntryStore box -->
+  <rect x="560" y="210" width="140" height="60" rx="6" fill="#FFF8E1" stroke="#FFB300" stroke-width="1.2" filter="url(#shadow)"/>
+  <text x="630" y="234" text-anchor="middle" font-weight="600" fill="#FF8F00" font-size="12">CorpusEntryStore</text>
+  <text x="630" y="252" text-anchor="middle" fill="#777" font-size="10">CRUD · audit fields</text>
+
+  <!-- Arrows Bean → stores -->
+  <line x1="300" y1="175" x2="115" y2="206" stroke="#555" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <line x1="340" y1="175" x2="285" y2="206" stroke="#555" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <line x1="400" y1="175" x2="460" y2="206" stroke="#555" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <line x1="430" y1="175" x2="630" y2="206" stroke="#555" stroke-width="1" marker-end="url(#arrowhead)"/>
+
+  <!-- SQLite databases -->
+  <g transform="translate(40,310)">
+    <ellipse cx="75" cy="10" rx="55" ry="10" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+    <rect x="20" y="10" width="110" height="30" fill="#FFF3E0" stroke="none"/>
+    <line x1="20" y1="10" x2="20" y2="40" stroke="#F57C00" stroke-width="1"/>
+    <line x1="130" y1="10" x2="130" y2="40" stroke="#F57C00" stroke-width="1"/>
+    <ellipse cx="75" cy="40" rx="55" ry="10" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+    <text x="75" y="30" text-anchor="middle" fill="#E65100" font-size="10">corpus-search.db</text>
+  </g>
+
+  <g transform="translate(210,310)">
+    <ellipse cx="75" cy="10" rx="55" ry="10" fill="#E8F5E9" stroke="#43A047" stroke-width="1"/>
+    <rect x="20" y="10" width="110" height="30" fill="#E8F5E9" stroke="none"/>
+    <line x1="20" y1="10" x2="20" y2="40" stroke="#43A047" stroke-width="1"/>
+    <line x1="130" y1="10" x2="130" y2="40" stroke="#43A047" stroke-width="1"/>
+    <ellipse cx="75" cy="40" rx="55" ry="10" fill="#E8F5E9" stroke="#43A047" stroke-width="1"/>
+    <text x="75" y="30" text-anchor="middle" fill="#2E7D32" font-size="10">provenance.db</text>
+  </g>
+
+  <g transform="translate(380,310)">
+    <ellipse cx="80" cy="10" rx="60" ry="10" fill="#EDE7F6" stroke="#7E57C2" stroke-width="1"/>
+    <rect x="20" y="10" width="120" height="30" fill="#EDE7F6" stroke="none"/>
+    <line x1="20" y1="10" x2="20" y2="40" stroke="#7E57C2" stroke-width="1"/>
+    <line x1="140" y1="10" x2="140" y2="40" stroke="#7E57C2" stroke-width="1"/>
+    <ellipse cx="80" cy="40" rx="60" ry="10" fill="#EDE7F6" stroke="#7E57C2" stroke-width="1"/>
+    <text x="80" y="30" text-anchor="middle" fill="#512DA8" font-size="10">annotations.db</text>
+  </g>
+
+  <g transform="translate(560,310)">
+    <ellipse cx="70" cy="10" rx="55" ry="10" fill="#FFF8E1" stroke="#FFB300" stroke-width="1"/>
+    <rect x="15" y="10" width="110" height="30" fill="#FFF8E1" stroke="none"/>
+    <line x1="15" y1="10" x2="15" y2="40" stroke="#FFB300" stroke-width="1"/>
+    <line x1="125" y1="10" x2="125" y2="40" stroke="#FFB300" stroke-width="1"/>
+    <ellipse cx="70" cy="40" rx="55" ry="10" fill="#FFF8E1" stroke="#FFB300" stroke-width="1"/>
+    <text x="70" y="30" text-anchor="middle" fill="#FF8F00" font-size="10">catalogue.db</text>
+  </g>
+
+  <!-- Arrows stores → DBs -->
+  <line x1="115" y1="270" x2="115" y2="306" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+  <line x1="285" y1="270" x2="285" y2="306" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+  <line x1="460" y1="270" x2="460" y2="306" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+  <line x1="630" y1="270" x2="630" y2="306" stroke="#999" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrowhead)"/>
+
+  <!-- Legend -->
+  <text x="360" y="400" text-anchor="middle" fill="#999" font-size="10">Each store owns its own SQLite database — zero contention between subsystems</text>
+</svg>

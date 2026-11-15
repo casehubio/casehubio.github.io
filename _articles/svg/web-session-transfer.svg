@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340">
+  <style>
+    text { font-family: 'Inter', 'Helvetica Neue', sans-serif; }
+    .title { font-size: 13px; font-weight: 600; fill: #1a1a2e; }
+    .label { font-size: 11px; fill: #2d3748; }
+    .sublabel { font-size: 10px; fill: #718096; }
+    .box { rx: 6; ry: 6; stroke-width: 1.5; }
+    .arrow { stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .cookie-arrow { stroke: #d97706; }
+    .fetch-arrow { stroke: #2563eb; }
+    .resolve-arrow { stroke: #059669; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a5568"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <!-- Human + Browser -->
+  <rect x="30" y="30" width="140" height="60" class="box" fill="#fef3c7" stroke="#d97706"/>
+  <text x="100" y="55" text-anchor="middle" class="title">Human</text>
+  <text x="100" y="72" text-anchor="middle" class="sublabel">Playwright browser</text>
+
+  <!-- Protected Site -->
+  <rect x="290" y="30" width="140" height="60" class="box" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="360" y="55" text-anchor="middle" class="title">Protected Site</text>
+  <text x="360" y="72" text-anchor="middle" class="sublabel">login / CAPTCHA / paywall</text>
+
+  <!-- Arrow: Human solves challenge -->
+  <path d="M 170 60 L 283 60" class="arrow cookie-arrow" marker-end="url(#arrow-amber)"/>
+  <text x="227" y="52" text-anchor="middle" class="sublabel">1. solves challenge</text>
+
+  <!-- Browser Cookie Store -->
+  <rect x="30" y="140" width="140" height="50" class="box" fill="#fff7ed" stroke="#d97706"/>
+  <text x="100" y="162" text-anchor="middle" class="title">Browser Cookies</text>
+  <text x="100" y="177" text-anchor="middle" class="sublabel">auth tokens, session IDs</text>
+
+  <!-- Arrow: cookies produced -->
+  <path d="M 100 90 L 100 133" class="arrow cookie-arrow" marker-end="url(#arrow-amber)"/>
+
+  <!-- SessionTransfer -->
+  <rect x="260" y="140" width="200" height="50" class="box" fill="#fef9c3" stroke="#ca8a04"/>
+  <text x="360" y="162" text-anchor="middle" class="title">SessionTransfer</text>
+  <text x="360" y="177" text-anchor="middle" class="sublabel">transferSession(List&lt;BrowserCookie&gt;)</text>
+
+  <!-- Arrow: cookies transfer -->
+  <path d="M 170 165 L 253 165" class="arrow cookie-arrow" marker-end="url(#arrow-amber)"/>
+  <text x="212" y="157" text-anchor="middle" class="sublabel">2. transfer</text>
+
+  <!-- Shared CookieManager -->
+  <rect x="260" y="230" width="200" height="50" class="box" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="360" y="252" text-anchor="middle" class="title">Shared CookieManager</text>
+  <text x="360" y="267" text-anchor="middle" class="sublabel">Java HttpClient cookie store</text>
+
+  <!-- Arrow: populates -->
+  <path d="M 360 190 L 360 223" class="arrow fetch-arrow" marker-end="url(#arrow-blue)"/>
+  <text x="385" y="212" class="sublabel">populates</text>
+
+  <!-- DefaultFetch -->
+  <rect x="540" y="230" width="140" height="50" class="box" fill="#d1fae5" stroke="#059669"/>
+  <text x="610" y="252" text-anchor="middle" class="title">DefaultFetch</text>
+  <text x="610" y="267" text-anchor="middle" class="sublabel">authenticated requests</text>
+
+  <!-- Arrow: uses cookies -->
+  <path d="M 460 255 L 533 255" class="arrow fetch-arrow" marker-end="url(#arrow-blue)"/>
+  <text x="497" y="247" text-anchor="middle" class="sublabel">3. uses</text>
+
+  <!-- Arrow: fetch to site -->
+  <path d="M 610 230 L 610 95 L 437 95" class="arrow resolve-arrow" marker-end="url(#arrow-green)"/>
+  <text x="540" y="120" class="sublabel">4. authenticated fetch</text>
+</svg>

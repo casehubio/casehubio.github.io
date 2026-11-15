@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 380" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .title { font-size: 15px; font-weight: 600; fill: #1e293b; }
+    .header { font-size: 11px; font-weight: 600; fill: #475569; }
+    .cell { font-size: 11px; fill: #1e293b; }
+    .pos { font-size: 11px; fill: #16a34a; font-weight: 600; }
+    .neg { font-size: 11px; fill: #dc2626; font-weight: 600; }
+    .zero { font-size: 11px; fill: #94a3b8; }
+    .mode-label { font-size: 10px; fill: #64748b; font-style: italic; }
+    .axis-label { font-size: 12px; font-weight: 600; fill: #334155; }
+  </style>
+
+  <text x="370" y="24" text-anchor="middle" class="title">Regulation Resting Activations by Disposition Axis</text>
+
+  <!-- Column headers -->
+  <text x="160" y="55" class="header">SS</text>
+  <text x="220" y="55" class="header">SM</text>
+  <text x="280" y="55" class="header">AD</text>
+  <text x="340" y="55" class="header">CC</text>
+  <text x="400" y="55" class="header">RM</text>
+  <text x="460" y="55" class="header">SSS</text>
+  <text x="520" y="55" class="header">SS_sh</text>
+  <text x="580" y="55" class="header">SW</text>
+  <text x="630" y="55" class="header">CR</text>
+  <text x="690" y="55" class="header">DP</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="62" x2="720" y2="62" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- conflictMode axis -->
+  <text x="20" y="82" class="axis-label">conflictMode</text>
+
+  <text x="30" y="100" class="cell">avoidant</text>
+  <text x="160" y="100" class="pos">+.30</text>
+  <text x="580" y="100" class="pos">+.20</text>
+
+  <text x="30" y="118" class="cell">analytical</text>
+  <text x="340" y="118" class="pos">+.30</text>
+
+  <text x="30" y="136" class="cell">cooperative</text>
+  <text x="520" y="136" class="pos">+.15</text>
+  <text x="630" y="136" class="pos">+.25</text>
+
+  <text x="30" y="154" class="cell">competitive</text>
+  <text x="160" y="154" class="neg">-.15</text>
+  <text x="220" y="154" class="pos">+.10</text>
+  <text x="400" y="154" class="pos">+.25</text>
+  <text x="690" y="154" class="pos">+.15</text>
+
+  <text x="30" y="172" class="cell">accommodating</text>
+  <text x="340" y="172" class="pos">+.25</text>
+  <text x="520" y="172" class="pos">+.15</text>
+
+  <text x="30" y="190" class="cell">protective</text>
+  <text x="220" y="190" class="pos">+.15</text>
+  <text x="630" y="190" class="pos">+.25</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="202" x2="720" y2="202" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- riskAppetite axis -->
+  <text x="20" y="222" class="axis-label">riskAppetite</text>
+
+  <text x="30" y="240" class="cell">conservative</text>
+  <text x="160" y="240" class="pos">+.20</text>
+  <text x="280" y="240" class="pos">+.15</text>
+
+  <text x="30" y="258" class="cell">bold</text>
+  <text x="220" y="258" class="pos">+.30</text>
+  <text x="340" y="258" class="pos">+.15</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="270" x2="720" y2="270" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- socialOrient axis -->
+  <text x="20" y="290" class="axis-label">socialOrient</text>
+
+  <text x="30" y="308" class="cell">cooperative</text>
+  <text x="460" y="308" class="pos">+.25</text>
+  <text x="630" y="308" class="pos">+.15</text>
+
+  <text x="30" y="326" class="cell">independent</text>
+  <text x="280" y="326" class="pos">+.15</text>
+  <text x="400" y="326" class="pos">+.20</text>
+
+  <!-- Separator -->
+  <line x1="20" y1="338" x2="720" y2="338" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- ruleFollowing axis -->
+  <text x="20" y="358" class="axis-label">ruleFollowing</text>
+
+  <text x="30" y="374" class="cell">strict</text>
+  <text x="400" y="374" class="pos">+.15</text>
+
+  <!-- Legend -->
+  <text x="540" y="358" class="mode-label">SS=situation_selection  SM=situation_modification</text>
+  <text x="540" y="374" class="mode-label">CR=co_regulation  DP=deliberate_provocation</text>
+</svg>

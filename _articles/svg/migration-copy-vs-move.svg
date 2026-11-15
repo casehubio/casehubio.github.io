@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    .title { font-size: 14px; font-weight: 600; fill: #1a1a2e; }
+    .label { font-size: 11px; fill: #4a4a6a; }
+    .label-bold { font-size: 11px; font-weight: 600; fill: #1a1a2e; }
+    .file { font-size: 10px; fill: #555; font-family: 'SF Mono', 'Fira Code', monospace; }
+    .badge { font-size: 9px; font-weight: 600; fill: white; }
+    .note { font-size: 10px; fill: #888; font-style: italic; }
+  </style>
+
+  <!-- Left side: Copy (what happened) -->
+  <text x="200" y="24" text-anchor="middle" class="title">Copy — what happened</text>
+
+  <!-- neocortex box -->
+  <rect x="20" y="40" width="170" height="200" rx="6" fill="#f0f4ff" stroke="#b0c4de" stroke-width="1.5"/>
+  <text x="105" y="58" text-anchor="middle" class="label-bold">neocortex</text>
+  <text x="35" y="78" class="file">HtmlDocumentParser</text>
+  <text x="35" y="93" class="file">PositionalMarkdownBuilder</text>
+  <text x="35" y="108" class="file">PdfDocumentParser</text>
+  <text x="35" y="123" class="file">WebImageProcessor</text>
+  <text x="35" y="138" class="file">InterventionQueue</text>
+  <text x="35" y="153" class="file">CapturedImage</text>
+  <text x="35" y="168" class="file">ImageProcessingResult</text>
+  <text x="35" y="183" class="file">InterventionRequest</text>
+  <text x="35" y="198" class="file">HtmlToMarkdownParser</text>
+  <text x="35" y="213" class="file">ImageDescriber</text>
+  <text x="35" y="228" class="file">+ 10 more...</text>
+
+  <!-- connectors box -->
+  <rect x="220" y="40" width="170" height="200" rx="6" fill="#f0fff4" stroke="#90c4a0" stroke-width="1.5"/>
+  <text x="305" y="58" text-anchor="middle" class="label-bold">connectors</text>
+  <text x="235" y="78" class="file">HtmlDocumentParser</text>
+  <text x="235" y="93" class="file">PositionalMarkdownBuilder</text>
+  <text x="235" y="108" class="file">PdfDocumentParser</text>
+  <text x="235" y="123" class="file">WebImageProcessor</text>
+  <text x="235" y="138" class="file">InterventionQueue</text>
+  <text x="235" y="153" class="file">CapturedImage</text>
+  <text x="235" y="168" class="file">ImageProcessingResult</text>
+  <text x="235" y="183" class="file">InterventionRequest</text>
+  <text x="235" y="198" class="file">ImageDescriber</text>
+  <text x="235" y="213" class="file">+ 10 more...</text>
+
+  <!-- Copy arrow -->
+  <path d="M 190 130 L 220 130" stroke="#cc4444" stroke-width="2" fill="none" marker-end="url(#arrowRed)"/>
+  <text x="205" y="124" text-anchor="middle" class="badge" fill="#cc4444">COPY</text>
+
+  <!-- Duplicate badge -->
+  <rect x="120" y="248" width="180" height="22" rx="4" fill="#cc4444"/>
+  <text x="210" y="263" text-anchor="middle" class="badge">20+ IDENTICAL TYPES IN BOTH REPOS</text>
+
+  <!-- Right side: Move (what should have happened) -->
+  <text x="610" y="24" text-anchor="middle" class="title">Move — what should happen</text>
+
+  <!-- neocortex box (empty) -->
+  <rect x="430" y="40" width="170" height="200" rx="6" fill="#f0f4ff" stroke="#b0c4de" stroke-width="1.5"/>
+  <text x="515" y="58" text-anchor="middle" class="label-bold">neocortex</text>
+  <text x="515" y="140" text-anchor="middle" class="note">types deleted</text>
+  <text x="515" y="155" text-anchor="middle" class="note">imports updated</text>
+
+  <!-- connectors box -->
+  <rect x="630" y="40" width="170" height="200" rx="6" fill="#f0fff4" stroke="#90c4a0" stroke-width="1.5"/>
+  <text x="715" y="58" text-anchor="middle" class="label-bold">connectors</text>
+  <text x="645" y="78" class="file">HtmlDocumentParser</text>
+  <text x="645" y="93" class="file">PositionalMarkdownBuilder</text>
+  <text x="645" y="108" class="file">PdfDocumentParser</text>
+  <text x="645" y="123" class="file">WebImageProcessor</text>
+  <text x="645" y="138" class="file">InterventionQueue</text>
+  <text x="645" y="153" class="file">CapturedImage</text>
+  <text x="645" y="168" class="file">ImageProcessingResult</text>
+  <text x="645" y="183" class="file">InterventionRequest</text>
+  <text x="645" y="198" class="file">ImageDescriber</text>
+  <text x="645" y="213" class="file">+ 10 more...</text>
+
+  <!-- Move arrow -->
+  <path d="M 600 130 L 630 130" stroke="#2e7d32" stroke-width="2" fill="none" marker-end="url(#arrowGreen)"/>
+  <text x="615" y="124" text-anchor="middle" class="badge" fill="#2e7d32">MOVE</text>
+
+  <!-- Clean badge -->
+  <rect x="530" y="248" width="180" height="22" rx="4" fill="#2e7d32"/>
+  <text x="620" y="263" text-anchor="middle" class="badge">SINGLE CANONICAL COPY</text>
+
+  <!-- Dependency arrow -->
+  <path d="M 515 240 Q 515 290 630 290" stroke="#666" stroke-width="1.5" stroke-dasharray="4 3" fill="none" marker-end="url(#arrowGrey)"/>
+  <text x="560" y="306" text-anchor="middle" class="label">imports from</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M 0 0 L 8 3 L 0 6 Z" fill="#cc4444"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M 0 0 L 8 3 L 0 6 Z" fill="#2e7d32"/>
+    </marker>
+    <marker id="arrowGrey" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M 0 0 L 8 3 L 0 6 Z" fill="#666"/>
+    </marker>
+  </defs>
+</svg>

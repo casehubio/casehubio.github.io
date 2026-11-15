@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320">
+  <style>
+    text { font-family: -apple-system, 'Segoe UI', sans-serif; }
+    .title { fill: #1e293b; font-size: 13px; font-weight: 600; }
+    .label { fill: #334155; font-size: 11px; }
+    .sublabel { fill: #64748b; font-size: 10px; }
+    .tick-count { fill: #1e293b; font-size: 20px; font-weight: 700; }
+    .card { rx: 8; stroke-width: 1.5; }
+    .c1 { fill: #fef3c7; stroke: #f59e0b; }
+    .c2 { fill: #dbeafe; stroke: #3b82f6; }
+    .c3 { fill: #fce7f3; stroke: #ec4899; }
+    .c4 { fill: #d1fae5; stroke: #10b981; }
+    .mechanism { fill: #475569; font-size: 9px; }
+    .result { fill: #1e293b; font-size: 10px; font-weight: 600; }
+  </style>
+
+  <!-- Title -->
+  <text class="title" x="310" y="22" text-anchor="middle">Four Modalities — Four Temporal Patterns</text>
+
+  <!-- Card 1: Fatigue -->
+  <rect class="card c1" x="15" y="40" width="140" height="260"/>
+  <text class="label" x="85" y="62" text-anchor="middle" font-weight="600">Fatigue</text>
+  <text class="tick-count" x="85" y="95" text-anchor="middle">20</text>
+  <text class="sublabel" x="85" y="110" text-anchor="middle">ticks</text>
+  <line x1="35" y1="120" x2="135" y2="120" stroke="#f59e0b" stroke-width="0.5"/>
+  <text class="mechanism" x="85" y="138" text-anchor="middle">Convergent series:</text>
+  <text class="mechanism" x="85" y="150" text-anchor="middle">effort decays as</text>
+  <text class="mechanism" x="85" y="162" text-anchor="middle">fatigue builds</text>
+  <text class="mechanism" x="85" y="182" text-anchor="middle">At fatigue > 0.7:</text>
+  <text class="mechanism" x="85" y="194" text-anchor="middle">predictor overrides</text>
+  <text class="mechanism" x="85" y="206" text-anchor="middle">personality choice</text>
+  <line x1="35" y1="220" x2="135" y2="220" stroke="#f59e0b" stroke-width="0.5"/>
+  <text class="result" x="85" y="240" text-anchor="middle">COGNITIVE_CHANGE</text>
+  <text class="result" x="85" y="255" text-anchor="middle">→ ATTENTIONAL_</text>
+  <text class="result" x="85" y="270" text-anchor="middle">DEPLOYMENT</text>
+  <text class="sublabel" x="85" y="288" text-anchor="middle">3/3 runs</text>
+
+  <!-- Card 2: Automatic -->
+  <rect class="card c2" x="165" y="40" width="140" height="260"/>
+  <text class="label" x="235" y="62" text-anchor="middle" font-weight="600">Automatic</text>
+  <text class="tick-count" x="235" y="95" text-anchor="middle">2×2</text>
+  <text class="sublabel" x="235" y="110" text-anchor="middle">ticks (paired)</text>
+  <line x1="185" y1="120" x2="285" y2="120" stroke="#3b82f6" stroke-width="0.5"/>
+  <text class="mechanism" x="235" y="138" text-anchor="middle">Predictor pins</text>
+  <text class="mechanism" x="235" y="150" text-anchor="middle">strategy from</text>
+  <text class="mechanism" x="235" y="162" text-anchor="middle">personality axes</text>
+  <text class="mechanism" x="235" y="182" text-anchor="middle">LLM freely</text>
+  <text class="mechanism" x="235" y="194" text-anchor="middle">chooses same</text>
+  <text class="mechanism" x="235" y="206" text-anchor="middle">strategy?</text>
+  <line x1="185" y1="220" x2="285" y2="220" stroke="#3b82f6" stroke-width="0.5"/>
+  <text class="result" x="235" y="240" text-anchor="middle">Predictor</text>
+  <text class="result" x="235" y="255" text-anchor="middle">== LLM</text>
+  <text class="result" x="235" y="270" text-anchor="middle">concordance</text>
+  <text class="sublabel" x="235" y="288" text-anchor="middle">3/3 runs</text>
+
+  <!-- Card 3: Monitoring -->
+  <rect class="card c3" x="315" y="40" width="140" height="260"/>
+  <text class="label" x="385" y="62" text-anchor="middle" font-weight="600">Monitoring</text>
+  <text class="tick-count" x="385" y="95" text-anchor="middle">5</text>
+  <text class="sublabel" x="385" y="110" text-anchor="middle">ticks</text>
+  <line x1="335" y1="120" x2="435" y2="120" stroke="#ec4899" stroke-width="0.5"/>
+  <text class="mechanism" x="385" y="138" text-anchor="middle">3 consecutive</text>
+  <text class="mechanism" x="385" y="150" text-anchor="middle">effectiveness</text>
+  <text class="mechanism" x="385" y="162" text-anchor="middle">declines → signal</text>
+  <text class="mechanism" x="385" y="182" text-anchor="middle">Signal consumed</text>
+  <text class="mechanism" x="385" y="194" text-anchor="middle">next tick: bypasses</text>
+  <text class="mechanism" x="385" y="206" text-anchor="middle">predictor</text>
+  <line x1="335" y1="220" x2="435" y2="220" stroke="#ec4899" stroke-width="0.5"/>
+  <text class="result" x="385" y="240" text-anchor="middle">RESPONSE_MOD</text>
+  <text class="result" x="385" y="255" text-anchor="middle">→ LLM picks</text>
+  <text class="result" x="385" y="270" text-anchor="middle">alternative</text>
+  <text class="sublabel" x="385" y="288" text-anchor="middle">≥1/3 runs</text>
+
+  <!-- Card 4: Proactive -->
+  <rect class="card c4" x="465" y="40" width="140" height="260"/>
+  <text class="label" x="535" y="62" text-anchor="middle" font-weight="600">Proactive</text>
+  <text class="tick-count" x="535" y="95" text-anchor="middle">3</text>
+  <text class="sublabel" x="535" y="110" text-anchor="middle">ticks</text>
+  <line x1="485" y1="120" x2="585" y2="120" stroke="#10b981" stroke-width="0.5"/>
+  <text class="mechanism" x="535" y="138" text-anchor="middle">Tick 1: shame</text>
+  <text class="mechanism" x="535" y="150" text-anchor="middle">at library →</text>
+  <text class="mechanism" x="535" y="162" text-anchor="middle">memory + location</text>
+  <text class="mechanism" x="535" y="182" text-anchor="middle">Tick 3: re-enter →</text>
+  <text class="mechanism" x="535" y="194" text-anchor="middle">memory match →</text>
+  <text class="mechanism" x="535" y="206" text-anchor="middle">avoidance goal</text>
+  <line x1="485" y1="220" x2="585" y2="220" stroke="#10b981" stroke-width="0.5"/>
+  <text class="result" x="535" y="240" text-anchor="middle">DriveGoalProposal</text>
+  <text class="result" x="535" y="255" text-anchor="middle">"proactive-</text>
+  <text class="result" x="535" y="270" text-anchor="middle">avoidance-library"</text>
+  <text class="sublabel" x="535" y="288" text-anchor="middle">3/3 runs</text>
+</svg>
