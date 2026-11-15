@@ -2,7 +2,7 @@
 layout: post
 title: "From 663,552 Personality Combinations to 48 Archetypes"
 date: 2026-09-21
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/eidos]
 tags: [personality, archetypes, vocabulary, rendering, avatar, design]

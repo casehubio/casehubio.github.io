@@ -2,7 +2,7 @@
 layout: post
 title: "Voice Where It Belongs"
 date: 2026-11-01
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/connectors]
 tags: [voice, spi, refactoring, architecture, yaml-playbooks]

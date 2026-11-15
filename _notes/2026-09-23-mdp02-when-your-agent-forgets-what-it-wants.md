@@ -3,7 +3,7 @@ title: "When your agent forgets what it wants"
 date: 2026-09-23
 author: mdp
 tags: [architecture, goals, cognitive-architecture, agents, knowledge-graph, affect, retrieval]
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/neocortex]
 ---

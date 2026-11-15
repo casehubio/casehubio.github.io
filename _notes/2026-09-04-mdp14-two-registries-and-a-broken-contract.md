@@ -2,7 +2,7 @@
 layout: post
 title: "Two Registries and a Broken Contract"
 date: 2026-09-04
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/fsitrading]
 tags: [pages, blocks-ui, compliance, gdpr, ui-panels]

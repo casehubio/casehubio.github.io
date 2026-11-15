@@ -2,7 +2,7 @@
 layout: post
 title: "When Done Isn't Done — Designing Saga Compensation for CaseHub"
 date: 2026-09-02
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/work]
 tags: [saga, compensation, bpmn, lifecycle, architecture, design]

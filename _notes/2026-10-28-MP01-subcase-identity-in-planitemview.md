@@ -2,7 +2,7 @@
 layout: post
 title: "Why Your Plan Items Couldn't Tell You About Sub-Cases"
 date: 2026-10-28
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/engine]
 tags: [planning, sub-cases, api, data-model]

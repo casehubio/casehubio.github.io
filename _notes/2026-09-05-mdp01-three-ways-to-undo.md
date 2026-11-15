@@ -2,7 +2,7 @@
 layout: post
 title: "Three Ways to Undo — Teaching Compensation by Example"
 date: 2026-09-05
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/work]
 tags: [saga, compensation, examples, api-design, teaching]

@@ -2,7 +2,7 @@
 layout: post
 title: "Shipping the Society Model: Three Surfaces, One State Machine"
 date: 2026-11-03
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/eidos]
 tags: [org-model, lifecycle, annotations, yaml, validation, multi-agent, society]

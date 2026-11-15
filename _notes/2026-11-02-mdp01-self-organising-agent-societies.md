@@ -2,7 +2,7 @@
 layout: post
 title: "Why Your Multi-Agent System Needs an Org Chart (and How to Make It Move)"
 date: 2026-11-02
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/eidos]
 tags: [moise+, org-model, self-organisation, multi-agent, society, design]

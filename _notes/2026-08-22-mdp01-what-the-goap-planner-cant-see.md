@@ -2,13 +2,11 @@
 layout: post
 title: "GOAP in a Case Engine: What Six Integration Tests Teach About Planning Under Uncertainty"
 date: 2026-08-22
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-engine]
 tags: [goap, planning, adaptive, integration-testing, a-star]
 ---
-
-# GOAP in a Case Engine: What Six Integration Tests Teach About Planning Under Uncertainty
 
 A case engine that dispatches workers based on trigger conditions doesn't need a planner. Bindings fire when their conditions are met. Context changes. More bindings fire. The choreography strategy handles this — it's reactive, event-driven, and sufficient for most case types.
 

@@ -2,7 +2,7 @@
 layout: post
 title: "Governance in Action: When Agents Need More Than Politeness"
 date: 2026-08-23
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/qhorus]
 tags: [governance, multi-agent, speech-acts, enforcement, causal-graphs]

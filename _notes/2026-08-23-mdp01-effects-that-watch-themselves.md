@@ -2,7 +2,7 @@
 layout: post
 title: "The Effects That Watch Themselves"
 date: 2026-08-23
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-engine]
 tags: [goap, monitoring, adaptation, eventlog, closed-loop]

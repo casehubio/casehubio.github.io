@@ -2,7 +2,7 @@
 layout: post
 title: "The bridge that wasn't — goal decomposition meets engine dispatch"
 date: 2026-08-13
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-engine]
 tags: [planning, goal-decomposition, binding, architecture]

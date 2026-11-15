@@ -2,7 +2,7 @@
 layout: post
 title: "Building a Production Bayesian Junction Tree on the JVM"
 date: 2026-10-21
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/neocortex]
 tags: [bayesian-inference, junction-tree, log-space, jvm, onnx, game-ai]

@@ -2,7 +2,7 @@
 layout: post
 title: "When the Safety Net Has Holes"
 date: 2026-08-11
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-work]
 tags: [workspace-audit, cdi, slot-management, branch-hygiene, remediation]

@@ -2,7 +2,7 @@
 layout: post
 title: "Teaching Machines to Remember Market Crashes"
 date: 2026-09-01
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/fsitrading]
 tags: [cbr, neocortex, knowledge, trading, design]
