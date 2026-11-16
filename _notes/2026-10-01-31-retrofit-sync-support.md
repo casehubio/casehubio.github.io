@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Incremental sync lands across CalendarPlatform and DocumentPlatform"
 date: 2026-10-01
 entry_type: note

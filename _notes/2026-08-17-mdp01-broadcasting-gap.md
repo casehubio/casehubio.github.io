@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When spec meets code: the broadcasting gap"
 date: 2026-08-17
 entry_type: note

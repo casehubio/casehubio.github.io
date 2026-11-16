@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Editor Edits"
 date: 2026-08-03
 author: mdp

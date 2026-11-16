@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Mechanical Layer"
 date: 2026-08-04
 author: Mark Proctor

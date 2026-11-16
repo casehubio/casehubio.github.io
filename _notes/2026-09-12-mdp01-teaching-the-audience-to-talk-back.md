@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching the Audience to Talk Back"
 date: 2026-09-12
 author: mdp

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Your Agent Doesn't Know How It Feels
 date: 2026-09-24
 author: Mark Proctor

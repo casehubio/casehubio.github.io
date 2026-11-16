@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Conversation Folds — Epistemic Ground and Convergence"
 date: 2026-07-21
 type: diary

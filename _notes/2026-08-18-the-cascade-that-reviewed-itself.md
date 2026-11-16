@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Cascade That Reviewed Itself"
 date: 2026-08-18
 type: diary

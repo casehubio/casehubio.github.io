@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Silence of the Wrong Superclass
 date: 2026-07-05
 tags: [jpa, cdi, hibernate, ledger, qhorus]

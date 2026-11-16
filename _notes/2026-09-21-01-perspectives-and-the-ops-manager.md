@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Perspectives and the Ops Manager"
 date: 2026-09-21
 author: mdp

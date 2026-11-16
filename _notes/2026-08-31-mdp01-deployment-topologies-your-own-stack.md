@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Deployment topologies: when your own stack is the answer"
 date: 2026-08-31
 author: mdp

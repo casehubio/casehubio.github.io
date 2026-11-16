@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching the Bot to Remember How Games Unfold"
 date: 2026-08-10
 entry_type: note

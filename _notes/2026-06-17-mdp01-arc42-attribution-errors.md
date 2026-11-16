@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The attribution errors you don't see until you verify"
 date: 2026-06-17
 author: mdp

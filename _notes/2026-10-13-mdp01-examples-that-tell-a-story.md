@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Examples That Tell a Story"
 date: 2026-10-13
 author: mdp

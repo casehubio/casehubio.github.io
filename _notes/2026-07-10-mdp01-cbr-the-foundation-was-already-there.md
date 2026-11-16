@@ -1,4 +1,5 @@
----
+---layout: post
+
 entry_type: note
 subtype: diary
 title: "CBR — the foundation was already there"

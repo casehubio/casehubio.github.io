@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Panels That Already Existed"
 date: 2026-08-23
 author: Mark Proctor

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Three Tiers of Response"
 date: 2026-09-28
 author: mdp

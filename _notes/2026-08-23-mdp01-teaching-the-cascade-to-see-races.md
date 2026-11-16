@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching the cascade to see races"
 date: 2026-08-23
 author: Mark Proctor

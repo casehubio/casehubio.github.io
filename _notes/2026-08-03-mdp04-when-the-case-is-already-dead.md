@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When the Case Is Already Dead"
 date: 2026-08-03
 author: mdp

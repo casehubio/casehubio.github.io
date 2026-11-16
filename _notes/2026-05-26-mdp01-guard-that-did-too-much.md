@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Guard That Did Too Much"
 date: 2026-05-26
 entry_type: note

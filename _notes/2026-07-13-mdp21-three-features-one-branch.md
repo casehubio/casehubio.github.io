@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Three Features, One Branch
 date: 2026-07-13
 sequence: mdp21

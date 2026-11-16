@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The first real worker (and why it's not quite Layer 7)"
 date: 2026-06-18
 series: casehub-life

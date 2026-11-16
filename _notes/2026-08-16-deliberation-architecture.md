@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Debate as Architecture: How Conversation Protocol Becomes Trade Deliberation"
 date: 2026-08-16
 type: diary

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Goal That Earns Its Rank"
 date: 2026-09-01
 entry_type: note

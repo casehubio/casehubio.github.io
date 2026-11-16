@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Death by a Thousand Cuts"
 date: 2026-07-03
 author: mdp

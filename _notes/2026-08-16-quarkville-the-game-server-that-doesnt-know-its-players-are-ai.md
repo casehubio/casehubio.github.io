@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "QuarkVille: The Game Server That Doesn't Know Its Players Are AI"
 date: 2026-08-16
 type: diary

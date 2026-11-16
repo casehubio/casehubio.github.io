@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The module that was in the wrong tier"
 date: 2026-10-02
 author: mdp

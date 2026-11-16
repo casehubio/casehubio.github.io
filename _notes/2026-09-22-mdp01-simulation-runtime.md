@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Simulation as a First-Class Citizen"
 entry_type: note
 subtype: diary

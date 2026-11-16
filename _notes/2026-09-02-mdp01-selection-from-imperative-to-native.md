@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Selection: from imperative DOM wiring to parameterised datasets"
 date: 2026-09-02
 author: mdp

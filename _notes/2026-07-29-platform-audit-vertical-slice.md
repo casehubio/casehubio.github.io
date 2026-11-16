@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Platform audit and vertical slice redesign
 date: 2026-07-29
 type: diary

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Compositional Orchestration — Why CaseHub Doesn't Need a Planner Interface"
 date: 2026-06-30
 type: phase-update

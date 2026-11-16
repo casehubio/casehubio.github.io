@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When Norms Learn to Compete"
 date: 2026-09-15
 author: mdp

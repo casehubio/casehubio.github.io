@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Strategy Arena — Why the Case Engine Was Wrong"
 date: 2026-08-11
 type: diary

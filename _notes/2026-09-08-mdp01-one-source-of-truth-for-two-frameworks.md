@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: One Source of Truth for Two Frameworks
 author: Mark Proctor
 date: 2026-09-08

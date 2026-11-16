@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Simulation DX: The Last Mile"
 date: 2026-09-19
 entry_type: note

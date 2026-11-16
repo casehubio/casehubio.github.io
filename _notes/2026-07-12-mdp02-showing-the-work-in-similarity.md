@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Showing the Work in Similarity"
 date: 2026-07-12
 entry_type: note

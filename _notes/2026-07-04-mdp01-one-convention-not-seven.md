@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "One Convention, Not Seven"
 date: 2026-07-04
 author: Mark Proctor

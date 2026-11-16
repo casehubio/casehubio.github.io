@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "What the Case Remembers"
 date: 2026-08-04
 entry_type: note

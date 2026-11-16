@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Workbench Problem"
 date: 2026-07-08
 entry_type: note

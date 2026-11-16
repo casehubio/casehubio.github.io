@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Suspend/Resume — a four-verb lifecycle for stateful resources"
 date: 2026-09-28
 entry_type: note

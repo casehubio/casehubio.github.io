@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The bugs tests can't find"
 date: 2026-09-04
 author: mdp

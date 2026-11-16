@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Wiring the Ops Perspective"
 date: 2026-10-06
 author: mdp

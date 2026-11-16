@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Expression tiers that don't trap you"
 date: 2026-09-23
 author: mdp

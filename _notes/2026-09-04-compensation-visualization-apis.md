@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Compensation Visualization — The Last Mile of Saga Support"
 date: 2026-09-04
 entry_type: note

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The missing half of producedKeys"
 author: mdp
 date: 2026-09-06

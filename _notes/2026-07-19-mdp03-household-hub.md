@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Household Hub — from accountability engine to something people actually use"
 entry_type: note
 subtype: diary

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Agent That Speaks First
 date: 2026-08-20
 author: Mark Proctor

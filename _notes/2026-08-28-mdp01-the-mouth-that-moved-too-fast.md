@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Pipeline That Worked On Paper"
 date: 2026-08-28
 author: mdp

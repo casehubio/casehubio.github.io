@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Sparklines and the Mixin Question"
 date: 2026-07-10
 project: casehub-mosaic

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Where 10 SCVs Go To Die"
 date: 2026-10-10
 author: Mark Proctor

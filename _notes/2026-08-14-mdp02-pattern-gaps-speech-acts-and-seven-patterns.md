@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Pattern gaps: speech acts and seven patterns"
 date: 2026-08-14
 tags: [blocks, negotiation, agentic, speech-acts, fipa]

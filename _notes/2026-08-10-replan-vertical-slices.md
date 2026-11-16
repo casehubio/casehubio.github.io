@@ -1,4 +1,5 @@
----
+---layout: post
+
 date: 2026-08-10
 title: "Replanning fsitrading: from layers to vertical slices"
 type: diary

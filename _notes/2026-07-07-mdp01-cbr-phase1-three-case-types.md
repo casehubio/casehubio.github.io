@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "CBR Phase 1 — Three Case Types, One Clinical Harness"
 date: 2026-07-07
 author: mdp

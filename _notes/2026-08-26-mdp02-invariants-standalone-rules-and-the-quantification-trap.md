@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Invariants, Standalone Rules, and the Quantification Trap"
 date: 2026-08-26
 author: mdp

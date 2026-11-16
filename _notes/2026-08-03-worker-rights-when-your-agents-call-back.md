@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Worker Rights: When Your Agents Call Back"
 date: 2026-08-03
 type: diary

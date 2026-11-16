@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The missing half of compensation visibility"
 date: 2026-09-07
 tags: [graphql, compensation, saga, subscription, real-time, ops-dashboard]

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Contract Before the Caller"
 date: 2026-08-27
 entry_type: note

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Drift That Stays in Bounds
 date: 2026-08-20
 author: Mark Proctor

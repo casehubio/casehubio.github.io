@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching the SOC to remember"
 date: 2026-08-11
 author: mdp

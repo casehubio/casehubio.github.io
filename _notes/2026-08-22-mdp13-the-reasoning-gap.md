@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Reasoning Gap
 date: 2026-08-22
 entry_type: note

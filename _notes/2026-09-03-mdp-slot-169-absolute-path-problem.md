@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Slot 169 and the absolute path problem
 date: 2026-09-03
 entry_type: note

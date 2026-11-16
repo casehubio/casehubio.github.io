@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Status Registries, Decision Chains, and the Art of Not Building New Components"
 entry_type: note
 subtype: diary

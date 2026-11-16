@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Panels Leave Home"
 date: 2026-08-03
 sequence: 31

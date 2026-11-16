@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The commissive that wasn't"
 date: 2026-08-14
 author: Mark Proctor

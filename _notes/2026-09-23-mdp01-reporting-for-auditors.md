@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Reporting for auditors — from data services to offline verification"
 date: 2026-09-23
 author: mdp

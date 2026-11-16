@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Social Brain
 date: 2026-08-21
 author: Mark Proctor

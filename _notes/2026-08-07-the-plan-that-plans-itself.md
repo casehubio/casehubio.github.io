@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Plan That Plans Itself"
 date: 2026-08-07
 author: Mark Proctor

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Seventy-one places to change"
 date: 2026-08-22
 author: Mark Proctor

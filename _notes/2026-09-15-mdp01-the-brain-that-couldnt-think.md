@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Brain That Couldn't Think"
 date: 2026-09-15
 author: mdp

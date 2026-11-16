@@ -1,4 +1,5 @@
----
+---layout: post
+
 type: diary
 project: quarkmind
 series: quarkmind-calibration

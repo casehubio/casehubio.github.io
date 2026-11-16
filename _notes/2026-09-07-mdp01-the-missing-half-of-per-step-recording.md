@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The missing half of per-step recording"
 date: 2026-09-07
 author: mdp

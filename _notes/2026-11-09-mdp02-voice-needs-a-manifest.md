@@ -2,7 +2,7 @@
 layout: post
 title: "Voice Needs a Manifest"
 date: 2026-11-09
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/connectors]
 tags: [voice, config, routing, registry, spi, agent-config, yaml, architecture]

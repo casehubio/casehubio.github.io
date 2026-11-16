@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Your MCP Server Has Too Many Tools"
 date: 2026-08-11
 type: article

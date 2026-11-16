@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Three Primitives, One Pipeline"
 date: 2026-06-30
 author: mdp

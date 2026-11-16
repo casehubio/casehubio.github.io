@@ -1,4 +1,5 @@
----
+---layout: post
+
 entry_type: note
 projects: [clinical]
 tags: [gcp, compliance, ledger, cdi, quarkus, testing, async-observer]

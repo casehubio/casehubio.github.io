@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Identity Propagation: The Field You Forget to Persist"
 date: 2026-08-03
 type: diary

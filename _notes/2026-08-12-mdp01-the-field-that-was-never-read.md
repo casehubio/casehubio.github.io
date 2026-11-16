@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Field That Was Never Read"
 date: 2026-08-12
 author: mdp

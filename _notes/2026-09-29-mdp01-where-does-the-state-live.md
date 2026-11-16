@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Where Does the State Live?"
 date: 2026-09-29
 author: mdp

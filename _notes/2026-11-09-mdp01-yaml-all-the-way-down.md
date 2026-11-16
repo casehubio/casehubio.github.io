@@ -2,7 +2,7 @@
 layout: post
 title: "YAML All the Way Down"
 date: 2026-11-09
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/connectors]
 tags: [yaml, playbooks, testing, voice, speaker-id, audio-processing, zero-java]

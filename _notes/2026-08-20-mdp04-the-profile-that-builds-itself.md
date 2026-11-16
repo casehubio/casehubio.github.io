@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Profile That Builds Itself
 date: 2026-08-20
 author: Mark Proctor

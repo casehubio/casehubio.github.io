@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: One type to rule them all
 date: 2026-09-23
 series: qhorus

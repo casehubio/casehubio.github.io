@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "CaseFile null semantics and three small fixes"
 date: 2026-06-04
 type: note

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Human in the Channel"
 date: 2026-07-29
 author: Mark Proctor

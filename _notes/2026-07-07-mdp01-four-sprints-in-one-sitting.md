@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Four Sprints in One Sitting
 date: 2026-07-07
 author: mdp

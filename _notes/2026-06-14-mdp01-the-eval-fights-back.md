@@ -1,4 +1,5 @@
----
+---layout: post
+
 date: 2026-06-14
 title: "The eval fights back"
 phase: eval-phase2

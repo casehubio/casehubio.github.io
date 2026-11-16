@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Delete the Duplicate, Promote the SPI"
 date: 2026-07-28
 tags: [casehub, engine, unified-execution-model, planning, architecture, htn]

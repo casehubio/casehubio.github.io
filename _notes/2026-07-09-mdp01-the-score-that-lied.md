@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Score That Lied"
 date: 2026-07-09
 entry_type: note

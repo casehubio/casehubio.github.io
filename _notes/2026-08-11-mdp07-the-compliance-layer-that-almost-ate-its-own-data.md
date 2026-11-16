@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The compliance layer that almost ate its own data"
 date: 2026-08-11
 author: mdp

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Wiring IoT Situations into the Platform Subscription Engine"
 date: 2026-08-12
 entry_type: note

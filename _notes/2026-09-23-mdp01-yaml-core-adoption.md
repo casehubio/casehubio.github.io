@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Stopping the Drift: Adopting yaml-core Constructs in Desired State"
 author: mdp
 entry_type: note

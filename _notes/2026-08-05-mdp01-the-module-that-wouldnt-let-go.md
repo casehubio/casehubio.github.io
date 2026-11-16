@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Module That Wouldn't Let Go"
 date: 2026-08-05
 type: phase-update

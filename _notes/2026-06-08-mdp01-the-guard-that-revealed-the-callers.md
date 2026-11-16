@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The guard that revealed the callers"
 date: 2026-06-08
 tags: [casehub-qhorus, MessageDispatch, EVENT, CDI, MessageObserver, bug-fix]

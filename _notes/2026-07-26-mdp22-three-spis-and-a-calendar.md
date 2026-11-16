@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Three SPIs and a Calendar"
 date: 2026-07-26
 entry_type: note

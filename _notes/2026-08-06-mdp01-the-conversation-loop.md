@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Conversation Loop"
 date: 2026-08-06
 entry_type: note

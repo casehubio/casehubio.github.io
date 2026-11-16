@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Worker Data Coordination — From Camel Analysis to Foundation Types"
 date: 2026-08-08
 status: draft

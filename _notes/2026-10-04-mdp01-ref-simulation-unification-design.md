@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Two Layers, One System: Designing the Ref/Simulation Unification"
 date: 2026-10-04
 author: mdp

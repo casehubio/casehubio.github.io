@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Uni that wasn't earning its keep"
 date: 2026-08-12
 author: mdp

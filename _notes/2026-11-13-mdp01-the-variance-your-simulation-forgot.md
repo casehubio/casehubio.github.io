@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Variance Your Measurement Invented
 date: 2026-11-13
 tags: [quarkmind, emulation, calibration, variance, starcraft, physics]

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Two Tools, Not Sixty
 date: 2026-08-14
 author: mdp

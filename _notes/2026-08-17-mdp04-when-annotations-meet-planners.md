@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When Annotations Meet Planners"
 date: 2026-08-17
 series: "Building CaseHub"

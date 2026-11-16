@@ -2,7 +2,7 @@
 layout: post
 title: "Federation from First Principles"
 date: 2026-08-18
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-work]
 tags: [federation, distributed-systems, cqrs, cloudevents, design]

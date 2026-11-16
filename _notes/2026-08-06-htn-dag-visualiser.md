@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Visualising what the engine already knows"
 date: 2026-08-06
 entry_type: note

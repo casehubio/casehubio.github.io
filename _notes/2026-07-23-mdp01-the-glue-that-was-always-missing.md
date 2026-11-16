@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The glue that was always missing
 date: 2026-07-23
 author: mdp

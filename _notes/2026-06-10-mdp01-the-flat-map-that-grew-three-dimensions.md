@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Flat Map That Grew Three Dimensions"
 date: 2026-06-10
 tags: [casehub-engine, blackboard, memory, design]

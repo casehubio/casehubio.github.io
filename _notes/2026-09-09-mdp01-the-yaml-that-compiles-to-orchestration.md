@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The YAML That Compiles to Orchestration"
 date: 2026-09-09
 entry_type: note

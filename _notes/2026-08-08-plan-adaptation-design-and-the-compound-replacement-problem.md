@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Plan Adaptation Design and the Compound Replacement Problem"
 date: 2026-08-08
 entry_type: note

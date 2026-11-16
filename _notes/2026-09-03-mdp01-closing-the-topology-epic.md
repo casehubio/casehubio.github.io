@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Closing the topology epic"
 date: 2026-09-03
 author: mdp

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Barracks You Forgot to Build
 date: 2026-11-11
 author: Mark Proctor

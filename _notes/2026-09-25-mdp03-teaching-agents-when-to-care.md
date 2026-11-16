@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching agents when to care"
 date: 2026-09-25
 author: mdp

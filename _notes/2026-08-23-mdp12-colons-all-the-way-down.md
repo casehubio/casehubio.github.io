@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Colons All the Way Down"
 date: 2026-08-23
 sequence: 12

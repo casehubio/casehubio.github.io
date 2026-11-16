@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Seeing Cases: Building a Visual Editor for Adaptive Case Management"
 date: 2026-08-01
 author: mdp

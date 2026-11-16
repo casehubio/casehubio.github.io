@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Does the Cascade See the Army?"
 date: 2026-09-11
 author: mdp

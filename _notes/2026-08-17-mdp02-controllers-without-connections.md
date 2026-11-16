@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Controllers without connections"
 date: 2026-08-17
 entry_type: note

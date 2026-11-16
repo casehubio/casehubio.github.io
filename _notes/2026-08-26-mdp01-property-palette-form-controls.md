@@ -1,4 +1,5 @@
----
+---layout: post
+
 entry_type: note
 subtype: diary
 title: "Property palette: schema-driven editing from first principles"

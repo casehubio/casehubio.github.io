@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When Workers Won't Shut Up: Intermediate Output in Long-Running Scopes"
 date: 2026-08-02
 author: Mark Proctor

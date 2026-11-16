@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "YAML All the Way Down"
 date: 2026-08-31
 author: mdp

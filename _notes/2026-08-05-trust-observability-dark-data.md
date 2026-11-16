@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Trust Data Was There All Along"
 date: 2026-08-05
 type: diary

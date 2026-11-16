@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Dependency Drift Archaeology"
 date: 2026-09-14
 entry_type: note

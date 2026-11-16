@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "You Can't Parameterise Taste"
 date: 2026-10-11
 author: mdp

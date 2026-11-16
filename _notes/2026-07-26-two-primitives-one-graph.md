@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Two Primitives, One Graph"
 date: 2026-07-26
 tags: [casehub, engine, unified-execution-model, planning, architecture]

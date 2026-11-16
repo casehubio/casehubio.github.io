@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Scaling Policies as Pure Functions"
 date: 2026-09-29
 author: mdp

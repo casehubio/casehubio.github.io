@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Scope and the Silent Guard"
 date: 2026-05-23
 entry_type: note

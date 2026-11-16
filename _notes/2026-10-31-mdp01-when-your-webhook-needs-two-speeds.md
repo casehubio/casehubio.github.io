@@ -2,7 +2,7 @@
 layout: post
 title: "When Your Webhook Needs Two Speeds"
 date: 2026-10-31
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/connectors]
 tags: [voice, webhooks, streaming, spi, whatsapp, gmail]

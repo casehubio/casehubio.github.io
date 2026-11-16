@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Composable API That Wasn't"
 date: 2026-07-25
 type: diary

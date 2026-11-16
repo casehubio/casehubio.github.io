@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Three Bugs, One Curve
 date: 2026-11-14
 tags: [quarkmind, emulation, mining, saturation, collision, starcraft, physics, economy, ml-training]

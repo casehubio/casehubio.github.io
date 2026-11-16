@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "YAML channels — config-first for the zero-authored-Java world"
 date: 2026-10-13
 entry_type: note

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Hive That Improves Itself
 date: 2026-09-20
 author: Mark Proctor

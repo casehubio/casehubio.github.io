@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Trajectory — The Shape of Escalation"
 date: 2026-07-20
 type: phase-update

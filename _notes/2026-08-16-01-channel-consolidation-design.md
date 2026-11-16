@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Channel consolidation: the tier hierarchy saves us from ourselves"
 date: 2026-08-16
 entry_type: note

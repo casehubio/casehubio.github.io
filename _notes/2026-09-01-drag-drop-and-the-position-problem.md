@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Drag-and-drop and the position problem
 date: 2026-09-01
 tags: [chat-app, blocks-ui, qhorus, drag-and-drop, channel-reordering]

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Voice notes — capture to vault"
 date: 2026-08-23
 author: mdp

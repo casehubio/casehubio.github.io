@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The editor that understands YAML"
 date: 2026-09-05
 author: mdp

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The frontend that didn't need npm publish"
 entry_type: note
 subtype: diary

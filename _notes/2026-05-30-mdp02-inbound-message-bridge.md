@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Inbound Goes Both Ways"
 date: 2026-05-30
 tags: [casehub-connectors, casehub-qhorus, inbound, HumanParticipatingChannelBackend, architecture]

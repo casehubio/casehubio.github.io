@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Two Canonicals, One Convention"
 date: 2026-07-05
 author: Mark Proctor

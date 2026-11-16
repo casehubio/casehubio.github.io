@@ -1,4 +1,5 @@
----
+---layout: post
+
 entry_type: note
 subtype: diary
 title: "The quorum hole and the distributed testing push"

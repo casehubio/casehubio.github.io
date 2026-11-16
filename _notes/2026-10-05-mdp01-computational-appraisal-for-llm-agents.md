@@ -2,7 +2,7 @@
 layout: post
 title: "CARMA: Giving LLM Agents an Inner Mind"
 date: 2026-10-05
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/neocortex]
 tags: [carma, cognitive-architecture, appraisal-theory, emotion, scherer, occ, personality]

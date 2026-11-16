@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Topics and Reactions — Zulip's Regret, Matrix's Pattern, and What Qhorus Gets Right"
 date: 2026-07-10
 entry_type: note

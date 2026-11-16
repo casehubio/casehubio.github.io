@@ -2,7 +2,7 @@
 layout: post
 title: "One Field, Twenty Files"
 date: 2026-08-19
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-qhorus]
 tags: [a2a, message-model, propagation, records]

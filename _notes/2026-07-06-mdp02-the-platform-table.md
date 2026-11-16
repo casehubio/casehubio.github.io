@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Platform Table
 date: 2026-07-06
 author: mdp

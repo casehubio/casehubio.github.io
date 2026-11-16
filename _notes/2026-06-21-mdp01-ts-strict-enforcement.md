@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "TypeScript Strict Enforcement — Maximum Type Safety Across All Packages"
 date: 2026-06-21
 author: Mark Proctor

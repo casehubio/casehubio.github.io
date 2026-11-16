@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Controller Was the Point
 date: 2026-07-10
 entry_type: note

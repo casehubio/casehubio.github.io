@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Three cleanups and a strategy upgrade"
 date: 2026-06-04
 tags: [drools, rule-units, c2-intel, architecture]

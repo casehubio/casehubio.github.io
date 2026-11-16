@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Wiring workflow steps to the engine"
 date: 2026-06-04
 author: mdp

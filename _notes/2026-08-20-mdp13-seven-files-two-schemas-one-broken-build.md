@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Seven files, two schemas, one broken build"
 date: 2026-08-20
 author: Mark Proctor

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Surgical extraction — quarkmind-core gets a real agency framework"
 date: 2026-08-14
 author: Mark Proctor

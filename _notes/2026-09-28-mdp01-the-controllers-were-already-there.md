@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The controllers were already there"
 date: 2026-09-28
 author: mdp

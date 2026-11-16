@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When the advisor stops being a stub"
 date: 2026-08-01
 author: mdp

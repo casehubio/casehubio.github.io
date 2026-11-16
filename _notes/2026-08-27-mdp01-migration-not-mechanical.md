@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Migration That Wasn't Mechanical"
 date: 2026-08-27
 entry_type: note

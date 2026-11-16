@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Seven Issues, Three Specs, and the Engine's Actual Dispatch Chain"
 date: 2026-06-22
 author: Mark Proctor

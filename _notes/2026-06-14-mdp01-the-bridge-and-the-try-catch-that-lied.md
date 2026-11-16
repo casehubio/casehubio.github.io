@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The bridge and the try/catch that lied"
 date: 2026-06-14
 slug: the-bridge-and-the-try-catch-that-lied

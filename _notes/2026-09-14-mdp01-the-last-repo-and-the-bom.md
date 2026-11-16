@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Last Repo and the BOM That Broke Everything"
 author: Mark Proctor
 date: 2026-09-14

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Reactive Unwinding"
 date: 2026-07-26
 entry_type: note

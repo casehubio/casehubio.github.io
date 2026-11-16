@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When the Safety Review Doesn't Know the Grade Changed"
 date: 2026-09-07
 author: mdp

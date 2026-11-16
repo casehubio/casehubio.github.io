@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Gate You Already Have"
 date: 2026-09-03
 author: mdp

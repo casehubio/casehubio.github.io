@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When Personality Drowns in Its Own Thoughts"
 date: 2026-10-07
 author: mdp

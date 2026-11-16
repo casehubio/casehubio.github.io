@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Watching the Cascade Unfold"
 date: 2026-09-14
 author: mdp

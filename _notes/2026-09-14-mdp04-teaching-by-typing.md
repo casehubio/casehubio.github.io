@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching by typing"
 date: 2026-09-14
 author: mdp

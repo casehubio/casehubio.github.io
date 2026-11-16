@@ -2,7 +2,7 @@
 layout: post
 title: "Mechanical Psychology: Building a CAPS Engine for Emergent AI Behaviour"
 date: 2026-10-04
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/neocortex]
 tags: [caps, psychology, behavioral-inference, architecture, cognitive-systems]

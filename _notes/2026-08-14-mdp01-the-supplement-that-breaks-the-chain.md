@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The supplement that breaks the chain"
 date: 2026-08-14
 author: mdp

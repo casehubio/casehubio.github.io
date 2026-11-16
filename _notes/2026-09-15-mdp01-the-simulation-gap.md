@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Simulation Gap"
 date: 2026-09-15
 entry_type: note

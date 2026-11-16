@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Corpus That Talks Back"
 date: 2026-11-05
 author: Mark Proctor

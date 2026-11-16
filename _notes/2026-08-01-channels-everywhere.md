@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Channels Everywhere — From Case-Scoped to Universal"
 date: 2026-08-01
 tags: [claudony, qhorus, channels, conversation, architecture]

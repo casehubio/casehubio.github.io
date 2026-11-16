@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Killing the Polling Loop"
 date: 2026-07-04
 sequence: 24

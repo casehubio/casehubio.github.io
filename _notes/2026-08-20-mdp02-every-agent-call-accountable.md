@@ -2,7 +2,7 @@
 layout: post
 title: "When every agent call is an accountable act"
 date: 2026-08-20
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-qhorus]
 tags: [a2a, architecture, governance, channels, delegation]

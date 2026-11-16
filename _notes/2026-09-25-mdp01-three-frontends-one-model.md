@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Three Frontends, One Model"
 date: 2026-09-25
 author: mdp

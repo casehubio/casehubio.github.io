@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The extraction that found its layers
 date: 2026-08-23
 project: casehub-pages, blocks-ui

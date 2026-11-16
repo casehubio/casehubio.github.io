@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: When Cases Aren't Trees
 type: diary
 project: blocks-ui

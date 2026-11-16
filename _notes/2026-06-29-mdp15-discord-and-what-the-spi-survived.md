@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Discord, and What the SPI Survived"
 date: 2026-06-29
 sequence: 15

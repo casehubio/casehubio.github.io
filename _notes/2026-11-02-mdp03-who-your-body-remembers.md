@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Who your body remembers — grounding drive descriptions in specific people"
 date: 2026-11-02
 author: mdp

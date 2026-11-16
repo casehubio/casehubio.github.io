@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Four Rounds to Get the Attestation Right"
 date: 2026-06-16
 entry_type: note

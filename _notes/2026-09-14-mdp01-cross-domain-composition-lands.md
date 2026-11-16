@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Cross-Domain Composition Lands"
 date: 2026-09-14
 author: mdp

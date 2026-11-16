@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Teaching Agents to Notice Their Own Behaviour
 date: 2026-08-05
 author: Mark Proctor

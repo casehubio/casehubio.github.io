@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Missing UX Pattern"
 date: 2026-07-13
 projects:

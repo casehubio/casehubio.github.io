@@ -3,7 +3,7 @@ layout: post
 title: "What LLM Characters Actually Need"
 date: 2026-10-03
 type: technical
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub]
 tags: [eidos, multi-agent, character-design, taxonomy, wacky-manor]

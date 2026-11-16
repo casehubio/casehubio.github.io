@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "From Spec to YAML"
 date: 2026-09-29
 author: mdp

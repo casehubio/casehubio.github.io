@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The two-ability offset"
 date: 2026-10-05
 author: mdp

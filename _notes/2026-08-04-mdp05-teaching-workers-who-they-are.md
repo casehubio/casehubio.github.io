@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching Workers Who They Are"
 date: 2026-08-04
 author: mdp

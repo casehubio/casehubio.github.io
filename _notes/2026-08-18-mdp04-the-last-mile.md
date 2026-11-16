@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The last mile"
 date: 2026-08-18
 series: channel-consolidation

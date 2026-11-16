@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "When your agent forgets what it wants"
 date: 2026-09-23
 author: mdp

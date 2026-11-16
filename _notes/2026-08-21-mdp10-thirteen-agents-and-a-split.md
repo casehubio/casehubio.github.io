@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Thirteen Agents and a Split
 date: 2026-08-21
 author: Mark Proctor

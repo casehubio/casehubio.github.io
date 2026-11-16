@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Teaching SOC to read its own threat library"
 entry_type: note
 subtype: diary

@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Who notified whom — closing an audit gap in GCP sponsor notifications"
 date: 2026-06-04
 tags: [casehub-clinical, gcp, audit, spi, pi-identity, compliance]

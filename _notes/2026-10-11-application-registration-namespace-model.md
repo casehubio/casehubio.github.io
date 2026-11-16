@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Applications as First-Class Fleet Citizens"
 date: 2026-10-11
 author: mdp

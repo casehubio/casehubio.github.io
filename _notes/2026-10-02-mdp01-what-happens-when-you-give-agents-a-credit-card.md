@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "What Happens When You Give Agents a Credit Card"
 date: 2026-10-02
 author: Mark Proctor

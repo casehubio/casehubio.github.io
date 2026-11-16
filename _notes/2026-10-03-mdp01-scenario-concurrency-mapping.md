@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The concurrency engine was already there"
 date: 2026-10-03
 author: mdp

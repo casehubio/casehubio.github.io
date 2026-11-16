@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Bridging Notifications to Connectors"
 date: 2026-07-20
 type: diary

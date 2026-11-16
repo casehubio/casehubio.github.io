@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "BlocksTimeline collapses to 19 lines"
 date: 2026-08-23
 issue: 123

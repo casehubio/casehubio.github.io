@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Upstream consumption and push protocol adoption"
 date: 2026-08-11
 tags: [chat-app, mosaic, pages-push, websocket, real-time]

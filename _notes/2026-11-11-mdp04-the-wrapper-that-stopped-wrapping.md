@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: The Wrapper That Stopped Wrapping
 date: 2026-11-11
 tags: [quarkmind, protobuf, ocraft, dependency-management, java]

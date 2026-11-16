@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Great Memory Migration"
 date: 2026-07-01
 author: mdp

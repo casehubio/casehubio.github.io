@@ -2,7 +2,7 @@
 layout: post
 title: "Three Layers for the Outside World"
 date: 2026-08-19
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehub-qhorus]
 tags: [a2a, interoperability, architecture, protocol]

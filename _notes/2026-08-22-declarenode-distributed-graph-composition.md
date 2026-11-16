@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "@DeclareNode — distributed graph composition via class-based annotations"
 date: 2026-08-22
 entry_type: note

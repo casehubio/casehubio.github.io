@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Thirteen Operations, One Adapter"
 date: 2026-09-11
 entry_type: note

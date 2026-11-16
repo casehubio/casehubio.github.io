@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Two views of the same devices"
 date: 2026-10-02
 author: mdp

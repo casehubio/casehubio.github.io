@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Profile That Didn't"
 date: 2026-06-29
 author: mdp

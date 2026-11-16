@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "ACL Enforcement: Where It Belongs"
 date: 2026-08-03
 type: diary

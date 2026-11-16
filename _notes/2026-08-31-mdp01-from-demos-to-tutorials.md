@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "From demos to tutorials"
 date: 2026-08-31
 author: Mark Proctor

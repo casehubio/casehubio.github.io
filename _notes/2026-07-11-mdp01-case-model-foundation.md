@@ -1,4 +1,5 @@
----
+---layout: post
+
 date: 2026-07-11
 author: mdp
 tags: [casehub-ops, case-model, drift-remediation, desiredstate]

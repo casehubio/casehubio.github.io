@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Breaking the Location Monopoly"
 date: 2026-10-06
 author: mdp

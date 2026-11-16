@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "A2A Outbound: Your Case Workflows Can Now Invoke Remote AI Agents"
 date: 2026-08-02
 tags: [a2a, agent-interop, worker-execution, casehub-engine]

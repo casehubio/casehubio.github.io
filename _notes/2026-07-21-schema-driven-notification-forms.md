@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Schema-Driven Notification Forms
 date: 2026-07-21
 tags: [blocks-ui, pages-form, notification, subscription, preferences]

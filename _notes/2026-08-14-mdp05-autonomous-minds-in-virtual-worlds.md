@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: Autonomous Minds in Virtual Worlds
 date: 2026-08-14
 author: Mark Proctor

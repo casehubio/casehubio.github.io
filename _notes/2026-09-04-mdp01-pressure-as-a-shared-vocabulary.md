@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Pressure as a Shared Vocabulary"
 date: 2026-09-04
 author: mdp

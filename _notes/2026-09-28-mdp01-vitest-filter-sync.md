@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "Testing lit templates without the DOM, and bridging filter events across tabs"
 date: 2026-09-28
 author: mdp

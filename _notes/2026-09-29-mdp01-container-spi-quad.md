@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The container module gets its SPI quad — and the YAML system catches up"
 author: mdp
 date: 2026-09-29

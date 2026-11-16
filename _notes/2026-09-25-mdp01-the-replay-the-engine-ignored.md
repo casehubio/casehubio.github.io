@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Replay the Engine Ignored"
 date: 2026-09-25
 author: mdp

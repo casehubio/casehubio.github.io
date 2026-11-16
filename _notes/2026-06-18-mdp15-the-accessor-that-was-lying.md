@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "The Accessor That Was Lying"
 date: 2026-06-18
 author: Mark Proctor
