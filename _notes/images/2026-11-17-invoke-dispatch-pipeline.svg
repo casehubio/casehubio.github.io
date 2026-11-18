@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="760" height="400" fill="#f8fafc" rx="8"/>
+
+  <!-- Title -->
+  <text x="380" y="30" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">InvokeHandler Dispatch Pipeline</text>
+
+  <!-- Bot Framework box -->
+  <rect x="20" y="55" width="140" height="50" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="90" y="77" text-anchor="middle" font-weight="500" fill="#3730a3">Bot Framework</text>
+  <text x="90" y="93" text-anchor="middle" font-size="11" fill="#4f46e5">type: "invoke"</text>
+
+  <!-- Arrow BF → Inbound -->
+  <line x1="160" y1="80" x2="195" y2="80" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- TeamsInboundConnector -->
+  <rect x="200" y="55" width="180" height="50" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="290" y="77" text-anchor="middle" font-weight="500" fill="#1e293b">TeamsInboundConnector</text>
+  <text x="290" y="93" text-anchor="middle" font-size="11" fill="#64748b">handleInvoke()</text>
+
+  <!-- Arrow Inbound → InvokeService -->
+  <line x1="380" y1="80" x2="415" y2="80" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- InvokeService -->
+  <rect x="420" y="55" width="140" height="50" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="490" y="77" text-anchor="middle" font-weight="500" fill="#1e293b">InvokeService</text>
+  <text x="490" y="93" text-anchor="middle" font-size="11" fill="#64748b">dispatch(name)</text>
+
+  <!-- Arrow InvokeService → Handlers -->
+  <line x1="560" y1="80" x2="595" y2="80" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- InvokeHandler CDI beans -->
+  <rect x="600" y="45" width="140" height="70" rx="6" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+  <text x="670" y="67" text-anchor="middle" font-weight="500" fill="#065f46">InvokeHandler</text>
+  <text x="670" y="83" text-anchor="middle" font-size="11" fill="#047857">CDI @All beans</text>
+  <text x="670" y="99" text-anchor="middle" font-size="11" fill="#047857">matched by name()</text>
+
+  <!-- Response flow label -->
+  <text x="380" y="140" text-anchor="middle" font-size="12" font-weight="500" fill="#475569">← InvokeResponse sealed variants →</text>
+
+  <!-- Response variants - existing (grey) -->
+  <rect x="20" y="165" width="230" height="130" rx="6" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="135" y="185" text-anchor="middle" font-size="12" font-weight="600" fill="#64748b">Existing (#235)</text>
+
+  <rect x="35" y="197" width="200" height="24" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="135" y="214" text-anchor="middle" font-size="11" fill="#64748b">Accepted  CardUpdate  Message</text>
+
+  <rect x="35" y="227" width="200" height="24" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="135" y="244" text-anchor="middle" font-size="11" fill="#64748b">TaskModuleContinue  TaskModuleMessage</text>
+
+  <rect x="35" y="257" width="200" height="24" rx="4" fill="#fff" stroke="#cbd5e1"/>
+  <text x="135" y="274" text-anchor="middle" font-size="11" fill="#64748b">Error</text>
+
+  <!-- Response variants - new (blue highlight) -->
+  <rect x="270" y="165" width="230" height="130" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="385" y="185" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">New (#236)</text>
+
+  <rect x="285" y="197" width="200" height="24" rx="4" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="385" y="214" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af">ComposeResult</text>
+
+  <rect x="285" y="227" width="200" height="24" rx="4" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="385" y="244" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af">ComposeAuth</text>
+
+  <rect x="285" y="257" width="200" height="24" rx="4" fill="#dbeafe" stroke="#93c5fd"/>
+  <text x="385" y="274" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af">ComposeContinue</text>
+
+  <!-- Serializer -->
+  <rect x="530" y="165" width="210" height="130" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="635" y="185" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">InvokeResponseSerializer</text>
+
+  <text x="545" y="207" font-size="11" fill="#64748b">Existing → {statusCode, type, value}</text>
+  <text x="545" y="225" font-size="11" fill="#64748b">TaskModule → {task: {type, value}}</text>
+
+  <line x1="545" y1="237" x2="725" y2="237" stroke="#e2e8f0"/>
+
+  <text x="545" y="257" font-size="11" font-weight="500" fill="#1d4ed8">Compose → {composeExtension:</text>
+  <text x="560" y="275" font-size="11" font-weight="500" fill="#1d4ed8">  {type, attachmentLayout,</text>
+  <text x="560" y="293" font-size="11" font-weight="500" fill="#1d4ed8">   attachments | value}}</text>
+
+  <!-- Bottom: WebhookResult.Responded -->
+  <rect x="200" y="330" width="360" height="50" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="380" y="352" text-anchor="middle" font-weight="500" fill="#92400e">WebhookResult.Responded</text>
+  <text x="380" y="368" text-anchor="middle" font-size="11" fill="#a16207">responseBody (JSON) + inboundMessages → HTTP 200</text>
+
+  <!-- Arrow from serializer down to Responded -->
+  <line x1="635" y1="295" x2="635" y2="340" stroke="#475569" stroke-width="1.5"/>
+  <line x1="635" y1="340" x2="563" y2="340" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrow from new variants to serializer -->
+  <line x1="500" y1="230" x2="527" y2="230" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrowhead-blue)"/>
+</svg>

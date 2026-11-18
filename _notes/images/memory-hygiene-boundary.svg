@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#555" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="480" fill="#fafafa" rx="4"/>
+
+  <!-- Agency box -->
+  <rect x="20" y="30" width="320" height="420" rx="6" fill="#fff3e0" stroke="#e65100" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="180" y="22" text-anchor="middle" font-weight="bold" fill="#e65100" font-size="14">agency (stays)</text>
+
+  <!-- Evolution types -->
+  <rect x="35" y="55" width="290" height="130" rx="4" fill="#ffccbc" stroke="#bf360c" stroke-width="1"/>
+  <text x="180" y="75" text-anchor="middle" font-weight="bold" fill="#bf360c" font-size="12">Evolution — agency SPIs</text>
+  <text x="45" y="95" fill="#4e342e" font-size="11">MemoryHygieneProposalSource</text>
+  <text x="45" y="112" fill="#4e342e" font-size="11">MemoryHygieneRegressionEvaluator</text>
+  <text x="45" y="129" fill="#4e342e" font-size="11">MemoryHygieneCapabilityArea</text>
+  <text x="45" y="146" fill="#4e342e" font-size="11">MemoryHygieneCategoryProvider</text>
+  <text x="45" y="163" fill="#4e342e" font-size="11">MemoryHygieneConflictStrategy</text>
+  <text x="45" y="178" fill="#9e9e9e" font-size="10" font-style="italic">implements ImprovementProposalSource, etc.</text>
+
+  <!-- Cognitive evolution -->
+  <rect x="35" y="200" width="290" height="100" rx="4" fill="#ffccbc" stroke="#bf360c" stroke-width="1"/>
+  <text x="180" y="220" text-anchor="middle" font-weight="bold" fill="#bf360c" font-size="12">Cognitive evolution — agency integration</text>
+  <text x="45" y="240" fill="#4e342e" font-size="11">CognitiveEvolutionAdapter</text>
+  <text x="45" y="257" fill="#4e342e" font-size="11">CircuitBreakerMoodMapper</text>
+  <text x="45" y="274" fill="#4e342e" font-size="11">EvolutionTickBridge</text>
+  <text x="45" y="289" fill="#9e9e9e" font-size="10" font-style="italic">depends on TickTrace, stigmergy model</text>
+
+  <!-- Replaced stores -->
+  <rect x="35" y="315" width="290" height="80" rx="4" fill="#e0e0e0" stroke="#757575" stroke-width="1"/>
+  <text x="180" y="335" text-anchor="middle" font-weight="bold" fill="#616161" font-size="12">Reflection stores — replaced</text>
+  <text x="45" y="355" fill="#757575" font-size="11">ReflectionStore / NoOpReflectionStore</text>
+  <text x="45" y="372" fill="#757575" font-size="11">ReflectionQueryStore / NoOpReflectionQueryStore</text>
+  <text x="45" y="387" fill="#9e9e9e" font-size="10" font-style="italic">superseded by neocortex ReflectionOrchestrator</text>
+
+  <!-- Arrow -->
+  <line x1="345" y1="240" x2="380" y2="240" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="362" y="230" text-anchor="middle" fill="#555" font-size="10" font-weight="bold">moved</text>
+
+  <!-- Neocortex box -->
+  <rect x="385" y="30" width="315" height="420" rx="6" fill="#e8f5e9" stroke="#2e7d32" stroke-width="1.5"/>
+  <text x="542" y="22" text-anchor="middle" font-weight="bold" fill="#2e7d32" font-size="14">neocortex (received)</text>
+
+  <!-- cognition-api -->
+  <rect x="400" y="55" width="285" height="150" rx="4" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+  <text x="542" y="75" text-anchor="middle" font-weight="bold" fill="#1b5e20" font-size="12">cognition-api — SPIs + value types</text>
+  <text x="410" y="95" fill="#1b5e20" font-size="11">ConfidenceScorer</text>
+  <text x="410" y="112" fill="#1b5e20" font-size="11">ConsolidationSummariser ← new SPI</text>
+  <text x="410" y="129" fill="#1b5e20" font-size="11">IntegrityChecker, SemanticIntegrityChecker</text>
+  <text x="410" y="146" fill="#1b5e20" font-size="11">RetentionConfig, RetentionScore</text>
+  <text x="410" y="163" fill="#1b5e20" font-size="11">HygieneEvent, HygieneTick, MaintenanceTick</text>
+  <text x="410" y="180" fill="#1b5e20" font-size="11">IntegrityViolation, ViolationType</text>
+  <text x="410" y="197" fill="#9e9e9e" font-size="10" font-style="italic">MemoryHygieneOrchestrator SPI (pre-existing)</text>
+
+  <!-- cognition -->
+  <rect x="400" y="220" width="285" height="150" rx="4" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+  <text x="542" y="240" text-anchor="middle" font-weight="bold" fill="#1b5e20" font-size="12">cognition — implementations</text>
+  <text x="410" y="260" fill="#1b5e20" font-size="11">MemoryHygieneOrchestratorImpl</text>
+  <text x="410" y="277" fill="#1b5e20" font-size="11">MemoryHygieneScheduler</text>
+  <text x="410" y="294" fill="#1b5e20" font-size="11">ArousalScorer, SurpriseScorer</text>
+  <text x="410" y="311" fill="#1b5e20" font-size="11">CompositeConfidenceScorer, WeightedScorer</text>
+  <text x="410" y="328" fill="#1b5e20" font-size="11">DefaultIntegrityChecker</text>
+  <text x="410" y="345" fill="#1b5e20" font-size="11">NoOpSemanticIntegrityChecker</text>
+  <text x="410" y="362" fill="#1b5e20" font-size="11">NoOpConsolidationSummariser</text>
+
+  <!-- Pre-existing wiring -->
+  <rect x="400" y="385" width="285" height="55" rx="4" fill="#b2dfdb" stroke="#00695c" stroke-width="1"/>
+  <text x="542" y="405" text-anchor="middle" font-weight="bold" fill="#004d40" font-size="12">Pre-existing wiring</text>
+  <text x="410" y="425" fill="#004d40" font-size="11">CognitionCore.tick() → memoryHygiene.tick()</text>
+  <text x="410" y="432" fill="#9e9e9e" font-size="10" font-style="italic">CognitionCoreFactory Instance&lt;MemoryHygieneOrchestrator&gt;</text>
+</svg>

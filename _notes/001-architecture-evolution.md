@@ -3,6 +3,7 @@
 *Part 1 of an evolving series. This is a living document — updated as the project progresses and my thinking changes.*
 
 ---
+layout: post
 
 ## What I'm Building
 

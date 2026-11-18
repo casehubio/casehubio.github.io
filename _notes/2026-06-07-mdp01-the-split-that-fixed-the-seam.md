@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 ## What I was trying to achieve: eliminate a constraint violation triggered by cross-dtype ledger writes
 

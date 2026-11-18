@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" font-family="system-ui, -apple-system, sans-serif">
+  <rect width="600" height="340" fill="#fafafa" rx="8"/>
+
+  <text x="300" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#2c3e50">Splitting the Evaluation: Congruence vs Effectiveness</text>
+
+  <!-- Single score box (before) -->
+  <rect x="40" y="55" width="240" height="130" rx="6" fill="white" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="160" y="75" text-anchor="middle" font-size="12" font-weight="600" fill="#7f8c8d">BEFORE: Single Score</text>
+
+  <rect x="60" y="90" width="200" height="35" rx="4" fill="#f39c12" opacity="0.15" stroke="#f39c12" stroke-width="1"/>
+  <text x="160" y="112" text-anchor="middle" font-size="11" fill="#e67e22" font-weight="500">"Score: 4 — good fit"</text>
+
+  <text x="160" y="148" text-anchor="middle" font-size="10" fill="#e74c3c">Conflates personality fit</text>
+  <text x="160" y="162" text-anchor="middle" font-size="10" fill="#e74c3c">with situational impact</text>
+  <text x="160" y="176" text-anchor="middle" font-size="10" fill="#95a5a6">Judge contradicts itself</text>
+
+  <!-- Arrow -->
+  <path d="M290,120 L320,120" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2c3e50"/>
+    </marker>
+  </defs>
+
+  <!-- Split scores box (after) -->
+  <rect x="330" y="55" width="240" height="130" rx="6" fill="white" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="450" y="75" text-anchor="middle" font-size="12" font-weight="600" fill="#2c3e50">AFTER: Two Dimensions</text>
+
+  <rect x="350" y="88" width="200" height="28" rx="4" fill="#3498db" opacity="0.12" stroke="#3498db" stroke-width="1"/>
+  <text x="450" y="107" text-anchor="middle" font-size="10" fill="#2980b9" font-weight="500">Congruence: 5 — personality would choose this</text>
+
+  <rect x="350" y="124" width="200" height="28" rx="4" fill="#e74c3c" opacity="0.12" stroke="#e74c3c" stroke-width="1"/>
+  <text x="450" y="143" text-anchor="middle" font-size="10" fill="#c0392b" font-weight="500">Effectiveness: 1 — won't reduce the emotion</text>
+
+  <text x="450" y="172" text-anchor="middle" font-size="10" fill="#27ae60">Each dimension scored independently</text>
+
+  <!-- Compounding shame results -->
+  <rect x="40" y="205" width="520" height="120" rx="6" fill="white" stroke="#bdc3c7" stroke-width="1.5"/>
+  <text x="300" y="225" text-anchor="middle" font-size="12" font-weight="600" fill="#2c3e50">Compounding Shame: Static vs Dynamic Capacity</text>
+
+  <!-- Static column -->
+  <rect x="70" y="240" width="210" height="70" rx="4" fill="#e74c3c" opacity="0.06"/>
+  <text x="175" y="256" text-anchor="middle" font-size="11" font-weight="600" fill="#7f8c8d">Static (predictor pinned)</text>
+  <text x="120" y="275" text-anchor="middle" font-size="10" fill="#3498db">Congruence: 5</text>
+  <text x="120" y="290" text-anchor="middle" font-size="10" fill="#e74c3c">Effectiveness: 1</text>
+  <text x="210" y="283" font-size="22" fill="#e74c3c" opacity="0.5">stuck</text>
+
+  <!-- Dynamic column -->
+  <rect x="320" y="240" width="210" height="70" rx="4" fill="#27ae60" opacity="0.06"/>
+  <text x="425" y="256" text-anchor="middle" font-size="11" font-weight="600" fill="#2c3e50">Dynamic (predictor fell through)</text>
+  <text x="370" y="275" text-anchor="middle" font-size="10" fill="#3498db">Congruence: 5</text>
+  <text x="370" y="290" text-anchor="middle" font-size="10" fill="#27ae60">Effectiveness: 3</text>
+  <text x="470" y="283" font-size="22" fill="#27ae60" opacity="0.5">adapts</text>
+</svg>

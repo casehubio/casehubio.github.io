@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 ## What we were trying to achieve: spawning claude in a PTY
 

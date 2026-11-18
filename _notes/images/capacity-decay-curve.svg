@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="decayFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e74c3c" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#27ae60" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="320" fill="#fafafa" rx="8"/>
+
+  <text x="300" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#2c3e50">Temporal Decay of Failure Weight</text>
+  <text x="300" y="44" text-anchor="middle" font-size="10" fill="#7f8c8d">Half-life = 7 days (Bonanno &amp; Burton 2013: regulatory flexibility)</text>
+
+  <!-- Axes -->
+  <line x1="80" y1="260" x2="560" y2="260" stroke="#bdc3c7" stroke-width="1.5"/>
+  <line x1="80" y1="70" x2="80" y2="260" stroke="#bdc3c7" stroke-width="1.5"/>
+
+  <!-- Y axis labels -->
+  <text x="72" y="75" text-anchor="end" font-size="10" fill="#7f8c8d">1.0</text>
+  <text x="72" y="123" text-anchor="end" font-size="10" fill="#7f8c8d">0.75</text>
+  <text x="72" y="170" text-anchor="end" font-size="10" fill="#7f8c8d">0.50</text>
+  <text x="72" y="218" text-anchor="end" font-size="10" fill="#7f8c8d">0.25</text>
+  <text x="72" y="264" text-anchor="end" font-size="10" fill="#7f8c8d">0.0</text>
+  <text x="30" y="170" text-anchor="middle" font-size="11" fill="#2c3e50" transform="rotate(-90,30,170)">Failure weight</text>
+
+  <!-- X axis labels -->
+  <text x="80" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">0</text>
+  <text x="148" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">7</text>
+  <text x="217" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">14</text>
+  <text x="285" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">21</text>
+  <text x="354" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">28</text>
+  <text x="422" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">35</text>
+  <text x="490" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">42</text>
+  <text x="560" y="278" text-anchor="middle" font-size="10" fill="#7f8c8d">49</text>
+  <text x="320" y="298" text-anchor="middle" font-size="11" fill="#2c3e50">Days since failure</text>
+
+  <!-- Grid lines -->
+  <line x1="80" y1="170" x2="560" y2="170" stroke="#ecf0f1" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="80" y1="123" x2="560" y2="123" stroke="#ecf0f1" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="80" y1="218" x2="560" y2="218" stroke="#ecf0f1" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="148" y1="70" x2="148" y2="260" stroke="#ecf0f1" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="285" y1="70" x2="285" y2="260" stroke="#ecf0f1" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- Decay curve: w = exp(-0.099 * days), mapped to y = 260 - 190*w -->
+  <!-- Fill area under curve -->
+  <path d="M80,70 L80,70 L90,76 L100,83 L110,90 L120,97 L130,104 L140,111 L148,117
+           L160,126 L170,133 L180,140 L190,146 L200,152 L210,158 L217,162
+           L230,170 L240,175 L250,180 L260,185 L270,189 L280,193 L285,195
+           L300,200 L310,204 L320,207 L330,210 L340,213 L350,216 L354,217
+           L370,221 L380,224 L390,226 L400,228 L410,230 L420,232 L422,232
+           L440,235 L450,237 L460,238 L470,239 L480,241 L490,242
+           L500,243 L510,244 L520,245 L530,246 L540,247 L550,248 L560,249
+           L560,260 L80,260 Z" fill="url(#decayFill)"/>
+
+  <!-- Decay curve line -->
+  <path d="M80,70 L90,76 L100,83 L110,90 L120,97 L130,104 L140,111 L148,117
+           L160,126 L170,133 L180,140 L190,146 L200,152 L210,158 L217,162
+           L230,170 L240,175 L250,180 L260,185 L270,189 L280,193 L285,195
+           L300,200 L310,204 L320,207 L330,210 L340,213 L350,216 L354,217
+           L370,221 L380,224 L390,226 L400,228 L410,230 L420,232
+           L440,235 L450,237 L460,238 L470,239 L480,241 L490,242
+           L500,243 L510,244 L520,245 L530,246 L540,247 L550,248 L560,249"
+        fill="none" stroke="#e74c3c" stroke-width="2.5"/>
+
+  <!-- Half-life annotation -->
+  <line x1="148" y1="170" x2="148" y2="117" stroke="#3498db" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="80" y1="170" x2="148" y2="170" stroke="#3498db" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="148" cy="170" r="4" fill="#3498db"/>
+  <text x="168" y="145" font-size="10" fill="#3498db" font-weight="600">Half-life: 7 days</text>
+  <text x="168" y="158" font-size="9" fill="#3498db">weight = 0.50</text>
+
+  <!-- Recent failure zone -->
+  <rect x="80" y="58" width="68" height="14" rx="3" fill="#e74c3c" opacity="0.15"/>
+  <text x="114" y="68" text-anchor="middle" font-size="9" fill="#e74c3c" font-weight="500">Full impact</text>
+
+  <!-- Recovered zone -->
+  <rect x="420" y="58" width="140" height="14" rx="3" fill="#27ae60" opacity="0.15"/>
+  <text x="490" y="68" text-anchor="middle" font-size="9" fill="#27ae60" font-weight="500">Effectively recovered</text>
+</svg>

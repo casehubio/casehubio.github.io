@@ -6,6 +6,7 @@
 ![SC2 Zealot](assets/sc2-zealot.jpg)
 
 ---
+layout: post
 
 ## What we were trying to achieve: realistic game state without running SC2
 

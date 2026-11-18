@@ -3,6 +3,7 @@
 *Part 2 of an evolving series. The architecture was decided in Part 1 — now we build.*
 
 ---
+layout: post
 
 ## The goal: proving Panama upcalls work in GraalVM native image
 

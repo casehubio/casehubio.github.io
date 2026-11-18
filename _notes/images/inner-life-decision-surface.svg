@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- Before side -->
+  <text x="160" y="22" text-anchor="middle" font-weight="bold" font-size="14" fill="#333">Before</text>
+
+  <rect x="60" y="40" width="200" height="40" rx="6" fill="#e8e8e8" stroke="#999"/>
+  <text x="160" y="64" text-anchor="middle" fill="#333">doTick()</text>
+
+  <line x1="160" y1="80" x2="160" y2="110" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="175" y="100" font-size="11" fill="#777">LLM call</text>
+
+  <rect x="60" y="110" width="200" height="40" rx="6" fill="#e8e8e8" stroke="#999"/>
+  <text x="160" y="134" text-anchor="middle" fill="#333">score ≥ threshold?</text>
+
+  <!-- yes path -->
+  <line x1="100" y1="150" x2="100" y2="190" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="85" y="175" font-size="11" fill="#2a7" font-weight="bold">yes</text>
+
+  <rect x="30" y="190" width="140" height="36" rx="6" fill="#d4edda" stroke="#2a7"/>
+  <text x="100" y="212" text-anchor="middle" fill="#1a5" font-size="12">Initiated(text)</text>
+
+  <!-- no path -->
+  <line x1="220" y1="150" x2="220" y2="190" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="233" y="175" font-size="11" fill="#c44" font-weight="bold">no</text>
+
+  <rect x="160" y="190" width="120" height="36" rx="6" fill="#f0e0e0" stroke="#c44"/>
+  <text x="220" y="212" text-anchor="middle" fill="#933" font-size="12">Silent</text>
+
+  <text x="160" y="250" text-anchor="middle" font-size="11" fill="#888">return type: @Nullable String</text>
+
+  <!-- After side -->
+  <text x="510" y="22" text-anchor="middle" font-weight="bold" font-size="14" fill="#333">After</text>
+
+  <rect x="410" y="40" width="200" height="40" rx="6" fill="#e0e8f0" stroke="#669"/>
+  <text x="510" y="64" text-anchor="middle" fill="#333">doTick()</text>
+
+  <!-- drive check branch -->
+  <line x1="460" y1="80" x2="460" y2="110" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="445" y="100" font-size="11" fill="#777" text-anchor="end">drives</text>
+
+  <rect x="380" y="110" width="160" height="36" rx="6" fill="#e0e8f0" stroke="#669"/>
+  <text x="460" y="132" text-anchor="middle" fill="#335" font-size="12">evaluateNonVerbal</text>
+
+  <!-- nonverbal yes path -->
+  <line x1="420" y1="146" x2="420" y2="180" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="405" y="168" font-size="11" fill="#96c" font-weight="bold">yes</text>
+
+  <rect x="355" y="180" width="130" height="36" rx="6" fill="#ede0f5" stroke="#96c"/>
+  <text x="420" y="202" text-anchor="middle" fill="#639" font-size="12">NonVerbal(tag)</text>
+
+  <!-- nonverbal no path → LLM -->
+  <line x1="560" y1="80" x2="560" y2="110" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="575" y="100" font-size="11" fill="#777">LLM</text>
+
+  <rect x="500" y="110" width="120" height="36" rx="6" fill="#e0e8f0" stroke="#669"/>
+  <text x="560" y="132" text-anchor="middle" fill="#335" font-size="12">score check</text>
+
+  <!-- LLM yes path -->
+  <line x1="535" y1="146" x2="535" y2="180" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="520" y="168" font-size="11" fill="#2a7" font-weight="bold">yes</text>
+
+  <rect x="495" y="180" width="130" height="36" rx="6" fill="#d4edda" stroke="#2a7"/>
+  <text x="560" y="202" text-anchor="middle" fill="#1a5" font-size="12">Initiated(text)</text>
+
+  <!-- LLM no path -->
+  <line x1="600" y1="146" x2="640" y2="180" stroke="#555" marker-end="url(#arrowhead)"/>
+  <text x="635" y="168" font-size="11" fill="#c44" font-weight="bold">no</text>
+
+  <rect x="600" y="180" width="70" height="36" rx="6" fill="#f0e0e0" stroke="#c44"/>
+  <text x="635" y="202" text-anchor="middle" fill="#933" font-size="12">Silent</text>
+
+  <text x="510" y="250" text-anchor="middle" font-size="11" fill="#888">return type: InnerLifeTick</text>
+
+  <!-- divider -->
+  <line x1="330" y1="10" x2="330" y2="260" stroke="#ccc" stroke-dasharray="4,4"/>
+
+  <!-- caption -->
+  <text x="340" y="295" text-anchor="middle" font-size="12" fill="#555">The non-verbal path short-circuits before the LLM call.</text>
+  <text x="340" y="312" text-anchor="middle" font-size="12" fill="#555">Drive state alone decides whether to bid for attention.</text>
+</svg>

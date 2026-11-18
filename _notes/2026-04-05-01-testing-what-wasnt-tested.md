@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 ## What I was trying to achieve: proving the end-to-end chain actually works
 

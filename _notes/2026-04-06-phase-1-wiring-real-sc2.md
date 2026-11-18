@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 ## What we were trying to achieve: prove the real SC2 wiring matches the mock contract
 

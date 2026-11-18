@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 ## What I was trying to achieve: close the last deployment blocker
 

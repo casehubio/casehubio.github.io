@@ -3,6 +3,7 @@
 *Part 3 of an evolving series.*
 
 ---
+layout: post
 
 ## The goal: an end-to-end Java ↔ native communication pipeline
 

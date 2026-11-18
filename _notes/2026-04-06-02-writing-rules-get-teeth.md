@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 ## What we were trying to achieve: making the writing rules actually work
 

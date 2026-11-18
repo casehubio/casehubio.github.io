@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 ## What I was trying to achieve: authentication before calling it production-ready
 

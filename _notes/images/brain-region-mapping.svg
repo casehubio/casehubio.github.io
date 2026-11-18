@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 500" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <style>
+      .region { opacity: 0.25; }
+      .region-label { font-size: 11px; font-weight: 600; fill: #e4e6eb; }
+      .region-sub { font-size: 9px; fill: #8b8fa3; }
+      .brain-outline { fill: none; stroke: #4b5563; stroke-width: 2; opacity: 0.6; }
+      .connector { stroke: #4b5563; stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.5; }
+      .title { font-size: 16px; font-weight: 700; fill: #e4e6eb; }
+      .subtitle { font-size: 11px; fill: #8b8fa3; }
+    </style>
+  </defs>
+
+  <rect width="700" height="500" fill="#0f1117" rx="8"/>
+
+  <text x="350" y="30" text-anchor="middle" class="title">Brain Region Mapping</text>
+  <text x="350" y="48" text-anchor="middle" class="subtitle">Subgraph types → neuroanatomical parallels</text>
+
+  <!-- Brain outline - sagittal profile -->
+  <path class="brain-outline" d="
+    M 350 90
+    C 430 85, 500 100, 530 140
+    C 555 175, 560 220, 545 260
+    C 530 300, 500 330, 460 355
+    C 420 380, 370 395, 340 390
+    C 310 385, 280 370, 260 345
+    C 235 310, 210 275, 200 240
+    C 185 195, 190 150, 220 120
+    C 250 95, 310 85, 350 90
+    Z
+  "/>
+
+  <!-- Brainstem / cerebellum extension -->
+  <path class="brain-outline" d="
+    M 340 390
+    C 330 405, 320 425, 330 440
+    C 340 455, 365 455, 375 440
+    C 385 425, 375 405, 365 390
+  "/>
+
+  <!-- EXECUTIVE — Frontal (top-front) -->
+  <ellipse cx="380" cy="130" rx="80" ry="40" fill="#34d399" class="region"/>
+  <text x="380" y="125" text-anchor="middle" class="region-label">Planning &amp; Executive</text>
+  <text x="380" y="138" text-anchor="middle" class="region-sub">Prefrontal Cortex</text>
+  <text x="380" y="150" text-anchor="middle" class="region-sub" fill="#34d399">GOAL, PROJECT</text>
+
+  <!-- JUDGMENT — Upper frontal -->
+  <ellipse cx="310" cy="170" rx="60" ry="30" fill="#a78bfa" class="region"/>
+  <text x="310" y="165" text-anchor="middle" class="region-label">Belief &amp; Judgment</text>
+  <text x="310" y="178" text-anchor="middle" class="region-sub">Dorsolateral Prefrontal</text>
+  <text x="310" y="190" text-anchor="middle" class="region-sub" fill="#a78bfa">COGNITIVE</text>
+
+  <!-- NORMATIVE — Lower frontal -->
+  <ellipse cx="430" cy="200" rx="55" ry="28" fill="#c084fc" class="region"/>
+  <text x="430" y="195" text-anchor="middle" class="region-label">Norms &amp; Values</text>
+  <text x="430" y="208" text-anchor="middle" class="region-sub">Ventromedial Prefrontal</text>
+  <text x="430" y="220" text-anchor="middle" class="region-sub" fill="#c084fc">CULTURAL</text>
+
+  <!-- SOCIAL — Lateral temporal-parietal -->
+  <ellipse cx="240" cy="250" rx="55" ry="45" fill="#f472b6" class="region"/>
+  <text x="240" y="243" text-anchor="middle" class="region-label">Social Cognition</text>
+  <text x="240" y="256" text-anchor="middle" class="region-sub">Temporal-Parietal Jcn</text>
+  <text x="240" y="269" text-anchor="middle" class="region-sub" fill="#f472b6">PERSON, ORG</text>
+
+  <!-- SEMANTIC — Anterior temporal -->
+  <ellipse cx="480" cy="270" rx="55" ry="35" fill="#fb923c" class="region"/>
+  <text x="480" y="263" text-anchor="middle" class="region-label">Semantic Knowledge</text>
+  <text x="480" y="276" text-anchor="middle" class="region-sub">Anterior Temporal</text>
+  <text x="480" y="289" text-anchor="middle" class="region-sub" fill="#fb923c">CONCEPT, RESEARCH</text>
+
+  <!-- EPISODIC — Medial temporal -->
+  <ellipse cx="330" cy="330" rx="60" ry="30" fill="#60a5fa" class="region"/>
+  <text x="330" y="325" text-anchor="middle" class="region-label">Episodic Memory</text>
+  <text x="330" y="338" text-anchor="middle" class="region-sub">Hippocampal / Med. Temporal</text>
+  <text x="330" y="350" text-anchor="middle" class="region-sub" fill="#60a5fa">ACTIVITY, PLACE</text>
+
+  <!-- HABITUAL — Subcortical central -->
+  <ellipse cx="370" cy="260" rx="40" ry="25" fill="#fb7185" class="region"/>
+  <text x="370" y="255" text-anchor="middle" class="region-label">Habitual Response</text>
+  <text x="370" y="268" text-anchor="middle" class="region-sub">Basal Ganglia</text>
+  <text x="370" y="280" text-anchor="middle" class="region-sub" fill="#fb7185">CAPS (~36 nodes)</text>
+
+  <!-- LIMBIC — Deep central -->
+  <ellipse cx="355" cy="295" rx="30" ry="18" fill="#fbbf24" class="region"/>
+  <text x="355" y="292" text-anchor="middle" class="region-label" font-size="10">Emotional State</text>
+  <text x="355" y="304" text-anchor="middle" class="region-sub">Limbic System</text>
+
+  <!-- CATEGORICAL — Cerebellum (posterior) -->
+  <ellipse cx="350" cy="435" rx="30" ry="18" fill="#6b7280" class="region"/>
+  <text x="350" y="432" text-anchor="middle" class="region-label" font-size="10">Categorical</text>
+  <text x="350" y="444" text-anchor="middle" class="region-sub">Cerebellum</text>
+  <text x="350" y="455" text-anchor="middle" class="region-sub" fill="#6b7280">TYPE_SYSTEM</text>
+
+  <!-- Legend -->
+  <rect x="560" y="380" width="120" height="100" fill="#1a1d27" rx="4" stroke="#2d3142" stroke-width="1"/>
+  <text x="620" y="398" text-anchor="middle" class="region-sub" fill="#8b8fa3" font-weight="600">INTERACTION</text>
+  <circle cx="575" cy="415" r="4" fill="#34d399"/>
+  <text x="585" y="419" class="region-sub">Pill filter</text>
+  <circle cx="575" cy="435" r="4" fill="#facc15"/>
+  <text x="585" y="439" class="region-sub">Click highlight</text>
+  <circle cx="575" cy="455" r="4" fill="#6366f1"/>
+  <text x="585" y="459" class="region-sub">Ego drill-down</text>
+</svg>

@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 Two parallel goals this phase: build a quality framework that would catch problems automatically, and expand the language coverage beyond Java.
 

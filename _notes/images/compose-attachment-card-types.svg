@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <style>
+      .box { stroke: #374151; stroke-width: 1.5; rx: 6; }
+      .factory { fill: #eff6ff; }
+      .output { fill: #f0fdf4; }
+      .label { font-weight: 600; font-size: 12; fill: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+      .method { font-size: 14; font-weight: 700; fill: #1e40af; font-family: 'SF Mono', 'Fira Code', monospace; }
+      .field { font-size: 12; fill: #1f2937; font-family: 'SF Mono', 'Fira Code', monospace; }
+      .note { font-size: 11; fill: #6b7280; font-style: italic; }
+      .arrow { stroke: #6b7280; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .title { font-size: 15; font-weight: 700; fill: #111827; }
+      .guard { fill: #fef2f2; stroke: #dc2626; stroke-width: 1; rx: 4; }
+      .guard-text { font-size: 11; fill: #dc2626; font-weight: 600; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="28" text-anchor="middle" class="title">ComposeAttachment — three entry points, two builder types</text>
+
+  <!-- Factory methods column -->
+  <rect x="20" y="50" width="240" height="270" class="box factory"/>
+  <text x="40" y="72" class="label">Factory Methods</text>
+
+  <text x="40" y="105" class="method">adaptive(contentJson)</text>
+  <text x="40" y="122" class="note">→ Builder (raw JSON + optional preview)</text>
+
+  <line x1="40" y1="140" x2="240" y2="140" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="40" y="170" class="method">hero(title, sub, img)</text>
+  <text x="40" y="187" class="note">→ CardBuilder (structured content)</text>
+
+  <line x1="40" y1="205" x2="240" y2="205" stroke="#e5e7eb" stroke-width="1"/>
+
+  <text x="40" y="235" class="method">thumbnail(title, sub, img)</text>
+  <text x="40" y="252" class="note">→ CardBuilder (structured content)</text>
+
+  <!-- Null guard callout -->
+  <rect x="40" y="275" width="200" height="30" class="guard"/>
+  <text x="50" y="295" class="guard-text">title: requireNonNull — all paths</text>
+
+  <!-- Arrow from factory to output -->
+  <path d="M260,110 L300,110" class="arrow"/>
+  <path d="M260,178 L300,200" class="arrow"/>
+  <path d="M260,243 L300,280" class="arrow"/>
+
+  <!-- Output column -->
+  <rect x="300" y="50" width="400" height="270" class="box output"/>
+  <text x="320" y="72" class="label">Output JSON</text>
+
+  <!-- Adaptive output -->
+  <text x="320" y="100" class="field">{ contentType: "…card.adaptive",</text>
+  <text x="330" y="116" class="field">  content: <tspan fill="#b45309">{caller JSON}</tspan>,</text>
+  <text x="330" y="132" class="field">  preview: { …thumbnail… } }</text>
+
+  <line x1="320" y1="150" x2="680" y2="150" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Hero output -->
+  <text x="320" y="175" class="field">{ contentType: "…card.hero",</text>
+  <text x="330" y="191" class="field">  content: { title, subtitle?,</text>
+  <text x="330" y="207" class="field">             images?: [{url}] } }</text>
+
+  <line x1="320" y1="225" x2="680" y2="225" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- Thumbnail output -->
+  <text x="320" y="250" class="field">{ contentType: "…card.thumbnail",</text>
+  <text x="330" y="266" class="field">  content: { title, subtitle?,</text>
+  <text x="330" y="282" class="field">             images?: [{url}] } }</text>
+
+  <!-- Shared structure callout -->
+  <text x="320" y="308" class="note">Hero and Thumbnail share the same content structure — only contentType differs</text>
+</svg>

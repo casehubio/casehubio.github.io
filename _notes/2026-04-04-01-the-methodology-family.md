@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 The original cc-praxis skills were all about working with code — reviews, commits, dependency updates, observability. But there's a whole class of work that isn't code: design decisions, ideas that aren't ready to act on, moments when the project pivots, hard-won knowledge that gets rediscovered by the next person.
 

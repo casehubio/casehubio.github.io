@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="'Inter', 'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="340" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">Capture scope registration — where null values break</text>
+
+  <!-- Step 1: Plugin output -->
+  <rect x="30" y="52" width="200" height="72" rx="6" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="130" y="72" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Records.toMap(result)</text>
+  <text x="130" y="92" text-anchor="middle" font-size="10" fill="#64748b">Preserves null record fields</text>
+  <text x="130" y="110" text-anchor="middle" font-size="10" font-family="'JetBrains Mono', monospace" fill="#059669">website=null, cursor=null</text>
+
+  <!-- Arrow 1 -->
+  <line x1="230" y1="88" x2="270" y2="88" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Result.of -->
+  <rect x="275" y="52" width="170" height="72" rx="6" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="360" y="72" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Result.of(output)</text>
+  <text x="360" y="92" text-anchor="middle" font-size="10" fill="#64748b">Requires non-null keys</text>
+  <text x="360" y="110" text-anchor="middle" font-size="10" fill="#059669">Null values: allowed ✓</text>
+
+  <!-- Arrow 2 -->
+  <line x1="445" y1="88" x2="485" y2="88" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Map.copyOf -->
+  <rect x="490" y="52" width="200" height="72" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="590" y="72" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">Map.copyOf(output)</text>
+  <text x="590" y="92" text-anchor="middle" font-size="10" fill="#64748b">Requires non-null values</text>
+  <text x="590" y="110" text-anchor="middle" font-size="10" fill="#dc2626">Null values: NPE ✗</text>
+
+  <!-- The fix path -->
+  <text x="360" y="160" text-anchor="middle" font-size="12" font-weight="600" fill="#475569">▼  Fix</text>
+
+  <!-- Step 1b: Plugin output (same) -->
+  <rect x="30" y="182" width="200" height="72" rx="6" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="130" y="202" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Records.toMap(result)</text>
+  <text x="130" y="222" text-anchor="middle" font-size="10" fill="#64748b">Preserves null record fields</text>
+  <text x="130" y="240" text-anchor="middle" font-size="10" font-family="'JetBrains Mono', monospace" fill="#059669">website=null, cursor=null</text>
+
+  <!-- Arrow 1b -->
+  <line x1="230" y1="218" x2="270" y2="218" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2b: Result.of (same) -->
+  <rect x="275" y="182" width="170" height="72" rx="6" fill="#fff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="360" y="202" text-anchor="middle" font-size="11" font-weight="600" fill="#334155">Result.of(output)</text>
+  <text x="360" y="222" text-anchor="middle" font-size="10" fill="#64748b">Requires non-null keys</text>
+  <text x="360" y="240" text-anchor="middle" font-size="10" fill="#059669">Null values: allowed ✓</text>
+
+  <!-- Arrow 2b -->
+  <line x1="445" y1="218" x2="485" y2="218" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3b: LinkedHashMap -->
+  <rect x="490" y="182" width="200" height="72" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+  <text x="590" y="198" text-anchor="middle" font-size="10" font-weight="600" fill="#16a34a">Collections.unmodifiableMap(</text>
+  <text x="590" y="214" text-anchor="middle" font-size="10" font-weight="600" fill="#16a34a">new LinkedHashMap&lt;&gt;(output))</text>
+  <text x="590" y="234" text-anchor="middle" font-size="10" fill="#64748b">Allows null values</text>
+  <text x="590" y="250" text-anchor="middle" font-size="10" fill="#16a34a">Null values: preserved ✓</text>
+
+  <!-- Context labels -->
+  <text x="130" y="296" text-anchor="middle" font-size="10" fill="#94a3b8">Plugin layer</text>
+  <text x="360" y="296" text-anchor="middle" font-size="10" fill="#94a3b8">Result API</text>
+  <text x="590" y="296" text-anchor="middle" font-size="10" fill="#94a3b8">Capture scope</text>
+
+  <!-- Footnote -->
+  <text x="360" y="326" text-anchor="middle" font-size="9" fill="#94a3b8">Map.copyOf() — added in Java 10 — rejects null keys AND values. LinkedHashMap allows both.</text>
+</svg>

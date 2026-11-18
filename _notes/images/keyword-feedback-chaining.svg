@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" font-family="system-ui, -apple-system, sans-serif">
+  <style>
+    text { font-size: 12px; fill: #1a1a2e; }
+    .title { font-size: 15px; font-weight: 600; }
+    .iter { font-size: 13px; font-weight: 600; }
+    .label { font-size: 11px; }
+    .dim { font-size: 10px; fill: #888; }
+    .box { rx: 6; ry: 6; stroke-width: 1.5; }
+    .arrow { stroke-width: 1.5; fill: none; marker-end: url(#ah); }
+    .feedback { stroke-width: 1.5; fill: none; stroke-dasharray: 6,3; marker-end: url(#ah); }
+  </style>
+  <defs>
+    <marker id="ah" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="28" text-anchor="middle" class="title">Strategy chaining via keyword SEC re-evaluation</text>
+
+  <!-- Iteration 1 -->
+  <text x="30" y="75" class="iter" fill="#2563eb">Iteration 0</text>
+
+  <rect x="30" y="85" width="140" height="50" class="box" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="100" y="105" text-anchor="middle" font-size="11">Controllability: 0.45</text>
+  <text x="100" y="120" text-anchor="middle" font-size="11" fill="#2563eb">→ ALL categories</text>
+
+  <line x1="170" y1="110" x2="210" y2="110" class="arrow" stroke="#555"/>
+
+  <rect x="210" y="85" width="150" height="50" class="box" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="285" y="105" text-anchor="middle" font-size="11">Personality resolution</text>
+  <text x="285" y="120" text-anchor="middle" font-size="11" fill="#16a34a">reinterp 0.70 wins</text>
+
+  <line x1="360" y1="110" x2="400" y2="110" class="arrow" stroke="#555"/>
+
+  <rect x="400" y="85" width="145" height="50" class="box" fill="#fefce8" stroke="#ca8a04"/>
+  <text x="472" y="105" text-anchor="middle" font-size="11" font-weight="600">REINTERPRETATION</text>
+  <text x="472" y="120" text-anchor="middle" class="dim">or SEEK_INFORMATION</text>
+
+  <line x1="545" y1="110" x2="575" y2="110" class="arrow" stroke="#555"/>
+
+  <rect x="575" y="85" width="120" height="50" class="box" fill="#faf5ff" stroke="#9333ea"/>
+  <text x="635" y="105" text-anchor="middle" font-size="11">LLM generates</text>
+  <text x="635" y="120" text-anchor="middle" font-size="11" fill="#9333ea">agentic narrative</text>
+
+  <!-- Feedback arrow -->
+  <path d="M 635 135 L 635 170 L 100 170 L 100 200" class="feedback" stroke="#dc2626"/>
+  <text x="368" y="165" text-anchor="middle" font-size="11" fill="#dc2626">keyword SEC re-evaluation on reinterpreted narrative</text>
+
+  <!-- Keyword analysis -->
+  <rect x="30" y="200" width="300" height="60" class="box" fill="#fff1f2" stroke="#dc2626"/>
+  <text x="40" y="220" font-size="11" fill="#444">CopingCheck scans narrative for agency keywords:</text>
+  <text x="40" y="237" font-size="11" fill="#16a34a">"can", "able", "approach", "navigate", "resolve"…</text>
+  <text x="40" y="252" font-size="11" fill="#dc2626">controllability = agency / (agency + helpless) → 0.72</text>
+
+  <line x1="330" y1="230" x2="370" y2="230" class="arrow" stroke="#555"/>
+
+  <rect x="370" y="200" width="300" height="60" class="box" fill="#fff7ed" stroke="#ea580c"/>
+  <text x="380" y="220" font-size="11" fill="#444">RelevanceCheck sustains emotions:</text>
+  <text x="380" y="237" font-size="11" fill="#444">drive names (trust, survival, competence) in narrative?</text>
+  <text x="380" y="252" font-size="11" fill="#ea580c">→ emotion intensity stays above coping threshold</text>
+
+  <!-- Iteration 2 -->
+  <text x="30" y="295" class="iter" fill="#2563eb">Iteration 1</text>
+
+  <rect x="30" y="305" width="140" height="50" class="box" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="100" y="325" text-anchor="middle" font-size="11">Controllability: 0.72</text>
+  <text x="100" y="340" text-anchor="middle" font-size="11" fill="#2563eb">→ INTENTION only</text>
+
+  <line x1="170" y1="330" x2="210" y2="330" class="arrow" stroke="#555"/>
+
+  <rect x="210" y="305" width="150" height="50" class="box" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="285" y="325" text-anchor="middle" font-size="11">Personality resolution</text>
+  <text x="285" y="340" text-anchor="middle" font-size="11" fill="#16a34a">planful 0.55 wins</text>
+
+  <line x1="360" y1="330" x2="400" y2="330" class="arrow" stroke="#555"/>
+
+  <rect x="400" y="305" width="145" height="50" class="box" fill="#fefce8" stroke="#ca8a04"/>
+  <text x="472" y="325" text-anchor="middle" font-size="11" font-weight="600">PLANNING</text>
+  <text x="472" y="340" text-anchor="middle" class="dim">cross-category chain</text>
+
+  <line x1="545" y1="330" x2="575" y2="330" class="arrow" stroke="#555"/>
+
+  <rect x="575" y="305" width="120" height="50" class="box" fill="#faf5ff" stroke="#9333ea"/>
+  <text x="635" y="325" text-anchor="middle" font-size="11">LLM generates</text>
+  <text x="635" y="340" text-anchor="middle" font-size="11" fill="#9333ea">action-oriented plan</text>
+
+  <!-- Key insight -->
+  <rect x="30" y="390" width="660" height="70" class="box" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="360" y="412" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">The chaining mechanism is emergent, not scripted</text>
+  <text x="360" y="432" text-anchor="middle" font-size="11" fill="#64748b">Reinterpretation produces agency-saturated language → keyword check shifts controllability up</text>
+  <text x="360" y="448" text-anchor="middle" font-size="11" fill="#64748b">→ predictor filters to INTENTION → different personality dimension wins → different strategy selected</text>
+</svg>

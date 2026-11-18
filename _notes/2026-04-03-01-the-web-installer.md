@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 Managing skills was entirely CLI-based. To install a bundle you ran a command. To see what was installed you ran another command. To understand how skills chain together you read Markdown.
 

@@ -3,6 +3,7 @@
 *Part 4 of an evolving series on building a native macOS app with Java, Panama FFM, and Claude.*
 
 ---
+layout: post
 
 Building the split-pane UI for Claude Desktop CLI took one session and produced seven distinct bugs. None of them crashed the app. Most of them produced no error at all. They just silently didn't work — which, it turns out, is the hardest kind of bug to fix.
 

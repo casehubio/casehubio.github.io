@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "The Gaps That Tests Don't Find"
 date: 2026-11-17
 entry_type: note

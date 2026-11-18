@@ -4,6 +4,7 @@
 **Type:** phase-update
 
 ---
+layout: post
 
 Skills are only useful if they're actually installed. After the first nine, I needed a way to distribute them — ideally without requiring anyone to clone a repo and manually copy files around.
 

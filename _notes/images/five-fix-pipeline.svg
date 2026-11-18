@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#666"/>
+    </marker>
+    <marker id="arrow-fix" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="28" text-anchor="middle" font-size="16" font-weight="600" fill="#1a1a2e">Five Fixes Across the Cognitive Pipeline</text>
+
+  <!-- Pipeline stages -->
+  <rect x="30" y="60" width="140" height="50" rx="6" fill="#f8f9fa" stroke="#ccc"/>
+  <text x="100" y="82" text-anchor="middle" font-weight="500" fill="#333">Observation</text>
+  <text x="100" y="98" text-anchor="middle" font-size="11" fill="#666">raw input</text>
+
+  <rect x="210" y="60" width="140" height="50" rx="6" fill="#f8f9fa" stroke="#ccc"/>
+  <text x="280" y="82" text-anchor="middle" font-weight="500" fill="#333">LLM Appraisal</text>
+  <text x="280" y="98" text-anchor="middle" font-size="11" fill="#666">SEC dimensions</text>
+
+  <rect x="390" y="60" width="140" height="50" rx="6" fill="#fff3cd" stroke="#f0ad4e" stroke-width="2"/>
+  <text x="460" y="82" text-anchor="middle" font-weight="600" fill="#856404">EmotionMapper</text>
+  <text x="460" y="98" text-anchor="middle" font-size="11" fill="#856404">dims → emotions</text>
+
+  <rect x="570" y="60" width="190" height="50" rx="6" fill="#f8f9fa" stroke="#ccc"/>
+  <text x="665" y="82" text-anchor="middle" font-weight="500" fill="#333">Channel Weights</text>
+  <text x="665" y="98" text-anchor="middle" font-size="11" fill="#666">somatic / attentional / ...</text>
+
+  <!-- Arrows row 1 -->
+  <line x1="170" y1="85" x2="208" y2="85" stroke="#666" marker-end="url(#arrow)"/>
+  <line x1="350" y1="85" x2="388" y2="85" stroke="#666" marker-end="url(#arrow)"/>
+  <line x1="530" y1="85" x2="568" y2="85" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- Fix 1: Self-blame routing -->
+  <rect x="390" y="130" width="140" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="460" y="146" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Fix 1: Self-blame</text>
+  <text x="460" y="160" text-anchor="middle" font-size="10" fill="#1e40af">ANGER → REMORSE</text>
+  <line x1="460" y1="110" x2="460" y2="128" stroke="#2563eb" stroke-dasharray="4,3" marker-end="url(#arrow-fix)"/>
+
+  <!-- Fix 2: Urgency → ATTENDING -->
+  <rect x="390" y="180" width="140" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="460" y="196" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Fix 2: Urgency</text>
+  <text x="460" y="210" text-anchor="middle" font-size="10" fill="#1e40af">→ ATTENDING</text>
+  <line x1="460" y1="170" x2="460" y2="178" stroke="#2563eb" stroke-dasharray="4,3"/>
+
+  <!-- Fix 3: Channel weight polarization -->
+  <rect x="570" y="130" width="190" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="665" y="146" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Fix 3: Blend 0.4→0.75</text>
+  <text x="665" y="160" text-anchor="middle" font-size="10" fill="#1e40af">sharper profiles</text>
+  <line x1="665" y1="110" x2="665" y2="128" stroke="#2563eb" stroke-dasharray="4,3" marker-end="url(#arrow-fix)"/>
+
+  <!-- Row 2: Drives + Search Budget + CAPS -->
+  <rect x="30" y="270" width="160" height="50" rx="6" fill="#fff3cd" stroke="#f0ad4e" stroke-width="2"/>
+  <text x="110" y="290" text-anchor="middle" font-weight="600" fill="#856404">Drive Trace</text>
+  <text x="110" y="306" text-anchor="middle" font-size="11" fill="#856404">+ intensities</text>
+
+  <rect x="230" y="270" width="160" height="50" rx="6" fill="#fff3cd" stroke="#f0ad4e" stroke-width="2"/>
+  <text x="310" y="290" text-anchor="middle" font-weight="600" fill="#856404">Search Budget</text>
+  <text x="310" y="306" text-anchor="middle" font-size="11" fill="#856404">+ channel coupling</text>
+
+  <rect x="430" y="270" width="160" height="50" rx="6" fill="#fff3cd" stroke="#f0ad4e" stroke-width="2"/>
+  <text x="510" y="290" text-anchor="middle" font-weight="600" fill="#856404">CAPS Settler</text>
+  <text x="510" y="306" text-anchor="middle" font-size="11" fill="#856404">damping + attractors</text>
+
+  <rect x="630" y="270" width="140" height="50" rx="6" fill="#f8f9fa" stroke="#ccc"/>
+  <text x="700" y="290" text-anchor="middle" font-weight="500" fill="#333">Prompt</text>
+  <text x="700" y="306" text-anchor="middle" font-size="11" fill="#666">sections rendered</text>
+
+  <!-- Arrows row 2 -->
+  <line x1="190" y1="295" x2="228" y2="295" stroke="#666" marker-end="url(#arrow)"/>
+  <line x1="390" y1="295" x2="428" y2="295" stroke="#666" marker-end="url(#arrow)"/>
+  <line x1="590" y1="295" x2="628" y2="295" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- Cross-connection: channel weights → search budget -->
+  <path d="M665,110 L665,250 L390,250 L390,268" fill="none" stroke="#2563eb" stroke-dasharray="4,3" marker-end="url(#arrow-fix)"/>
+
+  <!-- Fix 4: Drive enrichment -->
+  <rect x="30" y="340" width="160" height="40" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="110" y="356" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Fix 4: Intensities</text>
+  <text x="110" y="370" text-anchor="middle" font-size="10" fill="#1e40af">in PipelineTrace</text>
+  <line x1="110" y1="320" x2="110" y2="338" stroke="#2563eb" stroke-dasharray="4,3" marker-end="url(#arrow-fix)"/>
+
+  <!-- Fix 5: CAPS settling -->
+  <rect x="430" y="340" width="160" height="56" rx="4" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="510" y="356" text-anchor="middle" font-size="11" font-weight="600" fill="#1e40af">Fix 5: Momentum</text>
+  <text x="510" y="370" text-anchor="middle" font-size="10" fill="#1e40af">damping 0.4</text>
+  <text x="510" y="384" text-anchor="middle" font-size="10" fill="#1e40af">filter 0.1→0.55</text>
+  <line x1="510" y1="320" x2="510" y2="338" stroke="#2563eb" stroke-dasharray="4,3" marker-end="url(#arrow-fix)"/>
+
+  <!-- Scores before/after -->
+  <rect x="30" y="430" width="740" height="80" rx="6" fill="#f0fdf4" stroke="#86efac"/>
+  <text x="400" y="452" text-anchor="middle" font-size="12" font-weight="600" fill="#166534">Scenario means: before → after</text>
+  <text x="110" y="474" text-anchor="middle" font-size="11" fill="#166534">Curiosity</text>
+  <text x="110" y="492" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">3.97 → 4.32</text>
+  <text x="270" y="474" text-anchor="middle" font-size="11" fill="#166534">Shame</text>
+  <text x="270" y="492" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">4.50 → 4.62</text>
+  <text x="420" y="474" text-anchor="middle" font-size="11" fill="#166534">Security</text>
+  <text x="420" y="492" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">4.13 → 4.37</text>
+  <text x="560" y="474" text-anchor="middle" font-size="11" fill="#166534">Trajectory</text>
+  <text x="560" y="492" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">3.80 → 4.10</text>
+  <text x="700" y="474" text-anchor="middle" font-size="11" fill="#166534">CAPS</text>
+  <text x="700" y="492" text-anchor="middle" font-size="13" font-weight="600" fill="#166534">3.60 → 4.38</text>
+
+  <!-- Legend -->
+  <rect x="30" y="420" width="10" height="10" rx="2" fill="#fff3cd" stroke="#f0ad4e"/>
+  <text x="45" y="430" font-size="10" fill="#666">Changed component</text>
+  <rect x="160" y="420" width="10" height="10" rx="2" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="175" y="430" font-size="10" fill="#666">Specific fix</text>
+</svg>

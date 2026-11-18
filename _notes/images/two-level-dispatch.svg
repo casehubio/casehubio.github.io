@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="'Segoe UI', system-ui, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="340" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#222">Two-Level Dispatch</text>
+
+  <!-- Level 1: Activity Name -->
+  <rect x="20" y="48" width="680" height="130" rx="6" fill="#e8f0fe" stroke="#4285f4" stroke-width="1.5"/>
+  <text x="36" y="68" font-size="12" font-weight="600" fill="#1a56db">Level 1 — Activity Name → InvokeHandler</text>
+
+  <!-- Teams Inbound Connector box -->
+  <rect x="40" y="82" width="160" height="40" rx="4" fill="#fff" stroke="#888"/>
+  <text x="120" y="106" text-anchor="middle" font-size="11" fill="#333">TeamsInboundConnector</text>
+
+  <!-- Arrow to InvokeService -->
+  <line x1="200" y1="102" x2="240" y2="102" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="220" y="94" text-anchor="middle" font-size="10" fill="#666">invoke</text>
+
+  <!-- InvokeService box -->
+  <rect x="242" y="82" width="130" height="40" rx="4" fill="#fff" stroke="#888"/>
+  <text x="307" y="100" text-anchor="middle" font-size="11" fill="#333">InvokeService</text>
+  <text x="307" y="114" text-anchor="middle" font-size="10" fill="#888">dispatch(name)</text>
+
+  <!-- Arrows to handlers -->
+  <line x1="372" y1="92" x2="430" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="372" y1="102" x2="430" y2="102" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="372" y1="112" x2="430" y2="124" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Handler boxes -->
+  <rect x="432" y="62" width="250" height="28" rx="4" fill="#e6f4ea" stroke="#34a853"/>
+  <text x="557" y="80" text-anchor="middle" font-size="10" fill="#137333">composeExtension/query → SearchHandler</text>
+
+  <rect x="432" y="94" width="250" height="28" rx="4" fill="#e6f4ea" stroke="#34a853"/>
+  <text x="557" y="112" text-anchor="middle" font-size="10" fill="#137333">composeExtension/fetchTask → ActionHandler</text>
+
+  <rect x="432" y="126" width="250" height="28" rx="4" fill="#e6f4ea" stroke="#34a853"/>
+  <text x="557" y="144" text-anchor="middle" font-size="10" fill="#137333">composeExtension/queryLink → UnfurlHandler</text>
+
+  <!-- Level 2: commandId -->
+  <rect x="20" y="192" width="680" height="130" rx="6" fill="#fef7e0" stroke="#f9ab00" stroke-width="1.5"/>
+  <text x="36" y="212" font-size="12" font-weight="600" fill="#b06000">Level 2 — commandId → routing within handler</text>
+
+  <!-- Handler box -->
+  <rect x="40" y="228" width="200" height="40" rx="4" fill="#fff" stroke="#888"/>
+  <text x="140" y="246" text-anchor="middle" font-size="11" fill="#333">SearchHandler</text>
+  <text x="140" y="260" text-anchor="middle" font-size="10" fill="#888">name() = "…/query"</text>
+
+  <!-- Arrow to switch -->
+  <line x1="240" y1="248" x2="290" y2="248" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="265" y="240" text-anchor="middle" font-size="10" fill="#666">value</text>
+
+  <!-- Switch box -->
+  <rect x="292" y="228" width="140" height="40" rx="4" fill="#fff" stroke="#888"/>
+  <text x="362" y="246" text-anchor="middle" font-size="11" fill="#333">switch(commandId)</text>
+  <text x="362" y="260" text-anchor="middle" font-size="10" fill="#888">from manifest id</text>
+
+  <!-- Arrows to routes -->
+  <line x1="432" y1="240" x2="480" y2="232" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="432" y1="256" x2="480" y2="264" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Route boxes -->
+  <rect x="482" y="218" width="200" height="28" rx="4" fill="#fce8e6" stroke="#ea4335"/>
+  <text x="582" y="236" text-anchor="middle" font-size="10" fill="#a50e0e">"searchProducts" → product search</text>
+
+  <rect x="482" y="250" width="200" height="28" rx="4" fill="#fce8e6" stroke="#ea4335"/>
+  <text x="582" y="268" text-anchor="middle" font-size="10" fill="#a50e0e">"searchOrders" → order search</text>
+</svg>
