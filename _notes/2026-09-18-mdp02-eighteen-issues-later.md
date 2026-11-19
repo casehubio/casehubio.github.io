@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Eighteen Issues Later"
 date: 2026-09-18
 entry_type: note

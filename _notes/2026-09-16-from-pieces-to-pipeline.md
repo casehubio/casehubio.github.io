@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "From Pieces to Pipeline"
 date: 2026-09-16
 entry_type: note

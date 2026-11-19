@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Type Safety as Documentation"
 date: 2026-09-01
 author: mdp

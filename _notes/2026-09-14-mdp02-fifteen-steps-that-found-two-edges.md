@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Fifteen steps that found two edges"
 date: 2026-09-14
 author: mdp

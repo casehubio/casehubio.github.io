@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Lit Migration"
 date: 2026-07-20
 type: phase-update

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "One Pipe to Rule Them All"
 date: 2026-09-16
 author: mdp

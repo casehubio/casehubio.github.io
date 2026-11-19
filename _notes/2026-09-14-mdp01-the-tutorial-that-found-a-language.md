@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The tutorial that found a language"
 date: 2026-09-14
 author: mdp

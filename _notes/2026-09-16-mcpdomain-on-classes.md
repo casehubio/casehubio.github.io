@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "@McpDomain on Classes: One File, Four Outputs"
 date: 2026-09-16
 entry_type: note

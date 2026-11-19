@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Inheritance Without the Inheritance"
 date: 2026-09-03
 author: mdp

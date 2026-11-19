@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Server-Side Data Providers — From SPI to Prometheus Showcase"
 date: 2026-09-25
 author: mdp

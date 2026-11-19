@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "When the Gallery Met the Server"
 date: 2026-11-04
 author: mdp

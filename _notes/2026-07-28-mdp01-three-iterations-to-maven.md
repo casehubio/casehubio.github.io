@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: Three iterations to Maven
 date: 2026-07-28
 author: Mark Proctor

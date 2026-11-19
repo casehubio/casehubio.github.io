@@ -1,5 +1,4 @@
----layout: post
-
+---
 entry_type: note
 subtype: diary
 title: "Grid layout drops a dimension"
