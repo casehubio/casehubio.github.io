@@ -1,5 +1,4 @@
 ---
-layout: post
 entry_type: note
 subtype: diary
 title: "The frame loop you can't hook into"

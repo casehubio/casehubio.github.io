@@ -106,9 +106,3 @@ The change detection work made this concrete. `ChangeSource` is a perfectly good
 The fix wasn't to make `ChangeSource` agent-friendly — that would have compromised its pipeline role. It was to build a separate agent-facing query on `CorpusEntryStore` that delegates to the infrastructure internally. The agent gets `Instant since`. The backend maps that to whatever cursor semantics it needs. Two consumers, two APIs, one truth.
 
 This pattern generalises. Any system building MCP tools for agent consumption will hit the same tension: the infrastructure patterns that serve developers well create a hostile experience for agents. The fix is to design the agent-facing API as its own surface, with its own affordances, and let the infrastructure serve it. Not the other way around.
-
-Three questions to catch it early. If you're wrapping an internal SPI as an MCP tool, ask:
-
-- **Does the return type require a follow-up call?** If the agent has to call something else to get usable content — raw bytes it must decode, IDs it must resolve, references it must dereference — you're exposing plumbing. Return everything the agent needs to reason in one response.
-- **Does the caller need to manage state between calls?** Cursors, session tokens, pagination handles the caller must store and pass back. Agents don't persist state between sessions. If the protocol requires state, the system should manage it.
-- **Does the parameter require knowledge the caller can't have?** Opaque cursor strings, internal version numbers, implementation-specific identifiers. If the caller needs to know your internals to construct the request, the abstraction is wrong. Use what the caller naturally has — timestamps, names, content.

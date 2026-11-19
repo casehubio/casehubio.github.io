@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The observer that didn't change the driver"
 date: 2026-08-14
 author: mdp

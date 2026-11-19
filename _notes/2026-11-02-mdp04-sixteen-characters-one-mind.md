@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Sixteen characters, one mind"
 date: 2026-11-02
 author: mdp

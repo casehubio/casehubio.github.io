@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Snapshot Over Replay — Why Database Recovery Beats Event Log Reconstruction"
 date: 2026-09-23
 author: mdp

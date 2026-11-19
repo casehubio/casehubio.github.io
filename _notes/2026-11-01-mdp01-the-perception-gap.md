@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The perception gap — when your agent has eyes but cannot see"
 date: 2026-11-01
 author: mdp

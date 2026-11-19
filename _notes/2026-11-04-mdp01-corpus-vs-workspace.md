@@ -19,7 +19,7 @@ I ran a formal audit this week — walking the code through eight diverse use ca
 
 The storage layer is genuinely domain-neutral. `CorpusStore`, `CorpusReader`, `ChangeSource` — byte-oriented SPIs with no content assumptions. The RAG pipeline is clean too: `MetadataExtractor` is pluggable, `CorpusIngestionService` delegates to it, any document format works if you provide the right extractor.
 
-The management layer is where Hortora bled through. `CorpusType.KNOWLEDGE_GARDEN` as a constant in the API. `GardenMetadataExtractor` hardcoded to `.md` files with YAML frontmatter. `FederationConfig.gardenId`. Column names like `ge_id` in the database schema. `InteractionType.SELF_REFLECTION` and `ActivityType.DEBUGGING` baked into the SPI — concepts that make sense for a Claude session transcript corpus, but mean nothing to a clinical guideline library.
+The management layer is where Hortora bled through. `CorpusType.KNOWLEDGE_GARDEN` as a constant in the API. `CorpusMetadataExtractor` hardcoded to `.md` files with YAML frontmatter. `FederationConfig.gardenId`. Column names like `ge_id` in the database schema. `InteractionType.SELF_REFLECTION` and `ActivityType.DEBUGGING` baked into the SPI — concepts that make sense for a Claude session transcript corpus, but mean nothing to a clinical guideline library.
 
 Thirteen leaks total. Some cosmetic (naming), some structural (String-only body, closed enums), some architectural (scoring strategies hardwired to garden freshness tiers). The remediation is straightforward — three phases, from quick renames to a full module extraction — and I've filed issues for each.
 

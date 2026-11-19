@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Six Lines of Boilerplate"
+date: 2026-07-14
+entry_type: note
+subtype: diary
+projects: [casehubio/neocortex]
+---
+
 # Six Lines of Boilerplate
 
 Issue #64 proposed an abstract `CaseMemoryEventBridge` — a base class that CDI event observers would extend to get error isolation, tenant assertion, and Instance lifecycle management when writing to `CaseMemoryStore`. Three repos had the pattern: engine's `CaseMemoryObserver`, devtown's `CaseMemoryEmitter`, and devtown's `FeatureVectorEmitter`.

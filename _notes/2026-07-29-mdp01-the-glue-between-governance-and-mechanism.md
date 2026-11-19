@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Glue Between Governance and Mechanism"
 date: 2026-07-29
 author: Mark Proctor

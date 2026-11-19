@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "When Reasoning Becomes a First-Class Record"
 date: 2026-08-22
 entry_type: note

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Silo That Wasn't"
 date: 2026-09-05
 author: mdp

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Commands capability — slash commands as a ChatPlatform primitive"
 date: 2026-09-27
 author: mdp

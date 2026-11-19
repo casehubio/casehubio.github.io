@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Memory through mood — how cognitive state shapes what an agent remembers"
 date: 2026-11-01
 author: mdp

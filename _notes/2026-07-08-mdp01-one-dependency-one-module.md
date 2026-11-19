@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "One Dependency, One Module"
 date: 2026-07-08
 entry_type: note

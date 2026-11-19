@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Whose rules are these anyway?"
 date: 2026-09-03
 author: mdp

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: The Signals Nobody Handled
 date: 2026-11-08
 sequence: mdp03

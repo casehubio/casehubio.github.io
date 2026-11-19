@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "A2A and MCP — Handler, Not Provisioner"
 date: 2026-08-04
 tags: [casehub, engine, a2a, mcp, architecture, worker-model]

@@ -1,5 +1,4 @@
----layout: post
-
+---
 type: diary
 tags: [multi-agent, convergence, spi, architecture]
 ---

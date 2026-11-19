@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "One Model, Three Signals"
 date: 2026-06-30
 entry_type: note

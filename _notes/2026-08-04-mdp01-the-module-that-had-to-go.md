@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The module that had to go"
 date: 2026-08-04
 type: phase-update

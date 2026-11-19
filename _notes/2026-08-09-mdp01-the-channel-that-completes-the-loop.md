@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The channel that completes the loop"
 date: 2026-08-09
 author: mdp

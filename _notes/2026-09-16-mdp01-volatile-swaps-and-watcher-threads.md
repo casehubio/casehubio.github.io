@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Volatile Swaps and Watcher Threads"
 date: 2026-09-16
 author: mdp

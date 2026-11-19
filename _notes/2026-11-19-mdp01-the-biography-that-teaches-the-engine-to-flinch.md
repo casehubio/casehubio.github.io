@@ -69,4 +69,4 @@ The relevance scoring is configurable: `maxFacets`, `minDisplacement`, `modeRele
 | #1157 | Follow-up: bridge MindMap properties to eidos SituationalProfile records |
 | #1158 | Follow-up: re-extract existing biographies with situational data |
 
-The situational personality system had runtime mechanics. Now it has a source — per-character, evidence-grounded, provenance-tracked. The shadow frame that interprets those shifts will emerge from rendering the data to the LLM, not from a lookup table.r
+The situational personality system had runtime mechanics. Now it has a source — per-character, evidence-grounded, provenance-tracked. The shadow frame that interprets those shifts will emerge from rendering the data to the LLM, not from a lookup table.

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "When \"Created At\" Means \"Deployed At\""
 date: 2026-08-18
 entry_type: note

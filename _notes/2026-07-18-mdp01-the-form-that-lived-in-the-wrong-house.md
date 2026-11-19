@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The form that lived in the wrong house"
 date: 2026-07-18
 tags: [blocks-ui, pages, schema-form, migration, platform-layering]

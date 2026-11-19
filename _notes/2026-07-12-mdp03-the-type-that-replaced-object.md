@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Type That Replaced Object"
 date: 2026-07-12
 entry_type: note

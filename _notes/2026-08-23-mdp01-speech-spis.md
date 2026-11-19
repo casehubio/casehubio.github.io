@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Speech SPIs — voice in, voice out"
 date: 2026-08-23
 author: mdp

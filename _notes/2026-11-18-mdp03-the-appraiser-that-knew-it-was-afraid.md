@@ -64,15 +64,35 @@ Whether explicit rendering improves eval coherence scores without causing narrat
 
 This matters for debugging and for eval. When a character's appraisal seems miscalibrated, you can now trace whether the situational mode was active, what intensity it reached, and whether the facet displacements match the expected direction. Before this, you could see the appraisal output but not the personality state that produced it.
 
+## The wiring that made it real
+
+The situational system existed as code. It didn't exist as a running CDI participant.
+
+`SituationalPersonalityParticipant` has ten constructor dependencies — state service, detector, integrator, config, effective defaults, appraisal accessor, mood accessor, optional trust accessor, journal, clock. The CDI wiring needed producers for `DynamicsConfig`, `PersonalityStateIntegrator`, and `SituationalPersonalityConfig`, plus `Instance<>` wrapping for optional dependencies and a config flag gate in `CognitionCoreFactory`.
+
+The practical consequence: before #1082, every test of the situational pipeline was wired by hand. After it, the participant joins the tick lifecycle like every other cognitive component — discovered by the pipeline builder, activated when `situationalPersonalityEnabled` is true, skipped cleanly when false. The difference between "this code runs in tests" and "this code runs in production" is CDI wiring. That gap is now closed.
+
+## Facets that flow back
+
+The neocortex computes evolved personality — homeOffset drifts, promotions accumulate, facets shift. But eidos, which owns the character's authoritative disposition, was still returning authored values. `findEffective()` consulted `PersonalityStateSource` for the lived profile (disposition term reweighting) but ignored AMPD facet evolution entirely.
+
+`EidosCognitiveProfileBridge.composeFacets()` closes this loop. It reads homeOffset and promoted from the personality state snapshot, scales them to the 0-100 AMPD range, and clamps the result. The composition is additive: `clamp(0, 100, authoredScore + (homeOffset + promoted) * 100)`. Transient displacement is deliberately excluded — the eidos bridge surfaces lasting character evolution, not momentary situational shifts.
+
+This is the return path of personality evolution. Neocortex detects situations, shifts facets, and over time promotes lasting drift. Eidos now reflects that drift when any consumer calls `findEffective()`. The CDE, the appraisal pipeline, the prompt renderer — anything that reads facet scores through eidos gets the evolved values, not just the authored baseline.
+
+![Personality evolution feedback loop](images/personality-evolution-before-after.svg)
+
 ## What changed
 
-Four issues, one theme: closing the gap between what the situational system knows and what the rest of the pipeline sees.
+Six issues, one theme: closing every loop in the situational personality system.
 
 | Issue | What it did |
 |-------|------------|
-| #1068 | Facet origin encodes baseline score |
-| #1084 | PipelineTrace gains situational snapshot |
+| #1082 | CDI wiring makes the situational participant a live pipeline component |
+| #1135 | AMPD facet composition flows evolved personality back to eidos |
+| #1068 | Facet origin encodes baseline score for appraiser context |
+| #1084 | PipelineTrace gains situational snapshot for observability |
 | #1083 | RelationalSchemaResolver replaces hardcoded trust |
 | #1059 | SituationalModeContext + ShadowArchetypePromptSection |
 
-The situational personality system was already working. Now the appraisal pipeline knows it.l
+The situational personality system was already working. Now it's wired into production, visible to the appraisal pipeline, and its long-term effects flow back to the character's authoritative disposition. The loop is closed.

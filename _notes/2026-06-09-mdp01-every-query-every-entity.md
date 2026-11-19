@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Every Query, Every Entity"
 date: 2026-06-09
 author: mdp

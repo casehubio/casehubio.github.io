@@ -70,7 +70,7 @@ Hexagonal focuses on the **port/adapter boundary** — what is a driving adapter
 
 This is the sharpest structural choice. Layered architecture organises by technical concern — all controllers together, all services together, all repositories together. Vertical slices organise by feature — everything needed for Feature A lives together.
 
-![Layered vs Vertical Slice Architecture](/assets/casehub/layered-vs-slices.svg)
+![Layered vs Vertical Slice Architecture](images/layered-vs-slices.svg)
 
 | Dimension | Layered | Vertical Slices |
 |-----------|---------|-----------------|

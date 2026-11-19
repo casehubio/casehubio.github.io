@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Four goals, one word"
 date: 2026-09-22
 author: mdp

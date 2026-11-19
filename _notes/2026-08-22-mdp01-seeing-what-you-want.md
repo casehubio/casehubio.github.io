@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: Seeing What You Want
 date: 2026-08-22
 author: Mark Proctor

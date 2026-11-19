@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Gate That Blocked Everything"
 date: 2026-08-02
 author: Mark Proctor

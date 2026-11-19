@@ -1,8 +1,7 @@
----layout: post
-
+---
 title: "Upstream consumption and push protocol adoption"
 date: 2026-08-11
-tags: [chat-app, mosaic, pages-push, websocket, real-time]
+tags: [chat-app, blocks-ui, pages-push, websocket, real-time]
 status: draft
 entry_type: note
 subtype: diary
@@ -11,7 +10,7 @@ subtype: diary
 # Upstream consumption and push protocol adoption
 
 Six issues in a single slot. The original plan was consumption — pull in
-the mosaic#119 enhancements that had been developed locally and
+the blocks-ui#119 enhancements that had been developed locally and
 upstreamed. But once we started, we kept going.
 
 ## The consumption sweep
@@ -33,8 +32,8 @@ only surfaces at runtime.
 
 From there: LayoutState + LayoutStore for dock panel persistence,
 swapping the local task and correlation panels for the canonical
-mosaic versions, and adding `<pages-status-dot>` / `<pages-badge>`
-to the member panel and channel nav in mosaic.
+blocks-ui versions, and adding `<pages-status-dot>` / `<pages-badge>`
+to the member panel and channel nav in blocks-ui.
 
 ## The push protocol adoption
 
@@ -83,8 +82,8 @@ trace.
 Last piece: the artefact chips in `channel-message` had cursor and hover
 styling but no click handlers. The artifact panel was already built and
 mounted in the workbench dock. The `ARTEFACT_SELECTED` event constant
-existed in chat-app but not in mosaic's `ChannelEventTopics`. Two
-additions to mosaic — the event topic and a click handler with type
+existed in chat-app but not in blocks-ui's `ChannelEventTopics`. Two
+additions to blocks-ui — the event topic and a click handler with type
 icons — and the full chain works: chip click → event dispatch →
 workbench catches → artifact panel updates.
 

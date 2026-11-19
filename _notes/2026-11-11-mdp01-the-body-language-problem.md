@@ -1,6 +1,4 @@
 ---
-layout: post
-
 entry_type: note
 subtype: diary
 title: "The body language problem"

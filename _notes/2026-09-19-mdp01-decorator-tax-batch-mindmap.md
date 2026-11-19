@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Decorator Tax — Batch Operations for MindMap"
 date: 2026-09-19
 author: mdp

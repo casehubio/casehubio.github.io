@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Three Copies of the Same Bug"
 date: 2026-08-31
 author: mdp

@@ -1,6 +1,4 @@
 ---
-layout: post
-
 type: diary
 tags: [architecture, voice, connectors, agency, migration]
 ---

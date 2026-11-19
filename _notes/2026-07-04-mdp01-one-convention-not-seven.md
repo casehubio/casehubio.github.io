@@ -1,11 +1,12 @@
----layout: post
-
+---
 title: "One Convention, Not Seven"
 date: 2026-07-04
 author: Mark Proctor
 type: diary
 projects: [casehub-engine]
 tags: [routing, spi, architecture, platform-coherence]
+entry_type: note
+subtype: diary
 ---
 
 # One Convention, Not Seven

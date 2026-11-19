@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Why Your Case Definition Needs a Decomposition Strategy"
 date: 2026-07-28
 tags: [casehub, engine, unified-execution-model, planning, htn, decomposition, architecture]

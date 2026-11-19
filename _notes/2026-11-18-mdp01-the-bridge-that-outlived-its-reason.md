@@ -1,5 +1,4 @@
 ---
-layout: post
 title: The Bridge That Outlived Its Reason
 date: 2026-11-18
 author: Mark Proctor

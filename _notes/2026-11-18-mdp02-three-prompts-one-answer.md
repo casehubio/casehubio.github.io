@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Three Prompts, One Answer
 date: 2026-11-18
 author: Mark Proctor

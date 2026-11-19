@@ -1,3 +1,12 @@
+---
+layout: post
+title: "The Score That Counted Twice"
+date: 2026-11-03
+entry_type: note
+subtype: diary
+projects: [casehubio/neocortex]
+---
+
 # The Score That Counted Twice
 
 A six-line removal that fixed a retrieval pipeline silently ranking the wrong documents first.

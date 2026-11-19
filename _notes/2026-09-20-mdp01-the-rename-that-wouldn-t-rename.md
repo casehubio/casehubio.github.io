@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Rename That Wouldn't Rename"
 entry_type: note
 subtype: diary

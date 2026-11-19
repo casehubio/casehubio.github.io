@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Field Your YAML Never Sees"
 date: 2026-11-17
 entry_type: note

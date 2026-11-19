@@ -1,13 +1,3 @@
----
-layout: post
-title: "The Gaps That Tests Don't Find"
-date: 2026-11-17
-entry_type: note
-subtype: diary
-tags: [testing, degradation, topology, validation, agency]
-projects: [casehubio/agency]
----
-
 # The Gaps That Tests Don't Find
 
 Four things went wrong in the same subsystem this week. All four passed every test. All four compiled. All four ran in production without incident. And all four were broken — just not in a way that shows up in a stack trace.

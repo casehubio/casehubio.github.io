@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Where the classification logic actually belongs"
 date: 2026-10-08
 author: mdp

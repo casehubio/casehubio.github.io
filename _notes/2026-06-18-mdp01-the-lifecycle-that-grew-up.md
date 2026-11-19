@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: The Lifecycle That Grew Up
 date: 2026-06-18
 author: Mark Proctor

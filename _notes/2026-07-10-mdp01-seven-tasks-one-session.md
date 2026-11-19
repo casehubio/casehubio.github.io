@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Seven tasks, one session: ContextBridge implementation day"
 date: 2026-07-10
 type: diary

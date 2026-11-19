@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: The Memory That Forgets on Purpose
 date: 2026-08-20
 author: Mark Proctor

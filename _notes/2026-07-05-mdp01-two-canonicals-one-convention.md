@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Two Canonicals, One Convention"
 date: 2026-07-05
 author: Mark Proctor
@@ -7,6 +6,8 @@ type: diary
 projects: [casehub-engine]
 tags: [persistence, spi, dual-stack, convention]
 series: issue-651-cross-repo-blocker-batch
+entry_type: note
+subtype: diary
 ---
 
 # Two Canonicals, One Convention

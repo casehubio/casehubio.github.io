@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The pipeline that ate the synthesiser"
 date: 2026-09-12
 author: mdp

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "When Degradation Becomes Collapse"
 date: 2026-11-17
 entry_type: note

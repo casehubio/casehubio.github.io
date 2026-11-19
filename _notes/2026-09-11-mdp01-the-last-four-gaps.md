@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Last Four Gaps"
 date: 2026-09-11
 entry_type: note

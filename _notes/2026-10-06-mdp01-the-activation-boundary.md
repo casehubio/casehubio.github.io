@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The activation boundary — when code exists but can't be reached"
 date: 2026-10-06
 author: mdp

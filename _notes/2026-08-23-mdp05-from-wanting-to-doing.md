@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "From Wanting to Doing"
 author: mdp
 date: 2026-08-23

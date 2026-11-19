@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" style="max-width:700px;width:100%">
+  <style>
+    text { font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; fill: #334155; }
+    .label { font-size: 11px; font-weight: 600; }
+    .item { font-size: 12px; fill: #475569; }
+    .detail { font-size: 11px; fill: #64748b; }
+    .box { rx: 8; ry: 8; stroke-width: 1.5; }
+    .untested { fill: #fef3c7; stroke: #d97706; }
+    .redundant { fill: #dbeafe; stroke: #2563eb; }
+    .deliberate { fill: #d1fae5; stroke: #059669; }
+    .connector { stroke: #94a3b8; stroke-width: 1; fill: none; stroke-dasharray: 4; }
+  </style>
+
+  <!-- Title -->
+  <text class="label" x="350" y="24" text-anchor="middle" style="font-size:14px;fill:#1e293b">What code review surfaced after the handler split</text>
+
+  <!-- Row 1: Untested -->
+  <rect class="box untested" x="20" y="48" width="300" height="70"/>
+  <text class="label" x="40" y="70" style="fill:#92400e">UNTESTED PATH</text>
+  <text class="item" x="40" y="88">REINVOKED execution mode</text>
+  <text class="detail" x="40" y="106">Lock acquire → state load → execute → state update</text>
+
+  <line class="connector" x1="320" y1="83" x2="380" y2="83"/>
+  <rect class="box" x="380" y="56" width="300" height="54" fill="#fffbeb" stroke="#fbbf24"/>
+  <text class="detail" x="400" y="76">3 tests added: state round-trip,</text>
+  <text class="detail" x="400" y="94">lock release on success + failure</text>
+
+  <!-- Row 2: Redundant -->
+  <rect class="box redundant" x="20" y="136" width="300" height="70"/>
+  <text class="label" x="40" y="158" style="fill:#1e40af">REDUNDANT PARAMETER</text>
+  <text class="item" x="40" y="176">outputProjection on WorkerExecutor</text>
+  <text class="detail" x="40" y="194">Already available via capability.outputProjection()</text>
+
+  <line class="connector" x1="320" y1="171" x2="380" y2="171"/>
+  <rect class="box" x="380" y="144" width="300" height="54" fill="#eff6ff" stroke="#93c5fd"/>
+  <text class="detail" x="400" y="164">Removed parameter, 4 files updated.</text>
+  <text class="detail" x="400" y="182">Interface: 6 args → 5</text>
+
+  <!-- Row 3: Deliberate -->
+  <rect class="box deliberate" x="20" y="224" width="300" height="70"/>
+  <text class="label" x="40" y="246" style="fill:#065f46">DELIBERATE BOUNDARY</text>
+  <text class="item" x="40" y="264">Agent handler keeps own timeout</text>
+  <text class="detail" x="40" y="282">Guard/OTel/retry not applicable to LLM calls</text>
+
+  <line class="connector" x1="320" y1="259" x2="380" y2="259"/>
+  <rect class="box" x="380" y="232" width="300" height="54" fill="#ecfdf5" stroke="#86efac"/>
+  <text class="detail" x="400" y="252">Decision: keep as-is. Agent observability</text>
+  <text class="detail" x="400" y="270">is richer than what OTel spans would add.</text>
+</svg>

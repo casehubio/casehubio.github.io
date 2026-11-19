@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Three Ways a Quarkus Extension Can Silently Do Nothing"
 date: 2026-08-17
 author: Mark Proctor
