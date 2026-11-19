@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Reviewer Was Wrong — and Right"
 date: 2026-08-26
 author: mdp

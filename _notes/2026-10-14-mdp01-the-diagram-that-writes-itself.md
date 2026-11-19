@@ -4,7 +4,7 @@ title: "The Diagram That Writes Itself"
 date: 2026-10-14
 entry_type: note
 subtype: diary
-projects: [casehubio/blocks-ui]
+projects: [casehubio/agency-ui]
 tags: [web-components, data-bridge, org-diagram, lit]
 ---
 

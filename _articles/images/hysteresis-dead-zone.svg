@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" font-family="system-ui, sans-serif" font-size="13">
+  <!-- background -->
+  <rect width="640" height="260" fill="#fafafa" rx="6"/>
+
+  <!-- axis -->
+  <line x1="80" y1="200" x2="580" y2="200" stroke="#999" stroke-width="1.5"/>
+  <text x="330" y="240" text-anchor="middle" fill="#666" font-size="12">pixel gap between events →</text>
+
+  <!-- merge zone -->
+  <rect x="80" y="40" width="140" height="160" fill="#d4edda" opacity="0.5" rx="4"/>
+  <text x="150" y="30" text-anchor="middle" fill="#155724" font-weight="600" font-size="11">MERGE ZONE</text>
+  <text x="150" y="185" text-anchor="middle" fill="#155724" font-size="10">gap &lt; 0.7×</text>
+
+  <!-- dead zone -->
+  <rect x="220" y="40" width="170" height="160" fill="#fff3cd" opacity="0.5" rx="4"/>
+  <text x="305" y="30" text-anchor="middle" fill="#856404" font-weight="600" font-size="11">DEAD ZONE</text>
+  <text x="305" y="185" text-anchor="middle" fill="#856404" font-size="10">keep previous state</text>
+
+  <!-- split zone -->
+  <rect x="390" y="40" width="190" height="160" fill="#f8d7da" opacity="0.5" rx="4"/>
+  <text x="485" y="30" text-anchor="middle" fill="#721c24" font-weight="600" font-size="11">SPLIT ZONE</text>
+  <text x="485" y="185" text-anchor="middle" fill="#721c24" font-size="10">gap &gt; 1.5×</text>
+
+  <!-- threshold lines -->
+  <line x1="220" y1="40" x2="220" y2="210" stroke="#856404" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="220" y="222" text-anchor="middle" fill="#856404" font-size="10" font-weight="600">0.7× min</text>
+
+  <line x1="390" y1="40" x2="390" y2="210" stroke="#856404" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="390" y="222" text-anchor="middle" fill="#856404" font-size="10" font-weight="600">1.5× min</text>
+
+  <!-- min pixel separation marker -->
+  <line x1="305" y1="195" x2="305" y2="205" stroke="#333" stroke-width="2"/>
+  <text x="305" y="222" text-anchor="middle" fill="#333" font-size="10">1.0× min</text>
+
+  <!-- annotations inside zones -->
+  <text x="150" y="80" text-anchor="middle" fill="#155724" font-size="11">events merge</text>
+  <text x="150" y="96" text-anchor="middle" fill="#155724" font-size="11">regardless</text>
+
+  <text x="305" y="72" text-anchor="middle" fill="#856404" font-size="11">no change —</text>
+  <text x="305" y="88" text-anchor="middle" fill="#856404" font-size="11">if merged, stay merged</text>
+  <text x="305" y="104" text-anchor="middle" fill="#856404" font-size="11">if split, stay split</text>
+
+  <text x="485" y="80" text-anchor="middle" fill="#721c24" font-size="11">events split</text>
+  <text x="485" y="96" text-anchor="middle" fill="#721c24" font-size="11">regardless</text>
+
+  <!-- jitter arrow in dead zone -->
+  <path d="M270 130 Q285 115 300 130 Q315 145 330 130" fill="none" stroke="#856404" stroke-width="1.5"/>
+  <text x="305" y="155" text-anchor="middle" fill="#856404" font-size="10" font-style="italic">← jitter eliminated →</text>
+</svg>

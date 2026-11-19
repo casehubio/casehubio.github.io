@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Watching the Agent Work"
 date: 2026-09-30
 author: mdp

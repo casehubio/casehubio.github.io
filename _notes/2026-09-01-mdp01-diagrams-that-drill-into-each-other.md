@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Diagrams that drill into each other"
 date: 2026-09-01
 author: mdp
