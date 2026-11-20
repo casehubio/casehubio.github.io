@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Service connections as derived views"
 date: 2026-10-07
 entry_type: note

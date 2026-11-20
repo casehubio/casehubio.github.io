@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Review That Paid for Itself"
 date: 2026-08-17
 author: mdp

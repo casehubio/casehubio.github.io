@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Line Number Your Tools Need"
 date: 2026-11-18
 entry_type: note

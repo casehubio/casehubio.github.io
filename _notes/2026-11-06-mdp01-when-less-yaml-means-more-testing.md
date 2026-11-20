@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "When Less YAML Means More Testing"
 date: 2026-11-06
 entry_type: note

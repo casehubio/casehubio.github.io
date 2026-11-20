@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Runner Was Already There"
 date: 2026-11-05
 entry_type: note

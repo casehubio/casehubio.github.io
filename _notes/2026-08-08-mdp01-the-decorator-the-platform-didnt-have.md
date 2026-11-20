@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Decorator the Platform Didn't Have"
 date: 2026-08-08
 author: Mark Proctor

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Playbooks Are Not Source Code Until They Are"
 date: 2026-11-05
 entry_type: note

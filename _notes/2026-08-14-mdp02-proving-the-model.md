@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: Proving the Model
 date: 2026-08-14
 author: mdp

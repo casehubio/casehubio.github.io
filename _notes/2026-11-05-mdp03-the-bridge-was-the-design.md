@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Bridge Was the Design"
 date: 2026-11-05
 entry_type: note

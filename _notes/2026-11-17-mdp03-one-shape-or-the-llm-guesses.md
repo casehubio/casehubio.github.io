@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "One Shape, or the LLM Guesses"
 date: 2026-11-17
 entry_type: note

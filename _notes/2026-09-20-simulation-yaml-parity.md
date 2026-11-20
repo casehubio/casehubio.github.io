@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Closing the YAML parity gaps in the simulation framework"
 date: 2026-09-20
 author: mdp

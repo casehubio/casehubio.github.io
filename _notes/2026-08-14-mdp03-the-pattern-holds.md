@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: The Pattern Holds
 date: 2026-08-14
 author: Mark Proctor

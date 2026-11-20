@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Patterns from primitives"
 date: 2026-10-13
 author: mdp

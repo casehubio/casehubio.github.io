@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Subscription Management: From CloudEvents to POJOs"
 date: 2026-07-05
 author: Mark Proctor

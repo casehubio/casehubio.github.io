@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Step Catalog and Block Control Flow"
 date: 2026-09-27
 author: mdp

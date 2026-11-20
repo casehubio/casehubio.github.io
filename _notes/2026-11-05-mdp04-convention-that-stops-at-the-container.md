@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Convention That Stopped at the Container"
 date: 2026-11-05
 entry_type: note

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Test That Teaches Nothing"
 date: 2026-11-17
 entry_type: note

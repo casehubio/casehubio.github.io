@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The file declares what it is — schema composition for playbook YAML"
 date: 2026-10-06
 author: mdp

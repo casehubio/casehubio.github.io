@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Wiring the Provider Grid"
 date: 2026-08-13
 author: mdp

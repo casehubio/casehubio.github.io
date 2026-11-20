@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Diagnostics Break at Boundaries"
 date: 2026-11-18
 entry_type: note

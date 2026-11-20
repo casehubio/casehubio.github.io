@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Opening the Agent Layer"
 date: 2026-08-12
 author: mdp

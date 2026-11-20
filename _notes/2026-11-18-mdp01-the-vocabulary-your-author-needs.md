@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "The Vocabulary Your Author Needs"
 date: 2026-11-18
 entry_type: note

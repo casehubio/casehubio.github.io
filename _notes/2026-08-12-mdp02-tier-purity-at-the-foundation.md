@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Tier purity at the foundation"
 date: 2026-08-12
 type: diary

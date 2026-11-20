@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Teaching Your IDE a New Language"
 date: 2026-11-04
 author: mdp

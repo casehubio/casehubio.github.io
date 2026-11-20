@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Finishing What You Declare"
 date: 2026-11-17
 entry_type: note
