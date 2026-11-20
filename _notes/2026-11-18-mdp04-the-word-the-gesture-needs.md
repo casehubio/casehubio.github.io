@@ -5,7 +5,7 @@ date: 2026-11-18
 entry_type: note
 subtype: diary
 projects: [casehubio/connectors]
-tags: [voice-spi, mark-timing, gesture-sync, tts, avatar, input-validation, decorator-pattern]
+tags: [voice-spi, mark-timing, gesture-sync, tts, avatar]
 ---
 
 # The Word the Gesture Needs
@@ -65,20 +65,47 @@ This catches exactly the cases where "exact" would be a lie: context-dependent p
 
 ## Testing without native dependencies
 
-The ref implementation provides a parallel path for integration tests. It doesn't have espeak or a duration model, so it uses a synthetic 50ms-per-character duration and returns character-proportional marks directly. This lets tests verify the full mark-timing contract — SPI, enricher pass-through, result serialisation — without provisioning native libraries. The VITS integration tests, gated by `@EnabledIf("allDepsAvailable")`, cover the real espeak path separately.
+The ref implementation provides a parallel path for integration tests. It doesn't have espeak or a duration model, so it uses a synthetic 50ms-per-character duration and returns character-proportional marks directly.
 
-## The contract every tier must keep
+Unit tests for `MarkTimingEnricher` use mock delegates — lambdas that return whatever the test says. They verify the enricher's conditional logic, its phoneme-proportional mapping, its character-proportional fallback. What they can't verify is whether the enricher correctly recognises marks that a real platform actually produces. The pass-through condition checks `!result.marks().isEmpty()`. If the platform returned marks in a shape the enricher didn't expect — a subtle mismatch in list semantics, a defensive copy that changed identity — the unit test with its cooperative mock would still pass. The integration test with the real platform catches that class of bug.
 
-The fallback chain is only safe if every tier enforces the same input invariant. `TextMark.charOffset()` has a lower bound — the record validates `charOffset >= 0` in its constructor — but no upper bound, because it doesn't know the text. That validation falls to the usage site, and the question is whether every usage site agrees.
+Three integration tests in `VoiceRoundTripTest` cover this. One synthesises with three marks and verifies the returned timings are bounded, non-negative, and strictly ordered — the basic round-trip contract. A second wraps the ref platform with `MarkTimingEnricher` and confirms the enriched output matches the native output exactly — the enricher's pass-through must be transparent, not just "working." A third passes a `charOffset` far beyond the text length and verifies both the platform and the enricher clamp to the same duration — proving the two clamping paths in the stack agree. The VITS integration tests, gated by `@EnabledIf("allDepsAvailable")`, cover the real espeak path separately.
 
-VITS clamps: `Math.min(mark.charOffset(), text.length())`. The ref implementation and both enricher tiers did not. For a mark with `charOffset=20` on an 11-character text, the VITS path computes `min(20, 11) / 11 = 1.0` — the mark lands at the audio boundary. The unclamped paths compute `20 / 11 = 1.82` — the mark lands 82% past the end of the audio buffer.
+## The last mile — YAML pipeline
 
-![charOffset clamping across tiers](images/2026-11-18-charoffset-clamp.svg)
+The SPI infrastructure was complete. The reference implementation computed marks. The enricher decorated engines that couldn't. Integration tests proved the round trip. But the highest-level consumer-facing entry point — the YAML pipeline step — couldn't reach any of it.
 
-The phoneme-proportional path happened to survive because `snapToPhonemeStart` returns the last phoneme start when the target exceeds all boundaries — an accidental safety net, not an intentional clamp. The character-proportional path had no such net.
+`TtsSynthesisePlugin` is a `@Plugin` record with two optional fields: `voice` and `language`. It constructs `SynthesisOptions` using the four-argument constructor, which defaults marks to an empty list. A playbook author writing YAML has no way to pass `TextMark` entries through the step. The entire mark-timing contract was sealed off from the pipeline surface by one missing record component.
 
-The fix is one line per tier: clamp before dividing. The principle is general to any decorator chain: if the decorator offers a "worse but correct" fallback for a contract, every fallback must enforce the contract's preconditions independently. A fallback that accepts inputs the primary path rejects is not a fallback — it is a different contract.
+```java
+// Before — marks always empty
+var options = new SynthesisOptions(null, language, "wav", false);
+
+// After — marks passed through from YAML
+var options = new SynthesisOptions(null, language, "wav", false, marks);
+```
+
+The fix adds `@Optional List<TextMark> marks` to the plugin record. The APT processor picks up the new field automatically — it generates both the JSON schema entry (`"marks": { "type": "array" }`) and the streaming step constructor with the correct type. No manual wiring, no registration code, no factory updates. The annotation processor already knew how to handle `List<T>` on `@Optional` record components. It just had never been asked to on this particular plugin.
+
+![Pipeline mark timing data flow](images/2026-11-18-pipeline-mark-flow.svg)
+
+A playbook can now request mark timings directly:
+
+```yaml
+- tts-synthesise:
+    text: "Hello, I am Alice"
+    voice: af_heart
+    marks:
+      - id: hello
+        charOffset: 0
+      - id: alice
+        charOffset: 14
+```
+
+The marks flow through the plugin, into `SynthesisOptions`, through the TTS engine (or its enricher), and back out as `MarkTiming` entries in the `SynthesisResult`. The avatar animation system on the other end gets the word-onset offsets it needs without anyone writing Java.
+
+The same audit turned up a gap on the STT side: `SttTranscribePlugin` wasn't exposing `vocabularyHint` from `TranscriptionOptions`. A medical transcription pipeline couldn't tell the engine to expect "aortic stenosis" rather than guessing from context. Same fix — one `@Optional` record component, the APT processor does the rest.
 
 ## What this unblocks
 
-With mark timings available through the SPI, the agency repo's avatar animation system can schedule gesture triggers as `max(0, offsetMs / rate − strokeMs(clip) − crossfade / 2)`. The server provides `offsetMs`. The client provides `strokeMs` and `rate`. The gesture lands on the word it was meant for.
+With mark timings available through both the SPI and the YAML pipeline, the agency repo's avatar animation system can schedule gesture triggers as `max(0, offsetMs / rate − strokeMs(clip) − crossfade / 2)`. The server provides `offsetMs`. The client provides `strokeMs` and `rate`. The gesture lands on the word it was meant for.
