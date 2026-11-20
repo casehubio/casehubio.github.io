@@ -4,7 +4,6 @@
 **Type:** phase-update
 
 ---
-layout: post
 
 ## What I was trying to achieve: a coach that adapts mid-game
 

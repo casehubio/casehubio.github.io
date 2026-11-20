@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Workbench Problem"
 author: mdp
 date: 2026-08-03

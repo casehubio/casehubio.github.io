@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Seeing the Battlefield — Spatial Features for Strategy Classification"
 date: 2026-09-24
 author: mdp

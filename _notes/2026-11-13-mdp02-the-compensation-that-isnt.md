@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: The Compensation That Isn't
 date: 2026-11-13
 tags: [quarkmind, emulation, mining, contention, starcraft, physics, ml-training]

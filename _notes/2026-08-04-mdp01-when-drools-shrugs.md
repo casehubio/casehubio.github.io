@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "When Drools Shrugs"
 date: 2026-08-04
 author: Mark Proctor

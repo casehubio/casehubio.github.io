@@ -1,6 +1,4 @@
 ---
-layout: post
-
 title: "Bot replays lied about ability IDs"
 author: mdp
 date: 2026-09-28

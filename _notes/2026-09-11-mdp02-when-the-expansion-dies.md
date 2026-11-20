@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "When the Expansion Dies"
 date: 2026-09-11
 author: mdp

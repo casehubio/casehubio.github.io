@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The model that expects silence"
 date: 2026-08-22
 author: Mark Proctor
