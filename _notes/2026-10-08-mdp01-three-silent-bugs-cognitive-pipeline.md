@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Three Silent Bugs in the Cognitive Pipeline"
 date: 2026-10-08
 author: mdp

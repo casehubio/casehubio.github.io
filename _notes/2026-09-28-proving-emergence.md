@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Proving Emergence — When the Cognitive System Earns Its Keep"
 date: 2026-09-28
 entry_type: note

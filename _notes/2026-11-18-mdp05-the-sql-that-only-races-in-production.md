@@ -5,7 +5,7 @@ date: 2026-11-18
 entry_type: note
 subtype: diary
 projects: [casehubio/eidos]
-tags: [sql, concurrency, postgresql, h2, upsert, testing]
+tags: [sql, concurrency, postgresql, h2, upsert, testing, testcontainers, dialect-detection]
 ---
 
 # The SQL That Only Races in Production
@@ -16,25 +16,9 @@ The gap is narrow enough that you can ship it, run a full test suite against it,
 
 ## The setup
 
-Eidos has two JPA signal stores that track per-agent state over time. `JpaDispositionSignalStore` records cognitive function activations — how often an agent exercises a particular thinking style. `JpaBehavioralSignalStore` accumulates behavioral signals — declines, successes, compliance and violation events — with per-signal TTL-based expiry.
+Eidos has three JPA stores that track per-agent state over time. `JpaDispositionSignalStore` records cognitive function activations — how often an agent exercises a particular thinking style. `JpaBehavioralSignalStore` accumulates behavioral signals — declines, successes, compliance and violation events — with per-signal TTL-based expiry. `JpaAgentStateStore` records degradation state — rate-limited, overloaded, context-exhausted — with TTL-based expiry.
 
-Both stores need an upsert: if a row exists for this `(agentId, tenancyId, key)`, increment the counter; if not, insert a new row with count 1. The previous session had already moved the disposition store from an update-then-insert two-statement pattern to SQL standard `MERGE`:
-
-```sql
-MERGE INTO disposition_signal AS ds
-USING (VALUES (:agentId, :tenancyId, :functionTerm))
-  AS src(agent_id, tenancy_id, function_term)
-ON ds.agent_id = src.agent_id
-  AND ds.tenancy_id = src.tenancy_id
-  AND ds.function_term = src.function_term
-WHEN MATCHED THEN
-  UPDATE SET weight = ds.weight + 1
-WHEN NOT MATCHED THEN
-  INSERT (agent_id, tenancy_id, function_term, weight)
-  VALUES (src.agent_id, src.tenancy_id, src.function_term, 1.0)
-```
-
-H2 runs this atomically. Every test passed. I filed #249 as a follow-up because I knew the PostgreSQL story was different.
+All three need an upsert: if a row exists for this composite key, update it; if not, insert a new one. The previous implementation varied: the disposition store used a two-statement update-then-insert pattern, the behavioral store used JPA's find-then-persist, and the agent state store used delete-then-persist. All three had the same concurrency flaw under different names.
 
 ## The race
 
@@ -43,6 +27,8 @@ PostgreSQL's `MERGE` does not use the unique index for conflict detection on the
 ![Two threads racing through MERGE — both see NOT MATCHED, both INSERT, one fails](images/merge-race-condition.svg)
 
 The critical thing is that H2's MERGE is genuinely atomic — the check and the insert are one operation. So every test in the suite exercises the MERGE path, sees correct results, and gives you full confidence in SQL that will race under concurrent load on a different database.
+
+The find-then-persist and delete-then-persist patterns have the same window. Two threads call `em.find()`, both get null, both call `em.persist()`, one wins and the other throws `EntityExistsException`. Or worse: two threads delete the same row, one inserts, the other sees stale cache state and throws `ConstraintViolationException`. The delete-then-persist variant added `em.flush(); em.clear()` to work around Hibernate's first-level cache, but that just moved the race window — it did not close it.
 
 ## The fix
 
@@ -58,39 +44,61 @@ DO UPDATE SET weight = disposition_signal.weight + 1
 
 Both paths — insert and conflict-update — are resolved in a single index operation. No window for a second thread to slip in.
 
-The question was how to select between these two SQL variants at runtime. The issue listed three options: separate store implementations per dialect gated by `@IfBuildProperty`, runtime dialect detection, and Hibernate's `@SQLInsert`. I went with runtime detection — the SQL difference is a string constant, not a behavioural difference. Doubling the class count for a one-line change would be over-engineering.
+Each store now carries both dialects. H2 gets MERGE (which is genuinely atomic on H2). PostgreSQL gets INSERT ON CONFLICT. The dialect is detected once at `@PostConstruct` and the SQL is selected by a simple `if (postgres)` branch. The H2 path uses explicit CASTs in the USING clause to prevent H2's type inference from promoting values to wrong types — a quirk discovered by the first test run.
 
-`JpaDialect.isPostgres(EntityManager)` checks the JDBC URL from the EntityManagerFactory properties. Each store calls it at `@PostConstruct` and selects the appropriate SQL. The whole dialect utility is seven lines of logic.
+## The detection problem
 
-## Extending to both stores
-
-The behavioral signal store had a different race. It used JPA's find-then-persist pattern:
+The original dialect detector read the JDBC URL from `EntityManagerFactory.getProperties()`:
 
 ```java
-var existing = em.find(BehavioralSignalEntity.class, id);
-if (existing != null) {
-    existing.signalCount++;
-} else {
-    em.persist(new BehavioralSignalEntity(...));
+var url = (String) props.get("jakarta.persistence.jdbc.url");
+return url.startsWith("jdbc:postgresql");
+```
+
+Seven lines, clean, obvious. And wrong on Quarkus 3.x.
+
+Quarkus manages database connections through Agroal, its connection pool. Agroal owns the JDBC URL, the credentials, and the connection lifecycle. The EntityManagerFactory never sees them. Those property keys — `jakarta.persistence.jdbc.url`, `javax.persistence.jdbc.url` — are populated only when Hibernate manages connections directly, which Quarkus never lets it do.
+
+The detector returned false. Every store defaulted to H2 dialect. The H2 MERGE SQL happened to work on PostgreSQL — `MERGE` is valid PostgreSQL syntax since version 15 — so the tests passed. But the whole point of the dialect-aware approach was to use PostgreSQL's atomic `ON CONFLICT`, and that path was never reached.
+
+![Dialect detection: property lookup fails under Agroal, connection metadata works everywhere](images/dialect-detection-gap.svg)
+
+The fix asks the database directly:
+
+```java
+return em.unwrap(Session.class).doReturningWork(connection -> {
+    var product = connection.getMetaData().getDatabaseProductName();
+    return product != null && product.equalsIgnoreCase("PostgreSQL");
+});
+```
+
+`DatabaseMetaData.getDatabaseProductName()` returns the database's self-reported identity. It works regardless of connection pool framework, configuration mechanism, or Hibernate version. The connection is borrowed from the pool at `@PostConstruct` and returned when `doReturningWork` completes.
+
+## Closing the verification gap
+
+The original entry ended with a hedge: "when eidos goes to production on PostgreSQL, Testcontainers integration tests become the right investment." That gap is now closed.
+
+Three test classes — one per store — run against a real PostgreSQL 17 container via Testcontainers. The setup splits Quarkus's build-time and runtime configuration concerns cleanly:
+
+```java
+public class PostgresTestProfile implements QuarkusTestProfile {
+    @Override
+    public Map<String, String> getConfigOverrides() {
+        return Map.of("quarkus.datasource.db-kind", "postgresql",
+                "quarkus.datasource.devservices.enabled", "false");
+    }
+    // ...
 }
 ```
 
-Same class of problem: two threads both find nothing, both persist, PK violation. The fix was the same shape — replace the JPA managed-entity pattern with native SQL upsert, dialect-selected. The H2 path uses MERGE (matching the disposition store pattern); the PostgreSQL path uses INSERT ON CONFLICT.
+`db-kind` is a Quarkus build-time property — it determines which JDBC driver classes are included during augmentation. Setting it in the test profile triggers a separate augmentation phase with the PostgreSQL driver. The JDBC URL, username, and password come from the `PostgresTestResource` at runtime, after the container starts.
 
-One thing worth noting: after switching to native SQL, the method adds `em.flush(); em.clear()` to evict the persistence context. Without this, subsequent `em.find()` calls in `count()` could return stale cached state from before the native SQL ran. The disposition store doesn't need this because `recordActivation()` is `@Transactional(TxType.REQUIRES_NEW)` — it commits its own transaction and the persistence context is scoped to it.
+The tests are gated behind a JUnit `@Tag("testcontainers")` and a Maven profile. Default builds exclude the tag; `-Ptestcontainers` includes only the tag. The two populations never mix — H2 tests are unaffected by the PostgreSQL infrastructure.
 
-## What the tests found (and didn't)
+## What this revealed about test-database fidelity
 
-I added `JpaDispositionSignalStoreTest` — nine tests covering insert, increment, multi-term weights, decay, clear, and agent/tenancy isolation. The first run failed immediately. Not because of a SQL problem — because `recordActivation()` is `REQUIRES_NEW`. Each call gets its own transaction that commits independently. `@TestTransaction`'s rollback at the end of the test method has no effect on data written inside a `REQUIRES_NEW` transaction. Data accumulated across tests.
+The dialect detection failure is the instructive part. The PostgreSQL tests passed before the detection fix — because H2's MERGE syntax happens to be valid PostgreSQL. The tests verified that the SQL was syntactically correct. They did not verify that the SQL was the *right* SQL.
 
-The fix was straightforward: drop `@TestTransaction` and add a `@BeforeEach` method that truncates the table with native SQL. It is worth noting that the behavioral signal store tests use `@TestTransaction` correctly — `record()` is `@Transactional` (REQUIRED), so it joins the test's transaction and rollback works.
+H2 with `MODE=PostgreSQL` closes most of the gap between the two databases. It handles type coercions, most SQL syntax, and schema DDL. But MERGE atomicity is one of the places where the two databases diverge at the concurrency level, and the whole point of this work was to use the dialect-specific idiom that is known-safe on each platform.
 
-All 627 runtime tests pass. What they cannot verify is whether the PostgreSQL ON CONFLICT SQL is syntactically correct or semantically right under concurrent load — every test hits H2. This is the fundamental tension: the race only exists on a database the tests don't use.
-
-## Why this matters beyond eidos
-
-Test-database fidelity is an underappreciated source of production bugs. H2 with `MODE=PostgreSQL` closes most of the gap — it handles PostgreSQL's type coercions, most SQL syntax, and schema DDL. But MERGE atomicity is one of the places where the two databases behave differently at the concurrency level, and no amount of single-threaded testing will surface the difference.
-
-The options are: accept the gap and validate manually, add Testcontainers integration tests against real PostgreSQL, or do what we did — use the dialect-specific idiom that is known-safe on each platform and rely on the SQL being straightforward enough to review by inspection.
-
-For a pre-release library with no production deployments, the third option is the right trade-off. When eidos goes to production on PostgreSQL, Testcontainers integration tests become the right investment.
+The fix cost seven lines of code. The gap it closed — confirming that the production SQL path is actually exercised — is not something you can verify by inspection, by code review, or by running a thousand tests against the wrong database.

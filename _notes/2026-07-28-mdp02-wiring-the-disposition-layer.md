@@ -16,7 +16,7 @@ series: issue-107-jungian-personality-framework
 
 The design review caught something I'd have missed: `BehavioralSignalStore` requires a `capabilityName` parameter on every call. Disposition function activations aren't capability-scoped — they track which cognitive functions an agent is actually using, independent of what capability it's performing. The lifecycle semantics differ too. Capability signals expire via TTL (windowed compliance monitoring). Activation counts accumulate until explicitly decayed or cleared after an evolution transition.
 
-`DispositionSignalStore` is four methods: `recordActivation`, `activationCounts`, `decay`, `clear`. The decay operation multiplies all counts by `(1 - decayFactor)` with integer truncation — a single activation decays to zero, preventing noise from persisting indefinitely. The full CDI ladder follows: `NoOpDispositionSignalStore` as `@DefaultBean`, `InMemoryDispositionSignalStore` with `AtomicInteger` for thread safety, `JpaDispositionSignalStore` backed by a V9 migration.
+`DispositionSignalStore` is four methods: `recordActivation`, `activationWeights`, `decay`, `clear`. The decay operation multiplies all counts by `(1 - decayFactor)` with integer truncation — a single activation decays to zero, preventing noise from persisting indefinitely. The full CDI ladder follows: `NoOpDispositionSignalStore` as `@DefaultBean`, `InMemoryDispositionSignalStore` with `AtomicInteger` for thread safety, `JpaDispositionSignalStore` backed by a V9 migration.
 
 ## Probing Disposition Without Knowing the Vocabulary
 

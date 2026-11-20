@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Ablation That Worked — Proving the Taxonomy Carries the Weight"
 date: 2026-10-02
 entry_type: note

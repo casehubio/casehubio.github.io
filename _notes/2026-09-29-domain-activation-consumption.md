@@ -1,6 +1,4 @@
 ---
-layout: post
-
 title: "Domain Activation — Teaching Agents Their Emotional Geography"
 date: 2026-09-29
 entry_type: note

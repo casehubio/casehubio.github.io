@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Modal That Blocked Everything"
 date: 2026-08-27
 author: mdp

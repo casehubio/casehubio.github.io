@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Giving Up Zero-Dep for Model Selection"
 date: 2026-09-16
 author: mdp

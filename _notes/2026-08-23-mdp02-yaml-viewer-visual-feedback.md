@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: "YAML Viewer and Visual Feedback — the audience can follow along"
 date: 2026-08-23
 type: diary

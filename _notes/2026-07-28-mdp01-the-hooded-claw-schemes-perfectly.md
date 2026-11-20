@@ -6,7 +6,7 @@ type: phase-update
 entry_type: note
 subtype: diary
 projects: [wacky-manor]
-tags: [llm-autonomy, eidos, affordances, casehub-blocks]
+tags: [llm-autonomy, eidos, affordances, casehub-agency]
 ---
 
 The Hooded Claw had a problem. He was the most eloquent villain in the mansion — scheming in theatrical monologues, plotting poison tea parties with grandiose aside commentary, announcing "the poison is MINE, tucked safely in my pocket!" to the audience. He just never actually picked up the poison.
@@ -66,6 +66,6 @@ The fix belongs in the observation layer, not the action layer. We tried fixing 
 
 ## What's Next for CaseHub
 
-The hand-rolled observation builder in Wacky Manor now contains the validated pattern. The next step is extracting it into `casehub-blocks` as an `AffordanceRenderer` — a platform utility that any CaseHub application can use to produce grounded observations. When Wacky Manor wires the blocks observation accumulator in Phase 2.6, it gets the renderer as part of the pipeline instead of rolling its own.
+The hand-rolled observation builder in Wacky Manor now contains the validated pattern. The next step is extracting it into `casehub-agency` as an `AffordanceRenderer` — a platform utility that any CaseHub application can use to produce grounded observations. When Wacky Manor wires the blocks observation accumulator in Phase 2.6, it gets the renderer as part of the pipeline instead of rolling its own.
 
 The broader question this opens: if LLMs need grounded affordances to act correctly, what does that mean for agent communication protocols? The observation is the API contract for LLM agents. The platform that gets this right — showing agents what's possible, with the right identifiers and the right consequence links — removes a failure mode that would otherwise surface in every application built on it.

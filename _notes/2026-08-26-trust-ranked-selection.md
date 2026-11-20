@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "When the review says you're in the wrong repo"
 date: 2026-08-26
 author: mdp

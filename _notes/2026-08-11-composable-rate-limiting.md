@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Composable rate limiting — one interface, three strategies, zero scattered code"
 date: 2026-08-11
 entry_type: note

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#374151" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#111827">Dialect Detection: Property Lookup vs Connection Metadata</text>
+
+  <!-- Left box: Old approach -->
+  <rect x="20" y="52" width="320" height="240" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="180" y="76" text-anchor="middle" font-weight="600" fill="#b91c1c">Before: Property Lookup</text>
+
+  <rect x="40" y="92" width="280" height="36" rx="4" fill="white" stroke="#d1d5db"/>
+  <text x="180" y="115" text-anchor="middle" fill="#374151">EntityManagerFactory.getProperties()</text>
+
+  <line x1="180" y1="128" x2="180" y2="148" stroke="#374151" marker-end="url(#arr)"/>
+
+  <rect x="40" y="152" width="280" height="36" rx="4" fill="white" stroke="#d1d5db"/>
+  <text x="180" y="175" text-anchor="middle" fill="#374151">"jakarta.persistence.jdbc.url" → null</text>
+
+  <line x1="180" y1="188" x2="180" y2="208" stroke="#374151" marker-end="url(#arr)"/>
+
+  <rect x="40" y="212" width="280" height="36" rx="4" fill="#fee2e2" stroke="#ef4444"/>
+  <text x="180" y="235" text-anchor="middle" fill="#b91c1c" font-weight="600">Default to H2 — wrong dialect</text>
+
+  <text x="180" y="272" text-anchor="middle" font-size="11" fill="#6b7280">Quarkus 3.x Agroal manages connections</text>
+  <text x="180" y="286" text-anchor="middle" font-size="11" fill="#6b7280">outside EntityManagerFactory properties</text>
+
+  <!-- Right box: New approach -->
+  <rect x="380" y="52" width="320" height="240" rx="8" fill="#f0fdf4" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="540" y="76" text-anchor="middle" font-weight="600" fill="#15803d">After: Connection Metadata</text>
+
+  <rect x="400" y="92" width="280" height="36" rx="4" fill="white" stroke="#d1d5db"/>
+  <text x="540" y="115" text-anchor="middle" fill="#374151">em.unwrap(Session.class)</text>
+
+  <line x1="540" y1="128" x2="540" y2="148" stroke="#374151" marker-end="url(#arr)"/>
+
+  <rect x="400" y="152" width="280" height="36" rx="4" fill="white" stroke="#d1d5db"/>
+  <text x="540" y="175" text-anchor="middle" fill="#374151">doReturningWork(connection → ...)</text>
+
+  <line x1="540" y1="188" x2="540" y2="208" stroke="#374151" marker-end="url(#arr)"/>
+
+  <rect x="400" y="212" width="280" height="36" rx="4" fill="#dcfce7" stroke="#22c55e"/>
+  <text x="540" y="235" text-anchor="middle" fill="#15803d" font-weight="600">getDatabaseProductName() → correct</text>
+
+  <text x="540" y="272" text-anchor="middle" font-size="11" fill="#6b7280">Asks the actual database connection</text>
+  <text x="540" y="286" text-anchor="middle" font-size="11" fill="#6b7280">regardless of connection pool framework</text>
+</svg>
