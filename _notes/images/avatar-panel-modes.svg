@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 340" font-family="system-ui, sans-serif">
+  <style>
+    .panel { fill: #f5f7fa; stroke: #ccc; stroke-width: 1.5; rx: 8; }
+    .section { stroke: #ddd; stroke-width: 1; rx: 4; }
+    .avatar-bg { fill: #e3e8f0; }
+    .transcript-bg { fill: #f0f4fa; }
+    .input-bg { fill: #e8ecf2; }
+    .controls-bg { fill: #dde3ed; }
+    .label { fill: #333; font-size: 11px; }
+    .sublabel { fill: #888; font-size: 9px; font-style: italic; }
+    .title { fill: #1a1a2e; font-size: 14px; font-weight: 600; }
+    .mode-label { fill: #2d5aa0; font-size: 12px; font-weight: 600; }
+    .hidden { fill: #f0f0f0; stroke: #ddd; stroke-dasharray: 4 3; }
+    .hidden-text { fill: #bbb; font-size: 10px; }
+    .x-mark { fill: #c44; font-size: 16px; font-weight: 700; }
+  </style>
+
+  <text x="480" y="24" text-anchor="middle" class="title">casehub-avatar-panel layout modes</text>
+
+  <!-- Full vertical mode -->
+  <text x="130" y="50" text-anchor="middle" class="mode-label">vertical (default)</text>
+  <rect x="20" y="58" width="220" height="270" class="panel"/>
+
+  <rect x="28" y="66" width="204" height="22" class="section controls-bg"/>
+  <text x="130" y="80" text-anchor="middle" class="label">avatar-controls</text>
+
+  <rect x="28" y="92" width="204" height="72" class="section avatar-bg"/>
+  <text x="130" y="132" text-anchor="middle" class="label">casehub-avatar</text>
+
+  <rect x="28" y="168" width="204" height="14" class="section" style="fill:#f8f9fb"/>
+  <text x="130" y="178" text-anchor="middle" class="sublabel">status + timing</text>
+
+  <rect x="28" y="186" width="204" height="68" class="section transcript-bg"/>
+  <text x="130" y="224" text-anchor="middle" class="label">transcript</text>
+
+  <rect x="28" y="258" width="204" height="26" class="section input-bg"/>
+  <text x="70" y="275" text-anchor="middle" class="sublabel">mic</text>
+  <text x="130" y="275" text-anchor="middle" class="label">input</text>
+  <text x="200" y="275" text-anchor="middle" class="sublabel">send</text>
+
+  <!-- Text-only mode -->
+  <text x="400" y="50" text-anchor="middle" class="mode-label">text-only</text>
+  <rect x="290" y="58" width="220" height="270" class="panel"/>
+
+  <rect x="298" y="66" width="204" height="22" class="section hidden"/>
+  <text x="380" y="80" text-anchor="middle" class="hidden-text">hidden</text>
+  <text x="478" y="80" class="x-mark">X</text>
+
+  <rect x="298" y="92" width="204" height="72" class="section hidden"/>
+  <text x="380" y="130" text-anchor="middle" class="hidden-text">hidden</text>
+  <text x="478" y="132" class="x-mark">X</text>
+
+  <rect x="298" y="168" width="204" height="14" class="section" style="fill:#f8f9fb"/>
+  <text x="400" y="178" text-anchor="middle" class="sublabel">status</text>
+
+  <rect x="298" y="186" width="204" height="94" class="section transcript-bg"/>
+  <text x="400" y="237" text-anchor="middle" class="label">transcript</text>
+  <text x="400" y="251" text-anchor="middle" class="sublabel">fills space</text>
+
+  <rect x="298" y="284" width="204" height="26" class="section input-bg"/>
+  <text x="400" y="301" text-anchor="middle" class="label">input + send</text>
+
+  <!-- Custom composition -->
+  <text x="750" y="50" text-anchor="middle" class="mode-label">custom composition</text>
+  <rect x="560" y="58" width="380" height="270" class="panel"/>
+
+  <rect x="568" y="66" width="140" height="254" class="section avatar-bg"/>
+  <text x="638" y="150" text-anchor="middle" class="label">casehub-avatar</text>
+  <text x="638" y="170" text-anchor="middle" class="sublabel">avatar-controls</text>
+  <text x="638" y="186" text-anchor="middle" class="sublabel">below avatar</text>
+
+  <rect x="716" y="66" width="216" height="184" class="section transcript-bg"/>
+  <text x="824" y="162" text-anchor="middle" class="label">transcript</text>
+
+  <rect x="716" y="254" width="216" height="26" class="section input-bg"/>
+  <text x="770" y="271" text-anchor="middle" class="sublabel">mic</text>
+  <text x="824" y="271" text-anchor="middle" class="label">input</text>
+  <text x="900" y="271" text-anchor="middle" class="sublabel">send</text>
+
+  <rect x="568" y="284" width="364" height="14" class="section" style="fill:#f8f9fb"/>
+  <text x="750" y="295" text-anchor="middle" class="sublabel">status</text>
+
+  <text x="750" y="338" text-anchor="middle" class="sublabel">host composes primitives directly — panel not required</text>
+</svg>

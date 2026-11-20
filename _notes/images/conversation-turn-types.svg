@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, sans-serif">
+  <style>
+    .header { fill: #2d5aa0; }
+    .header-text { fill: white; font-size: 13px; font-weight: 600; }
+    .field { fill: #f0f4fa; }
+    .field-text { fill: #333; font-size: 11px; font-family: monospace; }
+    .shared { fill: #e8edf5; }
+    .shared-text { fill: #555; font-size: 11px; font-family: monospace; }
+    .label { fill: #666; font-size: 10px; font-style: italic; }
+    .title { fill: #1a1a2e; font-size: 16px; font-weight: 600; }
+    .arrow { stroke: #999; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#999"/>
+    </marker>
+  </defs>
+
+  <text x="360" y="28" text-anchor="middle" class="title">ConversationTurn — three entry types, one interface</text>
+
+  <!-- Shared base fields -->
+  <rect x="240" y="48" width="240" height="24" rx="4" class="shared"/>
+  <text x="360" y="64" text-anchor="middle" class="shared-text">role  text  status  type?</text>
+  <text x="360" y="88" text-anchor="middle" class="label">shared fields (backward-compatible)</text>
+
+  <!-- Arrows from shared to each type -->
+  <path d="M 300 72 L 120 120" class="arrow"/>
+  <path d="M 360 72 L 360 120" class="arrow"/>
+  <path d="M 420 72 L 600 120" class="arrow"/>
+
+  <!-- Message type -->
+  <rect x="20" y="120" width="200" height="30" rx="6" class="header"/>
+  <text x="120" y="140" text-anchor="middle" class="header-text">message (default)</text>
+  <rect x="20" y="150" width="200" height="60" rx="0 0 6 6" class="field"/>
+  <text x="30" y="170" class="field-text">type?: undefined</text>
+  <text x="30" y="188" class="field-text">role + text + status</text>
+  <text x="120" y="230" text-anchor="middle" class="label">existing turns unchanged</text>
+
+  <!-- Tool-call type -->
+  <rect x="260" y="120" width="200" height="30" rx="6" class="header"/>
+  <text x="360" y="140" text-anchor="middle" class="header-text">tool-call</text>
+  <rect x="260" y="150" width="200" height="100" rx="0 0 6 6" class="field"/>
+  <text x="270" y="170" class="field-text">toolName: string</text>
+  <text x="270" y="188" class="field-text">toolArgs?: Record</text>
+  <text x="270" y="206" class="field-text">toolResult?: string</text>
+  <text x="270" y="224" class="field-text">toolError?: boolean</text>
+  <text x="360" y="270" text-anchor="middle" class="label">collapsed args, error styling</text>
+
+  <!-- Confirmation type -->
+  <rect x="500" y="120" width="200" height="30" rx="6" class="header"/>
+  <text x="600" y="140" text-anchor="middle" class="header-text">confirmation</text>
+  <rect x="500" y="150" width="200" height="120" rx="0 0 6 6" class="field"/>
+  <text x="510" y="170" class="field-text">confirmationId: string</text>
+  <text x="510" y="188" class="field-text">actionDescription: string</text>
+  <text x="510" y="206" class="field-text">consequences?: string</text>
+  <text x="510" y="224" class="field-text">confirmationStatus: enum</text>
+  <text x="510" y="242" class="field-text">expiresAt?: string</text>
+  <text x="600" y="290" text-anchor="middle" class="label">confirm/decline buttons, ARIA alertdialog</text>
+
+  <text x="360" y="330" text-anchor="middle" class="label">all types coexist in a single ConversationTurn[] array</text>
+</svg>

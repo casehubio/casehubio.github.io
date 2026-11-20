@@ -9,7 +9,7 @@ projects: [casehub-mosaic]
 series: issue-95-align-table-pipeline
 ---
 
-# CaseHub Agency UI — The Pipeline Was Already There
+# CaseHub Blocks UI — The Pipeline Was Already There
 
 **Date:** 2026-07-25
 **Type:** phase-update
