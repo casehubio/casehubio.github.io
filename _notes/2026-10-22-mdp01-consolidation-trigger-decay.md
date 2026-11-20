@@ -2,7 +2,7 @@
 layout: post
 title: "Why Decay Is Wrong for Memory Consolidation Triggers"
 date: 2026-10-22
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/examples, casehubio/neocortex]
 tags: [cognitive-architecture, memory-consolidation, CUSUM, CLS-theory, CAPS, literature-review]

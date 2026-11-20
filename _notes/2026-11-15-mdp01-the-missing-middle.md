@@ -2,7 +2,7 @@
 layout: post
 title: "The Missing Middle: Why Agents Need Coping, Not Just Feelings and Filters"
 date: 2026-11-15
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [coping-strategies, EMA, cognitive-architecture, Lazarus-Folkman, appraisal, emotion-regulation, personality, literature-grounded, design, Marsella-Gratch]

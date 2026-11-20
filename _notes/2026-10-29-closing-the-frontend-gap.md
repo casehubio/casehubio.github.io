@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Closing the Frontend Gap — When Build Items Need a REST Endpoint"
 date: 2026-10-29
 entry_type: article

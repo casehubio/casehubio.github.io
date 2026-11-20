@@ -2,7 +2,7 @@
 layout: post
 title: "When the Predictor Lets Go"
 date: 2026-11-06
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [emotion-regulation, personality-prediction, shame, temporal-containment, LLM-guidance, cognitive-architecture, literature-grounded, empirical-testing]

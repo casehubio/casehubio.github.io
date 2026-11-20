@@ -2,7 +2,7 @@
 layout: post
 title: "The Weight of Evidence"
 date: 2026-11-07
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [emotion-regulation, personality-prediction, continuous-weights, literature-grounded, meta-analysis, Big-Five, shame, cognitive-architecture, CDE]

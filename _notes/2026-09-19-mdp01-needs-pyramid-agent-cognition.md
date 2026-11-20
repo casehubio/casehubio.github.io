@@ -2,7 +2,7 @@
 layout: post
 title: "Why Your AI Agent Fixates — And What Maslow Can Do About It"
 date: 2026-09-19
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/examples]
 tags: [cognitive-architecture, maslow, needs-hierarchy, agent-design, wacky-manor]

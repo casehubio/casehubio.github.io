@@ -2,7 +2,7 @@
 layout: post
 title: "When the Eval Talks Back"
 date: 2026-11-07
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [emotion-regulation, eval-calibration, temporal-staging, surface-shame, LLM-judge, variance-signal, cognitive-architecture]

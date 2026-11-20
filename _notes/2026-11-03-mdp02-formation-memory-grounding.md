@@ -2,7 +2,7 @@
 layout: post
 title: "The Body Remembers What the Prompt Forgot"
 date: 2026-11-03
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/examples, casehubio/neocortex]
 tags: [cognitive-architecture, formation-memory, somatic-echo, prompt-engineering, barrett-constructionism, personality-persistence]

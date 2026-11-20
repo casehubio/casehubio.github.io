@@ -2,7 +2,7 @@
 layout: post
 title: "The Gap Between Feeling and Acting"
 date: 2026-11-04
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [emotion-regulation, cognitive-architecture, gross-model, bosse-model, petter-model, character-depth, design, implementation, suppression-fatigue, cognitive-load]

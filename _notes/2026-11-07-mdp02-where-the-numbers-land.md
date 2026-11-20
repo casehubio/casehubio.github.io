@@ -2,7 +2,7 @@
 layout: post
 title: "Where the Numbers Land"
 date: 2026-11-07
-entry_type: note
+entry_type: article
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [emotion-regulation, continuous-weights, shame, implementation, three-layer-architecture, dominance-margin, personality-prediction, cognitive-architecture]
