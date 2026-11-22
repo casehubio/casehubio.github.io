@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">SEC → OCC → PAD: Where Context Gets Lost</text>
+
+  <!-- SEC box -->
+  <rect x="20" y="50" width="180" height="130" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="110" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#334155">SEC Dimensions</text>
+  <text x="35" y="95" font-size="11" fill="#475569">relevance: 0.8</text>
+  <text x="35" y="113" font-size="11" fill="#475569">conduciveness: −0.6</text>
+  <text x="35" y="131" font-size="11" fill="#475569">controllability: 0.5</text>
+  <text x="35" y="149" font-size="11" fill="#dc2626" font-weight="600">urgency: 0.8 ← missing</text>
+  <text x="35" y="167" font-size="11" fill="#475569">internal-std: 0.2</text>
+
+  <!-- Arrow SEC → OCC -->
+  <line x1="200" y1="115" x2="250" y2="115" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="225" y="108" text-anchor="middle" font-size="9" fill="#64748b">map</text>
+
+  <!-- OCC box -->
+  <rect x="260" y="50" width="180" height="130" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="350" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#92400e">OCC Emotions</text>
+  <text x="275" y="95" font-size="11" fill="#92400e">SHAME (0.64)</text>
+  <text x="275" y="113" font-size="11" fill="#dc2626">DISTRESS (0.48) ← wrong</text>
+  <text x="275" y="131" font-size="11" fill="#64748b" font-style="italic">no FEAR — threshold</text>
+  <text x="275" y="149" font-size="11" fill="#64748b" font-style="italic">too strict at 0.4</text>
+  <text x="275" y="167" font-size="11" fill="#64748b" font-style="italic">no HOPE — novelty</text>
+
+  <!-- Arrow OCC → PAD -->
+  <line x1="440" y1="115" x2="490" y2="115" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="465" y="108" text-anchor="middle" font-size="9" fill="#64748b">project</text>
+
+  <!-- PAD box -->
+  <rect x="500" y="50" width="200" height="130" rx="8" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="600" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#991b1b">PAD (Mehrabian)</text>
+  <text x="515" y="95" font-size="11" fill="#991b1b">SHAME arousal: 0.1</text>
+  <text x="515" y="113" font-size="11" fill="#991b1b">× intensity 0.64</text>
+  <text x="515" y="131" font-size="11" fill="#991b1b" font-weight="700">= 0.064 arousal</text>
+  <text x="515" y="155" font-size="10" fill="#dc2626">Public confrontation feels</text>
+  <text x="515" y="170" font-size="10" fill="#dc2626">activating — but PAD says calm</text>
+
+  <!-- After fix section -->
+  <rect x="20" y="210" width="680" height="110" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5"/>
+  <text x="360" y="232" text-anchor="middle" font-size="12" font-weight="600" fill="#065f46">After: Urgency-Aware Mapping</text>
+
+  <text x="40" y="258" font-size="11" fill="#065f46">urgency 0.8 → arousalBoost = 0.4</text>
+  <text x="40" y="278" font-size="11" fill="#065f46">fearThreshold widens 0.4 → 0.6</text>
+  <text x="40" y="298" font-size="11" fill="#065f46">FEAR fires (0.5 &lt; 0.6)</text>
+
+  <text x="280" y="258" font-size="11" fill="#065f46">novelty 0.7 + conduciveness ≥ 0 → HOPE</text>
+  <text x="280" y="278" font-size="11" fill="#065f46">CURIOSITY delta: 0.07 → 0.33</text>
+
+  <text x="520" y="258" font-size="11" fill="#065f46">SHAME arousal: 0.064 + 0.4 × 0.64</text>
+  <text x="520" y="278" font-size="11" fill="#065f46" font-weight="700">= 0.32 arousal</text>
+  <text x="520" y="298" font-size="11" fill="#065f46">5× increase from context</text>
+</svg>
