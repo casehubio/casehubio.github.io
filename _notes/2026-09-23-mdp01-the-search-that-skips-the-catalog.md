@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Search That Skips the Catalog"
 date: 2026-09-23
 author: mdp

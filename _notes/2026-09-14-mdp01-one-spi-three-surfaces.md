@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "One SPI, Three Surfaces"
 date: 2026-09-14
 author: mdp

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Annotations That Belong Where They Run"
 date: 2026-08-20
 entry_type: note
