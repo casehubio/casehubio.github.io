@@ -5,14 +5,14 @@ date: 2026-11-18
 entry_type: note
 subtype: diary
 projects: [casehubio/neocortex]
-tags: [observability, traceability, cdi, consolidation, derivation-journal, provenance]
+tags: [observability, traceability, cdi, consolidation, derivation-journal, provenance, defensive-programming]
 ---
 
 # The Pipeline That Couldn't Explain Itself
 
-A cognitive pipeline that works correctly but can't explain why it works is a liability. Not today — today it passes every test, every eval, every scenario run. The liability surfaces the first time someone asks "why did the agent respond that way?" and the answer is "we'd have to read the code." Four changes this session, one principle: if you can't trace it, you can't trust it.
+A cognitive pipeline that works correctly but can't explain why it works is a liability. Not today — today it passes every test, every eval, every scenario run. The liability surfaces the first time someone asks "why did the agent respond that way?" and the answer is "we'd have to read the code." Six changes, one principle: if you can't trace it, you can't trust it.
 
-![Four traceability layers: deployment contract, CDI wiring, data lineage, derivation journal](images/traceability-layers.svg)
+![Six traceability layers: deployment contract, CDI wiring, data lineage, derivation journal, runtime consolidation journal, async boundary propagation](images/traceability-layers.svg)
 
 ## Six phases receiving null
 
@@ -54,8 +54,60 @@ Each method got the same treatment: backward-compatible overload delegating to `
 
 The `derive()` pipeline method now passes `ctx` to all fourteen methods. Zero blind spots.
 
+## When the observer breaks the observed
+
+The derivation journal traces individual facet-to-value mappings inside the CDE. The consolidation scheduler sits one level up — it orchestrates the phases but had no journal entries of its own. You could trace what happened inside each phase, but not which phases ran, how long they took, or how many artifacts they produced.
+
+The fix is a single `journal.record()` call after each phase completes:
+
+```java
+journal.record(new CognitiveEntry.Consolidated(
+        tenantId, "_system",
+        EventRef.consolidation(EventRef.init()),
+        Instant.now(), 0, phaseArtifacts.size(),
+        elapsed, phase.name()));
+```
+
+The interesting part isn't the instrumentation — it's what went wrong with the first version. The `journal.record()` call sat inside the same try-catch that wraps `phase.run()`. The phase's success `PhaseResult` was already added before the journal call. If the journal threw, the catch block added a *second* `PhaseResult` — one success, one failure — for the same phase. The phase actually ran fine; only the observer failed.
+
+This is a category of bug worth naming: observability code that corrupts the data model of the thing it observes. The journal is downstream of the consolidation; a journal failure must never make a successful phase look failed. The fix wraps the journal call in its own defensive try-catch that logs and continues — observability writes to the side, never into the main result path.
+
+```java
+try {
+    journal.record(new CognitiveEntry.Consolidated(
+            // ...
+    ));
+} catch (Exception je) {
+    LOG.log(Level.WARNING,
+            "Journal record failed for phase " + phase.name(), je);
+}
+```
+
+The pattern generalises: any observability instrumentation added to a runtime loop must be isolated from the loop's error handling. If the observer shares the subject's exception path, the observer's failures become the subject's failures. The observer must be a side-channel — it can fail silently, but it cannot fail loudly.
+
+## The ThreadLocal that didn't cross the boundary
+
+Two journal bridges existed — `DerivationJournalBridge` for personality derivation, `MemoryRecallJournalBridge` for memory queries. Both were fully implemented, tested, and dead. Nobody wired them into production CDI.
+
+The derivation bridge needed per-tenant instantiation (the journal entry carries the tenant ID, but derivation is called from a cache slot that serves multiple tenants). A `Function<String, DerivationObserver>` factory on `EffectiveCognitiveDefaults` lets `CognitionCoreFactory` provide the bridge: `tenantId -> new DerivationJournalBridge(journal, tenantId)`. The recall bridge was simpler — a singleton observer passed through the retriever's constructor.
+
+The subtler problem was `@ObservesAsync`. The extraction pipeline fires `ExtractionRequested` with CDI's `fireAsync()`, which runs the observer on a different thread. `MutationContext.agentId()` is a `ThreadLocal`. The caller sets it; the observer never sees it. Every MindMap mutation during extraction had no agent attribution — the `GraphMutatedJournalBridge` silently skipped them.
+
+The fix carries the agentId as a field on the event record itself, then restores it on the observer thread:
+
+```java
+MutationContext.set("extraction");
+if (event.agentId() != null) {
+    MutationContext.setAgent(event.agentId());
+}
+```
+
+`ThreadLocal` and `@ObservesAsync` don't compose. If your observer needs context from the caller, the event must carry it. CDI doesn't propagate `ThreadLocal` across async boundaries — by design, not by accident.
+
 ## What this opens up
 
-Full journal coverage means the derivation trace is complete: given an agent's personality descriptor, every derived cognitive default can be explained through a chain of facet scores, base values, modulations, and final outputs. That's the foundation for calibration — when an agent behaves unexpectedly, the question isn't "what happened?" but "which facet contribution was miscalibrated?" The journal turns a 1200-line static function into a debuggable, auditable pipeline.
+Full journal coverage means the derivation trace is complete: given an agent's personality descriptor, every derived cognitive default can be explained through a chain of facet scores, base values, modulations, and final outputs. The runtime consolidation entries extend that — which phases ran, how long each took, how many artifacts were produced. And now the bridges are wired: derivation and recall events flow to the journal in production, extraction mutations carry agent attribution across the async boundary.
 
-The deployment contract and provenance fields are quieter wins, but they're the same principle applied at different layers. A system that can't explain its operational constraints will violate them. A memory that can't trace its origin will be trusted when it shouldn't be.
+That's the foundation for calibration. When an agent behaves unexpectedly, the question isn't "what happened?" but "which facet contribution was miscalibrated, was the consolidation phase running, and whose extraction mutations were misattributed?"
+
+The deployment contract and provenance fields are quieter wins, but they're the same principle applied at different layers. A system that can't explain its operational constraints will violate them. A memory that can't trace its origin will be trusted when it shouldn't be. An observer that crashes the thing it's observing is worse than no observer at all. And a `ThreadLocal` that doesn't cross the boundary is indistinguishable from one that was never set.
