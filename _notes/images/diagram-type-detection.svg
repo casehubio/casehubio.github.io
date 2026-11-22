@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" font-family="system-ui, sans-serif">
+  <style>
+    .box { fill: #f8f9fa; stroke: #374151; stroke-width: 1.5; rx: 6; }
+    .box-primary { fill: #eff6ff; stroke: #3b82f6; stroke-width: 1.5; rx: 6; }
+    .box-fallback { fill: #fefce8; stroke: #d97706; stroke-width: 1.5; rx: 6; }
+    .label { font-size: 12px; fill: #374151; text-anchor: middle; }
+    .label-bold { font-size: 12px; fill: #111827; text-anchor: middle; font-weight: 600; }
+    .arrow { stroke: #6b7280; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .dim { font-size: 10px; fill: #9ca3af; text-anchor: middle; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- Primary: filename -->
+  <rect class="box-primary" x="140" y="20" width="240" height="50"/>
+  <text class="label-bold" x="260" y="42">src filename</text>
+  <text class="label" x="260" y="58">mycase.choreography.yaml → choreography</text>
+
+  <!-- Arrow down -->
+  <path class="arrow" d="M260,70 L260,100"/>
+  <text class="dim" x="300" y="90">undefined?</text>
+
+  <!-- Fallback: content detection -->
+  <rect class="box-fallback" x="100" y="100" width="320" height="50"/>
+  <text class="label-bold" x="260" y="122">YAML content detection</text>
+  <text class="label" x="260" y="138">parse → check spec fields → return type</text>
+
+  <!-- Arrow down to priority chain -->
+  <path class="arrow" d="M260,150 L260,180"/>
+
+  <!-- Priority boxes -->
+  <rect class="box" x="20" y="180" width="90" height="36"/>
+  <text class="label" x="65" y="195">decomposition</text>
+  <text class="dim" x="65" y="210">→ htn</text>
+
+  <rect class="box" x="120" y="180" width="90" height="36"/>
+  <text class="label" x="165" y="195">goals</text>
+  <text class="dim" x="165" y="210">→ goap</text>
+
+  <rect class="box" x="220" y="180" width="90" height="36"/>
+  <text class="label" x="265" y="195">bindings</text>
+  <text class="dim" x="265" y="210">→ choreography</text>
+
+  <rect class="box" x="320" y="180" width="90" height="36"/>
+  <text class="label" x="365" y="195">document+do</text>
+  <text class="dim" x="365" y="210">→ swf</text>
+
+  <rect class="box" x="420" y="180" width="80" height="36"/>
+  <text class="label" x="460" y="195">else</text>
+  <text class="dim" x="460" y="210">→ unknown</text>
+
+  <!-- Priority arrows -->
+  <path class="arrow" d="M110,198 L120,198"/>
+  <path class="arrow" d="M210,198 L220,198"/>
+  <path class="arrow" d="M310,198 L320,198"/>
+  <path class="arrow" d="M410,198 L420,198"/>
+
+  <!-- Badge section -->
+  <path class="arrow" d="M260,216 L260,250"/>
+
+  <rect x="120" y="250" width="280" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text class="label-bold" x="260" y="272">toolbar badge</text>
+  <text class="label" x="260" y="288">colour-coded pill · open type set · ARIA</text>
+</svg>
