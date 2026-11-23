@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="480" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="30" text-anchor="middle" font-size="16" font-weight="600" fill="#1e293b">Cognitive Dissonance — Data Flow</text>
+
+  <!-- Consolidation Phase box -->
+  <rect x="40" y="50" width="300" height="180" rx="6" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="190" y="72" text-anchor="middle" font-size="12" font-weight="600" fill="#1e40af">DissonanceDetectionPhase @Priority(25)</text>
+
+  <rect x="60" y="85" width="120" height="34" rx="4" fill="white" stroke="#93c5fd"/>
+  <text x="120" y="106" text-anchor="middle" font-size="11" fill="#334155">Belieflike nodes</text>
+
+  <rect x="200" y="85" width="120" height="34" rx="4" fill="white" stroke="#93c5fd"/>
+  <text x="260" y="106" text-anchor="middle" font-size="11" fill="#334155">BEHAVIORAL</text>
+  <text x="260" y="118" text-anchor="middle" font-size="10" fill="#64748b">attractors</text>
+
+  <rect x="100" y="135" width="160" height="34" rx="4" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="180" y="156" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af">LLM contradiction</text>
+  <text x="180" y="168" text-anchor="middle" font-size="10" fill="#3b82f6">detection</text>
+
+  <rect x="100" y="185" width="160" height="34" rx="4" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="180" y="200" text-anchor="middle" font-size="11" font-weight="500" fill="#1e40af">Tension lifecycle</text>
+  <text x="180" y="212" text-anchor="middle" font-size="10" fill="#3b82f6">create / confirm / decay</text>
+
+  <!-- Arrows from inputs to LLM -->
+  <line x1="120" y1="119" x2="150" y2="135" stroke="#475569" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="260" y1="119" x2="210" y2="135" stroke="#475569" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Arrow from LLM to lifecycle -->
+  <line x1="180" y1="169" x2="180" y2="185" stroke="#475569" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- MindMap store -->
+  <rect x="400" y="80" width="140" height="60" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="470" y="105" text-anchor="middle" font-size="12" font-weight="500" fill="#166534">MindMapStore</text>
+  <text x="470" y="120" text-anchor="middle" font-size="10" fill="#16a34a">DissonanceTension</text>
+  <text x="470" y="132" text-anchor="middle" font-size="10" fill="#16a34a">nodes (COGNITIVE)</text>
+
+  <!-- Arrow from lifecycle to MindMap -->
+  <line x1="260" y1="200" x2="395" y2="110" stroke="#475569" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- In-memory cache -->
+  <rect x="400" y="165" width="140" height="45" rx="6" fill="#fefce8" stroke="#fde047" stroke-width="1.5"/>
+  <text x="470" y="185" text-anchor="middle" font-size="11" font-weight="500" fill="#854d0e">In-memory cache</text>
+  <text x="470" y="198" text-anchor="middle" font-size="10" fill="#a16207">ConcurrentHashMap</text>
+
+  <!-- Arrow from lifecycle to cache -->
+  <line x1="260" y1="210" x2="395" y2="185" stroke="#475569" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+  <!-- Per-tick consumers -->
+  <rect x="40" y="270" width="300" height="80" rx="6" fill="#fdf2f8" stroke="#f9a8d4" stroke-width="1.5"/>
+  <text x="190" y="292" text-anchor="middle" font-size="12" font-weight="600" fill="#9d174d">Per Cognitive Tick</text>
+
+  <rect x="60" y="300" width="120" height="34" rx="4" fill="white" stroke="#f9a8d4"/>
+  <text x="120" y="315" text-anchor="middle" font-size="11" fill="#334155">TickParticipant</text>
+  <text x="120" y="327" text-anchor="middle" font-size="10" fill="#64748b">PAD adjustment</text>
+
+  <rect x="200" y="300" width="120" height="34" rx="4" fill="white" stroke="#f9a8d4"/>
+  <text x="260" y="315" text-anchor="middle" font-size="11" fill="#334155">PromptSection</text>
+  <text x="260" y="327" text-anchor="middle" font-size="10" fill="#64748b">felt tension</text>
+
+  <!-- Arrows from cache to consumers -->
+  <line x1="435" y1="210" x2="140" y2="298" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="6,3" marker-end="url(#arrow-blue)"/>
+  <line x1="470" y1="210" x2="260" y2="298" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="6,3" marker-end="url(#arrow-blue)"/>
+
+  <!-- PAD output -->
+  <rect x="40" y="380" width="120" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="100" y="400" text-anchor="middle" font-size="11" font-weight="500" fill="#92400e">Mood State</text>
+  <text x="100" y="413" text-anchor="middle" font-size="10" fill="#b45309">↑arousal ↓pleasure</text>
+
+  <!-- Prompt output -->
+  <rect x="200" y="380" width="140" height="40" rx="4" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="270" y="400" text-anchor="middle" font-size="11" font-weight="500" fill="#92400e">Cognitive Prompt</text>
+  <text x="270" y="413" text-anchor="middle" font-size="10" fill="#b45309">"You feel torn..."</text>
+
+  <!-- Arrows from consumers to outputs -->
+  <line x1="100" y1="334" x2="100" y2="378" stroke="#475569" stroke-width="1" marker-end="url(#arrow)"/>
+  <line x1="260" y1="334" x2="270" y2="378" stroke="#475569" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Indirect CAPS path -->
+  <rect x="420" y="380" width="260" height="80" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="550" y="400" text-anchor="middle" font-size="11" font-weight="500" fill="#475569">Indirect CAPS Path (2+ ticks)</text>
+  <text x="550" y="418" text-anchor="middle" font-size="10" fill="#64748b">prompt → conversation → experience</text>
+  <text x="550" y="434" text-anchor="middle" font-size="10" fill="#64748b">→ graduation → BehavioralSynthesis</text>
+  <text x="550" y="450" text-anchor="middle" font-size="10" fill="#64748b">→ CAPS settling</text>
+
+  <!-- Arrow from prompt to indirect path -->
+  <line x1="340" y1="400" x2="416" y2="400" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+
+  <!-- Future #595 label -->
+  <rect x="570" y="50" width="130" height="45" rx="4" fill="#faf5ff" stroke="#c084fc" stroke-dasharray="4,3"/>
+  <text x="635" y="70" text-anchor="middle" font-size="11" font-weight="500" fill="#7c3aed">Future: #595</text>
+  <text x="635" y="85" text-anchor="middle" font-size="10" fill="#8b5cf6">EMA coping triggers</text>
+
+  <!-- Arrow from MindMap to #595 -->
+  <line x1="540" y1="110" x2="568" y2="72" stroke="#c084fc" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+</svg>
