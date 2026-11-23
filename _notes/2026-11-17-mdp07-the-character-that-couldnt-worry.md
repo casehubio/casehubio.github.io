@@ -40,7 +40,7 @@ Passing both PID-5 scores and AppraisalWeights to the classifier gives the LLM t
 
 The implementation threads through three layers, all using the same `Map<String, String>` metadata transport that disposition axes already use:
 
-**Metadata enrichment.** `addPersonalityMetadata()` (renamed from `addDispositionMetadata()`) now populates `pid5.Anxiousness=0.85` and `appraisal.fearOnsetThreshold=1.60` alongside the existing `disposition.socialOrient=cooperative` entries. Both `BehavioralSynthesisPhase` and `DriveProfileDerivationPhase` call this — every situation classification in the CAPS pipeline now carries the full personality profile.
+**Metadata enrichment.** `PersonalityMetadataEnricher` — a shared static utility in `cognitive-index` — populates `pid5.Anxiousness=0.85` and `appraisal.fearOnsetThreshold=1.60` alongside the existing `disposition.socialOrient=cooperative` entries. Both `BehavioralSynthesisPhase` and `DriveProfileDerivationPhase` delegate to it. Every situation classification in the CAPS pipeline now carries the full personality profile, filtered by the configured facet set.
 
 **Prompt construction.** `PersonalityPromptBuilder` formats PID-5 facets as natural-language annotations with interpretive labels:
 
@@ -82,4 +82,17 @@ The classifier now has the vocabulary to express personality magnitude, not just
 
 **Cross-agent personality comparison.** Two agents perceiving the same situation now produce genuinely different classifications based on personality magnitude. `SocialComparison` already computes perspectival divergence metrics — personality-enriched classification feeds richer data into that pipeline.
 
-**Config-driven facet tuning.** All 13 facets are included by default behind `casehub.caps.classification.pid5-facets`. The 7 perception-shaping facets (ANXIOUSNESS, EMOTIONAL_LABILITY, WITHDRAWAL, IMPULSIVITY, RISK_TAKING, SUSPICIOUSNESS, INTIMACY_AVOIDANCE) are the obvious candidates, but the remaining 6 (CALLOUSNESS, HOSTILITY, GRANDIOSITY, etc.) may also colour perception in ways we haven't measured yet. The config lets us narrow or expand after running evals, without code changes.
+**Config-driven facet tuning.** All 13 facets are included by default via `casehub.caps.classification.cbr.pid5-facets`. `Pid5FacetsConfig` reads this property and both consolidation phases pass the parsed set to `PersonalityMetadataEnricher`, which filters at enrichment time — downstream consumers (the LLM prompt builder, the CBR cache key hash) naturally only see configured facets. The 7 perception-shaping facets (ANXIOUSNESS, EMOTIONAL_LABILITY, WITHDRAWAL, IMPULSIVITY, RISK_TAKING, SUSPICIOUSNESS, INTIMACY_AVOIDANCE) are the obvious candidates, but the remaining 6 (CALLOUSNESS, HOSTILITY, GRANDIOSITY, etc.) may also colour perception in ways we haven't measured yet. Narrowing or expanding is a config change, no code required.
+
+## Closing the loop — 84 issues across the CAPS pipeline
+
+This work completes epic #1050 — the CAPS pipeline wiring completeness audit that was the reason slot 211 exists. The queue finished at 84 issues resolved, covering the full chain from topology structure through personality-aware classification:
+
+- **Topology wiring:** 19 orphaned output nodes connected, coping→regulation gap bridged, CopingDefaults coverage expanded from 6 to 16 nodes
+- **Personality differentiation:** disposition axes → PID-5 facets → AppraisalWeights, with 3-tier prompt routing (Path A/B/C) based on disposition tension
+- **Search budget:** 4D personality-modulated search parameters with Yerkes-Dodson extreme peaks, shared fatigue substrate, curiosity channel modulation
+- **Drive composition:** asymmetric EMA smoothing, appraisal secondary boosts, saturation clamping, temporal smoothing
+- **CAPS settling:** convergence detection, action tendency targets, attractor filtering, coping bias verification
+- **Observability:** tick-stage instrumentation, consolidation journal, prediction calibration surface
+
+The pipeline now runs end-to-end: a character's disposition profile derives their personality weights, which modulate their appraisal of incoming situations, which activates CAPS input nodes, which settle through the network to produce behavioural attractors, which feed back into drives and search budget. Every step is personality-aware. Every step is observable.

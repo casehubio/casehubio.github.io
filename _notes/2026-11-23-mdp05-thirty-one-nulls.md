@@ -47,7 +47,20 @@ Thirty arguments, most of them null. When the record gained a thirty-first field
 
 Once a record passes about ten fields, raw constructor usage in tests becomes a maintenance hazard. Every new field breaks every call site. The builder costs a few extra lines but absorbs change without propagation. For test fixtures especially — where most fields are null stubs — the builder makes the intent visible. You see `agentId("agent-1")` instead of counting nulls to figure out which parameter you're setting.
 
-The `AgentDescriptor` builder already exists. These four test methods just didn't use it.
+The `AgentDescriptor` builder already exists. These four test methods just didn't use it. Filed as #1215 and fixed in the same session cycle — the four methods now read like this:
+
+```java
+return AgentDescriptor.builder()
+        .agentId(AGENT).name("Frida").description("Artist").version("1.0")
+        .slot("test-slot").archetype("creator-artist").tenancyId(TENANT)
+        .disposition(AgentDisposition.builder()
+                .ampdFacets(List.of(...))
+                .situationalProfiles(stressProfile)
+                .build())
+        .build();
+```
+
+Seven named fields instead of thirty-one positional arguments. The next field addition to `AgentDescriptor` won't touch these tests at all.
 
 ## Pipeline archaeology
 
