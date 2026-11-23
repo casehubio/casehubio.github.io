@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: The Mind That Reads Minds
 date: 2026-08-20
 author: Mark Proctor

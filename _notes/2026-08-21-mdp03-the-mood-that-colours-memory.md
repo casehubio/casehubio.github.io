@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: The Mood That Colours Memory
 date: 2026-08-21
 author: Mark Proctor
