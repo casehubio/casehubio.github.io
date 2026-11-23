@@ -1,4 +1,5 @@
----
+---layout: post
+
 title: What Does the Agent Want?
 date: 2026-08-21
 author: Mark Proctor

@@ -3,8 +3,8 @@ title: "The Goal That Earns Its Rank"
 date: 2026-09-01
 entry_type: note
 subtype: diary
-series: casehub-agency
-projects: casehub-agency
+series: casehub-blocks
+projects: casehub-blocks
 tags: [goal-governance, narrative-identity, escalation, cross-axis, layer-3]
 ---
 
