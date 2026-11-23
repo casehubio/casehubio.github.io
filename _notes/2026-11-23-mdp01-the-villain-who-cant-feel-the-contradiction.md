@@ -5,7 +5,7 @@ date: 2026-11-23
 entry_type: note
 subtype: diary
 projects: [casehubio/neocortex]
-tags: [cognitive-dissonance, constraint-satisfaction, caps, belief-revision, festinger, shultz-lepper, mood, prompt-rendering, design]
+tags: [cognitive-dissonance, constraint-satisfaction, caps, belief-revision, festinger, shultz-lepper, mood, prompt-rendering, design, implementation]
 ---
 
 # The Villain Who Can't Feel the Contradiction
@@ -55,3 +55,5 @@ For now, mechanical decay provides an interim pathway — if the LLM stops detec
 ## What this opens up
 
 The villain who believes they're charming while plotting murder will now experience that contradiction as psychological cost. Their arousal will rise. Their pleasure will drop. The prompt will tell them they feel torn. And their conversation behaviour — influenced by that tension — will generate experiences that eventually reshape their CAPS attractors. The constraint network that Shultz and Lepper described is already there in the engine. This work connects beliefs to it, so contradictions produce consequences rather than coexisting in silence.
+
+The implementation landed cleanly — `DissonanceDetectionPhase`, `DissonanceTickParticipant`, `DissonancePromptSection`, and the full pipeline wiring into `CognitionCore`. The coping integration (#1210) is next, where the felt tension stops being something that simply decays and starts being something the character actively reasons about.
