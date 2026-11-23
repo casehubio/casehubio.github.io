@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Spaces Replace Naming Conventions"
 date: 2026-07-12
 entry_type: note

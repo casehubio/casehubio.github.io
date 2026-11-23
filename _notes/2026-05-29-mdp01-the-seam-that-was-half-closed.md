@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The seam that was half-closed"
 date: 2026-05-29
 entry_type: note

@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "The Type You Don't Add"
 date: 2026-08-28
 author: mdp

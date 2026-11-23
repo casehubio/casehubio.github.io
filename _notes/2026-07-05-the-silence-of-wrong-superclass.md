@@ -1,8 +1,10 @@
----layout: post
-
+---
 title: The Silence of the Wrong Superclass
 date: 2026-07-05
 tags: [jpa, cdi, hibernate, ledger, qhorus]
+entry_type: note
+subtype: diary
+projects: [casehubio/qhorus]
 ---
 
 # The Silence of the Wrong Superclass

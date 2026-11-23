@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Five Followups, One Branch — Merge, Move, Presence, and the Normative Boundary Question"
 date: 2026-07-12
 entry_type: note

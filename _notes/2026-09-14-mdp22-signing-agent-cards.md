@@ -1,5 +1,4 @@
----layout: post
-
+---
 title: "Signing Agent Cards — Cryptographic Identity for Qhorus Agents"
 date: 2026-09-14
 author: mdp
