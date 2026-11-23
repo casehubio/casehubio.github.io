@@ -4,7 +4,7 @@ title: "The Brain That Lived in the Wrong Body"
 date: 2026-09-29
 entry_type: note
 subtype: diary
-projects: [casehubio/neocortex, casehubio/blocks]
+projects: [casehubio/neocortex, casehubio/agency]
 tags: [architecture, migration, cognitive, first-principles]
 series: issue-303-migrate-cognitive-state
 ---
