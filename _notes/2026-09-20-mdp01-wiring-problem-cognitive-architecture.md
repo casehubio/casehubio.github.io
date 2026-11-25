@@ -2,7 +2,7 @@
 layout: post
 title: "The Wiring Problem — When Your Cognitive Architecture Works but Your Game Doesn't Know It"
 date: 2026-09-20
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/examples]
 tags: [cognitive-architecture, wiring, agent-design, wacky-manor, observation-pipeline]

@@ -2,7 +2,7 @@
 layout: post
 title: "Ask the Judge First"
 date: 2026-11-07
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [emotion-regulation, strategy-exploration, LLM-eval, pipeline-observability, cognitive-architecture, boundary-cases]

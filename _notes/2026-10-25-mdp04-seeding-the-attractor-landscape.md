@@ -2,7 +2,7 @@
 layout: post
 title: "Seeding the Attractor Landscape"
 date: 2026-10-25
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [cognitive-architecture, caps-theory, personality, behavioral-attractors, literature]

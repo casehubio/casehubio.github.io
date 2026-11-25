@@ -2,7 +2,7 @@
 layout: post
 title: "When Personality Isn't Enough"
 date: 2026-11-05
-entry_type: article
+entry_type: note
 subtype: diary
 projects: [casehubio/neocortex, casehubio/examples]
 tags: [emotion-regulation, automatic-regulation, personality-coherence, petter-model, cognitive-architecture, empirical-testing, LLM-judge]

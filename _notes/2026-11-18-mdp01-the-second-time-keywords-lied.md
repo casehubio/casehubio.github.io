@@ -7,6 +7,7 @@ subtype: diary
 projects: [casehubio/neocortex]
 tags: [cognitive-architecture, bdi, intent-classification, semantic-resolution, theory-of-mind, llm]
 series: issue-1098-bdi-semantic-classifier
+updated: 2026-11-18
 ---
 
 # The Second Time Keywords Lied
@@ -94,3 +95,17 @@ This is now the second time the same design failure appeared in the cognitive pi
 The principle: when the LLM is already producing structured output, make it resolve the semantic question at the point of extraction. Don't punt it downstream and hope that substring matching will reconstruct what the LLM already understood.
 
 The next case to watch is the coping micro-loop in emotion regulation, which still uses keyword detection for SEC re-evaluation triggers. Different system, same pattern. That one's not broken yet — but I know where to look.
+
+## Update: The Third Time — And the Last
+
+I didn't have to look long. The same afternoon, we swept the entire SEC appraisal layer (#1113). Four keyword classifiers: `CopingCheck` with 51 keywords splitting agency from helplessness ("can"→candy, "able"→comfortable), `ImplicationCheck` with 20 keywords for goal conduciveness ("won"→wonder, "lost"→gloucester), `NormativeCheck` with 14 keywords for standards compliance ("right"→bright, "just"→adjust), and `RelevanceCheck` matching drive names against narrative text ("power"→empowered, overpowered).
+
+All four shared the same failure mode: substring matching on unresolved narrative text. All four had obvious false positives documented in the issue. All four had an LLM replacement already running in production — `LlmAppraisalStrategy` produces all seven SEC dimensions in a single call with an evocative first-person narrative that feeds the prompt pipeline.
+
+The keyword fallback existed for a defensive reason: what if there's no LLM available? But you cannot run a cognitive neocortex without an LLM. The keyword fallback is more dangerous than no fallback at all — wrong activations actively break downstream appraisal filtering, emotion mapping, and coping strategy selection. A failing-fast `IllegalStateException` when no `SessionPipeline` is available is strictly better than incorrect appraisal dimensions propagating through the entire cognitive pipeline.
+
+![Before: four keyword checks with false positives; After: single LLM call, seven dimensions](images/sec-keyword-sweep.svg)
+
+The sweep deleted eight source files, one API record, and eleven test files. 1,828 lines removed. The coping micro-loop — the case I flagged above — now delegates re-evaluation to `AppraisalStrategy` instead of iterating over keyword `SecCheck` implementations. The `SecCheck` interface itself became orphaned dead code and was deleted.
+
+Three classifiers, three removals, one principle: the semantic resolution boundary is not a suggestion. If you're doing substring matching on text that an LLM produced, you're reconstructing meaning that was already understood and discarding context that matters. Resolve the semantics at extraction time. Everything downstream reads the resolved signal.
