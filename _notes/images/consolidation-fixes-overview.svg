@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#666"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="16" font-weight="bold" fill="#1a1a2e">Three Principles, Eight Findings</text>
+
+  <!-- Principle 1: Entity Resolution -->
+  <rect x="20" y="50" width="220" height="180" rx="8" fill="#e8f4f8" stroke="#2196F3" stroke-width="1.5"/>
+  <text x="130" y="72" text-anchor="middle" font-weight="bold" fill="#1565C0" font-size="12">Entity Resolution</text>
+  <text x="130" y="88" text-anchor="middle" font-size="11" fill="#1565C0">SurfaceFormTrie reuse</text>
+
+  <rect x="35" y="100" width="190" height="28" rx="4" fill="#fff" stroke="#90CAF9"/>
+  <text x="130" y="118" text-anchor="middle" font-size="11">F6: SubThought entity null</text>
+
+  <rect x="35" y="135" width="190" height="28" rx="4" fill="#fff" stroke="#90CAF9"/>
+  <text x="130" y="153" text-anchor="middle" font-size="11">F11: Merge too aggressive</text>
+
+  <rect x="35" y="170" width="190" height="28" rx="4" fill="#fff" stroke="#90CAF9"/>
+  <text x="130" y="188" text-anchor="middle" font-size="11">F19: Fuzzy matching loose</text>
+
+  <!-- Principle 2: Tenant Isolation -->
+  <rect x="250" y="50" width="220" height="180" rx="8" fill="#f3e8f9" stroke="#9C27B0" stroke-width="1.5"/>
+  <text x="360" y="72" text-anchor="middle" font-weight="bold" fill="#6A1B9A" font-size="12">Tenant Isolation</text>
+  <text x="360" y="88" text-anchor="middle" font-size="11" fill="#6A1B9A">State must be tenant-scoped</text>
+
+  <rect x="265" y="100" width="190" height="28" rx="4" fill="#fff" stroke="#CE93D8"/>
+  <text x="360" y="118" text-anchor="middle" font-size="11">F3: Cross-tenant leakage</text>
+
+  <rect x="265" y="135" width="190" height="28" rx="4" fill="#fff" stroke="#CE93D8"/>
+  <text x="360" y="153" text-anchor="middle" font-size="11">F5: Global significance reset</text>
+
+  <rect x="265" y="170" width="190" height="28" rx="4" fill="#fff" stroke="#CE93D8"/>
+  <text x="360" y="188" text-anchor="middle" font-size="11">F17: No dynamic tenant disc.</text>
+
+  <!-- Principle 3: Threshold Safety -->
+  <rect x="480" y="50" width="220" height="180" rx="8" fill="#fff3e0" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="590" y="72" text-anchor="middle" font-weight="bold" fill="#E65100" font-size="12">Threshold Safety</text>
+  <text x="590" y="88" text-anchor="middle" font-size="11" fill="#E65100">Irreversible ops need evidence</text>
+
+  <rect x="495" y="100" width="190" height="28" rx="4" fill="#fff" stroke="#FFCC80"/>
+  <text x="590" y="118" text-anchor="middle" font-size="11">F11: Merge at JW 0.9</text>
+
+  <rect x="495" y="135" width="190" height="28" rx="4" fill="#fff" stroke="#FFCC80"/>
+  <text x="590" y="153" text-anchor="middle" font-size="11">F19: Confidence STATED 1.0</text>
+
+  <rect x="495" y="170" width="190" height="28" rx="4" fill="#fff" stroke="#FFCC80"/>
+  <text x="590" y="188" text-anchor="middle" font-size="11">F7: Cursor skip + naming</text>
+
+  <!-- Individual fixes -->
+  <rect x="250" y="240" width="220" height="38" rx="8" fill="#e8f5e9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="360" y="256" text-anchor="middle" font-weight="bold" fill="#2E7D32" font-size="12">Housekeeping</text>
+  <text x="360" y="272" text-anchor="middle" font-size="11" fill="#2E7D32">F16: Disable placeholder summaries</text>
+
+  <!-- Arrows from principles to consolidation pipeline -->
+  <line x1="130" y1="230" x2="260" y2="310" stroke="#666" stroke-width="1" marker-end="url(#arrow)" stroke-dasharray="4"/>
+  <line x1="360" y1="278" x2="360" y2="310" stroke="#666" stroke-width="1" marker-end="url(#arrow)" stroke-dasharray="4"/>
+  <line x1="590" y1="230" x2="460" y2="310" stroke="#666" stroke-width="1" marker-end="url(#arrow)" stroke-dasharray="4"/>
+
+  <!-- Pipeline box -->
+  <rect x="180" y="310" width="360" height="50" rx="8" fill="#f5f5f5" stroke="#616161" stroke-width="1.5"/>
+  <text x="360" y="332" text-anchor="middle" font-weight="bold" fill="#212121" font-size="13">Consolidation Pipeline</text>
+  <text x="360" y="350" text-anchor="middle" font-size="11" fill="#616161">mindmap-intelligence · 12 commits · 2141 tests green</text>
+
+  <!-- Result -->
+  <line x1="360" y1="360" x2="360" y2="390" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <rect x="180" y="390" width="360" height="70" rx="8" fill="#e8f5e9" stroke="#388E3C" stroke-width="2"/>
+  <text x="360" y="415" text-anchor="middle" font-weight="bold" fill="#1B5E20" font-size="14">What Changed</text>
+  <text x="360" y="435" text-anchor="middle" font-size="11" fill="#2E7D32">Entities resolve · Tenants isolate · Merges require evidence</text>
+  <text x="360" y="451" text-anchor="middle" font-size="11" fill="#2E7D32">Cursor doesn't skip · Names are readable · Noise is off</text>
+</svg>
