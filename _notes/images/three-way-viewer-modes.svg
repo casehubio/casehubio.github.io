@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280" font-family="system-ui, sans-serif">
+  <defs>
+    <style>
+      .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; rx: 6; }
+      .editor { fill: #0f172a; stroke: #334155; stroke-width: 1; rx: 4; }
+      .visual { fill: #0d1520; stroke: #334155; stroke-width: 1; rx: 4; }
+      .splitter { fill: #38bdf8; rx: 2; }
+      .label { fill: #94a3b8; font-size: 11px; text-anchor: middle; }
+      .title { fill: #e2e8f0; font-size: 13px; font-weight: 600; text-anchor: middle; }
+      .pane-label { fill: #64748b; font-size: 10px; text-anchor: middle; }
+      .toolbar { fill: #1e293b; stroke: #334155; stroke-width: 1; rx: 4; }
+      .btn { fill: none; stroke: #334155; stroke-width: 1; rx: 3; }
+      .btn-active { fill: rgba(56,189,248,0.1); stroke: #38bdf8; stroke-width: 1; rx: 3; }
+      .btn-text { fill: #94a3b8; font-size: 9px; text-anchor: middle; font-weight: 500; }
+      .btn-text-active { fill: #38bdf8; font-size: 9px; text-anchor: middle; font-weight: 600; }
+      .arrow { stroke: #475569; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569" />
+    </marker>
+  </defs>
+
+  <!-- Source Mode -->
+  <rect class="box" x="10" y="10" width="220" height="260" />
+  <text class="title" x="120" y="35">Source Mode</text>
+  <!-- toolbar -->
+  <rect class="toolbar" x="20" y="45" width="200" height="22" />
+  <rect class="btn-active" x="24" y="48" width="42" height="16" />
+  <text class="btn-text-active" x="45" y="59">Source</text>
+  <rect class="btn" x="70" y="48" width="32" height="16" />
+  <text class="btn-text" x="86" y="59">Split</text>
+  <rect class="btn" x="106" y="48" width="38" height="16" />
+  <text class="btn-text" x="125" y="59">Visual</text>
+  <!-- editor fills -->
+  <rect class="editor" x="20" y="72" width="200" height="188" />
+  <text class="pane-label" x="120" y="170">pages-code-editor</text>
+
+  <!-- Split Mode -->
+  <rect class="box" x="250" y="10" width="220" height="260" />
+  <text class="title" x="360" y="35">Split Mode</text>
+  <!-- toolbar -->
+  <rect class="toolbar" x="260" y="45" width="200" height="22" />
+  <rect class="btn" x="264" y="48" width="42" height="16" />
+  <text class="btn-text" x="285" y="59">Source</text>
+  <rect class="btn-active" x="310" y="48" width="32" height="16" />
+  <text class="btn-text-active" x="326" y="59">Split</text>
+  <rect class="btn" x="346" y="48" width="38" height="16" />
+  <text class="btn-text" x="365" y="59">Visual</text>
+  <!-- editor left -->
+  <rect class="editor" x="260" y="72" width="94" height="188" />
+  <text class="pane-label" x="307" y="170">Editor</text>
+  <!-- splitter -->
+  <rect class="splitter" x="356" y="72" width="4" height="188" />
+  <!-- visual right -->
+  <rect class="visual" x="362" y="72" width="98" height="188" />
+  <text class="pane-label" x="411" y="170">Visual</text>
+  <!-- sync arrows -->
+  <line class="arrow" x1="330" y1="130" x2="385" y2="130" />
+  <line class="arrow" x1="385" y1="145" x2="330" y2="145" />
+  <text x="358" y="123" fill="#38bdf8" font-size="8" text-anchor="middle">syncLine</text>
+  <text x="358" y="160" fill="#38bdf8" font-size="8" text-anchor="middle">viewer-select</text>
+
+  <!-- Visual Mode -->
+  <rect class="box" x="490" y="10" width="220" height="260" />
+  <text class="title" x="600" y="35">Visual Mode</text>
+  <!-- toolbar -->
+  <rect class="toolbar" x="500" y="45" width="200" height="22" />
+  <rect class="btn" x="504" y="48" width="42" height="16" />
+  <text class="btn-text" x="525" y="59">Source</text>
+  <rect class="btn" x="550" y="48" width="32" height="16" />
+  <text class="btn-text" x="566" y="59">Split</text>
+  <rect class="btn-active" x="586" y="48" width="38" height="16" />
+  <text class="btn-text-active" x="605" y="59">Visual</text>
+  <!-- visual fills -->
+  <rect class="visual" x="500" y="72" width="200" height="188" />
+  <text class="pane-label" x="600" y="170">slot: visual-pane</text>
+</svg>
