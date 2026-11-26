@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#666"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#4A90D9"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">Interactive vs Headless Playbook Execution</text>
+
+  <!-- Left: Interactive mode -->
+  <rect x="20" y="50" width="320" height="350" rx="8" fill="#F7F9FC" stroke="#D0D7DE"/>
+  <text x="180" y="72" text-anchor="middle" font-weight="bold" fill="#555">Interactive (Teaching Mode)</text>
+
+  <rect x="40" y="90" width="130" height="36" rx="4" fill="#E8F0FE" stroke="#4A90D9"/>
+  <text x="105" y="113" text-anchor="middle" fill="#2C5F9A">Playbook YAML</text>
+
+  <line x1="105" y1="126" x2="105" y2="148" stroke="#666" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="150" width="130" height="36" rx="4" fill="#E8F0FE" stroke="#4A90D9"/>
+  <text x="105" y="173" text-anchor="middle" fill="#2C5F9A">Orchestrator</text>
+
+  <line x1="105" y1="186" x2="105" y2="208" stroke="#666" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="210" width="130" height="36" rx="4" fill="#FFF3E0" stroke="#E8A735"/>
+  <text x="105" y="233" text-anchor="middle" fill="#8B6914">WebSocket Push</text>
+
+  <line x1="105" y1="246" x2="105" y2="268" stroke="#666" marker-end="url(#arrow)"/>
+
+  <rect x="40" y="270" width="130" height="36" rx="4" fill="#E8F5E9" stroke="#66BB6A"/>
+  <text x="105" y="293" text-anchor="middle" fill="#2E7D32">Browser JS</text>
+  <text x="105" y="307" text-anchor="middle" font-size="10" fill="#666">(pages-aria)</text>
+
+  <!-- verify steps on right of interactive -->
+  <rect x="200" y="210" width="120" height="36" rx="4" fill="#FCE4EC" stroke="#EF5350"/>
+  <text x="260" y="233" text-anchor="middle" fill="#C62828">verify: steps</text>
+
+  <line x1="170" y1="168" x2="200" y2="220" stroke="#999" stroke-dasharray="4"/>
+  <text x="260" y="260" text-anchor="middle" font-size="10" fill="#888">REST delivery</text>
+
+  <text x="105" y="350" text-anchor="middle" font-size="11" fill="#888">ARIA commands over WS</text>
+  <text x="105" y="366" text-anchor="middle" font-size="11" fill="#888">User watches UI animate</text>
+
+  <!-- Right: Headless mode -->
+  <rect x="380" y="50" width="320" height="350" rx="8" fill="#FAFFF7" stroke="#A8D5A2"/>
+  <text x="540" y="72" text-anchor="middle" font-weight="bold" fill="#555">Headless (CI Mode)</text>
+
+  <rect x="400" y="90" width="130" height="36" rx="4" fill="#E8F0FE" stroke="#4A90D9"/>
+  <text x="465" y="113" text-anchor="middle" fill="#2C5F9A">Playbook YAML</text>
+  <text x="465" y="105" text-anchor="middle" font-size="9" fill="#999">same file</text>
+
+  <line x1="465" y1="126" x2="465" y2="148" stroke="#666" marker-end="url(#arrow)"/>
+
+  <rect x="400" y="150" width="130" height="44" rx="4" fill="#E8F0FE" stroke="#4A90D9"/>
+  <text x="465" y="171" text-anchor="middle" fill="#2C5F9A">Headless</text>
+  <text x="465" y="186" text-anchor="middle" fill="#2C5F9A">PlaybookRunner</text>
+
+  <line x1="465" y1="194" x2="465" y2="218" stroke="#666" marker-end="url(#arrow)"/>
+
+  <rect x="400" y="220" width="130" height="36" rx="4" fill="#E3F2FD" stroke="#42A5F5"/>
+  <text x="465" y="243" text-anchor="middle" fill="#1565C0">Playwright API</text>
+
+  <line x1="465" y1="256" x2="465" y2="278" stroke="#666" marker-end="url(#arrow)"/>
+
+  <rect x="400" y="280" width="130" height="36" rx="4" fill="#E8F5E9" stroke="#66BB6A"/>
+  <text x="465" y="303" text-anchor="middle" fill="#2E7D32">Headless</text>
+  <text x="465" y="317" text-anchor="middle" font-size="10" fill="#666">Chromium</text>
+
+  <!-- verify steps on right of headless -->
+  <rect x="560" y="220" width="120" height="36" rx="4" fill="#FCE4EC" stroke="#EF5350"/>
+  <text x="620" y="243" text-anchor="middle" fill="#C62828">verify: steps</text>
+
+  <line x1="530" y1="176" x2="560" y2="230" stroke="#999" stroke-dasharray="4"/>
+  <text x="620" y="270" text-anchor="middle" font-size="10" fill="#888">REST + assertions</text>
+
+  <text x="465" y="350" text-anchor="middle" font-size="11" fill="#2E7D32">getByRole() locators</text>
+  <text x="465" y="366" text-anchor="middle" font-size="11" fill="#2E7D32">CI runs assertions</text>
+
+  <!-- Shared label -->
+  <text x="360" y="410" text-anchor="middle" font-size="12" font-style="italic" fill="#888">Same playbook YAML drives both paths — dual-purpose by design</text>
+</svg>
