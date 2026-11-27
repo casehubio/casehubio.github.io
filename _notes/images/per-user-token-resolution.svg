@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">actorId-Aware Token Resolution</text>
+
+  <!-- getAccessToken call -->
+  <rect x="20" y="60" width="260" height="50" rx="8" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="150" y="82" text-anchor="middle" font-size="12" fill="#64748b">getAccessToken(</text>
+  <text x="150" y="98" text-anchor="middle" font-weight="600" fill="#1e293b">actorId, provider, tenancyId)</text>
+
+  <!-- Decision diamond -->
+  <polygon points="350,140 430,180 350,220 270,180" fill="#fff" stroke="#475569" stroke-width="1.5"/>
+  <text x="350" y="176" text-anchor="middle" font-size="11" fill="#1e293b">per-user?</text>
+  <text x="350" y="190" text-anchor="middle" font-size="11" fill="#1e293b">actorId?</text>
+
+  <!-- Arrow from call to diamond -->
+  <line x1="150" y1="110" x2="150" y2="155" stroke="#475569" stroke-width="1.5"/>
+  <line x1="150" y1="155" x2="270" y2="180" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- YES path — left -->
+  <text x="225" y="225" text-anchor="middle" font-size="11" font-weight="600" fill="#16a34a">YES</text>
+  <line x1="310" y1="210" x2="150" y2="260" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- UserTokenResolver -->
+  <rect x="30" y="260" width="240" height="80" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="150" y="285" text-anchor="middle" font-weight="600" fill="#166534">UserTokenResolver</text>
+  <text x="150" y="305" text-anchor="middle" font-size="11" fill="#166534">providerId() → "truelayer"</text>
+  <text x="150" y="322" text-anchor="middle" font-size="11" fill="#166534">getAccessToken(userId)</text>
+
+  <!-- ConsentTokenStore below -->
+  <text x="150" y="355" text-anchor="middle" font-size="11" fill="#94a3b8">↓ backed by ConsentTokenStore (JPA)</text>
+
+  <!-- NO path — right -->
+  <text x="475" y="175" text-anchor="middle" font-size="11" font-weight="600" fill="#dc2626">NO</text>
+  <line x1="430" y1="180" x2="470" y2="180" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ProviderCredentialFacade -->
+  <rect x="470" y="155" width="210" height="50" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="575" y="176" text-anchor="middle" font-weight="600" fill="#1e40af">ProviderCredentialFacade</text>
+  <text x="575" y="193" text-anchor="middle" font-size="11" fill="#1e40af">tenant-scoped tokens</text>
+
+  <!-- Existing flows below -->
+  <rect x="470" y="240" width="100" height="34" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="520" y="261" text-anchor="middle" font-size="11" fill="#166534">refresh_token</text>
+
+  <rect x="580" y="240" width="100" height="34" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+  <text x="630" y="261" text-anchor="middle" font-size="11" fill="#92400e">client_creds</text>
+
+  <line x1="520" y1="205" x2="520" y2="240" stroke="#475569" stroke-width="1" marker-end="url(#arr)"/>
+  <line x1="630" y1="205" x2="630" y2="240" stroke="#475569" stroke-width="1" marker-end="url(#arr)"/>
+</svg>
