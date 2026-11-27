@@ -4,7 +4,7 @@ title: "Giving social cognition a database"
 date: 2026-09-23
 entry_type: note
 subtype: diary
-projects: [casehubio/agency]
+projects: [casehubio/blocks]
 tags: [jpa, social-cognition, maven, jackson, spring-boot]
 ---
 
