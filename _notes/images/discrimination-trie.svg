@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="tri-arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <text x="340" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e293b">DiscriminationTrie — Structurally-Aware Candidate Selection</text>
+
+  <!-- Root node -->
+  <circle cx="340" cy="65" r="18" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+  <text x="340" y="69" text-anchor="middle" font-size="11" fill="#1e293b">root</text>
+
+  <!-- Level 1 branches -->
+  <!-- cancel -->
+  <line x1="322" y1="78" x2="160" y2="120" stroke="#475569" stroke-width="1.2" marker-end="url(#tri-arrow)"/>
+  <rect x="100" y="120" width="120" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="160" y="140" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">cancel</text>
+  <text x="160" y="112" font-size="9" fill="#64748b">LITERAL</text>
+
+  <!-- submit -->
+  <line x1="340" y1="83" x2="340" y2="120" stroke="#475569" stroke-width="1.2" marker-end="url(#tri-arrow)"/>
+  <rect x="280" y="120" width="120" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="340" y="140" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">submit</text>
+  <text x="340" y="112" font-size="9" fill="#64748b">LITERAL</text>
+
+  <!-- wildcard root -->
+  <line x1="358" y1="78" x2="540" y2="120" stroke="#475569" stroke-width="1.2" marker-end="url(#tri-arrow)"/>
+  <rect x="490" y="120" width="100" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="540" y="140" text-anchor="middle" font-size="12" font-style="italic" fill="#92400e">*</text>
+  <text x="540" y="112" font-size="9" fill="#64748b">WILDCARD</text>
+
+  <!-- Level 2 from cancel -->
+  <line x1="160" y1="150" x2="100" y2="190" stroke="#475569" stroke-width="1" marker-end="url(#tri-arrow)"/>
+  <rect x="50" y="190" width="100" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="100" y="210" text-anchor="middle" font-size="12" font-style="italic" fill="#92400e">*</text>
+  <text x="100" y="182" font-size="9" fill="#64748b">WILDCARD (${item})</text>
+
+  <!-- Level 3 from cancel wildcard: now vs later -->
+  <line x1="80" y1="220" x2="50" y2="260" stroke="#475569" stroke-width="1" marker-end="url(#tri-arrow)"/>
+  <rect x="10" y="260" width="80" height="28" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="50" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">now</text>
+
+  <line x1="120" y1="220" x2="160" y2="260" stroke="#475569" stroke-width="1" marker-end="url(#tri-arrow)"/>
+  <rect x="120" y="260" width="80" height="28" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="160" y="278" text-anchor="middle" font-size="11" font-weight="600" fill="#1d4ed8">later</text>
+
+  <!-- Leaves -->
+  <rect x="5" y="296" width="90" height="22" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="50" y="311" text-anchor="middle" font-size="9" fill="#15803d">cancel-now:0</text>
+
+  <rect x="115" y="296" width="90" height="22" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="160" y="311" text-anchor="middle" font-size="9" fill="#15803d">cancel-later:0</text>
+
+  <!-- Level 2 from submit -->
+  <line x1="340" y1="150" x2="340" y2="190" stroke="#475569" stroke-width="1" marker-end="url(#tri-arrow)"/>
+  <rect x="290" y="190" width="100" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="340" y="210" text-anchor="middle" font-size="12" font-style="italic" fill="#92400e">*</text>
+
+  <!-- Submit leaf -->
+  <rect x="295" y="230" width="90" height="22" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="340" y="245" text-anchor="middle" font-size="9" fill="#15803d">submit:0</text>
+
+  <!-- Level 2 from wildcard: the -->
+  <line x1="540" y1="150" x2="540" y2="190" stroke="#475569" stroke-width="1" marker-end="url(#tri-arrow)"/>
+  <rect x="490" y="190" width="100" height="30" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="540" y="210" text-anchor="middle" font-size="12" font-weight="600" fill="#1d4ed8">the</text>
+
+  <!-- Level 3 from the: wildcard -->
+  <line x1="540" y1="220" x2="540" y2="250" stroke="#475569" stroke-width="1" marker-end="url(#tri-arrow)"/>
+  <rect x="490" y="250" width="100" height="30" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <text x="540" y="270" text-anchor="middle" font-size="12" font-style="italic" fill="#92400e">*</text>
+
+  <!-- Action leaf -->
+  <rect x="495" y="290" width="90" height="22" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="540" y="305" text-anchor="middle" font-size="9" fill="#15803d">action:0</text>
+
+  <!-- Legend -->
+  <rect x="460" y="45" width="12" height="12" rx="3" fill="#dbeafe" stroke="#3b82f6" stroke-width="1"/>
+  <text x="478" y="55" font-size="10" fill="#475569">Literal node</text>
+  <rect x="560" y="45" width="12" height="12" rx="3" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="578" y="55" font-size="10" fill="#475569">Wildcard</text>
+  <rect x="460" y="63" width="12" height="12" rx="3" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="478" y="73" font-size="10" fill="#475569">Pattern leaf</text>
+</svg>
