@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 420" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#475569"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="420" fill="#fafafa" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">Google OAuth Family — Token Flow</text>
+
+  <!-- Credential Store box -->
+  <rect x="260" y="50" width="200" height="60" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="360" y="72" text-anchor="middle" font-weight="600" fill="#166534">ProviderCredentialFacade</text>
+  <text x="360" y="90" text-anchor="middle" font-size="11" fill="#4b5563">client-id · client-secret</text>
+  <text x="360" y="102" text-anchor="middle" font-size="11" fill="#4b5563">access-token · refresh-token · expires-at</text>
+
+  <!-- OAuthConsentService -->
+  <rect x="40" y="160" width="180" height="50" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="130" y="182" text-anchor="middle" font-weight="600" fill="#1e40af">OAuthConsentService</text>
+  <text x="130" y="198" text-anchor="middle" font-size="11" fill="#4b5563">consent + token exchange</text>
+
+  <!-- FamilyConnectionProvider -->
+  <rect x="270" y="160" width="180" height="50" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="360" y="182" text-anchor="middle" font-weight="600" fill="#92400e">FamilyConnectionProvider</text>
+  <text x="360" y="198" text-anchor="middle" font-size="11" fill="#4b5563">resolve + refresh tokens</text>
+
+  <!-- Google OAuth -->
+  <rect x="40" y="280" width="180" height="40" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+  <text x="130" y="305" text-anchor="middle" font-weight="500" fill="#991b1b">Google OAuth Endpoint</text>
+
+  <!-- Google API platforms -->
+  <rect x="500" y="140" width="190" height="90" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="595" y="162" text-anchor="middle" font-weight="600" fill="#5b21b6">Google Platform Classes</text>
+  <text x="595" y="182" text-anchor="middle" font-size="11" fill="#4b5563">GoogleCalendarPlatform</text>
+  <text x="595" y="196" text-anchor="middle" font-size="11" fill="#4b5563">GoogleDocumentPlatform</text>
+  <text x="595" y="210" text-anchor="middle" font-size="11" fill="#4b5563">GoogleContactsPlatform</text>
+  <text x="595" y="224" text-anchor="middle" font-size="11" fill="#4b5563">GoogleEmailPlatform</text>
+
+  <!-- DependencyResolver -->
+  <rect x="500" y="280" width="190" height="50" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+  <text x="595" y="302" text-anchor="middle" font-weight="600" fill="#075985">DependencyResolver</text>
+  <text x="595" y="318" text-anchor="middle" font-size="11" fill="#4b5563">family-aware OAuth check</text>
+
+  <!-- Family Manifest -->
+  <rect x="270" y="360" width="180" height="40" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.5"/>
+  <text x="360" y="385" text-anchor="middle" font-weight="500" fill="#9a3412">google.yaml family manifest</text>
+
+  <!-- Arrows -->
+  <!-- OAuthConsentService writes to store -->
+  <line x1="220" y1="175" x2="258" y2="100" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="225" y="135" font-size="10" fill="#2563eb">store tokens</text>
+
+  <!-- OAuthConsentService talks to Google -->
+  <line x1="130" y1="210" x2="130" y2="278" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="140" y="250" font-size="10" fill="#475569">PKCE flow</text>
+
+  <!-- FamilyConnectionProvider reads from store -->
+  <line x1="360" y1="160" x2="360" y2="112" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="370" y="140" font-size="10" fill="#92400e">read/refresh</text>
+
+  <!-- Google platforms use FamilyConnectionProvider -->
+  <line x1="500" y1="185" x2="452" y2="185" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="460" y="178" font-size="10" fill="#7c3aed">getAccessToken()</text>
+
+  <!-- DependencyResolver reads store -->
+  <line x1="500" y1="300" x2="395" y2="100" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+  <text x="460" y="210" font-size="10" fill="#0284c7">check token</text>
+
+  <!-- Family manifest feeds both -->
+  <line x1="310" y1="360" x2="200" y2="212" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+  <line x1="400" y1="360" x2="400" y2="212" stroke="#c2410c" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+  <text x="290" y="350" font-size="10" fill="#c2410c">scopes + token URL</text>
+</svg>
