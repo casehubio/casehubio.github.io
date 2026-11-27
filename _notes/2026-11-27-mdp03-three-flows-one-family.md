@@ -64,16 +64,22 @@ The Microsoft work exposed a bigger question. TrueLayer's PSD2 consent is per-us
 
 I looked at the `ServiceConnectionProvider` interface. Its signature: `getAccessToken(actorId, provider, tenancyId)`. Every caller — Google, Microsoft, TrueLayer — already passes `userId` as `actorId`. Every implementation ignores it.
 
-The interface was designed for per-user resolution. The implementation gap was in `FamilyConnectionProvider`, which treats all tokens as tenant-scoped. The design for #378 closes this gap: a `UserTokenResolver` CDI SPI that provider modules implement, and a `per-user: true` flag on `FlowDeclaration` that tells `FamilyConnectionProvider` when to delegate.
+The interface was designed for per-user resolution. The implementation gap was in `FamilyConnectionProvider`, which treats all tokens as tenant-scoped. The fix was a `UserTokenResolver` CDI SPI — a single interface with `providerId()` and `getAccessToken(userId)`. Provider modules implement it. `FamilyConnectionProvider` discovers beans at startup and routes per-user requests through them when the flow declares `per-user: true`.
 
 ![actorId-aware token resolution](images/per-user-token-resolution.svg)
 
-`TrueLayerConsentService` already has a `getUserToken(userId)` method that checks expiry, refreshes if needed, and returns the access token. It just needs to implement `UserTokenResolver` — exposing the existing method through the SPI. No changes to its internals, no changes to `ConsentTokenStore`, no forcing per-user tokens into the tenant credential facade.
+`TrueLayerConsentService` already had a `getUserToken(userId)` method that checks expiry, refreshes if needed, and returns the access token. Making it implement `UserTokenResolver` was ten lines — exposing the existing method through the SPI. No changes to its internals, no changes to `ConsentTokenStore`, no forcing per-user tokens into the tenant credential facade.
+
+The routing itself is a guard clause at the top of `getAccessToken`: if `actorId` is non-null and the resolved flow is per-user, delegate to the resolver. If `actorId` is null, fall through to the tenant path. Every caller already passes `userId` as `actorId` — the interface was designed for this from day one, the implementation just never used it.
+
+`DependencyResolver` needed the same awareness. For per-user flows, it checks whether a `UserTokenResolver` bean exists for that provider rather than looking for a stored access-token in the credential facade. The credential facade still handles client-id and client-secret — the shared app registration — but per-user consent tokens live in their own lifecycle.
 
 The per-user model matters beyond TrueLayer. Google's `GoogleCredentialResolver` CDI SPI does per-user credential resolution too. Flipping Google's flows to `per-user: true` is a future option — same mechanism, different provider.
 
 ## What Landed
 
-Seven commits on the Microsoft branch. `FlowDeclaration` and `GrantType` in `FamilyManifest`. The updated `microsoft.yaml`. Connector manifests for Calendar, Document, and Teams (email-microsoft's existing one cleaned up). `resolveFamily()` for convention-based routing. `acquireApplicationToken()` for client_credentials. `DependencyResolver` checking per-flow requirements. `OAuthConsentService` reading scopes from the named delegated flow.
+The Microsoft branch: `FlowDeclaration` and `GrantType` in `FamilyManifest`. The updated `microsoft.yaml`. Connector manifests for Calendar, Document, and Teams. `resolveFamily()` for convention-based routing. `acquireApplicationToken()` for client_credentials. `DependencyResolver` checking per-flow requirements. `OAuthConsentService` reading scopes from the named delegated flow.
 
-The TrueLayer design is specced and planned, ready for the next session. Four tasks across three batches — the per-user SPI, actorId-aware routing in `FamilyConnectionProvider`, the consent service integration, and the manifest update.
+The TrueLayer branch: `UserTokenResolver` SPI in `connectors-api`. `per-user: true` on `FlowDeclaration` with Jackson deserialization and a boolean accessor that defaults to false. `FamilyConnectionProvider` with a three-arg constructor, CDI discovery of resolver beans, and the actorId-aware guard clause. `TrueLayerConsentService` implementing the SPI. `DependencyResolver` with per-user flow awareness. A `truelayer.yaml` family manifest declaring the per-user delegated flow.
+
+The code review caught one real bug — `Instance.isResolvable()` returns true only for exactly one CDI bean. With multiple `UserTokenResolver` implementations the resolver map would silently stay empty. The fix: `!instances.isUnsatisfied()`.
