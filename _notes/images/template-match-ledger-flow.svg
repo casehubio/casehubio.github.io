@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="720" height="340" fill="#fafaf9" rx="8"/>
+
+  <!-- Title -->
+  <text x="360" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">Template Match → Ledger Entry Flow</text>
+
+  <!-- Stage 1: Protocol Evaluation -->
+  <rect x="20" y="52" width="160" height="68" rx="6" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="100" y="72" text-anchor="middle" font-weight="600" fill="#1e3a5f" font-size="12">Protocol Evaluation</text>
+  <text x="100" y="90" text-anchor="middle" fill="#475569" font-size="11">PlaybookChannelProtocol</text>
+  <text x="100" y="106" text-anchor="middle" fill="#475569" font-size="11">→ template match step</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="180" y1="86" x2="208" y2="86" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 2: Advisory -->
+  <rect x="210" y="52" width="160" height="68" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="290" y="72" text-anchor="middle" font-weight="600" fill="#78350f" font-size="12">DispatchAdvisory</text>
+  <text x="290" y="90" text-anchor="middle" fill="#475569" font-size="11">evidence map carries:</text>
+  <text x="290" y="106" text-anchor="middle" fill="#475569" font-size="11">template_name, _fields, …</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="370" y1="86" x2="398" y2="86" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 3: MessageService.dispatch() -->
+  <rect x="400" y="52" width="160" height="68" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="480" y="72" text-anchor="middle" font-weight="600" fill="#312e81" font-size="12">MessageService</text>
+  <text x="480" y="90" text-anchor="middle" fill="#475569" font-size="11">dispatch() collects</text>
+  <text x="480" y="106" text-anchor="middle" fill="#475569" font-size="11">advisories list</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="480" y1="120" x2="480" y2="158" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 4: LedgerRecorder -->
+  <rect x="400" y="160" width="160" height="52" rx="6" fill="#f3e8ff" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="480" y="182" text-anchor="middle" font-weight="600" fill="#581c87" font-size="12">LedgerRecorder</text>
+  <text x="480" y="198" text-anchor="middle" fill="#475569" font-size="11">record(…, advisories)</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="480" y1="212" x2="480" y2="240" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <!-- Stage 5: LedgerWriteService -->
+  <rect x="340" y="242" width="280" height="80" rx="6" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="480" y="264" text-anchor="middle" font-weight="600" fill="#14532d" font-size="12">LedgerWriteService.record()</text>
+  <text x="480" y="282" text-anchor="middle" fill="#475569" font-size="11">populateTemplateMatch() scans</text>
+  <text x="480" y="298" text-anchor="middle" fill="#475569" font-size="11">advisories for template_name key</text>
+  <text x="480" y="314" text-anchor="middle" fill="#475569" font-size="11">→ writes 4 fields to entry</text>
+
+  <!-- Stage 6: MessageLedgerEntry fields -->
+  <rect x="20" y="160" width="280" height="156" rx="6" fill="#fff7ed" stroke="#ea580c" stroke-width="1.5"/>
+  <text x="160" y="182" text-anchor="middle" font-weight="600" fill="#7c2d12" font-size="12">MessageLedgerEntry</text>
+  <line x1="40" y1="192" x2="280" y2="192" stroke="#ea580c" stroke-width="0.5" stroke-dasharray="4"/>
+  <text x="40" y="210" fill="#475569" font-size="11" font-family="monospace">templateNamespace</text>
+  <text x="210" y="210" fill="#94a3b8" font-size="10">"protocol:review"</text>
+  <text x="40" y="230" fill="#475569" font-size="11" font-family="monospace">templateName</text>
+  <text x="210" y="230" fill="#94a3b8" font-size="10">"vote"</text>
+  <text x="40" y="250" fill="#475569" font-size="11" font-family="monospace">templateFields</text>
+  <text x="210" y="250" fill="#94a3b8" font-size="10">{"decision":"approve"}</text>
+  <text x="40" y="270" fill="#475569" font-size="11" font-family="monospace">templateScore</text>
+  <text x="210" y="270" fill="#94a3b8" font-size="10">0.95</text>
+  <line x1="40" y1="280" x2="280" y2="280" stroke="#ea580c" stroke-width="0.5" stroke-dasharray="4"/>
+  <text x="40" y="298" fill="#475569" font-size="11">→ included in domainContentBytes()</text>
+  <text x="40" y="314" fill="#475569" font-size="11">→ V2010 migration adds columns</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="340" y1="282" x2="302" y2="282" stroke="#475569" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+</svg>
