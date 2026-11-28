@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 340" font-family="system-ui, -apple-system, sans-serif" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="340" fill="#f8fafc" rx="8"/>
+
+  <!-- Title -->
+  <text x="340" y="28" text-anchor="middle" font-size="15" font-weight="600" fill="#1e293b">generate() dispatch — per-template, not per-pipeline</text>
+
+  <!-- generate() box -->
+  <rect x="240" y="50" width="200" height="40" rx="6" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="340" y="75" text-anchor="middle" font-weight="600" fill="#312e81">registry.generate(ns, name, values)</text>
+
+  <!-- Decision diamond -->
+  <polygon points="340,120 420,155 340,190 260,155" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+  <text x="340" y="152" text-anchor="middle" font-size="12" fill="#92400e">messageFormat</text>
+  <text x="340" y="165" text-anchor="middle" font-size="12" fill="#92400e">!= null?</text>
+
+  <!-- Arrow from generate to diamond -->
+  <line x1="340" y1="90" x2="340" y2="120" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Left branch: slot-fill -->
+  <text x="225" y="148" text-anchor="middle" font-size="11" fill="#64748b">no</text>
+  <line x1="260" y1="155" x2="130" y2="155" stroke="#475569" stroke-width="1.5"/>
+  <line x1="130" y1="155" x2="130" y2="210" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="30" y="210" width="200" height="45" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="130" y="230" text-anchor="middle" font-weight="500" fill="#14532d">TemplateGenerator</text>
+  <text x="130" y="245" text-anchor="middle" font-size="11" fill="#166534">slot-fill from pattern[0]</text>
+
+  <!-- Right branch: MF2 -->
+  <text x="455" y="148" text-anchor="middle" font-size="11" fill="#64748b">yes</text>
+  <line x1="420" y1="155" x2="550" y2="155" stroke="#475569" stroke-width="1.5"/>
+  <line x1="550" y1="155" x2="550" y2="210" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="450" y="210" width="200" height="45" rx="6" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="550" y="230" text-anchor="middle" font-weight="500" fill="#1e3a5f">MessageFormatResolver</text>
+  <text x="550" y="245" text-anchor="middle" font-size="11" fill="#1d4ed8">ICU4J MF2 + CLDR locale</text>
+
+  <!-- Output boxes -->
+  <line x1="130" y1="255" x2="130" y2="285" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="30" y="285" width="200" height="35" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="130" y="307" text-anchor="middle" font-size="12" fill="#475569">"I approve this architecture"</text>
+
+  <line x1="550" y1="255" x2="550" y2="285" stroke="#475569" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="450" y="285" width="200" height="35" rx="6" fill="#fff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="550" y="307" text-anchor="middle" font-size="12" fill="#475569">"1 item has been approved"</text>
+</svg>
