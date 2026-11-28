@@ -4,9 +4,6 @@ date: 2026-07-21
 type: diary
 tags: [conversation, epistemic, convergence, fold, blocks]
 issue: "casehubio/agency#65, casehubio/agency#66"
-entry_type: note
-subtype: diary
-projects: [casehubio/work]
 ---
 
 Multi-agent conversations accumulate assertions but nothing tracks what's
